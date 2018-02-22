@@ -55,6 +55,19 @@
     display: none;
 }
 
+.hottel {
+    font-size: 33px;
+    position: relative;
+    top: 6px;
+    right: 2px;
+}
+
+@media(max-width:1025px) {
+    .hotphone {
+        display: none !important;
+    }
+}
+
 @media(max-width:767px) {
     .navbar-nav>li {
         height: 50px;

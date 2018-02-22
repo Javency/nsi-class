@@ -41,7 +41,7 @@ body {
 
 .wrap {
     background: url("../images/regist_topshadow.png") repeat-x;
-    min-height: 620px;
+    min-height: 820px;
 }
 
 .loginBox {
@@ -100,6 +100,14 @@ body {
     border-radius: 4px;
 }
 
+.mpanel {
+    display: none;
+}
+
+.mpanel1 {
+    width: 100%;
+}
+
 .inputlogo {
     color: #999;
     font-size: 20px;
@@ -137,6 +145,14 @@ inputStyle {
 
 
 /* 注册账号 */
+
+.verify-img-panel {
+    width: 100% !important;
+}
+
+.verify-bar-area {
+    width: 100% !important;
+}
 
 
 /* footer */
@@ -191,6 +207,9 @@ inputStyle {
 @media(max-width:991px) {
     .loginBox {
         margin-top: 50px;
+    }
+    .wrap {
+        /* min-height: 1250px; */
     }
 }
 

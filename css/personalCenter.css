@@ -124,14 +124,10 @@
     position: relative;
 }
 
-
-/* .rightBox>div {
-    position: absolute;
+.rightBox>div {
+    float: left;
     width: 100%;
-    height: auto;
-    left: 0;
-    top: 0;
-} */
+}
 
 .notHaveCourse {
     font-size: 17px;
@@ -244,7 +240,7 @@
     background: linear-gradient(-90deg, #f6eb86 0, #f0aa29 100%);
 }
 
-@media(max-width:769px) {
+@media(max-width:1091px) {
     .myLable {
         margin-bottom: 20px;
         text-align: center;
@@ -261,6 +257,9 @@
         left: 4px;
         font-size: 25px;
     }
+}
+
+@media(max-width:769px) {
     .minHeight500 {
         min-height: auto;
     }

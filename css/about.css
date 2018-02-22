@@ -1,0 +1,132 @@
+body {
+    background: #edeff0;
+}
+
+.other-left {
+    padding: 0 20px;
+    overflow: visible;
+    background-color: #fff;
+    -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
+    -moz-box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
+    list-style-type: none;
+}
+
+.other-left li {
+    height: 60px;
+    overflow: visible;
+    border-bottom: 1px solid #edf1f2;
+}
+
+.other-left li.active span {
+    color: #c00;
+}
+
+.other-left li.active .line {
+    display: block;
+}
+
+.other-left li span.line {
+    display: none;
+    content: " ";
+    position: absolute;
+    /* top: 0; */
+    width: 2px;
+    height: 60px;
+    background-color: #c00;
+    left: 13px;
+}
+
+.other-left li:hover .ddd {
+    color: #666;
+}
+
+.other-left li a:active:before {
+    display: block;
+}
+
+.other-left li a {
+    display: block;
+    padding: 0 10px 0 30px;
+    margin-left: -20px;
+    height: 60px;
+    line-height: 60px;
+    text-decoration: none;
+    font-size: 14px;
+    color: #787d82;
+}
+
+.details {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
+    background: #fff;
+    padding: 10px 40px 50px;
+}
+
+.contact-title {
+    font-size: 15px;
+    line-height: 49px;
+    color: #363d40;
+    border-bottom: 1px solid #eceff0;
+}
+
+.content {
+    text-indent: 25px;
+    color: #60686b;
+    line-height: 2
+}
+
+.connectUs p {
+    color: #363d40;
+    text-indent: 0;
+}
+
+.connectUs p span {
+    color: #656e73;
+    height: 40px;
+    line-height: 40px;
+}
+
+.question1 {
+    text-indent: 0;
+}
+
+.question1 label {
+    display: inline;
+    font-weight: normal;
+}
+
+.question1 input {
+    position: relative;
+    top: 2px;
+}
+
+.advice {
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    min-height: 150px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.connect {
+    width: 100%;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.details .details-box:not(.details-box1) {
+    display: none;
+}
