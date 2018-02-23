@@ -33,6 +33,10 @@
     z-index: 999;
 }
 
+i.shop {
+    background: url("../images/shop.png");
+}
+
 .weChat:hover .weChat-pic {
     display: block;
 }

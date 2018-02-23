@@ -13,9 +13,10 @@ $(function() {
         url: 'http://' + changeUrl.address + '/Class_activity?whereFrom=searchActivity',
         success: function(msg) {
             var title = [],
-                theNewest = msg.data[0]
+                theNewest = msg.data[0],
+                cloneTitle = $("#cloneTitle")
             for (var i = 0; i < msg.data.length; i++) {
-                activityList.append('<li>' + msg.data[i].Title1 + '</li>')
+                activityList.append('<li class="oneline" title=' + msg.data[i].Title1 + '>' + msg.data[i].Title1 + '</li>')
             }
             for (var arr in theNewest) {
                 if (theNewest[arr] !== "未填写" && theNewest[arr] !== "0" && arr !== "Id" && arr !== "Title20" && arr !== "Title1" && arr !== "Title2" && arr !== "Deadline" && arr !== "Load_time") {
@@ -25,6 +26,8 @@ $(function() {
             for (var i = 0; i < title.length; i++) {
                 activeTitleList.append('<th>' + title[i] + '</th>')
             }
+            activeTitleList.append('<th>报名时间</th>')
+            cloneTitle.append('<td>' + msg.data[0].Title3 + '</td>')
 
             //点击显示对应活动详情列表
             var aLi = activityList.children()
@@ -50,6 +53,7 @@ $(function() {
                         for (var i = 0; i < arrTitle.length; i++) {
                             activeTitleList.append('<th>' + arrTitle[i] + '</th>')
                         }
+                        activeTitleList.append('<th>报名时间</th>')
                         $.ajax({
                             type: "post",
                             dataType: "json",
@@ -57,15 +61,24 @@ $(function() {
                             url: 'http://' + changeUrl.address + '/Class_activity?whereFrom=searchInformation',
                             success: function(msg) {
                                 // console.log(msg.data)
-                                var activeContent = $("#activeContent")
+                                var activeContent = $("#activeContent"),
+                                    cloneTbody = $("#cloneTbody")
                                 activeContent.html("")
+                                cloneTbody.html("")
                                 for (var i = 0; i < msg.data.length; i++) {
                                     activeContent.append('<tr></tr>')
                                     for (var j = 0; j < arrTitle.length; j++) {
                                         activeContent.children("tr").eq(i).append('<td>' + eval("msg.data[i].Content" + (j + 3)) + '</td>')
                                     }
+                                    activeContent.children("tr").eq(i).append('<td>' + msg.data[i].Load_time + '</td>')
                                 }
-                                activeContent.append(`<tr><td class="total">学员总人数：${msg.data.length}人</td></tr>`)
+                                //报名总人数
+                                $(".total").text(msg.data.length)
+
+                                // 固定列
+                                for (var i = 0; i < msg.data.length; i++) {
+                                    cloneTbody.append('<tr><td>' + msg.data[i].Content3 + '</td></tr>')
+                                }
                             },
                             error: function() {
                                 console.log("error")
@@ -86,15 +99,24 @@ $(function() {
                 data: { "Title1": theNewest.Title1 },
                 url: 'http://' + changeUrl.address + '/Class_activity?whereFrom=searchInformation',
                 success: function(msg) {
-                    var activeContent = $("#activeContent")
+                    var activeContent = $("#activeContent"),
+                        cloneTbody = $("#cloneTbody")
                         // console.log(msg.data)
                     for (var i = 0; i < msg.data.length; i++) {
                         activeContent.append(`<tr></tr>`)
                         for (var j = 0; j < title.length; j++) {
                             activeContent.children("tr").eq(i).append('<td>' + eval("msg.data[i].Content" + (j + 3)) + '</td>')
                         }
+                        // 报名时间
+                        activeContent.children("tr").eq(i).append('<td>' + msg.data[i].Load_time + '</td>')
                     }
+                    // 报名总人数
                     $(".total").text(msg.data.length)
+
+                    // 固定列
+                    for (var i = 0; i < msg.data.length; i++) {
+                        cloneTbody.append('<tr><td>' + msg.data[i].Content3 + '</td></tr>')
+                    }
                 },
                 error: function(msg) {
                     console.log("error")
@@ -105,5 +127,20 @@ $(function() {
             console.log("error:" + msg)
         }
     })
+})
 
+// 活动列表
+$(function() {
+    var hideList = $("#hideList"),
+        tohide = $("#tohide"),
+        activityBox = $("#activityBox")
+    hideList.click(function() {
+        $(this).addClass("bounceOutUp")
+        activityBox.css("display", "block")
+        activityBox.removeClass("bounceOutUp").addClass("bounceInDown")
+    })
+    tohide.click(function() {
+        activityBox.removeClass("bounceInDown").addClass("bounceOutUp")
+        hideList.removeClass("bounceOutUp").addClass("bounceInDown")
+    })
 })

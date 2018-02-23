@@ -22,8 +22,13 @@ tr:hover {
 }
 
 .content {
-    padding: 30px 15px;
+    padding: 40px 15px;
     position: relative;
+}
+
+.activityBox {
+    position: fixed;
+    z-index: 999;
 }
 
 .activityList,
@@ -32,6 +37,10 @@ tr:hover {
     overflow: hidden;
     background: #FFF;
     box-shadow: 0 0 10px #ccc;
+}
+
+.activityList {
+    box-shadow: 0 0 10px #333;
 }
 
 .title {
@@ -100,6 +109,7 @@ tr:hover {
     cursor: pointer;
     list-style: none;
     padding-left: 20px;
+    padding-right: 20px;
     transition: all .3s;
     font-weight: 700;
 }
@@ -135,9 +145,51 @@ tr:hover {
     /* border-right: 2px solid #ccc; */
 }
 
+.hideList {
+    width: 20%;
+    height: 45px;
+    line-height: 65px;
+    background: #FF8533;
+    border-radius: 0 0 20px 20px;
+    position: fixed;
+    top: -23px;
+    cursor: pointer;
+    z-index: 999;
+    box-shadow: 0 0 10px #333;
+    color: #FFF;
+}
+
+.hideList>span {
+    color: #FFF;
+    margin-left: 18px;
+}
+
+.tohide {
+    right: 40px;
+    font-size: 20px;
+}
+
+.activityBox {
+    display: none;
+}
+
+.cloneTbody {
+    position: absolute;
+    top: 91px;
+    left: 25px;
+    background-color: #FFF;
+    box-shadow: 4px 0px 10px #ddd;
+}
+
 @media(max-width:767px) {
     .activityDesc {
         margin-top: 10px;
+    }
+    .title {
+        padding-left: 5px;
+    }
+    .titleLogo {
+        margin-right: 3px;
     }
 }
 
