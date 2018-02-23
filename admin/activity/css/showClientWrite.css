@@ -6,7 +6,7 @@ body {
 th,
 td {
     white-space: nowrap;
-    min-width: 100px;
+    min-width: 105px;
 }
 
 tr {
@@ -178,7 +178,19 @@ tr:hover {
     top: 91px;
     left: 25px;
     background-color: #FFF;
-    box-shadow: 4px 0px 10px #ddd;
+    box-shadow: 4px 0px 5px #ddd;
+}
+
+.cloneTitle {
+    position: absolute;
+    background-color: #FFF;
+    top: 55px;
+    left: 25px;
+    box-shadow: 4px 0px 5px #ddd;
+}
+
+.cloneTitle>th {
+    width: 100% !important;
 }
 
 @media(max-width:767px) {
@@ -190,6 +202,9 @@ tr:hover {
     }
     .titleLogo {
         margin-right: 3px;
+    }
+    .hideList {
+        width: 35%;
     }
 }
 

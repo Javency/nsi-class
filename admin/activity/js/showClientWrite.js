@@ -27,7 +27,7 @@ $(function() {
                 activeTitleList.append('<th>' + title[i] + '</th>')
             }
             activeTitleList.append('<th>报名时间</th>')
-            cloneTitle.append('<td>' + msg.data[0].Title3 + '</td>')
+            cloneTitle.append('<th>' + msg.data[0].Title3 + '</th>')
 
             //点击显示对应活动详情列表
             var aLi = activityList.children()
@@ -117,6 +117,8 @@ $(function() {
                     for (var i = 0; i < msg.data.length; i++) {
                         cloneTbody.append('<tr><td>' + msg.data[i].Content3 + '</td></tr>')
                     }
+                    // 标题等宽
+                    cloneTitle.width(cloneTbody.width())
                 },
                 error: function(msg) {
                     console.log("error")
