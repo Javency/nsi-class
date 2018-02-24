@@ -130,3 +130,13 @@ body {
 .details .details-box:not(.details-box1) {
     display: none;
 }
+
+.footerBox {
+    margin-top: 205px;
+}
+
+@media(max-width:768px) {
+    .footerBox {
+        margin-top: 0
+    }
+}

@@ -51,6 +51,8 @@ $(function() {
         $("#mpanel").fadeIn(200)
     })
 
+    var codeFlag = false;
+    // 验证码
     $("#mpanel").slideVerify({
         type: 2,
         imgName: ['CourseImage08.jpg', 'CourseImage05.jpg', 'CourseImage06.jpg'],
@@ -59,14 +61,24 @@ $(function() {
             height: '150px'
         },
         success: function() {
+            codeFlag = true;
             userLogin()
         }
     })
 
 
     $('#loginButton').click(function() {
-        userLogin()
+        var tips = $("#tipsTxt"),
+            error_tips = $("#error_tips")
+        if (codeFlag) {
+            userLogin()
+        } else {
+            $("#mpanel").fadeIn(200)
+            error_tips.animate({ "opacity": 1 }, 100)
+            tips.text("请滑动完成验证码")
+        }
     })
+
     $('#password').keydown(function() {
         if (event.keyCode == 13) {
             userLogin()

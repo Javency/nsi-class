@@ -108,6 +108,10 @@
     background-image: linear-gradient(-180deg, rgba(7, 17, 27, 0.6) 0%, rgba(7, 17, 27, 0) 97%);
 }
 
+.playImg {
+    min-height: 190px;
+}
+
 .enterPlay {
     display: block;
     position: absolute;
@@ -163,6 +167,10 @@
     border-radius: 8px;
     position: relative;
     z-index: 999;
+}
+
+.playVideoTeacherBox {
+    padding: 0;
 }
 
 .bg-wrap {
@@ -253,8 +261,8 @@
     background: url("../images/champion.png") no-repeat;
     ;
     position: absolute;
-    left: 75px;
-    top: 0;
+    left: 80px;
+    top: -10px;
 }
 
 .multiline3 {
@@ -616,6 +624,7 @@ i.shop {
 @media(max-width:991px) {
     .teacherDesc {
         margin-top: 15px;
+        min-height: 285px;
     }
 }
 
@@ -652,7 +661,8 @@ i.shop {
         margin: -5px 30px 0;
     }
     .champion {
-        left: 133px;
+        left: 16px;
+        top: 18px;
     }
     .enterPlay>span {
         font-size: 60px;
@@ -661,17 +671,26 @@ i.shop {
     .swiper-button-next {
         display: none;
     }
-}
-
-@media (max-width:376px) {
-    .champion {
-        left: 112px;
+    .playVideoTeacherBox-teacherContent {
+        display: none;
+    }
+    .CourseContainer {
+        margin-bottom: 40px;
+        padding-bottom: 5px;
+        border-bottom: 1px solid #c9d6de;
+    }
+    .playVideoTeacherBox-teacherHeadPortrait {
+        padding-top: 30px;
     }
 }
 
 @media (max-width:321px) {
     .champion {
-        left: 85px;
+        left: 12px;
+    }
+    .teacherPic {
+        width: 85px;
+        height: 85px;
     }
 }
 

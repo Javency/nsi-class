@@ -84,19 +84,19 @@ $(function() {
             url: 'http://' + changeUrl.address + '/Class_ActivationCode?whereFrom=courseCode',
             success: function(data) {
                 if (data.code > 0) {
-                    $("#myAlertSuccess").fadeIn(100)
-                    $("#myAlertError01").fadeOut(100)
-                    $("#myAlertError02").fadeOut(100)
+                    $("#myAlertSuccess").fadeIn(200)
+                    $("#myAlertError01").fadeOut(200)
+                    $("#myAlertError02").fadeOut(200)
                 } else {
-                    $("#myAlertError02").fadeIn(100)
-                    $("#myAlertSuccess").fadeOut(100)
-                    $("#myAlertError01").fadeOut(100)
+                    $("#myAlertError02").fadeIn(200)
+                    $("#myAlertSuccess").fadeOut(200)
+                    $("#myAlertError01").fadeOut(200)
                 }
             },
             error: function() {
-                $("#myAlertError01").fadeIn(100)
-                $("#myAlertError02").fadeOut(100)
-                $("#myAlertSuccess").fadeOut(100)
+                $("#myAlertError01").fadeIn(200)
+                $("#myAlertError02").fadeOut(200)
+                $("#myAlertSuccess").fadeOut(200)
             }
         })
     })

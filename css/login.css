@@ -59,12 +59,6 @@ body {
     width: 100%;
 }
 
-@media(max-width:769px) {
-    .registerBox {
-        position: static;
-    }
-}
-
 .tips {
     color: #FFF;
     margin-right: 10px;
@@ -72,7 +66,7 @@ body {
 
 .error_tips {
     padding: 5px 10px;
-    border: 1px solid #b56f6f;
+    border: 1px solid #ff3d3d;
     border-radius: 4px;
     color: #FFF;
     background: #ff3c3c;
@@ -80,7 +74,7 @@ body {
 }
 
 .loginBox>h4 {
-    font-size: 14px;
+    font-size: 15px;
     color: #666;
     font-weight: bold;
     line-height: 30px;
@@ -213,6 +207,15 @@ inputStyle {
     }
 }
 
+@media(max-width:769px) {
+    .registerBox {
+        position: static;
+    }
+    .wrap {
+        min-height: 0;
+    }
+}
+
 @media(max-width:415px) {
     .logoDesc>p:first-of-type {
         font-size: 13px;
@@ -234,6 +237,9 @@ inputStyle {
     }
     .error_tips {
         left: 13px;
+    }
+    .imgContainer {
+        padding-top: 0;
     }
 }
 

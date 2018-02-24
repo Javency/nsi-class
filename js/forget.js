@@ -14,6 +14,25 @@ var pattern = /\w[-\w.+]*@([A-Za-z0-9][-A-Za-z0-9]+\.)+[A-Za-z]{2,14}/
 
 //点击验证码 （步骤一）
 $('#sendVerifyCode').click(function() {
+    // 一分钟后再次发送
+    var _this = $(this),
+        time = 60
+
+    _this.addClass("active")
+    _this.attr('disabled', 'disabled')
+
+    var timer = setInterval(function() {
+        time--
+        _this.text(time + "秒后再次发送")
+
+        if (time === 0) {
+            _this.removeClass("active")
+            _this.text("发送验证码")
+            clearInterval(timer)
+            _this.removeAttr("disabled");
+        }
+    }, 1000)
+
     var data01 = $('#EmailID').val()
     if (pattern.test(data01) == true) {
         $.ajax({
