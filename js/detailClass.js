@@ -1,3 +1,23 @@
+//判断是否移动端，如果是则跳转到指定的URL地址
+var IsMobile = false;
+
+function browserRedirect(url) {
+    //只读的字符串，声明了浏览器用于 HTTP 请求的用户代理头的值
+    var sUserAgent = navigator.userAgent.toLowerCase();
+    var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+    var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+    var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+    var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+    var bIsAndroid = sUserAgent.match(/android/i) == "android";
+    var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+    var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+    if (bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) {
+        IsMobile = true;
+        // window.location.replace(url);
+    }
+}
+
+
 // 导航条部分
 $(function() {
     function isLogin() {
@@ -85,114 +105,100 @@ $(function() {
 
     function buy() {
         var buyNow = $("#buyNow"),
-            courseCode = $("#courseCode")
+            courseCode = $("#courseCode"),
+            myModal = $("#myModal")
         if ($.cookie('username') !== undefined) {
             buyNow.on("click", function() {
-                // console.log($.cookie('username'))
-                var data = {
+                // 登录状态下判断是否已购买
+                var sendData = {
                     'UserMail': $.cookie('username'),
-                    'Id': Id
+                    'ClassId': Id
                 }
                 $.ajax({
-                    type: "post",
+                    type: "POST",
+                    data: sendData,
                     dataType: "json",
-                    data: data,
-                    url: 'http://' + changeUrl.address + '/Payment_api?whereFrom=WeChatPayment',
-                    success: function(msg) {
-                        console.log(msg.CoursePrice)
-                        $("#orderDesc-price").text(msg.CoursePrice)
-                        $("#qrCode").css("background-image", "url(" + msg.data + ")")
+                    url: 'http://' + changeUrl.address + '/Class_User_api?whereFrom=Verification',
+                    success: function(data) {
+                        // 已购买
+                        if (data.msg > 0) {
+                            myModal.modal('hide')
+                            layer.msg("您已购买过该课程，请勿重复购买")
+                            return false;
+                        } else {
+                            // 未购买
+                            var data = {
+                                'UserMail': $.cookie('username'),
+                                'Id': Id
+                            }
+                            browserRedirect()
+                            console.log(IsMobile)
+                                // http://192.168.0.159:8080/nsi-0.9/Payment_api?whereFrom=WeChatHtml5Payment&Id=10001&UserMail=237450257@qq.com
+                            if (IsMobile) {
+                                $.ajax({
+                                    type: "post",
+                                    dataType: "json",
+                                    data: data,
+                                    url: 'http://' + changeUrl.address + '/Payment_api?whereFrom=WeChatHtml5Payment',
+                                    success: function(msg) {
+                                        // console.log(msg.CoursePrice)
+                                        // $("#orderDesc-price").text(msg.CoursePrice)
+                                        // $("#qrCode").css("background-image", "url(" + msg.data + ")")
+                                        window.location.href = msg.data
+                                    },
+                                    error: function() {
+                                        console.log("error")
+                                    }
+                                })
+                            } else {
+                                $.ajax({
+                                    type: "post",
+                                    dataType: "json",
+                                    data: data,
+                                    url: 'http://' + changeUrl.address + '/Payment_api?whereFrom=WeChatPayment',
+                                    success: function(msg) {
+                                        console.log(msg.CoursePrice)
+                                        $("#orderDesc-price").text(msg.CoursePrice)
+                                        $("#qrCode").css("background-image", "url(" + msg.data + ")")
+                                    },
+                                    error: function() {
+                                        console.log("error")
+                                    }
+                                })
+                                myModal.modal('show')
+                                setTimeout(refresh, 3000)
+                            }
+
+                        }
                     },
                     error: function() {
-                        console.log("error")
+                        // console.log("支付失败")
                     }
                 })
             })
         } else {
+            // 未登录状态下
             buyNow.on("click", function() {
-                alert("请先登录")
-                window.location.href = "./login.html"
+                myModal.modal('hide')
+                layer.msg('请先登录', {
+                    time: 1000,
+                    function() {
+                        window.location.href = "./login.html"
+                    }
+                });
                 return false;
             })
             courseCode.on("click", function() {
-                alert("请先登录")
-                window.location.href = "./login.html"
+                layer.msg("请先登录", {
+                    function() {
+                        window.location.href = "./login.html"
+                    }
+                })
                 return false;
             })
         }
-
     }
     buy()
-
-
-    //判断是否购买成功
-    function checkPaymentState() {
-        var buyNow = $("#buyNow"),
-            myModal = $("#myModal"),
-            data = {
-                'UserMail': $.cookie('username'),
-                'ClassId': Id
-            }
-            //先判断是否已购买该课程
-        $.ajax({
-            type: "POST",
-            data: data,
-            dataType: "json",
-            url: 'http://' + changeUrl.address + '/Class_User_api?whereFrom=Verification',
-            success: function(data) {
-                if (data.msg > 0) {
-                    buyNow.click(function() {
-                        myModal.modal('hide')
-                        alert("您已购买过该课程，请勿重复购买")
-                        return false;
-                    })
-                } else {
-                    buyNow.on("click", function() {
-                        myModal.modal('show')
-                        setTimeout(refresh, 3000)
-
-                        function refresh() {
-                            var timer = setInterval(paymentState, 3000),
-                                cancle = $("#cancle")
-
-                            function paymentState() {
-                                var data = {
-                                    'UserMail': $.cookie('username'),
-                                    'ClassId': Id
-                                }
-                                $.ajax({
-                                    type: "POST",
-                                    data: data,
-                                    dataType: "json",
-                                    url: 'http://' + changeUrl.address + '/Class_User_api?whereFrom=Verification',
-                                    success: function(data) {
-                                        if (data.msg > 0) {
-                                            clearInterval(timer)
-                                            alert("支付成功")
-                                            window.location.reload()
-                                        } else {
-                                            // alert("支付失败")
-                                        }
-                                    },
-                                    error: function() {
-                                        // console.log("支付失败")
-                                    }
-                                })
-                            }
-                            cancle.on("click", function() {
-                                clearInterval(timer)
-                            })
-                        }
-                    })
-                }
-            },
-            error: function() {
-                // console.log("支付失败")
-            }
-        })
-    }
-
-    checkPaymentState()
 
     // 立即观看
     function watchNow() {
@@ -212,7 +218,7 @@ $(function() {
                 if (msg.msg < 0) {
                     $watchNow.addClass("notAllow")
                     $watchNow.click(function() {
-                        alert("请先购买该课程")
+                        layer.msg("请先购买该课程")
                     })
                 } else {
                     $watchNow.addClass("allow")
@@ -228,4 +234,39 @@ $(function() {
 
     }
     watchNow()
+
+
+    // 刷新判断是否完成购买
+    function refresh() {
+        var timer = setInterval(paymentState, 3000),
+            cancle = $("#cancle")
+
+        function paymentState() {
+            var data = {
+                'UserMail': $.cookie('username'),
+                'ClassId': Id
+            }
+            $.ajax({
+                type: "POST",
+                data: data,
+                dataType: "json",
+                url: 'http://' + changeUrl.address + '/Class_User_api?whereFrom=Verification',
+                success: function(data) {
+                    if (data.msg > 0) {
+                        clearInterval(timer)
+                        layer.msg("支付成功")
+                        window.location.reload()
+                    } else {
+                        // alert("支付失败")
+                    }
+                },
+                error: function() {
+                    // console.log("支付失败")
+                }
+            })
+        }
+        cancle.on("click", function() {
+            clearInterval(timer)
+        })
+    }
 })

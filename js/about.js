@@ -34,8 +34,13 @@ $(function() {
             connectVal = $("#connect").val(),
             username = $.cookie('username') == undefined ? 'undefinedUser' : $.cookie('username')
         if (username == 'undefinedUser') {
-            alert("请您先登录")
-            window.location.href = "./login.html"
+            layer.alert('请先登录', {
+                skin: 'layui-layer-hei',
+                icon: 0,
+                closeBtn: 1
+            }, function() {
+                window.location.href = "./login.html"
+            });
         } else {
             $("input[name='qusetion']:checked").each(function() {
                 checkboxVal += $(this).val() + ";"
@@ -51,10 +56,10 @@ $(function() {
                     'Contact': connectVal
                 }, //提交的参数
                 success: function(msg) {
-                    alert("反馈成功，我们将会及时通知您问题处理的进展")
+                    layer.msg("反馈成功，我们将会及时通知您问题处理的进展")
                 },
                 error: function() {
-                    alert("发生错误，服务器异常！")
+                    layer.msg("发生错误，服务器异常！")
                 }
             })
         }

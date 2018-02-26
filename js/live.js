@@ -43,12 +43,24 @@ $(function() {
         url: 'http://' + changeUrl.address + '/Class_User_api?whereFrom=Verification',
         success: function(msg) {
             if ($.cookie('username') === undefined) {
-                alert("请先登录")
-                window.location.href = "./login.html"
+                layer.alert('请先登录', {
+                    skin: 'layui-layer-hei',
+                    icon: 0,
+                    closeBtn: 0,
+                    function() {
+                        window.location.href = "./login.html"
+                    }
+                });
             } else {
                 if (msg.msg <= 0) {
-                    alert("请先购买该课程")
-                    window.location.href = "./detailClass.html?Id=10001"
+                    layer.alert('请先购买课程', {
+                        skin: 'layui-layer-hei',
+                        icon: 4,
+                        closeBtn: 0,
+                        function() {
+                            window.location.href = "./login.html"
+                        }
+                    });
                 } else {
                     var obj = $("#mobileHeight"),
                         mobile = $("#mobile"),

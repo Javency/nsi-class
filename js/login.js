@@ -80,8 +80,17 @@ $(function() {
     })
 
     $('#password').keydown(function() {
+        $("#mpanel").fadeIn(200)
+        var tips = $("#tipsTxt"),
+            error_tips = $("#error_tips")
         if (event.keyCode == 13) {
-            userLogin()
+            if (codeFlag) {
+                userLogin()
+            } else {
+                $("#mpanel").fadeIn(200)
+                error_tips.animate({ "opacity": 1 }, 100)
+                tips.text("请滑动完成验证码")
+            }
         }
     })
 

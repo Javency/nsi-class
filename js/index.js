@@ -90,8 +90,9 @@ $(function() {
         dataType: "json",
         url: 'http://' + changeUrl.address + '/Class_Course_api?whereFrom=showInformation',
         success: function(msg) {
-            console.log(msg.data1)
+            // console.log(msg.data1)
             playVideo_title.text(msg.data1[0].CourseName)
+            playVideo_title.attr("title", msg.data1[0].CourseName)
             classTime.text(msg.data1[0].ClassBegins)
             teacherName.text(msg.data2[0].TeacherName)
             majorCourse.text(msg.data2[0].TeacherCourse)
@@ -120,7 +121,7 @@ $(function() {
     })
 })
 
-// 课程列表部分s
+// 课程列表部分
 $(function() {
     var CourseContainer = $("#CourseContainer")
     $.ajax({
@@ -164,6 +165,13 @@ $(function() {
                         break;
                     case "备课中":
                         aState.eq(i).addClass("makepreparations")
+                        aState.eq(i).parent().parent().click(function() {
+                            _this = $(this)
+                            layer.msg('课程备课中，敬请期待！', {
+                                time: 1000
+                            })
+                            return false;
+                        })
                         break;
                 }
             }
@@ -171,5 +179,16 @@ $(function() {
         error: function(msg) {
             console.log("error:" + msg)
         }
+    })
+})
+
+// 大课程备课中
+$(function() {
+    var classStatusPrepare = $(".classStatus-prepare")
+    var aLi = classStatusPrepare.parent().parent().find("a")
+    aLi.click(function() {
+        layer.msg('课程备课中，敬请期待！', {
+            time: 1000
+        })
     })
 })

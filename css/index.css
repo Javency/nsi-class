@@ -278,6 +278,29 @@
 }
 
 
+/* 大课程状态 */
+
+.classStatus {
+    position: relative;
+}
+
+.classStatus-prepare {
+    font-size: 30px;
+    color: #f0aa29;
+    display: inline-block;
+    padding: 10px 20px;
+    position: absolute;
+    border: 5px solid;
+    letter-spacing: 5px;
+    transform: rotateZ(35deg);
+    top: -15px;
+    /* right: 210px; */
+    background-color: #fff;
+    z-index: 99;
+    border-radius: 4px;
+}
+
+
 /* Course 课程列表*/
 
 .types-title {
@@ -681,6 +704,9 @@ i.shop {
     }
     .playVideoTeacherBox-teacherHeadPortrait {
         padding-top: 30px;
+    }
+    .classStatus-prepare {
+        display: none;
     }
 }
 

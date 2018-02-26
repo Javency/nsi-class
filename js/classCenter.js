@@ -41,6 +41,13 @@ $(function() {
                         break;
                     case "备课中":
                         aState.eq(i).addClass("makepreparations")
+                        aState.eq(i).parent().parent().click(function() {
+                            _this = $(this)
+                            layer.msg('课程备课中，敬请期待！', {
+                                time: 1000
+                            })
+                            return false;
+                        })
                         break;
                 }
             }
