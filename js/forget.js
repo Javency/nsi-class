@@ -17,22 +17,6 @@ $('#sendVerifyCode').click(function() {
     // 一分钟后再次发送
     var _this = $(this),
         time = 60
-
-    _this.addClass("active")
-    _this.attr('disabled', 'disabled')
-
-    var timer = setInterval(function() {
-        time--
-        _this.text(time + "秒后再次发送")
-
-        if (time === 0) {
-            _this.removeClass("active")
-            _this.text("发送验证码")
-            clearInterval(timer)
-            _this.removeAttr("disabled");
-        }
-    }, 1000)
-
     var data01 = $('#EmailID').val()
     if (pattern.test(data01) == true) {
         $.ajax({
@@ -47,6 +31,23 @@ $('#sendVerifyCode').click(function() {
             jsonp:   "Callback", //服务端用于接收callback调用的function名的参数  
             success :   function(msg) {
                 console.log(msg)
+
+                _this.addClass("active")
+                _this.attr('disabled', 'disabled')
+
+                var timer = setInterval(function() {
+                    time--
+                    _this.text(time + "秒后再次发送")
+
+                    if (time === 0) {
+                        _this.removeClass("active")
+                        _this.text("发送验证码")
+                        clearInterval(timer)
+                        time = 60
+                        _this.removeAttr("disabled");
+                    }
+                }, 1000)
+
                 $('.emailErr').css('visibility', 'hidden')
             },
             error: function() {

@@ -34,16 +34,16 @@ $(function() {
                     tips.text("您填写的账号或密码错误")
                 } else if (msg.member_sign == -1) {
                     error_tips.animate({ "opacity": 1 }, 100)
-                    tips.text("邮箱没有激活")
+                    tips.text("邮箱未激活")
                 } else if (msg.member_sign == 0) {
                     error_tips.animate({ "opacity": 1 }, 100)
-                    tips.text("账号没有审核")
+                    tips.text("账号未审核")
                 }
                 // window.location.href("http://class.xinxueshuo.cn");
 
             },
             error: function() {
-                alert('用户名或密码错误，请求数据失败！');
+                layer.msg('用户名或密码错误，请求数据失败！');
             }
         });
     }
@@ -326,7 +326,7 @@ $(function() {
                     data: data,
                     url: 'http://' + changeUrl.address + '/User_api?whereFrom=register',
                     success: function(msg) {
-                        alert("注册成功，请查看您的邮箱以激活账号")
+                        layer.msg("注册成功，请查看您的邮箱以激活账号")
                         window.location.reload()
                     },
                     error: function() {

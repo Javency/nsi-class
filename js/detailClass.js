@@ -94,6 +94,7 @@ $(function() {
         url: 'http://' + changeUrl.address + '/Class_Course_api?whereFrom=Search_Course',
         success: function(msg) {
             // console.log(msg.data[0])
+            $("title").html(msg.data[0].CourseName + "-新学说国际教育学院")
             $("#CourseName").text(msg.data[0].CourseName);
             $("#ClassBegins").text(msg.data[0].ClassBegins);
             $("#CoursePrice").text(msg.data[0].CoursePrice)
@@ -181,19 +182,20 @@ $(function() {
             buyNow.on("click", function() {
                 myModal.modal('hide')
                 layer.msg('请先登录', {
-                    time: 1000,
+                        time: 1000
+                    },
                     function() {
                         window.location.href = "./login.html"
-                    }
-                });
+
+                    });
                 return false;
             })
             courseCode.on("click", function() {
-                layer.msg("请先登录", {
+                layer.msg("请先登录",
                     function() {
                         window.location.href = "./login.html"
-                    }
-                })
+
+                    })
                 return false;
             })
         }
@@ -207,14 +209,14 @@ $(function() {
                 'UserMail': $.cookie('username') ? $.cookie('username') : 0,
                 'ClassId': Id
             }
-        console.log(data)
+            // console.log(data)
         $.ajax({
             type: "post",
             data: data, //提交的参数
             url: 'http://' + changeUrl.address + '/Class_User_api?whereFrom=Verification',
             dataType: "json",
             success: function(msg) {
-                console.log(msg.msg)
+                // console.log(msg.msg)
                 if (msg.msg < 0) {
                     $watchNow.addClass("notAllow")
                     $watchNow.click(function() {

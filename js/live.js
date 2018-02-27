@@ -43,24 +43,22 @@ $(function() {
         url: 'http://' + changeUrl.address + '/Class_User_api?whereFrom=Verification',
         success: function(msg) {
             if ($.cookie('username') === undefined) {
-                layer.alert('请先登录', {
-                    skin: 'layui-layer-hei',
-                    icon: 0,
-                    closeBtn: 0,
+                layer.alert('请先登录', { icon: 0, closeBtn: 0 },
                     function() {
                         window.location.href = "./login.html"
                     }
-                });
+                );
             } else {
                 if (msg.msg <= 0) {
                     layer.alert('请先购买课程', {
-                        skin: 'layui-layer-hei',
-                        icon: 4,
-                        closeBtn: 0,
+                            skin: 'layui-layer-hei',
+                            icon: 4,
+                            closeBtn: 0
+                        },
                         function() {
-                            window.location.href = "./login.html"
+                            window.location.href = "./detailClass.html?Id=" + Id
                         }
-                    });
+                    );
                 } else {
                     var obj = $("#mobileHeight"),
                         mobile = $("#mobile"),

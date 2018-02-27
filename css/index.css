@@ -502,6 +502,7 @@
 .lecturerDesc {
     color: #4D555D;
     text-shadow: 0 0 0;
+    min-height: 60px;
 }
 
 

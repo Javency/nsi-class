@@ -84,13 +84,16 @@ $(function() {
         // 主讲课程
         majorCourse = $("#majorCourse"),
         // 讲师简介
-        teacherNow = $("#teacherNow")
+        teacherNow = $("#teacherNow"),
+        // 讲师图片
+        teacherImg = $("#teacherImg")
     $.ajax({
         type: "POST",
         dataType: "json",
         url: 'http://' + changeUrl.address + '/Class_Course_api?whereFrom=showInformation',
         success: function(msg) {
             // console.log(msg.data1)
+            teacherImg.attr("src", msg.data2[0].TeacherImage)
             playVideo_title.text(msg.data1[0].CourseName)
             playVideo_title.attr("title", msg.data1[0].CourseName)
             classTime.text(msg.data1[0].ClassBegins)
@@ -110,7 +113,7 @@ $(function() {
     $(window).scroll(function() {
         if (flag) {
             var sc = $(window).scrollTop();
-            if (sc >= 1700) {
+            if (sc >= 1500) {
                 for (var i = 0; i < aBox.length; i++) {
                     aBox.eq(i).css("visibility", "visible")
                     aBox.eq(i).css("animation-delay", i / 5 + "s").addClass("animated fadeInUp")
