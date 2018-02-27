@@ -195,3 +195,38 @@ $(function() {
         })
     })
 })
+
+// 教师列表
+$(function() {
+    var teacherList = $("#teacherList")
+    $.ajax({
+        data: "",
+        url: 'http://' + changeUrl.address + '/Class_Teacher_api?whereFrom=search',
+        success: function(msg) {
+            console.log(msg.data)
+            for (var i = 0; i < 4; i++) {
+                teacherList.append(
+                    `
+                    <div class="col-md-3 col-sm-6">
+                        <div class="lecturer">
+                            <div class="teacherBox lecturerBox">
+                                <div class="teacherHeadPortrait">
+                                    <div class="teacherPic">
+                                        <img src="${msg.data[i].TeacherImage}" alt="">
+                                    </div>
+                                </div>
+                                <h4 class="text-center mt20 textShadow lecturerName"><span class="teacherName">${msg.data[i].TeacherName}</span></h4>
+                                <p class="teacherContent  mt20  multiline multiline3 textShadow lecturerDesc">主讲课程：<span class="majorCourse" title="${msg.data[i].TeacherCourse}">${msg.data[i].TeacherCourse}</span></p>
+                                <p class="teacherContent  mt20  multiline multiline4 textShadow lecturerDesc"><span class="teacherNow" title="${msg.data[i].TeacherDescription}">${msg.data[i].TeacherDescription}</span></p>
+                            </div>
+                        </div>
+                     </div>
+                    `
+                )
+            }
+        },
+        error: function() {
+            console.log("error")
+        }
+    })
+})
