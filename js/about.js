@@ -1,22 +1,3 @@
-// 导航条部分
-$(function() {
-    function isLogin() {
-        var $login = $("#login"),
-            personalClass = $("#personalClass"),
-            exit = $("#exit")
-        if ($.cookie('username') === undefined) {
-            $login.text("登录 / 注册")
-            $login.parent().attr("href", "./login.html")
-            personalClass.parent().css("display", "none")
-            exit.parent().css("display", "none")
-        } else {
-            $login.text($.cookie('User_TureName'))
-            $login.parent().attr("href", "javascript:;")
-            exit.parent().css("display", "inline-block")
-        }
-    }
-    isLogin();
-})
 $(function() {
     var _index = 0,
         send = $("#send"),

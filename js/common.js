@@ -10,7 +10,7 @@ $(function() {
             exit.css("display", "none")
         } else {
             $login.text($.cookie('User_TureName'))
-            $login.parent().attr("href", "javascript:;")
+            $login.parent().attr("href", "./personalCenter.html")
             exit.css("display", "inline-block")
         }
     }

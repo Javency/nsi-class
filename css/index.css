@@ -273,6 +273,10 @@
     -webkit-line-clamp: 4;
 }
 
+.multiline6 {
+    -webkit-line-clamp: 6;
+}
+
 .pt30-pt15 {
     padding-top: 30px;
 }
@@ -285,19 +289,20 @@
 }
 
 .classStatus-prepare {
-    font-size: 30px;
+    font-size: 20px;
     color: #f0aa29;
     display: inline-block;
-    padding: 10px 20px;
+    padding: 5px;
     position: absolute;
-    border: 5px solid;
+    border: 3px solid;
     letter-spacing: 5px;
-    transform: rotateZ(35deg);
-    top: -15px;
+    /* transform: rotateZ(35deg); */
+    top: -8px;
     /* right: 210px; */
     background-color: #fff;
     z-index: 99;
     border-radius: 4px;
+    margin-left: 10px;
 }
 
 
@@ -505,6 +510,10 @@
     min-height: 60px;
 }
 
+.lecturerNow {
+    min-height: 77px;
+}
+
 
 /* footer */
 
@@ -677,6 +686,9 @@ i.shop {
     .playVideo_title {
         line-height: 40px;
     }
+    .toChangeMultiline {
+        -webkit-line-clamp: 4
+    }
     .footer-link,
     .footer-copyright {
         text-align: center;
@@ -728,8 +740,8 @@ i.shop {
 }
 
 @media (max-width:1200px) and (min-width:992px) {
-    .multiline {
-        -webkit-line-clamp: 3;
+    .toChangeMultiline {
+        -webkit-line-clamp: 5;
     }
     .teacherDesc {
         min-height: 346px;

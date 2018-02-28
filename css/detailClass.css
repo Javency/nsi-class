@@ -71,7 +71,7 @@
     text-align: center;
     color: #FFF;
     border: 0;
-    background: linear-gradient(90deg, #f68688 0, #f02930 100%);
+    background: #e01222;
     transition: all .5s;
     border-radius: 0;
     outline: none;
@@ -94,11 +94,11 @@
 }
 
 .notAllow {
-    background: linear-gradient(90deg, #b3b5b5 0, #818182 100%);
+    background: #b3b5b5
 }
 
 .allow {
-    background: linear-gradient(90deg, #86eff6 0, #2990f0 100%);
+    background: #2990f0
 }
 
 .lesson_content>.buyNow>span,

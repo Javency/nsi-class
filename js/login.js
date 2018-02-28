@@ -55,7 +55,7 @@ $(function() {
     // 验证码
     $("#mpanel").slideVerify({
         type: 2,
-        imgName: ['CourseImage08.jpg', 'CourseImage05.jpg', 'CourseImage06.jpg'],
+        imgName: ['CourseImage09.jpg', 'CourseImage10.jpg', 'CourseImage11.jpg', 'CourseImage12.jpg', 'CourseImage13.jpg'],
         imgSize: {
             width: '395px',
             height: '150px'
@@ -293,7 +293,7 @@ $(function() {
     //验证码注册
     $("#mpanel1").slideVerify({
         type: 2,
-        imgName: ['CourseImage08.jpg', 'CourseImage05.jpg', 'CourseImage06.jpg'],
+        imgName: ['CourseImage09.jpg', 'CourseImage10.jpg', 'CourseImage11.jpg', 'CourseImage12.jpg', 'CourseImage13.jpg'],
         imgSize: {
             width: '395px',
             height: '150px'

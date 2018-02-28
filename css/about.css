@@ -31,10 +31,10 @@ body {
     content: " ";
     position: absolute;
     /* top: 0; */
-    width: 2px;
+    width: 3px;
     height: 60px;
     background-color: #c00;
-    left: 13px;
+    left: 15px;
 }
 
 .other-left li:hover .ddd {

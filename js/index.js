@@ -11,7 +11,7 @@ $(function() {
             exit.parent().css("display", "none")
         } else {
             $login.text($.cookie('User_TureName'))
-            $login.parent().attr("href", "javascript:;")
+            $login.parent().attr("href", "./personalCenter.html")
             exit.parent().css("display", "inline-block")
         }
     }
@@ -102,24 +102,6 @@ $(function() {
             majorCourse.attr("title", msg.data2[0].TeacherCourse)
             teacherNow.text(msg.data2[0].TeacherDescription)
             teacherNow.attr("title", msg.data2[0].TeacherDescription)
-        }
-    })
-})
-
-//讲师层样式
-$(function() {
-    var flag = true,
-        aBox = $(".lecturer")
-    $(window).scroll(function() {
-        if (flag) {
-            var sc = $(window).scrollTop();
-            if (sc >= 1500) {
-                for (var i = 0; i < aBox.length; i++) {
-                    aBox.eq(i).css("visibility", "visible")
-                    aBox.eq(i).css("animation-delay", i / 5 + "s").addClass("animated fadeInUp")
-                }
-                flag = false;
-            }
         }
     })
 })
@@ -217,13 +199,30 @@ $(function() {
                                 </div>
                                 <h4 class="text-center mt20 textShadow lecturerName"><span class="teacherName">${msg.data[i].TeacherName}</span></h4>
                                 <p class="teacherContent  mt20  multiline multiline3 textShadow lecturerDesc">主讲课程：<span class="majorCourse" title="${msg.data[i].TeacherCourse}">${msg.data[i].TeacherCourse}</span></p>
-                                <p class="teacherContent  mt20  multiline multiline4 textShadow lecturerDesc"><span class="teacherNow" title="${msg.data[i].TeacherDescription}">${msg.data[i].TeacherDescription}</span></p>
+                                <p class="teacherContent  mt20  multiline multiline4 textShadow lecturerDesc lecturerNow"><span class="teacherNow" title="${msg.data[i].TeacherDescription}">${msg.data[i].TeacherDescription}</span></p>
                             </div>
                         </div>
                      </div>
                     `
                 )
             }
+
+            //讲师层样式
+            var flag = true,
+                aBox = $(".lecturer"),
+                scrollTop = $("#teacherList").offset().top - 800
+            $(window).scroll(function() {
+                if (flag) {
+                    var sc = $(window).scrollTop();
+                    if (sc >= scrollTop) {
+                        for (var i = 0; i < aBox.length; i++) {
+                            aBox.eq(i).css("visibility", "visible")
+                            aBox.eq(i).css("animation-delay", i / 5 + "s").addClass("animated fadeInUp")
+                        }
+                        flag = false;
+                    }
+                }
+            })
         },
         error: function() {
             console.log("error")

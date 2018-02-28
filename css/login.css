@@ -87,7 +87,7 @@ body {
 .form_item {
     height: 50px;
     margin-bottom: 10px;
-    padding: 14px 18px;
+    padding: 8px 18px;
     border: 1px solid #dedede;
     background: #FFF;
     line-height: 20px;
@@ -105,8 +105,10 @@ body {
 .inputlogo {
     color: #999;
     font-size: 20px;
-    vertical-align: top;
+    /* vertical-align: top; */
     margin-right: 15px;
+    position: relative;
+    top: 2px;
 }
 
 .form_item>input[type=text],
@@ -114,8 +116,11 @@ body {
 inputStyle {
     border: 0;
     outline: none;
-    font-size: 14px;
+    font-size: 15px;
     width: 82%;
+    height: 30px;
+    line-height: 30px;
+    font-size: 15px;
 }
 
 .loginButton {
