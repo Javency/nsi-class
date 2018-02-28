@@ -49,7 +49,7 @@ $(function() {
     aLi.on("click", function() {
         _index = $(this).index()
         $(this).children("a").addClass("active").parent().siblings().children("a").removeClass("active")
-        rightBox.eq(_index).fadeIn(100).siblings().fadeOut(100)
+        rightBox.eq(_index).fadeIn(0).siblings().fadeOut(0)
     })
 })
 

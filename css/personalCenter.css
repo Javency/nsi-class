@@ -122,6 +122,7 @@
 
 .rightBox {
     position: relative;
+    min-height: 300px;
 }
 
 .rightBox>div {
