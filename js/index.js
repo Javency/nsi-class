@@ -210,7 +210,7 @@ $(function() {
             //讲师层样式
             var flag = true,
                 aBox = $(".lecturer"),
-                scrollTop = $("#teacherList").offset().top - 800
+                scrollTop = $("#teacherList").offset().top - 700
             $(window).scroll(function() {
                 if (flag) {
                     var sc = $(window).scrollTop();
