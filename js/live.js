@@ -62,6 +62,7 @@ $(function() {
                 } else {
                     var obj = $("#mobileHeight"),
                         mobile = $("#mobile"),
+                        loadFlag = null,
                         data01 = {
                             'userid': $.cookie('username')
                         }
@@ -70,9 +71,13 @@ $(function() {
                         data: data01,
                         dataType: "json",
                         async: true,
+                        beforeSend: function() {
+                            loadFlag = layer.load(2)
+                        },
                         url: 'http://' + changeUrl.address + '/Class_User_api?whereFrom=getLiveUrl',
                         success: function(msg) {
-                            console.log(msg)
+                            // console.log(msg)
+                            layer.close(loadFlag)
                             obj.attr("data", "https://live.polyv.cn/watch/149406?" + msg.msg)
                             mobile.attr("href", "https://live.polyv.cn/watch/149406?" + msg.msg)
                         },
