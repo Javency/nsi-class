@@ -326,8 +326,9 @@ $(function() {
                     data: data,
                     url: 'http://' + changeUrl.address + '/User_api?whereFrom=register',
                     success: function(msg) {
-                        layer.msg("注册成功，请查看您的邮箱以激活账号")
-                        window.location.reload()
+                        layer.alert("注册成功，请查看您的邮箱以激活账号", { closeBtn: 0 }, function() {
+                            window.location.reload()
+                        })
                     },
                     error: function() {
                         console.log("error")
@@ -365,8 +366,9 @@ $(function() {
                 data: data,
                 url: 'http://' + changeUrl.address + '/User_api?whereFrom=register',
                 success: function(msg) {
-                    alert("注册成功，请查看您的邮箱以激活账号")
-                    window.location.reload()
+                    layer.alert("注册成功，请查看您的邮箱以激活账号", { closeBtn: 0 }, function() {
+                        window.location.reload()
+                    })
                 },
                 error: function() {
                     console.log("error")

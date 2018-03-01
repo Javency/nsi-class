@@ -133,7 +133,7 @@ $(function() {
                                 'Id': Id
                             }
                             browserRedirect()
-                            console.log(IsMobile)
+                                // console.log(IsMobile)
                                 // http://192.168.0.159:8080/nsi-0.9/Payment_api?whereFrom=WeChatHtml5Payment&Id=10001&UserMail=237450257@qq.com
                             if (IsMobile) {
                                 $.ajax({
@@ -158,9 +158,13 @@ $(function() {
                                     data: data,
                                     url: 'http://' + changeUrl.address + '/Payment_api?whereFrom=WeChatPayment',
                                     success: function(msg) {
-                                        console.log(msg.CoursePrice)
-                                        $("#orderDesc-price").text(msg.CoursePrice)
-                                        $("#qrCode").css("background-image", "url(" + msg.data + ")")
+                                        // console.log(msg.CoursePrice)
+                                        if (msg.data == "http://qr.liantu.com/api.php?text=null") {
+                                            layer.alert("支付出错，请稍后再试或联系新学说客服", { icon: 2 })
+                                        } else {
+                                            $("#orderDesc-price").text(msg.CoursePrice)
+                                            $("#qrCode").css("background-image", "url(" + msg.data + ")")
+                                        }
                                     },
                                     error: function() {
                                         console.log("error")
@@ -259,7 +263,7 @@ $(function() {
                         layer.msg("支付成功")
                         window.location.reload()
                     } else {
-                        // alert("支付失败")
+                        // http://qr.liantu.com/api.php?text=null
                     }
                 },
                 error: function() {
@@ -271,4 +275,12 @@ $(function() {
             clearInterval(timer)
         })
     }
+})
+
+// tab activeColor
+$(function() {
+    aLi = $("#myTab").children()
+    aLi.click(function() {
+        $(this).addClass("activeColor").siblings().removeClass("activeColor")
+    })
 })

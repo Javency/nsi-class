@@ -271,10 +271,12 @@
 
 .multiline4 {
     -webkit-line-clamp: 4;
+    max-height: 78px;
 }
 
 .multiline6 {
     -webkit-line-clamp: 6;
+    max-height: 118px;
 }
 
 .pt30-pt15 {
@@ -512,6 +514,7 @@
 
 .lecturerNow {
     min-height: 77px;
+    max-height: 77px;
 }
 
 
@@ -742,6 +745,7 @@ i.shop {
 @media (max-width:1200px) and (min-width:992px) {
     .toChangeMultiline {
         -webkit-line-clamp: 5;
+        max-height: 98px;
     }
     .teacherDesc {
         min-height: 346px;

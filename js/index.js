@@ -185,7 +185,7 @@ $(function() {
         data: "",
         url: 'http://' + changeUrl.address + '/Class_Teacher_api?whereFrom=search',
         success: function(msg) {
-            console.log(msg.data)
+            // console.log(msg.data)
             for (var i = 0; i < 4; i++) {
                 teacherList.append(
                     `
@@ -210,7 +210,7 @@ $(function() {
             //讲师层样式
             var flag = true,
                 aBox = $(".lecturer"),
-                scrollTop = $("#teacherList").offset().top - 700
+                scrollTop = $("#teacherList").offset().top - 900
             $(window).scroll(function() {
                 if (flag) {
                     var sc = $(window).scrollTop();

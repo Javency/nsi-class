@@ -35,6 +35,13 @@ $(function() {
         $('.mobile').removeClass('bg-wrap container row col-lg-12 col-md-12 col-sm-12 Pd150')
         $('.mbHide').addClass('hide')
     }
+
+    // 加载层
+    var loading = $("#loading")
+    loading.width($(document).width())
+    loading.height($(document).height())
+        // loading.css("lineHeight", loading.height() / 4 + "px")
+
     $.ajax({
         type: "POST",
         dataType: "json",
@@ -72,14 +79,15 @@ $(function() {
                         dataType: "json",
                         async: true,
                         beforeSend: function() {
-                            loadFlag = layer.load(2)
+                            // loadFlag = layer.load(2, { shade: [0.8, '#393D49'] })
                         },
                         url: 'http://' + changeUrl.address + '/Class_User_api?whereFrom=getLiveUrl',
                         success: function(msg) {
                             // console.log(msg)
-                            layer.close(loadFlag)
                             obj.attr("data", "https://live.polyv.cn/watch/149406?" + msg.msg)
                             mobile.attr("href", "https://live.polyv.cn/watch/149406?" + msg.msg)
+                                // layer.close(loadFlag)
+                            loading.fadeOut(1000)
                         },
                         error: function() {
                             console.log("error")
