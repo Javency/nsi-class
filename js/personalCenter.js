@@ -1,6 +1,7 @@
 // 显示的购买课程
 $(function() {
     var haveBoughtCourse = $("#haveBoughtCourse"),
+        myClass = $("#myClass"),
         myCourse = $("#myCourse"),
         notHaveCourse = $("#notHaveCourse"),
         data = {
@@ -14,6 +15,7 @@ $(function() {
         success: function(msg) {
             // console.log(msg.data[0])
             if (msg.data.length != 0) {
+                myClass.removeClass("myClass")
                 notHaveCourse.css("display", "none")
             }
             for (var i = 0; i < msg.data.length; i++) {

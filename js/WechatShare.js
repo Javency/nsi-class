@@ -34,7 +34,7 @@
 		            imgUrl = "http://class.xinxueshuo.cn/nsi-class/images/banner02.jpg";
 		        }
 		        desc = "新学说充分利用互联网经济便捷的优势，推出新学说在线课堂，为国际学校各职能部门中基层管理人员提供相关岗位技能培训。希望通过新学说的不断努力，为中国国际学校行业输送更多优质人才。";
-		        console.log("文章摘要：" + desc);
+		        // console.log("文章摘要：" + desc);
 
 		        // 直播页
 		    } else if (page2.length > 0) {
@@ -51,7 +51,7 @@
 		        desc = '开课时间：' + $("#ClassBegins").text() + ';' + $(".score").text() + ';' + $(".buy").text()
 		    }
 
-		    console.log(href)
+		    // console.log(href)
 		    $.ajax({
 		        type :   "get",
 		        async: true,

@@ -118,9 +118,9 @@ $(function() {
         url: 'http://' + changeUrl.address + '/Class_Course_api?whereFrom=Search_Course',
         success: function(msg) {
             // console.log(msg.data)
-            for (var i = 0; i < 4; i++) {
+            for (var i = 0; i < msg.data.length; i++) {
                 CourseContainer.append(`
-                        <div class="col-md-3 col-sm-6">
+                        <div class="col-md-3 col-sm-6 mb40">
                             <div class="CourseContainer">
                                 <a href="./detailClass.html?Id=${msg.data[i].Id}" target="_blank">
                                     <div class="Course Course-up">
@@ -131,7 +131,7 @@ $(function() {
                                     <div class="Course Course-down"><img src="${msg.data[i].CoverImage}" alt=""></div>
                                 </a>
                                 <div class="CourseInfo">
-                                    <p class="mtb5 oneline"><span class="CourseName">${msg.data[i].CourseName}</span></p>
+                                    <p class="mtb5 oneline"><span class="CourseName" title="${msg.data[i].CourseName}">${msg.data[i].CourseName}</span></p>
                                     <p class="mtb5 twoline"><span class="CourseDesc" title="${msg.data[i].CourseDescription}">${msg.data[i].CourseDescription}</span></p>
                                     <p class="mtb5">开课时间：<span class="CourseTime">${msg.data[i].ClassBegins}</span></p>
                                 </div>
@@ -193,26 +193,39 @@ $(function() {
         url: 'http://' + changeUrl.address + '/Class_Teacher_api?whereFrom=search',
         success: function(msg) {
             // console.log(msg.data)
-            for (var i = 0; i < 4; i++) {
-                teacherList.append(
-                    `
-                    <div class="col-md-3 col-sm-6">
-                        <div class="lecturer">
-                            <div class="teacherBox lecturerBox">
-                                <div class="teacherHeadPortrait">
-                                    <div class="teacherPic">
-                                        <img src="${msg.data[i].TeacherImage}" alt="">
-                                    </div>
-                                </div>
-                                <h4 class="text-center mt20 textShadow lecturerName"><span class="teacherName">${msg.data[i].TeacherName}</span></h4>
-                                <p class="teacherContent  mt20  multiline multiline3 textShadow lecturerDesc">主讲课程：<span class="majorCourse" title="${msg.data[i].TeacherCourse}">${msg.data[i].TeacherCourse}</span></p>
-                                <p class="teacherContent  mt20  multiline multiline4 textShadow lecturerDesc lecturerNow"><span class="teacherNow" title="${msg.data[i].TeacherDescription}">${msg.data[i].TeacherDescription}</span></p>
-                            </div>
-                        </div>
-                     </div>
-                    `
-                )
+            // 默认加载
+            var arr = msg.data,
+                arrNew = arr.splice(0, 4)
+            for (var i = 0; i < arrNew.length; i++) {
+                arr.push(arrNew[i])
             }
+            autoShow(arrNew)
+            var timer = setInterval(autoUp, 5000)
+
+            function autoUp() {
+                arrNew = []
+                arrNew = arr.splice(0, 4)
+                for (var i = 0; i < arrNew.length; i++) {
+                    arr.push(arrNew[i])
+                }
+                autoShow(arrNew)
+                var aBox = $(".lecturer")
+                    // for (var i = 0; i < aBox.length; i++) {
+                    //     // aBox.eq(i).css("visibility", "visible")
+                    //     aBox.eq(i).removeClass("animated fadeOutDown").css("animation-delay", i / 5 + "s").addClass("animated fadeInUp")
+                    // }
+                aBox.each(function(i, e) {
+                    $(this).removeClass("animated fadeOutDown").css("animation-delay", i / 20 + "s").addClass("animated fadeInUp")
+                })
+                arrNew = []
+            }
+            // var aBox = $(".lecturer")
+            // aBox.on("mouseover", function() {
+            //     clearInterval(timer)
+            // }).on("mouseout", function() {
+            //     clearInterval(timer)
+            //     setInterval(autoUp, 5000)
+            // })
 
             //讲师层样式
             var flag = true,
@@ -224,15 +237,52 @@ $(function() {
                     if (sc >= scrollTop) {
                         for (var i = 0; i < aBox.length; i++) {
                             aBox.eq(i).css("visibility", "visible")
-                            aBox.eq(i).css("animation-delay", i / 5 + "s").addClass("animated fadeInUp")
+                            aBox.eq(i).css("animation-delay", i / 20 + "s").addClass("animated fadeInUp")
                         }
                         flag = false;
                     }
                 }
             })
+
+            function autoShow(arr) {
+                teacherList.html("")
+                for (var i = 0; i < arr.length; i++) {
+                    teacherList.append(
+                        `
+                        <div class="col-md-3 col-sm-6">
+                            <div class="lecturer mb40">
+                                <div class="teacherBox lecturerBox">
+                                    <div class="teacherHeadPortrait">
+                                        <div class="teacherPic">
+                                            <img src="${msg.data[i].TeacherImage}" alt="">
+                                        </div>
+                                    </div>
+                                    <h4 class="text-center mt20 textShadow lecturerName"><span class="teacherName">${msg.data[i].TeacherName}</span></h4>
+                                    <p class="teacherContent  mt20  multiline multiline3 textShadow lecturerDesc">主讲课程：<span class="majorCourse" title="${msg.data[i].TeacherCourse}">${msg.data[i].TeacherCourse}</span></p>
+                                    <p class="teacherContent  mt20  multiline multiline4 textShadow lecturerDesc lecturerNow"><span class="teacherNow" title="${msg.data[i].TeacherDescription}">${msg.data[i].TeacherDescription}</span></p>
+                                </div>
+                            </div>
+                         </div>
+                        `
+                    )
+                }
+            }
+
         },
         error: function() {
             console.log("error")
         }
     })
 })
+
+// $(function() {
+//     var arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+//     setInterval(function() {
+//         var arrNew = arr.splice(0, 4)
+//         for (var i = 0; i < arrNew.length; i++) {
+//             arr.push(arrNew[i])
+//         }
+//         console.log(arrNew)
+//         arrNew = []
+//     }, 5000)
+// })

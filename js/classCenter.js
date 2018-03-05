@@ -9,9 +9,9 @@ $(function() {
         url: 'http://' + changeUrl.address + '/Class_Course_api?whereFrom=Search_Course',
         success: function(msg) {
             console.log(msg.data)
-            for (var i = 0; i < 4; i++) {
+            for (var i = 0; i < msg.data.length; i++) {
                 CourseContainer.append(`
-                        <div class="col-md-3 col-sm-6">
+                        <div class="col-md-3 col-sm-6 mb40">
                             <div class="CourseContainer">
                                 <a href="javascript:;" target="_">
                                     <div class="Course Course-up">

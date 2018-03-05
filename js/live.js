@@ -77,7 +77,7 @@ $(function() {
                         type: "post",
                         data: data01,
                         dataType: "json",
-                        async: true,
+                        async: false,
                         beforeSend: function() {
                             // loadFlag = layer.load(2, { shade: [0.8, '#393D49'] })
                         },
