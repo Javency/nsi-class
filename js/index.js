@@ -1,3 +1,23 @@
+//判断是否移动端
+var IsMobile = false;
+
+function browserRedirect() {
+    //只读的字符串，声明了浏览器用于 HTTP 请求的用户代理头的值
+    var sUserAgent = navigator.userAgent.toLowerCase();
+    var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+    var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+    var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+    var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+    var bIsAndroid = sUserAgent.match(/android/i) == "android";
+    var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+    var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+    if (bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) {
+        IsMobile = true;
+        // window.location.replace(url);
+    }
+}
+
+
 // 导航条部分
 $(function() {
     function isLogin() {
@@ -219,13 +239,7 @@ $(function() {
                 })
                 arrNew = []
             }
-            // var aBox = $(".lecturer")
-            // aBox.on("mouseover", function() {
-            //     clearInterval(timer)
-            // }).on("mouseout", function() {
-            //     clearInterval(timer)
-            //     setInterval(autoUp, 5000)
-            // })
+
 
             //讲师层样式
             var flag = true,
@@ -266,6 +280,18 @@ $(function() {
                         `
                     )
                 }
+                var aBox = $(".lecturer")
+                    // console.log(aBox)
+                aBox.hover(function() {
+                    clearInterval(timer)
+                }, function() {
+                    clearInterval(timer)
+                    timer = setInterval(autoUp, 5000)
+                })
+                browserRedirect()
+                if (IsMobile) {
+                    clearInterval(timer)
+                }
             }
 
         },
@@ -274,15 +300,3 @@ $(function() {
         }
     })
 })
-
-// $(function() {
-//     var arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-//     setInterval(function() {
-//         var arrNew = arr.splice(0, 4)
-//         for (var i = 0; i < arrNew.length; i++) {
-//             arr.push(arrNew[i])
-//         }
-//         console.log(arrNew)
-//         arrNew = []
-//     }, 5000)
-// })

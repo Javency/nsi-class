@@ -6,6 +6,9 @@
 		setTimeout(function() {
 		    // 微信配置
 		    var href = window.location.href;
+		    var pos = href.indexOf("from=")
+		    href = href.substring(0, pos - 1)
+
 		    var title = '新学说国际教育学院';
 		    var desc = '新学说国际教育学院';
 		    var imgUrl = '新学说国际教育学院';
@@ -151,3 +154,11 @@
 		        }
 		    });
 		}, 1000)
+
+		// $(function() {
+		//     var str = "http://class.xinxueshuo.cn/nsi-class/detailClass.html?Id=10001&from=singlemessage"
+		//     var str = "http://class.xinxueshuo.cn/nsi-class/?from=singfidsojf"
+		//     var pos = str.indexOf("from")
+		//     var newStr = str.substring(0, pos - 1)
+		//     console.log(newStr)
+		// })
