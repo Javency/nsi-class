@@ -245,7 +245,7 @@ $(function() {
     // 刷新判断是否完成购买
     function refresh() {
         var timer = setInterval(paymentState, 3000),
-            cancle = $("#cancle")
+            cancle = $(".cancle")
 
         function paymentState() {
             var data = {
