@@ -280,12 +280,10 @@ $(function() {
         })
 
         // 模态框隐藏关闭判断api
-        $(function() {
-            $('#myModal').on('hide.bs.modal',
-                function() {
-                    clearInterval(timer)
-                })
-        });
+        $('#myModal').on('hide.bs.modal',
+            function() {
+                clearInterval(timer)
+            })
     }
 })
 
