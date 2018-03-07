@@ -321,7 +321,7 @@
     width: 50px;
     height: 50px;
     content: "";
-    background: url("../images/intersperse.png");
+    background: url("http://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/intersperse.png");
     background-size: 100%;
     position: relative;
     top: 20px;
@@ -333,7 +333,7 @@
     width: 50px;
     height: 50px;
     content: "";
-    background: url("../images/intersperse-rev.png");
+    background: url("http://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/intersperse-rev.png");
     background-size: 100%;
     position: relative;
     top: 20px;
