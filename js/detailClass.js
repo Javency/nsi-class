@@ -260,8 +260,9 @@ $(function() {
                 success: function(data) {
                     if (data.msg > 0) {
                         clearInterval(timer)
-                        layer.msg("支付成功")
-                        window.location.reload()
+                        layer.alert("支付成功", { icon: 1, closeBtn: 0 }, function() {
+                            window.location.reload()
+                        })
                     } else {
                         // http://qr.liantu.com/api.php?text=null
                     }
