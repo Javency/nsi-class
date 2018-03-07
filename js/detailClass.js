@@ -243,9 +243,12 @@ $(function() {
 
 
     // 刷新判断是否完成购买
+    var timer = null;
+
     function refresh() {
-        var timer = setInterval(paymentState, 3000),
-            cancle = $(".cancle")
+        clearInterval(timer)
+        var cancle = $(".cancle")
+        timer = setInterval(paymentState, 3000)
 
         function paymentState() {
             var data = {
@@ -275,6 +278,14 @@ $(function() {
         cancle.on("click", function() {
             clearInterval(timer)
         })
+
+        // 模态框隐藏关闭判断api
+        $(function() {
+            $('#myModal').on('hide.bs.modal',
+                function() {
+                    clearInterval(timer)
+                })
+        });
     }
 })
 
