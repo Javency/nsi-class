@@ -9,6 +9,48 @@ $(function() {
         $(this).children('.line').css("display", "block").parent().siblings().children(".line").css("display", "none")
         aBox.eq(_index).fadeIn(200).siblings().fadeOut(200)
     })
+
+    //获取url地址问号后面部分
+    function getQueryStringArgs() {
+        var qs = location.search.length > 0 ? location.search.substring(1) : '',
+            args = {},
+            items = qs.length ? qs.split('&') : [],
+            item = null,
+            name = null,
+            value = null,
+            i = 0,
+            len = items.length;
+        for (i = 0; i < len; i++) {
+            item = items[i].split('=');
+            name = decodeURIComponent(item[0]);
+            value = decodeURIComponent(item[1]);
+            name = item[0];
+            value = item[1];
+
+            if (name.length) {
+                args[name] = value;
+            }
+        }
+        return args;
+    }
+    var args = getQueryStringArgs()
+    console.log(args)
+        // // connect = decodeURIComponent(args['connect']),
+        // // feedback = decodeURIComponent(args['feedback'])
+    switch (args.about) {
+        case "connect":
+            aLine.eq(1).find('span').css('color', '#c00').parent().siblings().find('span').css('color', '#787d82')
+            aLine.eq(1).children('.line').css("display", "block").parent().siblings().children(".line").css("display", "none")
+            aBox.eq(1).fadeIn(200).siblings().fadeOut(200)
+            break;
+        case "feedback":
+            aLine.eq(2).find('span').css('color', '#c00').parent().siblings().find('span').css('color', '#787d82')
+            aLine.eq(2).children('.line').css("display", "block").parent().siblings().children(".line").css("display", "none")
+            aBox.eq(2).fadeIn(200).siblings().fadeOut(200)
+            break;
+    }
+
+    // 意见反馈
     send.click(function() {
         var checkboxVal = "",
             adviceVal = $("#advice").val(),

@@ -49,10 +49,40 @@ $(function() {
         rightBox = $("#rightBox").children(),
         aLi = $("#myLable").children()
     aLi.on("click", function() {
-        _index = $(this).index()
-        $(this).children("a").addClass("active").parent().siblings().children("a").removeClass("active")
-        rightBox.eq(_index).fadeIn(0).siblings().fadeOut(0)
-    })
+            _index = $(this).index()
+            $(this).children("a").addClass("active").parent().siblings().children("a").removeClass("active")
+            rightBox.eq(_index).fadeIn(0).siblings().fadeOut(0)
+        })
+        //获取url地址问号后面部分
+    function getQueryStringArgs() {
+        var qs = location.search.length > 0 ? location.search.substring(1) : '',
+            args = {},
+            items = qs.length ? qs.split('&') : [],
+            item = null,
+            name = null,
+            value = null,
+            i = 0,
+            len = items.length;
+        for (i = 0; i < len; i++) {
+            item = items[i].split('=');
+            name = decodeURIComponent(item[0]);
+            value = decodeURIComponent(item[1]);
+            name = item[0];
+            value = item[1];
+
+            if (name.length) {
+                args[name] = value;
+            }
+        }
+        return args;
+    }
+    var args = getQueryStringArgs(),
+        myLableIndex = decodeURIComponent(args['myLableIndex'])
+        // console.log(courseCode)
+    if (myLableIndex === "01") {
+        aLi.eq(1).children("a").addClass("active").parent().siblings().children("a").removeClass("active")
+        rightBox.eq(1).fadeIn(0).siblings().fadeOut(0)
+    }
 })
 
 $(function() {

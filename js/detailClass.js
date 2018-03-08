@@ -87,6 +87,7 @@ $(function() {
         })
     }
     lessonDsec()
+
     $.ajax({
         type: "get",
         dataType: "json",
@@ -97,7 +98,7 @@ $(function() {
             $("title").html(msg.data[0].CourseName + "-新学说国际教育学院")
             $("#CourseName").text(msg.data[0].CourseName);
             $("#ClassBegins").text(msg.data[0].ClassBegins);
-            $("#CoursePrice").text(msg.data[0].CoursePrice)
+            $("#CoursePrice").text(msg.data[0].CoursePrice);
         }
     })
 
@@ -224,13 +225,32 @@ $(function() {
                 if (msg.msg < 0) {
                     $watchNow.addClass("notAllow")
                     $watchNow.click(function() {
-                        layer.msg("请先购买该课程")
+                        layer.msg("请先购买课程")
                     })
                 } else {
-                    $watchNow.addClass("allow")
-                    $watchNow.click(function() {
-                        window.location.href = "./live.html?Id=" + Id
+                    // 判断该课程是否已结束
+                    $.ajax({
+                        type: "get",
+                        dataType: "json",
+                        data: { Id: Id },
+                        url: 'http://' + changeUrl.address + '/Class_Course_api?whereFrom=Search_Course',
+                        success: function(msg) {
+                            var courseState = msg.data[0].CourseState
+                            switch (courseState) {
+                                case "查看回放":
+                                    $watchNow.html('<span class = "iconfont icon-bofang1"></span>查看回放').addClass("allow").click(function() {
+                                        layer.alert("该课程已结束，请联系助教获取回放链接", { icon: 0 })
+                                    })
+                                    break;
+                                default:
+                                    $watchNow.html('<span class = "iconfont icon-bofang1"></span>立即观看').addClass("allow").click(function() {
+                                        window.location.href = "./live.html?Id=" + Id
+                                    })
+                                    break;
+                            }
+                        }
                     })
+
                 }
             },
             error: function() {
