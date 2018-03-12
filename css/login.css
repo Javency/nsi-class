@@ -41,7 +41,7 @@ body {
 
 .wrap {
     background: url("../images/regist_topshadow.png") repeat-x;
-    min-height: 820px;
+    min-height: 865px;
 }
 
 .loginBox {
@@ -151,6 +151,18 @@ inputStyle {
 
 .verify-bar-area {
     width: 100% !important;
+}
+
+.rules {
+    color: #93999F
+}
+
+.rules-detail {
+    color: #337ab7
+}
+
+.rules>a:hover {
+    color: #ff3d3d
 }
 
 

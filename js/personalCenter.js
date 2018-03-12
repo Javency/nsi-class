@@ -18,6 +18,14 @@ $(function() {
                 myClass.removeClass("myClass")
                 notHaveCourse.css("display", "none")
             }
+
+            //课程购买码重复使用去重
+            // var hash = {};
+            // msg.data = msg.data.reduce(function(item, next) {
+            //     hash[next.name] ? '' : hash[next.name] = true && item.push(next);
+            //     return item
+            // }, [])
+
             for (var i = 0; i < msg.data.length; i++) {
                 haveBoughtCourse.append(
                     `
@@ -115,19 +123,19 @@ $(function() {
             data: data,
             url: 'http://' + changeUrl.address + '/Class_ActivationCode?whereFrom=courseCode',
             success: function(data) {
-                if (data.code > 0) {
+                if (data.code >= 0) {
                     $("#myAlertSuccess").fadeIn(200)
                     $("#myAlertError01").fadeOut(200)
                     $("#myAlertError02").fadeOut(200)
                 } else {
-                    $("#myAlertError02").fadeIn(200)
+                    $("#myAlertError01").fadeIn(200)
                     $("#myAlertSuccess").fadeOut(200)
-                    $("#myAlertError01").fadeOut(200)
+                    $("#myAlertError02").fadeOut(200)
                 }
             },
             error: function() {
-                $("#myAlertError01").fadeIn(200)
-                $("#myAlertError02").fadeOut(200)
+                $("#myAlertError02").fadeIn(200)
+                $("#myAlertError01").fadeOut(200)
                 $("#myAlertSuccess").fadeOut(200)
             }
         })

@@ -38,15 +38,20 @@ $(function() {
         // // connect = decodeURIComponent(args['connect']),
         // // feedback = decodeURIComponent(args['feedback'])
     switch (args.about) {
-        case "connect":
+        case "rules":
             aLine.eq(1).find('span').css('color', '#c00').parent().siblings().find('span').css('color', '#787d82')
             aLine.eq(1).children('.line').css("display", "block").parent().siblings().children(".line").css("display", "none")
             aBox.eq(1).fadeIn(200).siblings().fadeOut(200)
             break;
-        case "feedback":
+        case "connect":
             aLine.eq(2).find('span').css('color', '#c00').parent().siblings().find('span').css('color', '#787d82')
             aLine.eq(2).children('.line').css("display", "block").parent().siblings().children(".line").css("display", "none")
             aBox.eq(2).fadeIn(200).siblings().fadeOut(200)
+            break;
+        case "feedback":
+            aLine.eq(3).find('span').css('color', '#c00').parent().siblings().find('span').css('color', '#787d82')
+            aLine.eq(3).children('.line').css("display", "block").parent().siblings().children(".line").css("display", "none")
+            aBox.eq(3).fadeIn(200).siblings().fadeOut(200)
             break;
     }
 
