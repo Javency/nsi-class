@@ -18,14 +18,6 @@ $(function() {
                 myClass.removeClass("myClass")
                 notHaveCourse.css("display", "none")
             }
-
-            //课程购买码重复使用去重
-            // var hash = {};
-            // msg.data = msg.data.reduce(function(item, next) {
-            //     hash[next.name] ? '' : hash[next.name] = true && item.push(next);
-            //     return item
-            // }, [])
-
             for (var i = 0; i < msg.data.length; i++) {
                 haveBoughtCourse.append(
                     `
@@ -124,19 +116,23 @@ $(function() {
             url: 'http://' + changeUrl.address + '/Class_ActivationCode?whereFrom=courseCode',
             success: function(data) {
                 if (data.code >= 0) {
-                    $("#myAlertSuccess").fadeIn(200)
-                    $("#myAlertError01").fadeOut(200)
-                    $("#myAlertError02").fadeOut(200)
+                    $("#myAlertSuccess").fadeIn(200, function() {
+                        setTimeout(function() {
+                            window.location.href = "./personalCenter.html"
+                        }, 2000)
+                    })
+                    $("#myAlertError01").fadeOut(150)
+                    $("#myAlertError02").fadeOut(150)
                 } else {
-                    $("#myAlertError01").fadeIn(200)
-                    $("#myAlertSuccess").fadeOut(200)
-                    $("#myAlertError02").fadeOut(200)
+                    $("#myAlertError01").fadeIn(150)
+                    $("#myAlertSuccess").fadeOut(150)
+                    $("#myAlertError02").fadeOut(150)
                 }
             },
             error: function() {
-                $("#myAlertError02").fadeIn(200)
-                $("#myAlertError01").fadeOut(200)
-                $("#myAlertSuccess").fadeOut(200)
+                $("#myAlertError02").fadeIn(150)
+                $("#myAlertError01").fadeOut(150)
+                $("#myAlertSuccess").fadeOut(150)
             }
         })
     })

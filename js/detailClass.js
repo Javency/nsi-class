@@ -64,30 +64,6 @@ $(function() {
     var args = getQueryStringArgs(),
         Id = decodeURIComponent(args['Id'])
 
-    function lessonDsec() {
-        var $tab01 = $("#tab01"),
-            $tab02 = $("#tab02"),
-            $tab03 = $("#tab03"),
-            $tab04 = $("#tab04")
-        $.ajax({
-            type: "get",
-            dataType: 'json',
-            contentType: "application/json;charset=UTF-8",
-            data: {
-                "Id": Id
-            },
-            url: 'http://' + changeUrl.address + '/Class_Course_api?whereFrom=Course_GetHtml',
-            success(msg) {
-                // console.log(msg)
-                $tab01.html(msg.data[0].Html01)
-                $tab02.html(msg.data[0].Html02)
-                $tab03.html(msg.data[0].Html03)
-                $tab04.html(msg.data[0].Html04)
-            }
-        })
-    }
-    lessonDsec()
-
     $.ajax({
         type: "get",
         dataType: "json",
@@ -210,6 +186,7 @@ $(function() {
     // 立即观看
     function watchNow() {
         var $watchNow = $("#watchNow"),
+            $buyNow = $("#buyNow"),
             data = {
                 'UserMail': $.cookie('username') ? $.cookie('username') : 0,
                 'ClassId': Id
@@ -228,7 +205,8 @@ $(function() {
                         layer.msg("请先购买课程")
                     })
                 } else {
-                    // 判断该课程是否已结束
+                    $buyNow.html('<span class="iconfont icon-gouwuche3"></span>已购买').css("background", "#b3b5b5")
+                        // 判断该课程是否已结束
                     $.ajax({
                         type: "get",
                         dataType: "json",
@@ -305,6 +283,33 @@ $(function() {
                 clearInterval(timer)
             })
     }
+
+    // 课程介绍 html展示
+    function lessonDsec() {
+        var $tab01 = $("#tab01"),
+            $tab02 = $("#tab02"),
+            $tab03 = $("#tab03"),
+            $tab04 = $("#tab04")
+        $.ajax({
+            type: "get",
+            dataType: 'json',
+            contentType: "application/json;charset=UTF-8",
+            data: {
+                "Id": Id
+            },
+            url: 'http://' + changeUrl.address + '/Class_Course_api?whereFrom=Course_GetHtml',
+            success(msg) {
+                // console.log(msg)
+                $tab01.html(msg.data[0].Html01)
+                $tab02.html(msg.data[0].Html02)
+                $tab03.html(msg.data[0].Html03)
+                $tab04.html(msg.data[0].Html04)
+            }
+        })
+    }
+
+
+    lessonDsec()
 })
 
 // tab activeColor
