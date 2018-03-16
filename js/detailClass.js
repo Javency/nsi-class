@@ -17,7 +17,6 @@ function browserRedirect(url) {
     }
 }
 
-
 // 导航条部分
 $(function() {
     function isLogin() {
@@ -31,12 +30,13 @@ $(function() {
             exit.parent().css("display", "none")
         } else {
             $login.text($.cookie('User_TureName'))
-            $login.parent().attr("href", "javascript:;")
+            $login.parent().attr("href", "./personalCenter.html")
             exit.parent().css("display", "inline-block")
         }
     }
     isLogin();
 })
+
 $(function() {
     //获取url地址问号后面部分
     function getQueryStringArgs() {
