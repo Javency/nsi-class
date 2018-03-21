@@ -71,21 +71,19 @@ $(function() {
                         mobile = $("#mobile"),
                         loadFlag = null,
                         data01 = {
-                            'userid': $.cookie('username')
+                            'userid': $.cookie('username'),
+                            'CourseId': Id
                         }
                     $.ajax({
                         type: "post",
                         data: data01,
                         dataType: "json",
                         async: false,
-                        beforeSend: function() {
-                            // loadFlag = layer.load(2, { shade: [0.8, '#393D49'] })
-                        },
                         url: 'http://' + changeUrl.address + '/Class_User_api?whereFrom=getLiveUrl',
                         success: function(msg) {
-                            // console.log(msg)
-                            obj.attr("data", "https://live.polyv.cn/watch/149406?" + msg.msg)
-                            mobile.attr("href", "https://live.polyv.cn/watch/149406?" + msg.msg)
+                            console.log(msg)
+                            obj.attr("data", msg.msg)
+                            mobile.attr("href", msg.msg)
                                 // layer.close(loadFlag)
                             loading.fadeOut(1000)
                         },

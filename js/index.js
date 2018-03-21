@@ -106,13 +106,16 @@ $(function() {
         // 讲师简介
         teacherNow = $("#teacherNow"),
         // 讲师图片
-        teacherImg = $("#teacherImg")
+        teacherImg = $("#teacherImg"),
+        // 直播地址
+        enterVideo = $("#enterVideo")
     $.ajax({
         type: "POST",
         dataType: "json",
         url: 'http://' + changeUrl.address + '/Class_Course_api?whereFrom=showInformation',
         success: function(msg) {
             // console.log(msg.data1)
+            enterVideo.attr("href", "./live.html?Id=" + msg.data1[0].Id)
             teacherImg.attr("src", msg.data2[0].TeacherImage)
             playVideo_title.text(msg.data1[0].CourseName)
             playVideo_title.attr("title", msg.data1[0].CourseName)
