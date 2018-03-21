@@ -15,6 +15,17 @@ $(function() {
         }
     }
     isLogin();
+
+    // 正在直播地址
+    var living = $("#living")
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        url: 'http://' + changeUrl.address + '/Class_Course_api?whereFrom=showInformation',
+        success: function(msg) {
+            living.attr("href", "./live.html?Id=" + msg.data1[0].Id)
+        }
+    })
 })
 
 // 回到顶部
