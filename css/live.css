@@ -22,7 +22,9 @@
     letter-spacing: 1px;
     font-size: 16px;
 }
-
+iframe{
+    border: none;
+}
 @media(max-width:415px) {
     .loading {
         padding-top: 200px;

@@ -309,7 +309,7 @@ $(function() {
                 "Id": Id
             },
             url: 'http://' + changeUrl.address + '/Class_Course_api?whereFrom=Course_GetHtml',
-            success(msg) {
+            success:function(msg) {
                 // console.log(msg)
                 $tab01.html(msg.data[0].Html01)
                 $tab02.html(msg.data[0].Html02)

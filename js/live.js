@@ -82,7 +82,7 @@ $(function() {
                         url: 'http://' + changeUrl.address + '/Class_User_api?whereFrom=getLiveUrl',
                         success: function(msg) {
                             console.log(msg)
-                            obj.attr("data", msg.msg)
+                            obj.attr("src", msg.msg)
                             mobile.attr("href", msg.msg)
                                 // layer.close(loadFlag)
                             loading.fadeOut(1000)

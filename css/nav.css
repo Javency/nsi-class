@@ -34,7 +34,7 @@
 
 .navicon {
     font-size: 28px;
-    vertical-align: text-bottom;
+    vertical-align: middle;
     margin-right: 5px;
 }
 
@@ -69,7 +69,7 @@
     }
 }
 
-@media(max-width:1025px) {
+@media(max-width:1200px) {
     .hotphone {
         display: none !important;
     }

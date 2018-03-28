@@ -145,25 +145,24 @@ $(function() {
         success: function(msg) {
             // console.log(msg.data)
             for (var i = 0; i < msg.data.length; i++) {
-                CourseContainer.append(`
-                        <div class="col-md-3 col-sm-6 mb40">
-                            <div class="CourseContainer">
-                                <a href="./detailClass.html?Id=${msg.data[i].Id}" target="_blank">
-                                    <div class="Course Course-up">
-                                        <img src="${msg.data[i].CoverImage}" alt="">
-                                        <div class="state">${msg.data[i].CourseState}</div>
-                                    </div>
-                                    <div class="Course Course-mid"><img src="${msg.data[i].CoverImage}" alt=""></div>
-                                    <div class="Course Course-down"><img src="${msg.data[i].CoverImage}" alt=""></div>
-                                </a>
-                                <div class="CourseInfo">
-                                    <p class="mtb5 oneline"><span class="CourseName" title="${msg.data[i].CourseName}">${msg.data[i].CourseName}</span></p>
-                                    <p class="mtb5 twoline"><span class="CourseDesc" title="${msg.data[i].CourseDescription}">${msg.data[i].CourseDescription}</span></p>
-                                    <p class="mtb5">开课时间：<span class="CourseTime">${msg.data[i].ClassBegins}</span></p>
-                                </div>
-                            </div>
-                        </div>
-                    `)
+                var courseTemplate='<div class="col-md-3 col-sm-6 mb40">'+
+                '<div class="CourseContainer">'+
+                    '<a href="./detailClass.html?Id='+msg.data[i].Id+'" target="_blank">'+
+                        '<div class="Course Course-up">'+
+                            '<img src="'+msg.data[i].CoverImage+'" alt="">'+
+                            '<div class="state">'+msg.data[i].CourseState+'</div>'+
+                        '</div>'+
+                        '<div class="Course Course-mid"><img src="'+msg.data[i].CoverImage+'" alt=""></div>'+
+                        '<div class="Course Course-down"><img src="'+msg.data[i].CoverImage+'" alt=""></div>'+
+                    '</a>'+
+                    '<div class="CourseInfo">'+
+                        '<p class="mtb5 oneline"><span class="CourseName" title="'+msg.data[i].CourseName+'">'+msg.data[i].CourseName+'</span></p>'+
+                        '<p class="mtb5 twoline"><span class="CourseDesc" title="'+msg.data[i].CourseDescription+'">'+msg.data[i].CourseDescription+'</span></p>'+
+                        '<p class="mtb5">开课时间：<span class="CourseTime">'+msg.data[i].ClassBegins+'</span></p>'+
+                    '</div>'+
+                '</div>'+
+            '</div>'
+                CourseContainer.append(courseTemplate)
             }
             var aState = $(".state")
             for (var i = 0; i < aState.length; i++) {
@@ -268,24 +267,21 @@ $(function() {
             function autoShow(arr) {
                 teacherList.html("")
                 for (var i = 0; i < arr.length; i++) {
-                    teacherList.append(
-                        `
-                        <div class="col-md-3 col-sm-6">
-                            <div class="lecturer mb40">
-                                <div class="teacherBox lecturerBox">
-                                    <div class="teacherHeadPortrait">
-                                        <div class="teacherPic">
-                                            <img src="${msg.data[i].TeacherImage}" alt="">
-                                        </div>
-                                    </div>
-                                    <h4 class="text-center mt20 textShadow lecturerName"><span class="teacherName">${msg.data[i].TeacherName}</span></h4>
-                                    <p class="teacherContent  mt20  multiline multiline3 textShadow lecturerDesc">主讲课程：<span class="majorCourse" title="${msg.data[i].TeacherCourse}">${msg.data[i].TeacherCourse}</span></p>
-                                    <p class="teacherContent  mt20  multiline multiline4 textShadow lecturerDesc lecturerNow"><span class="teacherNow" title="${msg.data[i].TeacherDescription}">${msg.data[i].TeacherDescription}</span></p>
-                                </div>
-                            </div>
-                         </div>
-                        `
-                    )
+                    var teacherTemplate=' <div class="col-md-3 col-sm-6">'+
+                    '<div class="lecturer mb40">'+
+                        '<div class="teacherBox lecturerBox">'+
+                            '<div class="teacherHeadPortrait">'+
+                                '<div class="teacherPic">'+
+                                    '<img src="'+msg.data[i].TeacherImage+'" alt="">'+
+                                '</div>'+
+                            '</div>'+
+                            '<h4 class="text-center mt20 textShadow lecturerName"><span class="teacherName">'+msg.data[i].TeacherName+'</span></h4>'+
+                            '<p class="teacherContent  mt20  multiline multiline3 textShadow lecturerDesc">主讲课程：<span class="majorCourse" title="'+msg.data[i].TeacherCourse+'">'+msg.data[i].TeacherCourse+'</span></p>'+
+                            '<p class="teacherContent  mt20  multiline multiline4 textShadow lecturerDesc lecturerNow"><span class="teacherNow" title="'+msg.data[i].TeacherDescription+'">'+msg.data[i].TeacherDescription+'</span></p>'+
+                        '</div>'+
+                    '</div>'+
+                 '</div>'
+                    teacherList.append(teacherTemplate)
                 }
                 var aBox = $(".lecturer")
                     // console.log(aBox)

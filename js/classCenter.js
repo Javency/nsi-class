@@ -10,25 +10,24 @@ $(function() {
         success: function(msg) {
             console.log(msg.data)
             for (var i = 0; i < msg.data.length; i++) {
-                CourseContainer.append(`
-                        <div class="col-md-3 col-sm-6 mb40">
-                            <div class="CourseContainer">
-                                <a href="javascript:;" target="_">
-                                    <div class="Course Course-up">
-                                        <img src="${msg.data[i].CoverImage}" alt="">
-                                        <div class="state">${msg.data[i].CourseState}</div>
-                                    </div>
-                                    <div class="Course Course-mid"><img src="${msg.data[i].CoverImage}" alt=""></div>
-                                    <div class="Course Course-down"><img src="${msg.data[i].CoverImage}" alt=""></div>
-                                </a>
-                                <div class="CourseInfo">
-                                    <p class="mtb5 oneline"><span class="CourseName">${msg.data[i].CourseName}</span></p>
-                                    <p class="mtb5 twoline"><span class="CourseDesc" title="${msg.data[i].CourseDescription}">${msg.data[i].CourseDescription}</span></p>
-                                    <p class="mtb5">开课时间：<span class="CourseTime">${msg.data[i].ClassBegins}</span></p>
-                                </div>
-                            </div>
-                        </div>
-                    `)
+                var courseTemplate='<div class="col-md-3 col-sm-6 mb40">'+
+                '<div class="CourseContainer">'+
+                    '<a href="./detailClass.html?Id='+msg.data[i].Id+'" target="_blank">'+
+                        '<div class="Course Course-up">'+
+                            '<img src="'+msg.data[i].CoverImage+'" alt="">'+
+                            '<div class="state">'+msg.data[i].CourseState+'</div>'+
+                        '</div>'+
+                        '<div class="Course Course-mid"><img src="'+msg.data[i].CoverImage+'" alt=""></div>'+
+                        '<div class="Course Course-down"><img src="'+msg.data[i].CoverImage+'" alt=""></div>'+
+                    '</a>'+
+                    '<div class="CourseInfo">'+
+                        '<p class="mtb5 oneline"><span class="CourseName" title="'+msg.data[i].CourseName+'">'+msg.data[i].CourseName+'</span></p>'+
+                        '<p class="mtb5 twoline"><span class="CourseDesc" title="'+msg.data[i].CourseDescription+'">'+msg.data[i].CourseDescription+'</span></p>'+
+                        '<p class="mtb5">开课时间：<span class="CourseTime">'+msg.data[i].ClassBegins+'</span></p>'+
+                    '</div>'+
+                '</div>'+
+            '</div>'
+                CourseContainer.append(courseTemplate)
             }
             var aState = $(".state")
             for (var i = 0; i < aState.length; i++) {
