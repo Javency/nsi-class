@@ -81,8 +81,13 @@ $(function() {
                         async: false,
                         url: 'http://' + changeUrl.address + '/Class_User_api?whereFrom=getLiveUrl',
                         success: function(msg) {
-                            console.log(msg)
-                            obj.attr("src", msg.msg)
+                            // console.log(msg)
+                            var explorer =navigator.userAgent
+                            if(explorer.indexOf("Safari") >= 0){
+                                window.location.href=msg.msg
+                            }else{
+                                obj.attr("src", msg.msg)
+                            }
                             mobile.attr("href", msg.msg)
                                 // layer.close(loadFlag)
                             loading.fadeOut(1000)
