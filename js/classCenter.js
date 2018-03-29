@@ -51,11 +51,11 @@ $(function() {
                 }
             }
 
-            var aCourse = $("#CourseContainer").children()
-            aCourse.on("click", function() {
-                var courseId = msg.data[$(this).index()].Id
-                window.location = "./detailClass.html?Id=" + courseId
-            })
+            // var aCourse = $("#CourseContainer").children()
+            // aCourse.on("click", function() {
+            //     var courseId = msg.data[$(this).index()].Id
+            //     window.location = "./detailClass.html?Id=" + courseId
+            // })
 
         },
         error: function(msg) {
