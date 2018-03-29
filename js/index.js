@@ -169,14 +169,14 @@ $(function() {
                 switch (aState.eq(i).text()) {
                     case "查看回放":
                         aState.eq(i).addClass("viewBack")
-                        aState.eq(i).parent().parent().click(function() {
-                            _this = $(this)
+                        // aState.eq(i).parent().parent().click(function() {
+                            // _this = $(this)
                                 // layer.msg('课程已结束，请联系该课程讲师！', {
                                 //     time: 1000
                                 // })
                                 // return false;
-                            window.location.href = './detailClass.html?Id=' + msg.data[i].Id
-                        })
+                            // window.location.href = './detailClass.html?Id=' + msg.data[i].Id
+                        // })
                         break;
                     case "正在直播":
                         aState.eq(i).addClass("new animated tada infinite")
