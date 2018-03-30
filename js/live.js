@@ -82,8 +82,9 @@ $(function() {
                         url: 'http://' + changeUrl.address + '/Class_User_api?whereFrom=getLiveUrl',
                         success: function(msg) {
                             // console.log(msg)
-                            var explorer =navigator.userAgent
-                            if(explorer.indexOf("Safari") >= 0){
+                            var vendors=navigator.vendor
+                        //    console.log(vendors)
+                            if(vendors.indexOf("Apple Computer, Inc.")>=0){
                                 window.location.href=msg.msg
                             }else{
                                 obj.attr("src", msg.msg)
