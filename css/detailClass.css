@@ -33,6 +33,7 @@
 
 .lesson_content>p {
     height: 34px;
+    max-height: 34px;
     line-height: 45px;
     color: rgba(7, 17, 27, 0.7);
     font-weight: 700;
