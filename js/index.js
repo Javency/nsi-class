@@ -207,9 +207,9 @@ $(function() {
             // 移动端样式
             // browserRedirect()
             if (IsMobile) {
-                $('.Course-up').addClass('col-xs-6')
+                $('.Course-up').addClass('col-xs-5')
             } else {
-                $('.Course-up').removeClass('col-xs-6')
+                $('.Course-up').removeClass('col-xs-5')
             }
         },
         error: function(msg) {

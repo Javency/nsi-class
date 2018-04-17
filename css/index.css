@@ -693,7 +693,9 @@ i.shop {
         right: 8px;
     }
     .CourseInfo {
-        padding: 7px 8px;
+        padding: 0;
+        position: relative;
+        top: -4px;
     }
     .mtb5 {
         margin: 0;
