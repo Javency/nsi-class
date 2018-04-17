@@ -29,9 +29,11 @@
         padding-right: 0;
         padding-left: 0
     }
-    .mt5{
+    
+    .mt5 {
         margin-top: 5px;
     }
+    
     .mt10 {
         margin-top: 10px;
     }
@@ -101,7 +103,7 @@
     }
     
     .pt66 {
-        padding-top: 66px;
+        padding-top: 56px;
     }
     
     .ptb30 {

@@ -6,12 +6,12 @@ $(function() {
         if ($.cookie('username') === undefined) {
             $login.text("登录 / 注册")
             $login.parent().attr("href", "./login.html")
-            personalClass.css("display", "none")
-            exit.css("display", "none")
+            personalClass.parent().css("display", "none")
+            exit.parent().css("display", "none")
         } else {
             $login.text($.cookie('User_TureName'))
             $login.parent().attr("href", "./personalCenter.html")
-            exit.css("display", "inline-block")
+            exit.parent().css("display", "inline-block")
         }
     }
     isLogin();

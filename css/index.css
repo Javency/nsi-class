@@ -3,6 +3,7 @@
     transition: all 1s;
 }
 
+
 /* playVideo */
 
 .playVideo {
@@ -659,9 +660,8 @@ i.shop {
         display: none;
     }
     .CourseContainer {
-        margin-bottom: 40px;
+        margin-bottom: 20px;
         padding-bottom: 5px;
-        border-bottom: 1px solid #c9d6de;
     }
     .playVideoTeacherBox-teacherHeadPortrait {
         padding-top: 30px;
@@ -673,6 +673,52 @@ i.shop {
     .types-title::before {
         display: none;
     }
+    /* 优化移动端展示 */
+    .banner {
+        display: none;
+    }
+    .Course-mid,
+    .Course-down {
+        display: none;
+    }
+    .Course-up {
+        top: 0;
+        padding-left: 0px;
+    }
+    .state {
+        font-size: 12px;
+        padding: 0px 5px;
+        top: -8px;
+        left: auto;
+        right: 8px;
+    }
+    .CourseInfo {
+        padding: 7px 8px;
+    }
+    .mtb5 {
+        margin: 0;
+    }
+    .Course {
+        box-shadow: none;
+    }
+    .Course:hover {
+        box-shadow: none;
+    }
+    .CourseContainer:hover .Course-up {
+        top: auto;
+    }
+    .CourseDesc {
+        line-height: 22px;
+    }
+    #CourseContainer>.mb40 {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width:376px) {
+    .CourseInfo {
+        padding: 3px 8px;
+    }
 }
 
 @media (max-width:321px) {
@@ -682,6 +728,12 @@ i.shop {
     .teacherPic {
         width: 85px;
         height: 85px;
+    }
+    .CourseInfo {
+        padding: 0 8px;
+    }
+    .mtb5 {
+        font-size: 12px;
     }
 }
 
@@ -693,7 +745,7 @@ i.shop {
 
 @media (max-width:1200px) and (min-width:992px) {
     .toChangeMultiline {
-        -webkit-line-clamp:4;
+        -webkit-line-clamp: 4;
         max-height: 98px;
     }
     .teacherDesc {
