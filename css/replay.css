@@ -1,0 +1,29 @@
+.text-center {
+    text-align: center;
+}
+
+.ellipsis {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.courseInfo {
+    background: #FFF;
+}
+
+.Pd150 {
+    padding-bottom: 30px;
+}
+
+.courseName {
+    color: #99a1a6;
+    font-size: 24px;
+    padding: 0 0 15px;
+}
+
+@media screen and (max-width:769px) {
+    .video {
+        height: 250px;
+    }
+}

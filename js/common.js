@@ -24,6 +24,7 @@ $(function() {
         url: 'http://' + changeUrl.address + '/Class_Course_api?whereFrom=showInformation',
         success: function(msg) {
             living.attr("href", "./live.html?Id=" + msg.data1[0].Id)
+            $("#courseName").text(msg.data1[0].CourseName + "[回放]")
         }
     })
 })

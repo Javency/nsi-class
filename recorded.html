@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>正在直播-新学说国际教育学院</title>
+    <link rel="shortcut icon" href="./images/favorite.ico" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_554630_3hucyqvpg4hiwwmi.css">
+    <link rel="stylesheet" href="./layer/theme/default/layer.css">
+    <link rel="stylesheet" href="./css/common.css?v=02281531">
+    <link rel="stylesheet" href="./css/nav.css?v=04171636">
+    <link rel="stylesheet" href="./css/footer.css?v=02281531">
+    <link rel="stylesheet" href="./css/live.css?v=03282228">
+    <link rel="stylesheet" href="./css/video-js.min.css">
+    <link rel="stylesheet" href="./css/replay.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <span id="nsdClass-live"></span>
+    <!-- 顶部 -->
+    <header class="navbar navbar-default navbar-demo navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                <a href="./index.html" class="navbar-brand">
+                    <img src="https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/logo000.png" alt="">
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="./index.html">首页</a></li>
+                    <li><a id="living" href="">正在直播</a></li>
+                    <li><a href="./classCenter.html">课程中心</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hotphone"><a href="javascript:;"><span class="iconfont icon-dianhua hottel"></span>热线电话：010-52468286</a></li>
+                    <li><a href="./login.html"><span class="iconfont icon-gerenzhongxin navicon"></span><span id="login">登录 / 注册</span></a></li>
+                    <li><a href="./personalCenter.html" id="personalClass" class="personalClass">个人中心</a></li>
+                    <li><a href="javascript:;" id="exit" class="exit">退出</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <!-- 顶部END -->
+    <div style="width: 100%;" class="pt66">
+        <img src="./images/onlive-banner.jpg" alt="人力资源">
+    </div>
+    <div class="bg-wrap mobile">
+        <div class="mobile">
+            <div class="mobile">
+                <div class="col-lg-12 col-md-12 col-sm-12 mobile plr0">
+                    <div class="courseInfo">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p id="courseName" class="ellipsis courseName"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <main class="container" style="margin-top:30px;margin-bottom:30px">
+                        <div class="row">
+                            <!-- <div class="col-md1" style="color:#000000;">111</div>   -->
+                            <div class="col-md-12" id="videoWidth" style="height:600px">
+                                <!-- <video id="my-video" class="video-js vjs-big-play-centered" controls="true" controlslist="nodownload" preload="auto" width="400" height="500" poster="http://data.xinxueshuo.cn/upImage/nsi-class/course-detail/2018-03-16/RwgiWhSd.png" data-setup="{}">
+                                    <source id="sourceVideo" src="" type="video/mp4">
+                                  </video> -->
+                            </div>
+                        </div>
+                    </main>
+                </div>
+            </div>
+            <p class="Pd150 mt15">提示：暂不支持多设备同时观看，如需在其他设备观看 ，请先注销。<button class="btn btn-xs btn-danger" id="quit">注销</button></p>
+        </div>
+    </div>
+
+    <!-- footer -->
+    <div class="bgfff ">
+        <div class="container footer">
+            <div class="row">
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                    <div class="footer-link">
+                        <a href="./about.html">关于我们</a>
+                        <a href="./about.html?about=rules">用户协议</a>
+                        <a href="./about.html?about=connect">联系我们</a>
+                        <a href="./about.html?about=feedback">意见反馈</a>
+                    </div>
+                    <p class="footer-copyright">©&nbsp;2018&nbsp;xinxueshuo.cn&nbsp;京ICP备&nbsp;16031987号-1</p>
+                </div>
+                <div class="col-md-3 col-sm-3 col-xs-12 text-center">
+                    <div class="theThreePartLink">
+                        <p class="text-center">
+                            <a href="javascript:;" class="weChat iconfont icon-unie655" title="微信">
+                                <i class="weChat-pic"></i>
+                            </a>
+                        </p>
+                        <p class="text-center weChat-desc">官方公众号</p>
+                    </div>
+                    <div class="theThreePartLink">
+                        <p class="text-center">
+                            <a href="javascript:;" class="weChat iconfont icon-gouwu" title="微店">
+                                <i class="weChat-pic shop"></i>
+                            </a>
+                        </p>
+                        <p class="text-center weChat-desc">官方微店</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer END-->
+    <!-- backtoTop -->
+    <div class="backtoTop animated " id="backtoTop">
+        <a href="javascript:;" class="toTop">
+            <span class="iconfont icon-icon3"></span>
+        </a>
+    </div>
+    <!-- backtoTop END-->
+
+    <!-- 加载层 -->
+    <!-- <div id="loading" class="loading">
+        <img src="./images/loading.gif" alt="">
+        <p class="text-center">加载中</p>
+    </div> -->
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="./js/jquery.cookie.js"></script>
+    <script src="./js/config.js"></script>
+    <script src="./layer/layer.js"></script>
+    <script src="./js/common.js?v=03212216"></script>
+    <script src="./js/video.min.js"></script>
+    <script src="./js/ckplayer/ckplayer.min.js"></script>
+    <script src="./js/recorded.js?v=03301123"></script>
+    <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script src="./js/WechatShare.js"></script>
+    <!-- 百度统计 -->
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?39a5da71be8012c3d8b0ceccc0797443";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <!-- <script type="text/javascript">
+        var myPlayer = videojs('my-video');
+        videojs("my-video").ready(function() {
+            var myPlayer = this;
+            var videoWidth = $('#videoWidth').width()
+            myPlayer.width(videoWidth);
+        });
+    </script> -->
+    <script>
+        var videoWidth = $('#videoWidth').width()
+        console.log(videoWidth)
+        $('#my-video').attr('width', videoWidth)
+    </script>
+</body>
+
+</html>
