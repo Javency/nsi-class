@@ -231,6 +231,12 @@ $(function() {
                                         layer.alert("该课程已结束，请联系助教获取回放链接", { icon: 0 })
                                     })
                                     break;
+                                case "正在回放":
+                                    $watchNow.html('<span class = "iconfont icon-bofang1"></span>立即观看').addClass("allow").click(function() {
+                                        // layer.alert("该课程已结束，请联系助教获取回放链接", { icon: 0 })
+                                        window.location.href = "./recorded.html?Id=" + Id
+                                    })
+                                    break;
                                 default:
                                     $watchNow.html('<span class = "iconfont icon-bofang1"></span>立即观看').addClass("allow").click(function() {
                                         window.location.href = "./live.html?Id=" + Id
@@ -309,7 +315,7 @@ $(function() {
                 "Id": Id
             },
             url: 'http://' + changeUrl.address + '/Class_Course_api?whereFrom=Course_GetHtml',
-            success:function(msg) {
+            success: function(msg) {
                 // console.log(msg)
                 $tab01.html(msg.data[0].Html01)
                 $tab02.html(msg.data[0].Html02)

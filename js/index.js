@@ -201,6 +201,19 @@ $(function() {
                             return false;
                         })
                         break;
+
+                    case "正在回放":
+                        aState.eq(i).addClass("viewBack animated")
+                        browserRedirect()
+                        if (IsMobile) {
+                            $('.CourseInfo').click(function() {
+                                if ($(this).siblings().children('.Course-up').children().hasClass('new')) {
+                                    var _href = $(this).siblings().attr('href')
+                                    window.open(_href)
+                                }
+                            })
+                        }
+                        break;
                 }
             }
 
@@ -285,7 +298,7 @@ $(function() {
             function autoShow(arr) {
                 teacherList.html("")
                 for (var i = 0; i < arr.length; i++) {
-                    var teacherTemplate = ' <div class="col-md-3 col-sm-6">' +
+                    var teacherTemplate = ' <div class="col-md-3 col-sm-6 col-xs-12">' +
                         '<div class="lecturer mb40">' +
                         '<div class="teacherBox lecturerBox">' +
                         '<div class="teacherHeadPortrait">' +

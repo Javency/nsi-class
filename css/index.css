@@ -291,7 +291,7 @@
 
 .CourseDesc {
     max-height: 48px;
-    font-size: 12px;
+    font-size: 13px;
     color: #93999F;
     letter-spacing: -0.1px;
     line-height: 24px;
@@ -304,7 +304,7 @@
 .Course img {
     width: 100%;
     transition: all .5s;
-    border-radius: 8px;
+    border-radius: 5px;
 }
 
 .CourseContainer {
@@ -714,6 +714,31 @@ i.shop {
     }
     #CourseContainer>.mb40 {
         margin-bottom: 20px;
+    }
+    /* 标题 */
+    .title_Box {
+        height: 120px;
+        /* line-height: 150px; */
+        background: url("../images/title_bg.jpg") no-repeat;
+        background-size: 100%;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        padding: 0 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .title_Box>h3,
+    .title_Box>h3>small {
+        color: #FFF;
+        margin-bottom: 0;
+    }
+    .ptb50lr15 {
+        padding: 15px;
+    }
+    /* 教师列表 */
+    .lecturerBg>.ptb50lr15 {
+        padding: 30px 15px;
     }
 }
 
