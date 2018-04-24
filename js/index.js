@@ -193,7 +193,7 @@ $(function() {
                         break;
                     case "备课中":
                         aState.eq(i).addClass("makepreparations")
-                        aState.eq(i).parent().parent().click(function() {
+                        aState.eq(i).parent().parent().parent().click(function() {
                             _this = $(this)
                             layer.msg('课程备课中，敬请期待！', {
                                 time: 1000
@@ -233,8 +233,8 @@ $(function() {
 
 // 大课程备课中
 $(function() {
-    var classStatusPrepare = $(".classStatus-prepare")
-    var aLi = classStatusPrepare.parent().parent().find("a")
+    var classStatusPrepare = $(".classStatus-prepare").parent().parent().parent().find(".CourseContainer")
+    var aLi = classStatusPrepare
     aLi.click(function() {
         layer.msg('课程备课中，敬请期待！', {
             time: 1000
