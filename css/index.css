@@ -630,7 +630,7 @@ i.shop {
 
 @media (max-width:415px) {
     .teacherDesc {
-        min-height: 190px;
+        min-height: 175px;
     }
     .playVideo_title {
         line-height: 40px;
@@ -739,6 +739,28 @@ i.shop {
     /* 教师列表 */
     .lecturerBg>.ptb50lr15 {
         padding: 30px 15px;
+    }
+    .lecturer {
+        margin-bottom: 0 !important;
+    }
+    .lecturerName {
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+    .teacherContent:first-of-type {
+        display: none;
+    }
+    #teacherList .teacherHeadPortrait {
+        padding-left: 0;
+    }
+    .teacherContent:last-of-type {
+        margin-top: 10px !important;
+    }
+    .lecturerBox {
+        padding: 20px 15px;
+    }
+    .lecturerTitle {
+        margin-bottom: 10px;
     }
 }
 
