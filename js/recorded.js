@@ -94,6 +94,7 @@ $(function() {
                             var videoWidth = $('#videoWidth').width()
                             console.log(videoWidth)
                             $('#video').css('width', videoWidth)
+                            loading.fadeOut(1000)
                         },
                         error: function() {
                             console.log("error")
