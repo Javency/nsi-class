@@ -191,6 +191,18 @@ $(function() {
                             })
                         }
                         break;
+                    case "正在直播":
+                        aState.eq(i).addClass("new animated tada infinite")
+                        browserRedirect()
+                        if (IsMobile) {
+                            $('.CourseInfo').click(function() {
+                                if ($(this).siblings().children('.Course-up').children().hasClass('new')) {
+                                    var _href = $(this).siblings().attr('href')
+                                    window.open(_href)
+                                }
+                            })
+                        }
+                        break;
                     case "备课中":
                         aState.eq(i).addClass("makepreparations")
                         aState.eq(i).parent().parent().parent().click(function() {
