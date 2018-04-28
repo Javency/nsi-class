@@ -1,0 +1,17 @@
+.recording {
+    font-size: 15px;
+    color: #FFF;
+    display: inline-block;
+    padding: 1px 5px;
+    position: relative;
+    border: 1px solid;
+    letter-spacing: 0px;
+    /* transform: rotateZ(35deg); */
+    /* right: 210px; */
+    top: -3px;
+    background-color: #2990f0;
+    z-index: 99;
+    border-radius: 4px;
+    margin-left: 10px;
+    font-weight: 700;
+}
