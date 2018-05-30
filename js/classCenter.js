@@ -76,6 +76,18 @@ $(function() {
                             })
                         }
                         break;
+                    case "直播回放":
+                        aState.eq(i).addClass("new animated tada infinite")
+                        browserRedirect()
+                        if (IsMobile) {
+                            $('.CourseInfo').click(function() {
+                                if ($(this).siblings().children('.Course-up').children().hasClass('new')) {
+                                    var _href = $(this).siblings().attr('href')
+                                    window.open(_href)
+                                }
+                            })
+                        }
+                        break;
                     case "备课中":
                         aState.eq(i).addClass("makepreparations")
                         aState.eq(i).parent().parent().click(function() {
@@ -85,6 +97,18 @@ $(function() {
                             })
                             return false;
                         })
+                        break;
+                    case "正在回放":
+                        aState.eq(i).addClass("viewBack animated")
+                        browserRedirect()
+                        if (IsMobile) {
+                            $('.CourseInfo').click(function() {
+                                if ($(this).siblings().children('.Course-up').children().hasClass('new')) {
+                                    var _href = $(this).siblings().attr('href')
+                                    window.open(_href)
+                                }
+                            })
+                        }
                         break;
                 }
             }

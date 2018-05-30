@@ -56,9 +56,15 @@
 
 @media(max-width:767px) {
     .navbar-nav>li {
-        height: 50px;
-        line-height: 50px;
+        height: 43px;
+        line-height: 43px;
         padding-left: 0;
+    }
+    .navbar-right {
+        margin-top: 0;
+    }
+    .navbar-nav:first-of-type {
+        margin-bottom: 0;
     }
 }
 
