@@ -1,0 +1,31 @@
+.activity-nav {
+    box-shadow: 0 2px 8px 0 rgba(7, 17, 27, .06) !important;
+}
+
+.gridContainer {
+    padding: 10px;
+    border-radius: 4px;
+    color: #FFF;
+}
+
+.title-pic>span {
+    font-size: 30px;
+}
+
+.gridContainer-apply {
+    min-height: 87px;
+}
+
+.title-apply {
+    margin-top: 19px;
+}
+
+.toapply {
+    position: absolute;
+    right: 15px;
+    top: 5px;
+    padding: 10px 20px;
+    background-color: #f12020;
+    color: #FFF;
+    border-radius: 4px;
+}

@@ -1,0 +1,17 @@
+.content {
+    padding-bottom: 15px;
+}
+
+.card-body {
+    padding: 0;
+}
+
+.card {
+    border: none;
+}
+
+@media (max-width:415px) {
+    .activityPic>img {
+        height: 150px;
+    }
+}

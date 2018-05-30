@@ -189,9 +189,10 @@ tr:hover {
     box-shadow: 4px 0px 5px #ddd;
 }
 
-.cloneTitle>th {
+
+/* .cloneTitle>th {
     width: 100% !important;
-}
+} */
 
 @media(max-width:767px) {
     .activityDesc {

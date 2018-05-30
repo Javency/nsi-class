@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>新学说-国际学校人力资源研讨会 暨新学说国际教育学院|人力资源课程--毕业典礼 报名征集</title>
+    <link href="https://cdn.bootcss.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_551799_eo58xwv2o4siqkt9.css">
+    <link rel="stylesheet" href="./css/clientWrite.css">
+    <link rel="stylesheet" href="./css/commencement.css">
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="content container">
+            <div class="activeTitle">
+                <div class="top">
+                    <span class="iconfont icon-huodong1 activeTitle_logo"></span>
+                    <span class="activeTitle_desc">毕业典礼 报名征集</span>
+                </div>
+                <div class="row activityPic" id="activityPic"><img src="./image/banner01.png" alt=""></div>
+            </div>
+            <form action="" id="content">
+                <div class="form-group">
+                    <div class="row">
+                        <h4 class="col-md-12 text-center mt15" id="activityTitle">国际学校人力资源研讨会--活动演讲嘉宾报名</h4>
+                        <h4 class="col-md-12 text-center mt0"><small id="activityDescription"></small></h4>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="row">
+                        <label for="Title_input1" class="Title col-md-12 control-label" id="Title3">1.* 学校（公司）名称</label>
+                        <div class="col-md-12">
+                            <input type="text" id="Title_input1" class="Title_input">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <label for="Title_input2" class="Title col-md-12 control-label" id="Title4">2.* 您的职位</label>
+                        <div class="col-md-12">
+                            <input type="text" id="Title_input2" class="Title_input">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <label for="Title_input3" class="Title col-md-12 control-label" id="Title5">3.* 您的姓名</label>
+                        <div class="col-md-12">
+                            <input type="text" id="Title_input3" class="Title_input">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <label for="Title_input4" class="Title col-md-12 control-label" id="Title6">4.* 手机号</label>
+                        <div class="col-md-12">
+                            <input type="text" id="Title_input4" class="Title_input">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <label for="Title_input5" class="Title col-md-12 control-label" id="Title7">5.微信号</label>
+                        <div class="col-md-12">
+                            <input type="text" id="Title_input5" class="Title_input">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group subBox">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <input type="button" value="立即提交" id="sub" class="btn btn-warning btn-block">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="./js/config.js"></script>
+<script>
+    $(function() {
+        var sub = $("#sub")
+
+        sub.click(function() {
+            var inputVal1 = $("#Title_input1").val(),
+                inputVal2 = $("#Title_input2").val(),
+                inputVal3 = $("#Title_input3").val(),
+                inputVal4 = $("#Title_input4").val(),
+                inputVal5 = $("#Title_input5").val()
+
+            if (inputVal1 && inputVal2 && inputVal3 && inputVal4) {
+                var data = {
+                    'Title1': $("#activityTitle").text(),
+                    'Title2': $("#activityDescription").text(),
+                    'Title3': $("#Title3").text(),
+                    'Title4': $("#Title4").text(),
+                    'Title5': $("#Title5").text(),
+                    'Title6': $("#Title6").text(),
+                    'Title7': $("#Title7").text(),
+                    'Content3': inputVal1,
+                    'Content4': inputVal2,
+                    'Content5': inputVal3,
+                    'Content6': inputVal4,
+                    'Content7': inputVal5,
+                }
+
+                $.ajax({
+                    type: "post",
+                    data: data,
+                    url: 'http://' + changeUrl.address + '/Class_activity?whereFrom=insert',
+                    success: function(msg) {
+                        alert("报名成功!我们将会有工作人员联系您")
+                        location.reload()
+                    }
+                })
+            } else {
+                alert("请填写必填项")
+            }
+
+        })
+
+
+    })
+</script>

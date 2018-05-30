@@ -8,6 +8,22 @@ body {
     margin-top: 0;
 }
 
+.mt5 {
+    margin-top: 5px;
+}
+
+.mt15 {
+    margin-top: 15px;
+}
+
+.mb15 {
+    margin-bottom: 15px;
+}
+
+.line1poi5 {
+    line-height: 1.5
+}
+
 img {
     max-width: 100%;
     height: auto;
@@ -70,6 +86,17 @@ form {
     border-radius: 4px;
     font-size: 16px;
     padding-left: 15px;
+}
+
+.Title_area {
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    border: 1px solid rgb(199, 196, 196);
+    border-radius: 4px;
+    font-size: 16px;
+    padding-left: 15px;
+    min-height: 115px;
 }
 
 .Deadline {

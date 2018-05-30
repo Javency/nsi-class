@@ -6,7 +6,8 @@ $(function() {
 
 $(function() {
     var activityList = $("#activityListDesc_container"),
-        activeTitleList = $("#activeTitle")
+        activeTitleList = $("#activeTitle"),
+        activeTitle = $("#activeTitle")
     $.ajax({
         type: "post",
         dataType: "json",
@@ -79,6 +80,9 @@ $(function() {
                                 for (var i = 0; i < msg.data.length; i++) {
                                     cloneTbody.append('<tr><td>' + msg.data[i].Content3 + '</td></tr>')
                                 }
+                                cloneTitle.children("th").width(activeTitle.children("th").first().width())
+                                cloneTbody.children("tr").width(activeTitle.children("th").first().width())
+                                cloneTbody.find("td").width(activeTitle.children("th").first().width())
                             },
                             error: function() {
                                 console.log("error")
@@ -118,7 +122,10 @@ $(function() {
                         cloneTbody.append('<tr><td>' + msg.data[i].Content3 + '</td></tr>')
                     }
                     // 标题等宽
-                    cloneTitle.width(cloneTbody.width())
+                    // cloneTitle.width(cloneTbody.width())
+                    cloneTitle.children("th").width(activeTitle.children("th").first().width())
+                    cloneTbody.children("tr").width(activeTitle.children("th").first().width())
+                    cloneTbody.find("td").width(activeTitle.children("th").first().width())
                 },
                 error: function(msg) {
                     console.log("error")
