@@ -21,7 +21,7 @@
                     <span class="iconfont icon-huodong1 activeTitle_logo"></span>
                     <span class="activeTitle_desc">毕业典礼 报名征集</span>
                 </div>
-                <div class="row activityPic" id="activityPic"><img src="./image/banner01.png" alt=""></div>
+                <div class="row activityPic" id="activityPic"><img src="https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/activity/2018HRC/banner_pc01.jpg" alt=""></div>
             </div>
             <form action="" id="content">
                 <div class="form-group">
@@ -84,20 +84,28 @@
                         <label class="Title col-md-12 control-label" id="Title9">7.* 参会代表类型（本次会议不包含住宿）</label>
                         <div class="col-md-12">
                             <div class="custom-control custom-radio selectType">
-                                <input type="radio" id="customRadio1" name="meetingType" class="custom-control-input" value="会议（不包含住宿）早鸟价998元/人">
-                                <label class="custom-control-label" for="customRadio1">会议（不包含住宿）早鸟价998元/人</label>
+                                <input type="radio" id="customRadio5" name="meetingType" class="custom-control-input" value="『六一特惠』研讨会 2994元">
+                                <label class="custom-control-label" for="customRadio5">『六一特惠』研讨会 2994元</label>
                             </div>
-                            <div class="custom-control custom-radio selectType">
-                                <input type="radio" id="customRadio2" name="meetingType" class="custom-control-input" value="会议（不包含住宿）标准价1398元/人">
-                                <label class="custom-control-label" for="customRadio2">会议（不包含住宿）标准价1398元/人</label>
+                            <div class="custom-control custom-radio selectType mt15">
+                                <input type="radio" id="customRadio6" name="meetingType" class="custom-control-input" value="『六一特惠』研讨会+拓展 3894元">
+                                <label class="custom-control-label" for="customRadio6">『六一特惠』研讨会+拓展 3894元</label>
                             </div>
-                            <div class="custom-control custom-radio selectType">
-                                <input type="radio" id="customRadio3" name="meetingType" class="custom-control-input" value="会议+拓展（不包含住宿）早鸟价1298元/人">
-                                <label class="custom-control-label" for="customRadio3">会议+拓展（不包含住宿）早鸟价1298元/人</label>
+                            <div class="custom-control custom-radio selectType mt15">
+                                <input type="radio" id="customRadio1" name="meetingType" class="custom-control-input" value="人力资源研讨会 早鸟价998元">
+                                <label class="custom-control-label" for="customRadio1">人力资源研讨会 早鸟价998元</label>
                             </div>
-                            <div class="custom-control custom-radio selectType">
-                                <input type="radio" id="customRadio4" name="meetingType" class="custom-control-input" value="会议+拓展（不包含住宿）标准价1698元/人">
-                                <label class="custom-control-label" for="customRadio4">会议+拓展（不包含住宿）标准价1698元/人</label>
+                            <div class="custom-control custom-radio selectType mt15">
+                                <input type="radio" id="customRadio3" name="meetingType" class="custom-control-input" value="人力资源研讨会+拓展 早鸟价1298元">
+                                <label class="custom-control-label" for="customRadio3">人力资源研讨会+拓展 早鸟价1298元</label>
+                            </div>
+                            <div class="custom-control custom-radio selectType mt15">
+                                <input type="radio" id="customRadio2" name="meetingType" class="custom-control-input" value="人力资源研讨会 标准价1398元">
+                                <label class="custom-control-label" for="customRadio2">人力资源研讨会 标准价1398元</label>
+                            </div>
+                            <div class="custom-control custom-radio selectType mt15">
+                                <input type="radio" id="customRadio4" name="meetingType" class="custom-control-input" value="人力资源研讨会+拓展 标准价1698元">
+                                <label class="custom-control-label" for="customRadio4">人力资源研讨会+拓展 标准价1698元</label>
                             </div>
                         </div>
                     </div>
@@ -176,9 +184,10 @@
                     url: 'http://' + changeUrl.address + '/Class_activity?whereFrom=insert',
                     success: function(msg) {
                         if (is_weixn()) {
-                            window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx37e5ddff7dc5282e&redirect_uri=http%3a%2f%2fdata.xinxueshuo.cn%2fnsi-class%2fadmin%2factivity%2fcommencement%2fpages%2fpayPage.html&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect"
+                            window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx37e5ddff7dc5282e&redirect_uri=http%3a%2f%2fdata.xinxueshuo.cn%2fnsi-class%2fadmin%2factivity%2fmeeting%2fpages%2fpayPage.html&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect"
                         } else {
-                            location.reload()
+                            alert("报名成功")
+                            location.href = "./meeting/metM.html"
                         }
                     }
                 })

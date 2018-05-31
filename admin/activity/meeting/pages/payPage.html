@@ -39,6 +39,7 @@
             border-width: 2px;
             border-style: solid;
             border-color: transparent;
+            overflow: hidden;
         }
         
         .pay-info {
@@ -77,6 +78,27 @@
         .mb0 {
             margin-bottom: 0;
         }
+        
+        .pay-discounts {
+            font-weight: 700;
+            color: #dc3545;
+        }
+        
+        .pay-discounts01 {
+            font-weight: 700;
+            background-color: #dc3545;
+            padding: 1px 10px;
+            color: #FFF;
+            position: absolute;
+            transform: rotate(45deg);
+            width: 100px;
+            text-align: center;
+            right: -25px;
+            top: 14px;
+            letter-spacing: 1px;
+            font-size: 13px;
+            box-shadow: 0 0 10px #ccc;
+        }
     </style>
 </head>
 
@@ -85,7 +107,7 @@
         <div class="form-group">
             <div class="row">
                 <div class="col-md-12 plpr0">
-                    <h5 class="text-center pay-company">确认购买<a href="../conventionM.html" class="pay-cancle">取消</a></h5>
+                    <h5 class="text-center pay-company">确认购买<a href="../metM.html" class="pay-cancle">取消</a></h5>
                 </div>
                 <div class="col-md-12">
                     <h5 class="pay-title text-center">请选择参会类型</h5>
@@ -95,6 +117,14 @@
                         <div class="alert alert-warning text-center" role="alert">
                             <p><strong>早鸟价</strong>报名截止日期为<strong>6月9日</strong></p>
                             <p class="mb0"><strong>标准价</strong>报名截止日期为<strong>7月5日</strong></p>
+                        </div>
+                        <div class="custom-control custom-radio selectType pay-goods">
+                            <input type="radio" id="customRadio5" name="meetingType" class="custom-control-input" value="2994">
+                            <label class="custom-control-label pay-info" for="customRadio5">『六一特惠』研讨会 <span class="pay-price">2994元</span>-<span class="pay-discounts">4张票</span><span class="pay-discounts01">买三赠一</span></label>
+                        </div>
+                        <div class="custom-control custom-radio selectType pay-goods">
+                            <input type="radio" id="customRadio6" name="meetingType" class="custom-control-input" value="3894">
+                            <label class="custom-control-label pay-info" for="customRadio6">『六一特惠』研讨会+拓展 <span class="pay-price">3894元</span>-<span class="pay-discounts">4张票</span><span class="pay-discounts01">买三赠一</span></label>
                         </div>
                         <div class="custom-control custom-radio selectType pay-goods">
                             <input type="radio" id="customRadio1" name="meetingType" class="custom-control-input" value="998">
@@ -130,7 +160,7 @@
 <script>
     var sub = $("#sub"),
         attach = $.cookie('attach')
-    console.log("attach:", attach);
+        // console.log("attach:", attach);
 
     //获取url地址问号后面部分
     function getQueryStringArgs() {
@@ -159,6 +189,26 @@
         code = decodeURIComponent(args['code']),
         attach = decodeURIComponent(args['attach'])
 
+    //获取时间
+    Date.prototype.Format = function(fmt) { // author: meizz
+        var o = {
+            "M+": this.getMonth() + 1, // 月份
+            "d+": this.getDate(), // 日
+            "h+": this.getHours(), // 小时
+            "m+": this.getMinutes(), // 分
+            "s+": this.getSeconds(), // 秒
+            "q+": Math.floor((this.getMonth() + 3) / 3), // 季度
+            "S": this.getMilliseconds() // 毫秒
+        };
+        if (/(y+)/.test(fmt))
+            fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+        for (var k in o)
+            if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+        return fmt;
+    }
+    var nowTime = new Date().Format("yyyy-MM-dd hh:mm:ss")
+    console.log(nowTime)
+
     $.ajax({
         type: 'post',
         data: {
@@ -172,7 +222,7 @@
                     type: 'get',
                     url: 'http://' + changeUrl.address + '/wxPay/pay.do',
                     data: {
-                        "attach": "20180530",
+                        "attach": nowTime,
                         "openid": openid,
                         "body": $('input[name="meetingType"]:checked').siblings().text(),
                         "total_fee": $('input[name="meetingType"]:checked').val()
@@ -199,7 +249,7 @@
                                 function(res) {
                                     if (res.err_msg == "get_brand_wcpay_request:ok") {
                                         alert("支付成功")
-                                        location.href = "../conventionM.html"
+                                        location.href = "../metM.html"
                                     } // 使用以上方式判断前端返回,微信团队郑重提示：res.err_msg将在用户支付成功后返回    ok，但并不保证它绝对可靠。 
                                 }
                             );

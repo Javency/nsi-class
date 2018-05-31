@@ -8,7 +8,7 @@
 }
 
 .bg01 {
-    background: url("../img/banner_pc.jpg") no-repeat;
+    background: url("https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/activity/2018HRC/banner_pc.jpg") no-repeat;
     background-size: cover;
     background-position: center;
 }
@@ -19,7 +19,7 @@
 }
 
 .bg03 {
-    background: url("../img/eliteTbg.jpg") center;
+    background: url("https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/activity/2018HRC/eliteTbg.jpg") center;
     background-size: cover
 }
 
@@ -165,7 +165,7 @@
 
 .bg04 {
     min-height: 700px;
-    background-image: url("../img/map_PC.png");
+    background-image: url("https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/activity/2018HRC/map_PC.jpg");
     background-position: center;
     background-size: cover;
     position: relative;
@@ -187,9 +187,9 @@
 }
 
 .baseInfo {
-    margin-bottom: 9rem;
+    margin-bottom: 7rem;
     letter-spacing: 1px;
-    font-size: 18px;
+    font-size: 20px;
     line-height: 2;
     text-shadow: 0 2px 4px rgba(7, 17, 27, 0.5);
 }
