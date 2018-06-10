@@ -65,7 +65,12 @@
 }
 
 .box-content {
-    color: #545C63;
+    color: #777777;
+    text-indent: 34px;
+}
+
+.box-content:first-of-type {
+    text-indent: 0;
 }
 
 
@@ -209,15 +214,16 @@
 
 @media (max-width:1025px) {
     .bg02 {
-        padding-top: 80px;
+        padding-top: 180px;
     }
 }
 
-@media (max-width:769px) {
+
+/* @media (max-width:769px) {
     .bg02 {
         padding-top: 150px;
     }
-}
+} */
 
 @media (max-width:415px) {
     .bg02 {
