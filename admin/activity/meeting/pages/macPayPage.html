@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>新学说-微信支付</title>
+    <link href="https://cdn.bootcss.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/common.css">
+    <style>
+        body {
+            background: #f1f1f1;
+        }
+        
+        .pay-company {
+            padding-top: 15px;
+            padding-bottom: 15px;
+            color: #5d5d5d;
+            background: #FFF;
+            box-shadow: 0 2px 8px 0 rgba(7, 17, 27, .06);
+            font-size: 22px;
+        }
+        
+        .pay-content {
+            padding: 15px 0;
+        }
+        
+        .pay-title {
+            color: #999999;
+            padding: 30px 0 10px 0;
+        }
+        
+        .pay-goods {
+            padding-left: 30px;
+            margin-bottom: 10px;
+            background-color: #FFF;
+            border-radius: 4px;
+            border-width: 2px;
+            border-style: solid;
+            border-color: transparent;
+            overflow: hidden;
+        }
+        
+        .pay-info {
+            font-weight: 500;
+            display: block;
+            padding: 15px 0;
+        }
+        
+        .custom-radio .custom-control-input:checked~.custom-control-label::before {
+            background-color: #dc3545;
+        }
+        
+        .pay-info::before,
+        .pay-info::after {
+            top: 1.25rem;
+        }
+        
+        .pay-price {
+            color: #dc3545;
+            font-weight: 700;
+        }
+        
+        .pay-cancle {
+            position: absolute;
+            top: 20px;
+            right: 15px;
+            font-size: 15px;
+            color: #5d5d5d;
+        }
+        
+        .sub {
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        
+        .mb0 {
+            margin-bottom: 0;
+        }
+        
+        .pay-discounts {
+            font-weight: 700;
+            color: #dc3545;
+        }
+        
+        .pay-discounts01 {
+            font-weight: 700;
+            background-color: #dc3545;
+            padding: 1px 10px;
+            color: #FFF;
+            position: absolute;
+            transform: rotate(45deg);
+            width: 100px;
+            text-align: center;
+            right: -25px;
+            top: 14px;
+            letter-spacing: 1px;
+            font-size: 13px;
+            box-shadow: 0 0 10px #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-12 plpr0">
+                    <h5 class="text-center pay-company">确认购买<a href="../metM.html" class="pay-cancle">取消</a></h5>
+                </div>
+                <div class="col-md-12">
+                    <h5 class="pay-title text-center">请选择课程类型</h5>
+                </div>
+                <div class="col-md-12">
+                    <div class="pay-content">
+                        <div class="alert alert-warning text-center" role="alert">
+                            <p><strong>早鸟价</strong>报名截止日期为<strong>8月7日</strong></p>
+                            <p class="mb0"><strong>标准价</strong>报名截止日期为<strong>9月7日</strong></p>
+                        </div>
+                        <div class="custom-control custom-radio selectType pay-goods">
+                            <input type="radio" id="customRadio5" name="meetingType" class="custom-control-input" value="4880">
+                            <label class="custom-control-label pay-info" for="customRadio5">HR录播课 <span class="pay-price">4880元</span></label>
+                        </div>
+                        <div class="custom-control custom-radio selectType pay-goods">
+                            <input type="radio" id="customRadio6" name="meetingType" class="custom-control-input" value="5380">
+                            <label class="custom-control-label pay-info" for="customRadio6">市场招生 <span class="pay-price">5380元</span></label>
+                        </div>
+                        <div class="custom-control custom-radio selectType pay-goods">
+                            <input type="radio" id="customRadio1" name="meetingType" class="custom-control-input" value="5380">
+                            <label class="custom-control-label pay-info" for="customRadio1">大学升学 <span class="pay-price">5380元</span></label>
+                        </div>
+                        <div class="custom-control custom-radio selectType pay-goods">
+                            <input type="radio" id="customRadio3" name="meetingType" class="custom-control-input" value="9680">
+                            <label class="custom-control-label pay-info" for="customRadio3">市场招生+大学升学 早鸟价<span class="pay-price">9680元</span><span class="pay-discounts01">套餐优惠</span></label>
+                        </div>
+                        <div class="custom-control custom-radio selectType pay-goods">
+                            <input type="radio" id="customRadio2" name="meetingType" class="custom-control-input" value="8380">
+                            <label class="custom-control-label pay-info" for="customRadio2">HR录播课+市场招生 早鸟价<span class="pay-price">8380元</span><span class="pay-discounts01">套餐优惠</span></label>
+                        </div>
+                        <div class="custom-control custom-radio selectType pay-goods">
+                            <input type="radio" id="customRadio4" name="meetingType" class="custom-control-input" value="7980">
+                            <label class="custom-control-label pay-info" for="customRadio4">HR录播课+大学升学 早鸟价<span class="pay-price">7980元</span><span class="pay-discounts01">套餐优惠</span></label>
+                        </div>
+                        <div class="custom-control custom-radio selectType pay-goods">
+                            <input type="radio" id="customRadio7" name="meetingType" class="custom-control-input" value="11800">
+                            <label class="custom-control-label pay-info" for="customRadio7">HR录播课+市场招生+大学升学 早鸟价<span class="pay-price"><br/>11800元</span><span class="pay-discounts01">套餐优惠</span></label>
+                        </div>
+                        <div class="custom-control custom-radio selectType pay-goods">
+                            <input type="radio" id="customRadio8" name="meetingType" class="custom-control-input" value="10080">
+                            <label class="custom-control-label pay-info" for="customRadio8">市场招生+大学升学 标准价<span class="pay-price">10080元</span></label>
+                        </div>
+                        <div class="custom-control custom-radio selectType pay-goods">
+                            <input type="radio" id="customRadio9" name="meetingType" class="custom-control-input" value="8880">
+                            <label class="custom-control-label pay-info" for="customRadio9">HR录播课+市场招生 标准价<span class="pay-price">8880元</span></label>
+                        </div>
+                        <div class="custom-control custom-radio selectType pay-goods">
+                            <input type="radio" id="customRadio10" name="meetingType" class="custom-control-input" value="8380">
+                            <label class="custom-control-label pay-info" for="customRadio10">HR录播课+大学升学 标准价<span class="pay-price">8380元</span></label>
+                        </div>
+                        <div class="custom-control custom-radio selectType pay-goods">
+                            <input type="radio" id="customRadio11" name="meetingType" class="custom-control-input" value="12800">
+                            <label class="custom-control-label pay-info" for="customRadio11">HR录播课+市场招生+大学升学 标准价<span class="pay-price">12800元</span></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 text-center">
+                    <input type="button" value="确认支付" id="sub" class="btn btn-danger btn-block sub">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="../../../../js/jquery.cookie.js"></script>
+<script src="../../js/config.js"></script>
+<script>
+    var sub = $("#sub"),
+        attach = $.cookie('attach')
+        // console.log("attach:", attach);
+
+    //获取url地址问号后面部分
+    function getQueryStringArgs() {
+        var qs = location.search.length > 0 ? location.search.substring(1) : '',
+            args = {},
+            items = qs.length ? qs.split('&') : [],
+            item = null,
+            name = null,
+            value = null,
+            i = 0,
+            len = items.length;
+        for (i = 0; i < len; i++) {
+            item = items[i].split('=');
+            name = decodeURIComponent(item[0]);
+            value = decodeURIComponent(item[1]);
+            name = item[0];
+            value = item[1];
+
+            if (name.length) {
+                args[name] = value;
+            }
+        }
+        return args;
+    }
+    var args = getQueryStringArgs(),
+        code = decodeURIComponent(args['code']),
+        attach = decodeURIComponent(args['attach'])
+
+    //获取时间
+    Date.prototype.Format = function(fmt) { // author: meizz
+        var o = {
+            "M+": this.getMonth() + 1, // 月份
+            "d+": this.getDate(), // 日
+            "h+": this.getHours(), // 小时
+            "m+": this.getMinutes(), // 分
+            "s+": this.getSeconds(), // 秒
+            "q+": Math.floor((this.getMonth() + 3) / 3), // 季度
+            "S": this.getMilliseconds() // 毫秒
+        };
+        if (/(y+)/.test(fmt))
+            fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+        for (var k in o)
+            if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+        return fmt;
+    }
+    var nowTime = new Date().Format("yyyy-MM-dd hh:mm:ss")
+    console.log(nowTime)
+
+    $.ajax({
+        type: 'post',
+        data: {
+            code: code
+        },
+        url: 'http://' + changeUrl.address + '/wxPay/getInfo.do',
+        success: function(msg) {
+            var openid = msg.data.openid
+            sub.click(function() {
+                $.ajax({
+                    type: 'get',
+                    url: 'http://' + changeUrl.address + '/wxPay/pay.do',
+                    data: {
+                        "attach": nowTime,
+                        "openid": openid,
+                        "body": $('input[name="meetingType"]:checked').siblings().text(),
+                        "total_fee": $('input[name="meetingType"]:checked').val()
+                    },
+                    success: function(msg) {
+                        console.log(msg)
+                        var appId = msg.data.appId,
+                            timeStamp = msg.data.timeStamp,
+                            nonceStr = msg.data.nonceStr,
+                            package = msg.data.package,
+                            signType = msg.data.signType,
+                            paySign = msg.data.paySign
+
+                        function onBridgeReady() {
+                            WeixinJSBridge.invoke(
+                                'getBrandWCPayRequest', {
+                                    "appId": appId, //公众号名称，由商户传入     
+                                    "timeStamp": timeStamp, //时间戳，自1970年以来的秒数     
+                                    "nonceStr": nonceStr, //随机串     
+                                    "package": package,
+                                    "signType": signType, //微信签名方式：     
+                                    "paySign": paySign //微信签名 
+                                },
+                                function(res) {
+                                    if (res.err_msg == "get_brand_wcpay_request:ok") {
+                                        alert("支付成功")
+                                        location.href = "../metM.html"
+                                    } // 使用以上方式判断前端返回,微信团队郑重提示：res.err_msg将在用户支付成功后返回    ok，但并不保证它绝对可靠。 
+                                }
+                            );
+                        }
+                        if (typeof WeixinJSBridge == "undefined") {
+                            if (document.addEventListener) {
+                                document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+                            } else if (document.attachEvent) {
+                                document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+                                document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+                            }
+                        } else {
+                            onBridgeReady();
+                        }
+                    },
+                    error: function() {
+                        console.log("error in pay.do")
+                    }
+                })
+            })
+        },
+        error: function() {
+            console.log("error")
+        }
+    })
+</script>
+<script>
+    $(function() {
+        $('.pay-info').click(function() {
+            $(this).parent().css("border-color", "#dc3545").siblings().css("border-color", "transparent")
+        })
+    })
+</script>
