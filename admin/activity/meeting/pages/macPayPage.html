@@ -107,16 +107,16 @@
         <div class="form-group">
             <div class="row">
                 <div class="col-md-12 plpr0">
-                    <h5 class="text-center pay-company">确认购买<a href="../metM.html" class="pay-cancle">取消</a></h5>
+                    <h5 class="text-center pay-company">确认购买<a href="../../macApply.html" class="pay-cancle">取消</a></h5>
                 </div>
                 <div class="col-md-12">
                     <h5 class="pay-title text-center">请选择课程类型</h5>
                 </div>
                 <div class="col-md-12">
                     <div class="pay-content">
-                        <div class="alert alert-warning text-center" role="alert">
+                        <div class="alert alert-warning" role="alert">
                             <p><strong>早鸟价</strong>报名截止日期为<strong>8月7日</strong></p>
-                            <p class="mb0"><strong>标准价</strong>报名截止日期为<strong>9月7日</strong></p>
+                            <p class="mb0"><strong>8月7日后</strong>早鸟价将恢复至<b>标准价</b>，请提前购买</p>
                         </div>
                         <div class="custom-control custom-radio selectType pay-goods">
                             <input type="radio" id="customRadio5" name="meetingType" class="custom-control-input" value="4880">
@@ -146,7 +146,7 @@
                             <input type="radio" id="customRadio7" name="meetingType" class="custom-control-input" value="11800">
                             <label class="custom-control-label pay-info" for="customRadio7">HR录播课+市场招生+大学升学 早鸟价<span class="pay-price"><br/>11800元</span><span class="pay-discounts01">套餐优惠</span></label>
                         </div>
-                        <div class="custom-control custom-radio selectType pay-goods">
+                        <!-- <div class="custom-control custom-radio selectType pay-goods">
                             <input type="radio" id="customRadio8" name="meetingType" class="custom-control-input" value="10080">
                             <label class="custom-control-label pay-info" for="customRadio8">市场招生+大学升学 标准价<span class="pay-price">10080元</span></label>
                         </div>
@@ -161,7 +161,7 @@
                         <div class="custom-control custom-radio selectType pay-goods">
                             <input type="radio" id="customRadio11" name="meetingType" class="custom-control-input" value="12800">
                             <label class="custom-control-label pay-info" for="customRadio11">HR录播课+市场招生+大学升学 标准价<span class="pay-price">12800元</span></label>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <div class="col-md-12 text-center">
@@ -236,13 +236,14 @@
         },
         url: 'http://' + changeUrl.address + '/wxPay/getInfo.do',
         success: function(msg) {
-            var openid = msg.data.openid
+            var openid = msg.data.openid;
+            var storage = window.localStorage;
             sub.click(function() {
                 $.ajax({
                     type: 'get',
                     url: 'http://' + changeUrl.address + '/wxPay/pay.do',
                     data: {
-                        "attach": nowTime,
+                        "attach": storage.attach,
                         "openid": openid,
                         "body": $('input[name="meetingType"]:checked').siblings().text(),
                         "total_fee": $('input[name="meetingType"]:checked').val()
@@ -269,7 +270,7 @@
                                 function(res) {
                                     if (res.err_msg == "get_brand_wcpay_request:ok") {
                                         alert("支付成功")
-                                        location.href = "../metM.html"
+                                        location.href = "../../macApply.html"
                                     } // 使用以上方式判断前端返回,微信团队郑重提示：res.err_msg将在用户支付成功后返回    ok，但并不保证它绝对可靠。 
                                 }
                             );

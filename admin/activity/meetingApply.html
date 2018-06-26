@@ -176,7 +176,8 @@
                     }
                 }
                 // 保存姓名和邮箱
-                $.cookie('attach', inputVal1 + "-" + inputVal3);
+                var storage = window.localStorage;
+                storage['attach'] = inputVal3
 
                 $.ajax({
                     type: "post",

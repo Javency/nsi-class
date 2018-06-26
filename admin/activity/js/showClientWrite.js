@@ -78,7 +78,10 @@ $(function() {
 
                                 // 固定列
                                 for (var i = 0; i < msg.data.length; i++) {
-                                    cloneTbody.append('<tr><td>' + msg.data[i].Content3 + '</td></tr>')
+                                    cloneTbody.append('<tr><td>' + msg.data[i].Content3 + '<span class="paid">✔</span></td></tr>')
+                                    if (msg.data[i].Content20 === "已支付") {
+                                        $(".paid").eq(i).css("display", "inline-block")
+                                    }
                                 }
                                 cloneTitle.children("th").width(activeTitle.children("th").first().width())
                                 cloneTbody.children("tr").width(activeTitle.children("th").first().width())
@@ -119,7 +122,10 @@ $(function() {
 
                     // 固定列
                     for (var i = 0; i < msg.data.length; i++) {
-                        cloneTbody.append('<tr><td>' + msg.data[i].Content3 + '</td></tr>')
+                        cloneTbody.append('<tr><td>' + msg.data[i].Content3 + '<span class="paid">✔</span></td></tr>')
+                        if (msg.data[i].Content20 === "已支付") {
+                            $(".paid").eq(i).css("display", "inline-block")
+                        }
                     }
                     // 标题等宽
                     // cloneTitle.width(cloneTbody.width())

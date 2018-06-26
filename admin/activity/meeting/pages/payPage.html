@@ -217,12 +217,13 @@
         url: 'http://' + changeUrl.address + '/wxPay/getInfo.do',
         success: function(msg) {
             var openid = msg.data.openid
+            var storage = window.localStorage;
             sub.click(function() {
                 $.ajax({
                     type: 'get',
                     url: 'http://' + changeUrl.address + '/wxPay/pay.do',
                     data: {
-                        "attach": nowTime,
+                        "attach": storage.attach,
                         "openid": openid,
                         "body": $('input[name="meetingType"]:checked').siblings().text(),
                         "total_fee": $('input[name="meetingType"]:checked').val()

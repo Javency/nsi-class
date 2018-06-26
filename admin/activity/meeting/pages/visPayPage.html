@@ -107,7 +107,7 @@
         <div class="form-group">
             <div class="row">
                 <div class="col-md-12 plpr0">
-                    <h5 class="text-center pay-company">确认购买<a href="../metM.html" class="pay-cancle">取消</a></h5>
+                    <h5 class="text-center pay-company">确认购买<a href="../../visApply.html" class="pay-cancle">取消</a></h5>
                 </div>
                 <div class="col-md-12">
                     <h5 class="pay-title text-center">请选择购票类型</h5>
@@ -212,13 +212,14 @@
         },
         url: 'http://' + changeUrl.address + '/wxPay/getInfo.do',
         success: function(msg) {
-            var openid = msg.data.openid
+            var openid = msg.data.openid;
+            var storage = window.localStorage;
             sub.click(function() {
                 $.ajax({
                     type: 'get',
                     url: 'http://' + changeUrl.address + '/wxPay/pay.do',
                     data: {
-                        "attach": nowTime,
+                        "attach": storage.attach,
                         "openid": openid,
                         "body": $('input[name="meetingType"]:checked').siblings().text(),
                         "total_fee": $('input[name="meetingType"]:checked').val()
@@ -245,7 +246,7 @@
                                 function(res) {
                                     if (res.err_msg == "get_brand_wcpay_request:ok") {
                                         alert("支付成功")
-                                        location.href = "../metM.html"
+                                        location.href = "../../visApply.html"
                                     } // 使用以上方式判断前端返回,微信团队郑重提示：res.err_msg将在用户支付成功后返回    ok，但并不保证它绝对可靠。 
                                 }
                             );
