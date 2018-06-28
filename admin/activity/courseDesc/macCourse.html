@@ -9,6 +9,7 @@
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link rel="shortcut icon" href="../../../images/favorite.ico" type="image/x-icon" />
     <link rel="stylesheet" href="https://at.alicdn.com/t/font_554630_3hucyqvpg4hiwwmi.css">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_560175_05y2k7t8v3sug14i.css">
     <link rel="stylesheet" href="../../../css/common.css">
     <link rel="stylesheet" href="../../../css/nav.css">
     <link rel="stylesheet" href="../../../css/footer.css">
@@ -19,6 +20,16 @@
       <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     <style>
+        .ml5mr50 {
+            margin-right: 50px;
+            margin-left: 5px;
+        }
+        
+        .ml60mr10 {
+            margin-left: 60px;
+            margin-right: -10px;
+        }
+        
         img {
             display: inline-block;
             max-width: 100%;
@@ -26,7 +37,9 @@
         }
         
         body {
-            background-color: #F8FAFC
+            background-color: #F8FAFC;
+            padding-bottom: 20px;
+            font-family: "PingFang SC", 微软雅黑, "Microsoft YaHei", Helvetica, "Helvetica Neue", Tahoma, Arial, sans-serif;
         }
         
         .session {
@@ -38,14 +51,13 @@
         .session-02 {
             padding-top: 100px;
             width: 100%;
-            height: 583px;
+            height: 555px;
             background-image: url("./img/section2-bg.png");
-            background-size: 100% 500px;
+            background-size: 100%;
         }
         
         .session-class {
             margin-top: 70px;
-            height: 550px;
             background-image: url("./img/section3-bg.png");
             background-size: 100% 550px;
         }
@@ -139,14 +151,14 @@
             border-radius: 50%;
             margin: 9px 10px 9px 0;
             left: -15px;
-            top: -3px;
+            top: -1px;
         }
         
         .course-box {
             margin: 0 auto;
             position: relative;
             width: 100%;
-            background: linear-gradient(-45deg, #92c5f8 0%, #6699cc 100%);
+            background: linear-gradient(-45deg, #c6dff8 0%, #6699cc 100%);
             box-shadow: 0 8px 16px 0 rgba(25, 125, 230, 0.3);
             border-radius: 8px 8px 8px 8px;
             padding: 50px 0 40px;
@@ -155,8 +167,7 @@
         .course-info {
             color: #FFF;
             font-size: 14px;
-            margin: 0 20px;
-            background: #4176ab;
+            background: #679acd;
             padding: 15px;
             border-radius: 4px;
             margin-bottom: 15px;
@@ -176,6 +187,90 @@
             color: #FFFFFF;
             line-height: 20px;
             margin: 25px 0 0 0;
+            position: relative;
+        }
+        
+        .info-title::before {
+            position: absolute;
+            display: block;
+            content: "";
+            width: 2px;
+            height: 20px;
+            background: #5a83ac;
+            right: 0;
+        }
+        
+        .tobuy {
+            position: fixed;
+            width: 100%;
+            height: 65px;
+            line-height: 65px;
+            left: 0;
+            bottom: 0;
+            z-index: 9999;
+            background-color: rgba(255, 255, 255, .9);
+            padding: 0 30px;
+            box-shadow: 0 4px 8px rgba(7, 17, 27, 0.2);
+        }
+        
+        .tobuy p {
+            color: #07111b;
+            font-size: 20px;
+            font-weight: 700;
+            display: inline-block;
+        }
+        
+        .toApply {
+            display: inline-block;
+            width: 120px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            font-size: 14px;
+            color: #fff;
+            margin-top: 10px;
+            font-weight: 200;
+            letter-spacing: 2px;
+            background-color: #f01404;
+            position: relative;
+            top: -3px;
+        }
+        
+        .toApply:hover {
+            color: #FFF;
+            opacity: .7
+        }
+        
+        .price {
+            position: relative;
+            font-size: 28px;
+            line-height: 60px;
+            color: #f01414;
+            font-weight: 200;
+            margin-right: 24px;
+            top: 3px;
+        }
+        
+        .iconlogo {
+            font-size: 22px;
+            vertical-align: middle;
+            margin-right: 5px;
+        }
+        
+        .footer-nav {
+            display: inline-block;
+            margin-left: 150px;
+        }
+        
+        .footer-nav>li {
+            display: inline-block;
+            margin: 0 20px;
+        }
+        
+        .footer-nav>li>a {
+            color: #4b555b;
+            font-size: 17px;
+            font-weight: 200;
         }
         
         @media (max-width: 789px) {
@@ -191,15 +286,23 @@
             .question-title>h1 {
                 margin-bottom: 30px;
             }
-            .student-question {
-                /* font-size: 12px; */
-            }
             .teacher-answer {
-                /* font-size: 12px; */
                 padding-left: 15px;
             }
             .macInfo {
                 padding-left: 20px;
+            }
+            .tobuy {
+                padding: 0
+            }
+            .price {
+                display: none;
+            }
+            .info-title {
+                margin: auto;
+            }
+            .course-info {
+                margin: 0 20px 10px;
             }
         }
     </style>
@@ -239,14 +342,14 @@
     <div class="session session-01">
         <img src="./img/banner03.jpg" alt="" class="img-responsive">
     </div>
-    <div class="session session-class">
+    <div class="session session-class" id="session-class">
         <div class="container">
-            <h1 class="title">NSI-MAC(Marketing&Admission Class)</h1>
+            <h1 class="title">国际学校市场招生课程</h1>
             <div class="col-md-12">
                 <div class="course-box">
                     <div class="row">
                         <div class="col-md-6">
-                            <div class="course-info">
+                            <div class="course-info ml60mr10">
                                 <div class="row">
                                     <div class="col-md-4">
                                         <p class="text-center info-title">市场分析</p>
@@ -261,7 +364,7 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="course-info">
+                            <div class="course-info ml5mr50">
                                 <div class="row">
                                     <div class="col-md-4">
                                         <p class="text-center info-title">品牌建设</p>
@@ -276,7 +379,7 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="course-info">
+                            <div class="course-info ml60mr10">
                                 <div class="row">
                                     <div class="col-md-4">
                                         <p class="text-center info-title">招生策略</p>
@@ -291,7 +394,7 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="course-info">
+                            <div class="course-info ml5mr50">
                                 <div class="row">
                                     <div class="col-md-4">
                                         <p class="text-center info-title">公共关系</p>
@@ -310,7 +413,7 @@
             </div>
         </div>
     </div>
-    <div class="session session-02">
+    <div class="session session-02" id="session-02">
         <div class="container">
             <h1 class="text-center title">四大维度 解析国际学校职能岗位</h1>
             <div class="row">
@@ -332,7 +435,7 @@
         </div>
     </div>
     <div class="session session-03 "></div>
-    <div class="session session-04 ">
+    <div class="session session-04 " id="session-04">
         <div class="container">
             <div class="row ">
                 <div class="col-md-12 ">
@@ -403,6 +506,31 @@
         </a>
     </div>
     <!-- backtoTop END-->
+    <!-- toBuy -->
+    <div class="tobuy">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6 col-xs-7">
+                    <p>国际学校市场招生课程</p>
+                    <ul class="footer-nav">
+                        <li>
+                            <a href="#session-class">课程大纲</a>
+                        </li>
+                        <li>
+                            <a href="#session-02">职能解析</a>
+                        </li>
+                        <li>
+                            <a href="#session-04">上期回顾</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-6 col-xs-5 text-right">
+                    <span class="price">¥ 5380.00</span>
+                    <a href="../macApply.html" target="_" class="toApply"><span class="iconfont icon-gouwuche3 iconlogo"></span>立即报名</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
