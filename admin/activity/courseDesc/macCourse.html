@@ -42,7 +42,6 @@
         
         body {
             background-color: #F8FAFC;
-            padding-bottom: 20px;
             font-family: "PingFang SC", 微软雅黑, "Microsoft YaHei", Helvetica, "Helvetica Neue", Tahoma, Arial, sans-serif;
         }
         
@@ -58,6 +57,10 @@
             height: 555px;
             background-image: url("./img/section2-bg.png");
             background-size: 100%;
+        }
+        
+        .session-03 {
+            margin-bottom: 100px;
         }
         
         .session-class {
@@ -210,56 +213,45 @@
             right: 0;
         }
         
-        .tobuy {
-            position: fixed;
-            width: 100%;
-            height: 65px;
-            line-height: 65px;
-            left: 0;
-            bottom: 0;
-            z-index: 9999;
-            background-color: rgba(255, 255, 255, .9);
-            padding: 0 30px;
-            box-shadow: 0 4px 8px rgba(7, 17, 27, 0.2);
-        }
-        
-        .tobuy p {
-            color: #07111b;
-            font-size: 20px;
-            font-weight: 700;
-            display: inline-block;
-        }
-        
         .toApply {
-            display: inline-block;
-            width: 120px;
-            height: 40px;
-            line-height: 40px;
-            text-align: center;
-            font-size: 14px;
-            color: #fff;
-            margin-top: 10px;
-            font-weight: 200;
-            letter-spacing: 2px;
-            background-color: #f01404;
             position: relative;
-            top: -3px;
+            appearance: none;
+            background: #f72359;
+            padding: 15px 100px;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            outline: none;
+            overflow: hidden;
+            border-radius: 100px;
         }
         
         .toApply:focus,
         .toApply:hover {
             color: #FFF;
-            opacity: .7
         }
         
-        .price {
+        .toApply span {
             position: relative;
-            font-size: 28px;
-            line-height: 60px;
-            color: #f01414;
-            font-weight: 200;
-            margin-right: 24px;
-            top: 3px;
+        }
+        
+        .toApply::before {
+            --size: 0;
+            content: '';
+            position: absolute;
+            left: var(--x);
+            top: var(--y);
+            width: var(--size);
+            height: var(--size);
+            background: radial-gradient(circle closest-side, #1539db, transparent);
+            transform: translate(-50%, -50%);
+            transition: width .2s ease, height .2s ease;
+        }
+        
+        .toApply:hover::before {
+            color: #FFF;
+            --size: 400px;
         }
         
         .iconlogo {
@@ -268,20 +260,17 @@
             margin-right: 5px;
         }
         
-        .footer-nav {
-            display: inline-block;
-            margin-left: 150px;
+        .college p::before {
+            background: #259c7d;
         }
         
-        .footer-nav>li {
-            display: inline-block;
-            margin: 0 20px;
+        .college .course-box {
+            background: linear-gradient(-45deg, #adfbe8 0%, #54efb3 100%);
+            box-shadow: 0 8px 16px 0 rgb(133, 216, 195);
         }
         
-        .footer-nav>li>a {
-            color: #4b555b;
-            font-size: 17px;
-            font-weight: 200;
+        .college .course-info {
+            background: #2cc89f;
         }
         
         @media (max-width: 789px) {
@@ -433,6 +422,76 @@
                 </div>
             </div>
         </div>
+        <div class="container college" style="margin-top:100px;">
+            <h1 class="title mb0">大学升学在线课程</h1>
+            <h2 class="title text-center"><small>大学升学，是规划，是成长塑造的过程</small></h2>
+            <div class="col-md-12">
+                <div class="course-box">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="course-info ml60mr10">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <p class="text-center info-title">基本知识</p>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <ul>
+                                            <li>美国的教育体制及大学招生政策和流程</li>
+                                            <li>英国的教育体制及大学招生政策和流程</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="course-info ml5mr50">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <p class="text-center info-title">量身定制</p>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <ul>
+                                            <li>如何写好推荐信&nbsp;&nbsp;&nbsp;后升学申请阶段的规则</li>
+                                            <li>升学规划的节奏把控，订制目标清单</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="course-info ml60mr10">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <p class="text-center info-title">升学办公室</p>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <ul>
+                                            <li>升学指导办公室的工作规划</li>
+                                            <li>如何建立与国外大学的沟通机制</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="course-info ml5mr50">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <p class="text-center info-title">升学办公室</p>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <ul>
+                                            <li>与海外机构组织建立深厚的合作关系</li>
+                                            <li>资讯办公室的对外宣传和相关室内设计</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="session session-02" id="session-02">
         <div class="container">
@@ -455,7 +514,9 @@
             </div>
         </div>
     </div>
-    <div class="session session-03 "></div>
+    <div class="session session-03 text-center">
+        <button href="../macApply.html" target="_" class="toApply"><span class="iconfont icon-gouwuche3 iconlogo"></span><span>立即报名</span></button>
+    </div>
     <div class="session session-04 " id="session-04">
         <div class="container">
             <div class="row ">
@@ -527,31 +588,6 @@
         </a>
     </div>
     <!-- backtoTop END-->
-    <!-- toBuy -->
-    <div class="tobuy">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-6 col-xs-7">
-                    <p>国际学校市场招生课程</p>
-                    <ul class="footer-nav">
-                        <li>
-                            <a href="#session-class">课程大纲</a>
-                        </li>
-                        <li>
-                            <a href="#session-02">职能解析</a>
-                        </li>
-                        <li>
-                            <a href="#session-04">上期回顾</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-md-6 col-xs-5 text-right">
-                    <span class="price">¥ 5380.00</span>
-                    <a href="../macApply.html" target="_" class="toApply"><span class="iconfont icon-gouwuche3 iconlogo"></span>立即报名</a>
-                </div>
-            </div>
-        </div>
-    </div>
 </body>
 
 </html>
@@ -591,5 +627,18 @@
                 $("#courseName").text(msg.data1[0].CourseName + "[回放]")
             }
         })
+
+        $(".toApply").click(function() {
+            window.open("../macApply.html")
+        })
     })
+</script>
+<script>
+    document.querySelector('.toApply').onmousemove = (e) => {
+        const x = e.pageX - e.target.offsetLeft
+        const y = e.pageY - e.target.offsetTop
+        e.target.style.setProperty('--x', `${ x }px`)
+        e.target.style.setProperty('--y', `${ y }px`)
+            // console.log(x, y)
+    }
 </script>
