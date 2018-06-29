@@ -20,6 +20,10 @@
       <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     <style>
+        .mb0 {
+            margin-bottom: 0 !important;
+        }
+        
         .ml5mr50 {
             margin-right: 50px;
             margin-left: 5px;
@@ -114,6 +118,12 @@
             text-align: center;
             margin-bottom: 50px;
             font-family: "Microsoft YaHei";
+        }
+        
+        .title small {
+            font-size: 18px;
+            color: #1C1F21;
+            line-height: 28px;
         }
         
         .student-question {
@@ -236,6 +246,7 @@
             top: -3px;
         }
         
+        .toApply:focus,
         .toApply:hover {
             color: #FFF;
             opacity: .7
@@ -274,6 +285,12 @@
         }
         
         @media (max-width: 789px) {
+            .session-01>img {
+                height: 200px;
+            }
+            .session-class {
+                margin-top: 0;
+            }
             .session-02 {
                 height: auto;
             }
@@ -303,6 +320,9 @@
             }
             .course-info {
                 margin: 0 20px 10px;
+            }
+            .info-title::before {
+                display: none;
             }
         }
     </style>
@@ -344,7 +364,8 @@
     </div>
     <div class="session session-class" id="session-class">
         <div class="container">
-            <h1 class="title">国际学校市场招生课程</h1>
+            <h1 class="title mb0">国际学校市场招生课程</h1>
+            <h2 class="title text-center"><small>做好学校定位，提升学校品牌，扩大招生范围</small></h2>
             <div class="col-md-12">
                 <div class="course-box">
                     <div class="row">
