@@ -14,13 +14,13 @@
     <link rel="stylesheet" href="./css/convention.css">
     <style>
         .bg01 {
-            background-image: url("../image/visbanner01.jpg");
+            background-image: url("https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/activity/2018vis/visbanner01.jpg");
             background-position: center 0;
             background-size: 100%;
         }
         
         .bg02 {
-            background-image: url("../image/vis-bg-bottom.jpg");
+            background-image: url("https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/activity/2018vis/vis-bg-bottom.jpg");
             background-position: center top;
             background-size: 100%;
         }
@@ -32,13 +32,13 @@
          */
         
         .bg03 {
-            background-image: url("../image/vis-bg-bottom.jpg");
+            background-image: url("https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/activity/2018vis/vis-bg-bottom.jpg");
             background-position: center;
             background-size: 100%;
         }
         
         .bg04 {
-            background-image: url("../image/vis-spot.png")
+            background-image: url("https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/activity/2018vis/vis-spot.jpg")
         }
         
         header>ul {
@@ -62,6 +62,18 @@
         .guestSpeaker-title {
             color: #000;
         }
+        
+        @media (max-width: 768px) {
+            header>ul>li {
+                margin: 0 13px;
+            }
+        }
+        
+        @media (max-width: 416px) {
+            header>ul {
+                display: none;
+            }
+        }
     </style>
 </head>
 
@@ -69,7 +81,7 @@
     <div class="container-fluid plpr0">
         <header class="clearfix">
             <a href="#"><img src="../image/vis-logo.png" alt=""></a>
-            <ul class="clearfix">
+            <ul class="clearfix visNav">
                 <li><a href="../visApply.html">购票</a></li>
                 <li><a href="javascript:;">议程</a></li>
                 <li><a href="javascript:;">嘉宾</a></li>
@@ -353,6 +365,58 @@
 <!-- <script src="https://cdn.bootcss.com/bootstrap/4.1.1/js/bootstrap.min.js"></script> -->
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="./js/commonJs.js"></script>
+<script>
+    $(function() {
+        //获取url地址问号后面部分
+        function getQueryStringArgs() {
+            var qs = location.search.length > 0 ? location.search.substring(1) : '',
+                args = {},
+                items = qs.length ? qs.split('&') : [],
+                item = null,
+                name = null,
+                value = null,
+                i = 0,
+                len = items.length;
+            for (i = 0; i < len; i++) {
+                item = items[i].split('=');
+                name = decodeURIComponent(item[0]);
+                value = decodeURIComponent(item[1]);
+                name = item[0];
+                value = item[1];
+
+                if (name.length) {
+                    args[name] = value;
+                }
+            }
+            return args;
+        }
+        var args = getQueryStringArgs(),
+            to = decodeURIComponent(args['to'])
+
+        switch (to) {
+            case "theme":
+                $("html,body").animate({
+                    "scrollTop": 0
+                }, 1000)
+                break;
+            case "agenda":
+                $("html,body").animate({
+                    "scrollTop": $(".bg02>.container").offset().top
+                }, 1000)
+                break;
+            case "guest":
+                $("html,body").animate({
+                    "scrollTop": $(".bg03").offset().top
+                }, 1000)
+                break;
+            case "spot":
+                $("html,body").animate({
+                    "scrollTop": $(".bg04").offset().top
+                }, 2000)
+                break;
+        }
+    })
+</script>
 <script>
     $(function() {
         //获取url地址问号后面部分
