@@ -71,6 +71,76 @@
             min-height: 225px;
         }
         
+        .visApply {
+            position: relative;
+            appearance: none;
+            background: #f72359;
+            padding: 15px 100px;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            outline: none;
+            overflow: hidden;
+            border-radius: 100px;
+        }
+        
+        .visApply:focus,
+        .visApply:hover {
+            color: #FFF;
+        }
+        
+        .visApply span {
+            position: relative;
+        }
+        
+        .visApply::before {
+            --size: 0;
+            content: '';
+            position: absolute;
+            left: var(--x);
+            top: var(--y);
+            width: var(--size);
+            height: var(--size);
+            background: radial-gradient(circle closest-side, #1539db, transparent) !important;
+            transform: translate(-50%, -50%);
+            transition: width .2s ease, height .2s ease;
+        }
+        
+        .visApply:hover::before {
+            color: #FFF;
+            --size: 400px;
+        }
+        
+        .bgPast {
+            padding-bottom: 50px;
+        }
+        
+        .pastVis {
+            display: block;
+            overflow: hidden;
+            border-radius: 4px;
+            transition: all .3s;
+        }
+        
+        .pastVis:hover {
+            opacity: .8;
+        }
+        
+        .bg04 {
+            min-height: 370px;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .baseInfo {
+            margin-bottom: 2rem;
+        }
+        
+        .timeAndSpot {
+            top: 55px;
+        }
+        
         @media (max-width: 768px) {
             header>ul>li {
                 margin: 0 13px;
@@ -233,7 +303,7 @@
                                 <div class="guestBoxPicBox">
                                     <img src="../image/pastGuest/4.jpg" alt="">
                                 </div>
-                                <h4 class="text-center guest-name">Gerard...</h4>
+                                <h4 class="text-center guest-name">Gerard Macmahon</h4>
                                 <h4 class="text-center"><small class="small"><b>上海惠林顿校长</b></small></h4>
                             </div>
                         </div>
@@ -244,7 +314,7 @@
                                 <div class="guestBoxPicBox">
                                     <img src="../image/pastGuest/5.jpg" alt="">
                                 </div>
-                                <h4 class="text-center guest-name">Orlando...</h4>
+                                <h4 class="text-center guest-name">Orlando Pola-Rivera</h4>
                                 <h4 class="text-center"><small class="small"><b>上海万科双语学校校长</b></small></h4>
                             </div>
                         </div>
@@ -395,30 +465,51 @@
                 </div>
             </div>
         </div>
-        <div class="bg04 ptb50">
-            <div class="map-bg">
-                <div class="container">
-                    <div class="col-md-6 col-xs-12">
-                        <div class="timeAndSpot">
-                            <p class="baseInfo">时间：2018/11/09-2018/11/11</p>
-                            <p class="baseInfo">地点：北京市朝阳区望京启阳路2号</p>
-                            <p class="baseInfo">酒店：北京昆泰酒店</p>
-                            <p class="baseInfo">乘坐方式：302路、332路、333路内环、333路外环、384路、534路、563路、610路、671路等</p>
+        <div class="bgPast" style=" background-image: url('https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/activity/2018vis/vis-bg-bottom.jpg');background-position-y: -340px;">
+            <div class="container">
+                <div class="row">
+                    <h2 class="text-center guestSpeaker-title">历届VIS大会</h2>
+                    <div class="col-md-6">
+                        <a href="http://edu.qq.com/p/topic/20161221027199/" target="_" class="pastVis">
+                            <img src="../image/vis2016.jpg" alt="">
+                        </a>
+                        <h3 class="text-center"><a target="_" href="http://edu.qq.com/p/topic/20161221027199/">2016VIS大会</a></h3>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="http://edu.qq.com/cross/20171215/P27Rp8V4.html" target="_" class="pastVis">
+                            <img src="../image/vis2017.jpg" alt="">
+                        </a>
+                        <h3 class="text-center"><a target="_" href="http://edu.qq.com/cross/20171215/P27Rp8V4.html">2017VIS大会</a></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bgMap" style=" background-image: url('https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/activity/2018vis/vis-bg-bottom.jpg');">
+            <div class="container">
+                <div class="bg04 ptb50">
+                    <div class="map-bg">
+                        <div class="container">
+                            <div class="col-md-6 col-xs-12">
+                                <div class="timeAndSpot">
+                                    <p class="baseInfo">时间：2018/11/09-2018/11/11</p>
+                                    <p class="baseInfo">地点：北京市朝阳区望京启阳路2号</p>
+                                    <p class="baseInfo">酒店：北京昆泰酒店</p>
+                                    <p class="baseInfo">乘坐方式：15号线望京东站，547路，专112路，132路，682路等</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="ptb50">
+        <div class="ptb50" style=" background-image: url('https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/activity/2018vis/vis-bg-bottom.jpg');">
             <div class="container">
-                <div class="row">
+                <div class="row text-center">
                     <div class="col-md-12 text-center" style="margin-bottom:15px;">
-                        <a style="margin-right:15px" href="http://edu.qq.com/p/topic/20161221027199/" class="btn btn-primary btn-lg toapply">2016VIS大会</a>
-                        <a href="http://edu.qq.com/cross/20171215/P27Rp8V4.html" class="btn btn-primary btn-lg toapply">2017VIS大会</a>
+                        <!-- <a style="margin-right:15px" href="http://edu.qq.com/p/topic/20161221027199/" class="btn btn-primary btn-lg toapply">2016VIS大会</a> -->
+                        <!-- <a href="http://edu.qq.com/cross/20171215/P27Rp8V4.html" class="btn btn-primary btn-lg toapply">2017VIS大会</a> -->
                     </div>
-                    <div class="col-md-12 text-center">
-                        <a href="../commencement.html" class="btn btn-primary btn-lg toapply">立即报名</a>
-                    </div>
+                    <button class="visApply"><span>立即报名</span></button>
                 </div>
             </div>
         </div>
@@ -532,5 +623,17 @@
                 }, 2000)
                 break;
         }
+    })
+</script>
+<script>
+    document.querySelector('.visApply').onmousemove = (e) => {
+        const x = e.pageX - e.target.offsetLeft
+        const y = e.pageY - e.target.offsetTop
+        e.target.style.setProperty('--x', `${ x }px`)
+        e.target.style.setProperty('--y', `${ y }px`)
+            // console.log(x, y)
+    }
+    $(".visApply").click(function() {
+        window.open("../commencement.html")
     })
 </script>
