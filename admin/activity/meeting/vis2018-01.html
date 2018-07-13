@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>2018国际学校发展大会</title>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .banner {
+            position: relative;
+            /* min-height: 600px; */
+            /* background: url('./img/visBanner.jpg') no-repeat; */
+            /* background-size: 100%; */
+        }
+        
+        .visApply {
+            position: relative;
+            appearance: none;
+            /* background: #f72359; */
+            background: #d32720;
+            padding: 15px 100px;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            outline: none;
+            overflow: hidden;
+            border-radius: 100px;
+        }
+        
+        .visApply:focus,
+        .visApply:hover {
+            color: #FFF;
+        }
+        
+        .visApply span {
+            position: relative;
+        }
+        
+        .visApply::before {
+            --size: 0;
+            content: '';
+            position: absolute;
+            left: var(--x);
+            top: var(--y);
+            width: var(--size);
+            height: var(--size);
+            background: radial-gradient(circle closest-side, #1539db, transparent) !important;
+            transform: translate(-50%, -50%);
+            transition: width .2s ease, height .2s ease;
+        }
+        
+        .visApply:hover::before {
+            color: #FFF;
+            --size: 400px;
+        }
+        
+        .btnBox {
+            background: url("./img/vis02.jpg") no-repeat;
+            background-size: 100% 100%;
+        }
+        
+        .banner,
+        .btnBox {
+            z-index: 2
+        }
+        
+        header {
+            position: fixed;
+            width: 100%;
+            left: 0;
+            top: 0;
+            background: #FFF;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.28);
+            z-index: 1;
+        }
+        
+        ul {
+            float: right;
+        }
+        
+        ul>li {
+            float: left;
+            list-style: none;
+            height: 60px;
+            line-height: 65px;
+            margin-right: 20px;
+        }
+        
+        ul>li>a {
+            color: #777;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container-fluid clearfix">
+            <a href="javascript:;">
+                <img src="../image/vis-logo.png" alt="" width="300">
+            </a>
+            <ul class="clearfix">
+                <li>
+                    <a href="#content04">议程</a>
+                </li>
+                <li>
+                    <a href="#content05">嘉宾</a>
+                </li>
+                <li>
+                    <a href="../visApply.html">购票</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <div class="banner">
+        <img src="./img/vis01.jpg" alt="" class="img-responsive">
+    </div>
+    <div class="btnBox text-center">
+        <button class="visApply"><span>立即报名</span></button>
+    </div>
+    <div class="content">
+        <img src="./img/vis03.jpg" alt="" class="img-responsive">
+    </div>
+    <div class="content" id="content04">
+        <img src="./img/vis04.jpg" alt="" class="img-responsive">
+    </div>
+    <div class="content" id="content05">
+        <img src="./img/vis05.jpg" alt="" class="img-responsive">
+    </div>
+</body>
+
+</html>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<!-- <script src="https://cdn.bootcss.com/bootstrap/4.1.1/js/bootstrap.min.js"></script> -->
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script>
+    document.querySelector('.visApply').onmousemove = (e) => {
+        const x = e.pageX - e.target.offsetLeft
+        const y = e.pageY - e.target.offsetTop
+        e.target.style.setProperty('--x', `${ x }px`)
+        e.target.style.setProperty('--y', `${ y }px`)
+            // console.log(x, y)
+    }
+    $(".visApply").click(function() {
+        window.open("../visApply.html")
+    })
+</script>

@@ -157,3 +157,13 @@
 </script>
 <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 <script src="./js/wechatshare.js"></script>
+<script>
+    var url = document.location.href;
+    // var url = "http://class.xinxueshuo.cn"
+    var judgeUrl = url.substr(7, 5)
+    if (url.substr(7, 5) === "class") {
+        window.location.href = "http://data.xinxueshuo.cn/nsi-class/admin/activity/meeting/metM.html"
+    } else {
+        console.log(false)
+    }
+</script>

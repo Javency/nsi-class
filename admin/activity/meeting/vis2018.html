@@ -13,8 +13,17 @@
     <link rel="stylesheet" href="./css/common.css">
     <link rel="stylesheet" href="./css/convention.css">
     <style>
+        header {
+            position: fixed;
+            width: 100%;
+            background: #FFF;
+            z-index: 9999;
+            box-shadow: 0 0 10px #bbb;
+        }
+        
         .bg01 {
-            background-image: url("https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/activity/2018vis/visbanner01.jpg");
+            padding-top: 90px;
+            background-image: none;
             background-position: center 0;
             background-size: 100%;
         }
@@ -43,8 +52,8 @@
         
         header>ul {
             float: right;
-            height: 100px;
-            line-height: 100px;
+            height: 80px;
+            line-height: 80px;
             margin-right: 50px;
         }
         
@@ -56,7 +65,7 @@
         
         header>ul>li>a {
             color: #666;
-            font-size: 16px;
+            font-size: 20px;
         }
         
         .guestSpeaker-title {
@@ -121,6 +130,7 @@
             overflow: hidden;
             border-radius: 4px;
             transition: all .3s;
+            margin-bottom: 15px;
         }
         
         .pastVis:hover {
@@ -141,15 +151,44 @@
             top: 55px;
         }
         
+        .box-container {
+            top: -35px;
+        }
+        
+        .agenda-title {
+            padding-top: 30px;
+        }
+        
+        @media (max-width: 1025px) {
+            .bg02 {
+                padding-top: 400px;
+            }
+        }
+        
         @media (max-width: 768px) {
             header>ul>li {
                 margin: 0 13px;
             }
+            header>ul {
+                margin-right: 0;
+            }
+            .box-container {
+                top: 0;
+            }
         }
         
         @media (max-width: 416px) {
+            .bg01 {
+                padding-top: 76px;
+            }
             header>ul {
                 display: none;
+            }
+            .timeAndSpot {
+                top: 50px;
+            }
+            .baseInfo {
+                font-size: 18px;
             }
         }
     </style>
@@ -158,24 +197,24 @@
 <body>
     <div class="container-fluid plpr0">
         <header class="clearfix">
-            <a href="#"><img src="../image/vis-logo.png" alt=""></a>
+            <a href="#"><img src="../image/vis-logo.png" width="400" alt=""></a>
             <ul class="clearfix visNav">
-                <li><a href="../visApply.html">购票</a></li>
                 <li><a href="#bg02">议程</a></li>
                 <li><a href="#bg03">嘉宾</a></li>
+                <li><a href="../visApply.html">购票</a></li>
                 <!-- <li><a href="javascript:;">合作</a></li> -->
             </ul>
         </header>
         <div class="bg bg01">
+            <img src="https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/activity/2018vis/visBanner-pc.jpg" alt="">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h2 class="text-center title" style="margin-bottom:30px;">“有界无边，育在未来”——2018国际学校发展大会</h2>
-                        <!-- <h2 class="text-center"><small class="small">新学说文化传媒</small></h2> -->
+                        <!-- <h2 class="text-center title" style="margin-bottom:30px;">“有界无边，育在未来”——2018国际学校发展大会</h2>
                         <div class="text-center base-info">
                             <span class="iconfont icon-location">&nbsp;中国 · 北京</span>
                             <span class="iconfont icon-riqi">&nbsp;2018/11/09 - 2018/11/11</span>
-                        </div>
+                        </div> -->
                         <div class="box-container">
                             <h4 class="box-title">大会主题</h4>
                             <p class="box-content text-center"><strong>2018国际学校发展大会</strong></p>
@@ -229,7 +268,7 @@
                                         </div>
                                         <h4 class="text-center"><small>下午分论坛：六大话题分论坛</small></h4>
                                         <div class="agenda-item">
-                                            <div class="agenda-item-title">14:00-17:00<br/>投融资<br/>创新与素质教育<br/>母语文化教育<br/>信息化建设<br/>信息化建设<br/>人才建设与培养<br/>学生心理健康培养</div>
+                                            <div class="agenda-item-title">六大话题分论坛</div>
                                         </div>
                                         <div class="agenda-item"></div>
                                     </div>
@@ -237,7 +276,7 @@
                                         <h4 class="text-center">Day 3：11月11日 周日</h4>
                                         <h4 class="text-center"><small>上午分论坛：六大话题分论坛</small></h4>
                                         <div class="agenda-item">
-                                            <div class="agenda-item-title">09:00-12:00<br/>义务阶段的双语课程设计<br/>学校与社区的联动<br/>双语教师的职业发展<br/>职能部门中基层培养<br/>双语教师的职业发展专场<br/>外籍学生的招生与管理专场</div>
+                                            <div class="agenda-item-title">六大话题分论坛</div>
                                         </div>
                                         <h4 class="text-center"><small>下午主会场：国际学校质量评估与保障</small></h4>
                                         <div class="agenda-item">
@@ -264,7 +303,7 @@
             <h2 class="text-center guestSpeaker-title">历届VIS嘉宾</h2>
             <div class="container">
                 <div class="row">
-                    <div class="col-md-2 col-xs-6">
+                    <div class="col-md-2 col-sm-4 col-xs-6">
                         <div class="guestBox">
                             <div class="guestBoxPic">
                                 <div class="guestBoxPicBox">
@@ -275,7 +314,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-2 col-xs-6">
+                    <div class="col-md-2 col-sm-4 col-xs-6">
                         <div class="guestBox">
                             <div class="guestBoxPic">
                                 <div class="guestBoxPicBox">
@@ -286,7 +325,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-2 col-xs-6">
+                    <div class="col-md-2 col-sm-4 col-xs-6">
                         <div class="guestBox">
                             <div class="guestBoxPic">
                                 <div class="guestBoxPicBox">
@@ -297,18 +336,18 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-2 col-xs-6">
+                    <div class="col-md-2 col-sm-4 col-xs-6">
                         <div class="guestBox">
                             <div class="guestBoxPic">
                                 <div class="guestBoxPicBox">
                                     <img src="../image/pastGuest/4.jpg" alt="">
                                 </div>
                                 <h4 class="text-center guest-name">Gerard Macmahon</h4>
-                                <h4 class="text-center"><small class="small"><b>上海惠林顿校长</b></small></h4>
+                                <h4 class="text-center"><small class="small"><b>上海惠灵顿校长</b></small></h4>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-2 col-xs-6">
+                    <div class="col-md-2 col-sm-4 col-xs-6">
                         <div class="guestBox">
                             <div class="guestBoxPic">
                                 <div class="guestBoxPicBox">
@@ -319,7 +358,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-2 col-xs-6">
+                    <div class="col-md-2 col-sm-4 col-xs-6">
                         <div class="guestBox">
                             <div class="guestBoxPic">
                                 <div class="guestBoxPicBox">
@@ -330,7 +369,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-2 col-xs-6">
+                    <div class="col-md-2 col-sm-4 col-xs-6">
                         <div class="guestBox">
                             <div class="guestBoxPic">
                                 <div class="guestBoxPicBox">
@@ -341,7 +380,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-2 col-xs-6">
+                    <div class="col-md-2 col-sm-4 col-xs-6">
                         <div class="guestBox">
                             <div class="guestBoxPic">
                                 <div class="guestBoxPicBox">
@@ -352,7 +391,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-2 col-xs-6">
+                    <div class="col-md-2 col-sm-4 col-xs-6">
                         <div class="guestBox">
                             <div class="guestBoxPic">
                                 <div class="guestBoxPicBox">
@@ -363,7 +402,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-2 col-xs-6">
+                    <div class="col-md-2 col-sm-4 col-xs-6">
                         <div class="guestBox">
                             <div class="guestBoxPic">
                                 <div class="guestBoxPicBox">
@@ -374,7 +413,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-2 col-xs-6">
+                    <div class="col-md-2 col-sm-4 col-xs-6">
                         <div class="guestBox">
                             <div class="guestBoxPic">
                                 <div class="guestBoxPicBox">
@@ -385,7 +424,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-2 col-xs-6">
+                    <div class="col-md-2 col-sm-4 col-xs-6">
                         <div class="guestBox">
                             <div class="guestBoxPic">
                                 <div class="guestBoxPicBox">
@@ -396,7 +435,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-2 col-xs-6">
+                    <div class="col-md-2 col-sm-4 col-xs-6">
                         <div class="guestBox">
                             <div class="guestBoxPic">
                                 <div class="guestBoxPicBox">
@@ -407,7 +446,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-2 col-xs-6">
+                    <div class="col-md-2 col-sm-4 col-xs-6">
                         <div class="guestBox">
                             <div class="guestBoxPic">
                                 <div class="guestBoxPicBox">
@@ -418,7 +457,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-2 col-xs-6">
+                    <div class="col-md-2 col-sm-4 col-xs-6">
                         <div class="guestBox">
                             <div class="guestBoxPic">
                                 <div class="guestBoxPicBox">
@@ -429,7 +468,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-2 col-xs-6">
+                    <div class="col-md-2 col-sm-4 col-xs-6">
                         <div class="guestBox">
                             <div class="guestBoxPic">
                                 <div class="guestBoxPicBox">
@@ -440,7 +479,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-2 col-xs-6">
+                    <div class="col-md-2 col-sm-4 col-xs-6">
                         <div class="guestBox">
                             <div class="guestBoxPic">
                                 <div class="guestBoxPicBox">
@@ -451,7 +490,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-2 col-xs-6">
+                    <div class="col-md-2 col-sm-4 col-xs-6">
                         <div class="guestBox">
                             <div class="guestBoxPic">
                                 <div class="guestBoxPicBox">
@@ -465,17 +504,23 @@
                 </div>
             </div>
         </div>
-        <div class="bgPast" style=" background-image: url('https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/activity/2018vis/vis-bg-bottom.jpg');background-position-y: -340px;">
+        <div class="bgPast" style=" background-image: url('https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/activity/2018vis/vis-bg-bottom.jpg');background-position-y: -225px;">
             <div class="container">
                 <div class="row">
                     <h2 class="text-center guestSpeaker-title">历届VIS大会</h2>
-                    <div class="col-md-6">
+                    <div class="col-md-4 col-sm-6" style="margin-bottom:15px;">
+                        <a href="http://edu.qq.com/p/topic/20161221027199/" target="_" class="pastVis">
+                            <img src="https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/activity/2018vis/vis2015.jpg" alt="">
+                        </a>
+                        <h3 class="text-center"><a target="_" href="http://edu.qq.com/p/topic/20161221027199/">2015VIS大会</a></h3>
+                    </div>
+                    <div class="col-md-4 col-sm-6" style="margin-bottom:15px;">
                         <a href="http://edu.qq.com/p/topic/20161221027199/" target="_" class="pastVis">
                             <img src="../image/vis2016.jpg" alt="">
                         </a>
                         <h3 class="text-center"><a target="_" href="http://edu.qq.com/p/topic/20161221027199/">2016VIS大会</a></h3>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-4 col-sm-6" style="margin-bottom:15px;">
                         <a href="http://edu.qq.com/cross/20171215/P27Rp8V4.html" target="_" class="pastVis">
                             <img src="../image/vis2017.jpg" alt="">
                         </a>
@@ -502,7 +547,7 @@
                 </div>
             </div>
         </div>
-        <div class="ptb50" style=" background-image: url('https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/activity/2018vis/vis-bg-bottom.jpg');">
+        <div class="ptb50" style=" background-image: url('https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/activity/2018vis/vis-bg-bottom.jpg');background-position-y: -355px;">
             <div class="container">
                 <div class="row text-center">
                     <div class="col-md-12 text-center" style="margin-bottom:15px;">
@@ -634,6 +679,132 @@
             // console.log(x, y)
     }
     $(".visApply").click(function() {
-        window.open("../commencement.html")
+        window.open("../visApply.html")
     })
+</script>
+<!-- 微信分享 -->
+<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script>
+    /**去掉字符串前后所有空格*/
+    function trim(str) {
+        return str.replace(/(^\s*)|(\s*$)/g, "");
+    }
+
+    setTimeout(function() {
+        // 微信配置
+        var href = window.location.href;
+        // var pos = href.indexOf("from=")
+        // href = href.substring(0, pos - 1)
+
+        var title = '2018国际学校发展大会';
+        var desc = '2018/11/09 北京昆泰酒店 期待您的到来';
+        var imgUrl = 'https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/activity/2018vis/visbanner.jpg';
+
+        $.ajax({
+            type :   "get",
+            async: true,
+            traditional: true,
+            data: {
+                URL: href
+            }, //提交的参数
+            url: 'http://data.xinxueshuo.cn/nsi-0.9/Admin_api?whereFrom=WeChatShare',
+            dataType :   "jsonp", //数据类型为jsonp  
+            jsonp:   "Callback", //服务端用于接收callback调用的function名的参数  
+            success :   function(msg) {
+                // console.log(msg)
+                wx.config({
+
+                    debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+
+                    appId: msg.appId, // 必填，公众号的唯一标识
+
+                    timestamp: msg.timestamp, // 必填，生成签名的时间戳
+
+                    nonceStr: msg.nonceStr, // 必填，生成签名的随机串
+
+                    signature: msg.signature, // 必填，签名，见附录1
+
+                    jsApiList: ['onMenuShareAppMessage', 'onMenuShareTimeline'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+
+                });
+
+                wx.ready(function() {
+
+                    // config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，所以如果需要在页面加载时就调用相关接口，则须把相关接口放在ready函数中调用来确保正确执行。对于用户触发时才调用的接口，则可以直接调用，不需要放在ready函数中。
+                    // 分享给朋友
+                    wx.onMenuShareAppMessage({
+
+                        title: title, // 分享标题
+
+                        desc: desc, // 分享描述
+
+                        link: href, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+
+                        imgUrl: imgUrl, // 分享图标
+
+                        type: '', // 分享类型,music、video或link，不填默认为link
+
+                        dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+
+                        success: function() {
+                            // 用户确认分享后执行的回调函数
+
+                        },
+                        cancel: function() {
+                            // 用户取消分享后执行的回调函数
+                        }
+                    });
+
+                    // 分享到朋友圈
+                    wx.onMenuShareTimeline({
+
+                        title: title, // 分享标题
+
+                        link: href, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+
+                        imgUrl: imgUrl, // 分享图标
+
+                        success: function() {
+
+                            // 用户确认分享后执行的回调函数
+
+                        },
+
+                        cancel: function() {
+                            // 用户取消分享后执行的回调函数
+                        }
+                    });
+
+
+                });
+                // 处理失败验证
+                wx.error(function(res) {
+                    // config信息验证失败会执行error函数，如签名过期导致验证失败，具体错误信息可以打开config的debug模式查看，也可以在返回的res参数中查看，对于SPA可以在这里更新签名。
+                });
+
+                wx.checkJsApi({
+
+                    jsApiList: ['chooseImage'], // 需要检测的JS接口列表，所有JS接口列表见附录2,
+
+                    success: function(res) {
+                        // 以键值对的形式返回，可用的api值true，不可用为false
+                        // 如：{"checkResult":{"chooseImage":true},"errMsg":"checkJsApi:ok"}
+                    }
+                });
+
+
+            },
+            error: function() {
+                // alert('发生错误，请求数据失败！');
+            }
+        });
+    }, 1000)
+
+    // $(function() {
+    //     var str = "http://class.xinxueshuo.cn/nsi-class/detailClass.html?Id=10001&from=singlemessage"
+    //     var str = "http://class.xinxueshuo.cn/nsi-class/?from=singfidsojf"
+    //     var pos = str.indexOf("from")
+    //     var newStr = str.substring(0, pos - 1)
+    //     console.log(newStr)
+    // })
 </script>
