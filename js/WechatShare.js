@@ -9,9 +9,9 @@
 		    // var pos = href.indexOf("from=")
 		    // href = href.substring(0, pos - 1)
 
-		    var title = '新学说国际教育学院';
-		    var desc = '新学说国际教育学院';
-		    var imgUrl = '新学说国际教育学院';
+		    var title = '新学说国际教育研究院';
+		    var desc = '新学说国际教育研究院';
+		    var imgUrl = '新学说国际教育研究院';
 		    // 首页
 		    var page1 = $("#nsiClass-Index");
 		    // 直播页

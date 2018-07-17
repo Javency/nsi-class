@@ -82,7 +82,7 @@ $(function() {
         url: 'http://' + changeUrl.address + '/Class_Course_api?whereFrom=Search_Course',
         success: function(msg) {
             // console.log(msg.data[0])
-            $("title").html(msg.data[0].CourseName + "-新学说国际教育学院")
+            $("title").html(msg.data[0].CourseName + "-新学说国际教育研究院")
             $("#CourseName").text(msg.data[0].CourseName);
             $("#ClassBegins").text(msg.data[0].ClassBegins);
             $("#CoursePrice").text(msg.data[0].CoursePrice);
