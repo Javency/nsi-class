@@ -178,8 +178,8 @@
 <script src="../../../../js/jquery.cookie.js"></script>
 <script src="../../js/config.js"></script>
 <script>
-    var sub = $("#sub"),
-        attach = $.cookie('attach')
+    var sub = $("#sub")
+        // attach = $.cookie('attach')
         // console.log("attach:", attach);
 
     //获取url地址问号后面部分
@@ -206,8 +206,8 @@
         return args;
     }
     var args = getQueryStringArgs(),
-        code = decodeURIComponent(args['code']),
-        attach = decodeURIComponent(args['attach'])
+        code = decodeURIComponent(args['code'])
+        // attach = decodeURIComponent(args['attach'])
 
     //获取时间
     Date.prototype.Format = function(fmt) { // author: meizz
@@ -229,6 +229,8 @@
     var nowTime = new Date().Format("yyyy-MM-dd hh:mm:ss")
     console.log(nowTime)
 
+    console.log(localStorage['Tcode'])
+        // 发送code
     $.ajax({
         type: 'post',
         data: {
@@ -236,17 +238,22 @@
         },
         url: 'http://' + changeUrl.address + '/wxPay/getInfo.do',
         success: function(msg) {
-            var openid = msg.data.openid;
-            var storage = window.localStorage;
+            var openid = msg.data.openid,
+                storage = window.localStorage
+
             sub.click(function() {
+                var fee = $('input[name="meetingType"]:checked').val(),
+                    attachVal = storage.email + '$' + fee + '$' + localStorage['Tcode'] + '$' + storage.event
+                console.log(attachVal)
+
                 $.ajax({
                     type: 'get',
                     url: 'http://' + changeUrl.address + '/wxPay/pay.do',
                     data: {
-                        "attach": storage.attach,
+                        "attach": attachVal,
                         "openid": openid,
                         "body": $('input[name="meetingType"]:checked').siblings().text(),
-                        "total_fee": $('input[name="meetingType"]:checked').val()
+                        "total_fee": fee
                     },
                     success: function(msg) {
                         console.log(msg)

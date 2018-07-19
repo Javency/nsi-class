@@ -224,8 +224,9 @@
                 }
                 // 保存姓名和邮箱
                 var storage = window.localStorage;
-                storage['attach'] = inputVal6
-
+                storage['email'] = inputVal6
+                storage['event'] = $("#activityTitle").text() + '_' + bookingType
+                console.log(data)
                 $.ajax({
                     type: "post",
                     data: data,
