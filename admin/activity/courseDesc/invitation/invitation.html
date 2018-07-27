@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>邀请函</title>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_746810_l8b3yijvfo.css">
+</head>
+<style>
+    body {
+        background: -webkit-linear-gradient(#6389df, #2e87d7);
+        /* Safari 5.1 - 6.0 */
+        background: -o-linear-gradient(#6389df, #2e87d7);
+        /* Opera 11.1 - 12.0 */
+        background: -moz-linear-gradient(#6389df, #2e87d7);
+        /* Firefox 3.6 - 15 */
+        background: linear-gradient(to bottom, #6389df 0, #2e87d7 100%);
+        /* 标准的语法（必须放在最后） */
+    }
+    
+    .box a {
+        margin-top: 20px;
+        text-decoration: none;
+        color: black;
+    }
+    
+    .box h3 {
+        margin-bottom: 15px;
+        margin-top: 5px;
+    }
+    
+    .pay-suc {
+        font-size: 25px;
+        color: #09c609;
+        margin-right: 10px;
+        position: relative;
+        top: 1px;
+    }
+    
+    p {
+        font-size: 20px;
+    }
+    
+    .all-box {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    
+    .share {
+        padding: 20px;
+        /*background-color: #0048ea;*/
+    }
+    
+    .share-box {
+        background-color: #fff;
+        padding: 10px 10px 15px;
+    }
+    
+    .share-btn {
+        position: relative;
+        background-color: #5b64e3;
+        color: #fff;
+        font-size: 20px;
+        font-weight: 600;
+        letter-spacing: 10px;
+        margin-top: 15px;
+    }
+    
+    .content {
+        background-color: #fff;
+        padding: 10px;
+        border-radius: 4px;
+        margin-top: 10px;
+    }
+    
+    .content p {
+        font-size: 17px;
+        color: #3a58bb;
+        text-align: center;
+        font-weight: 600;
+        padding-top: 10px;
+    }
+    
+    .logo {
+        border-radius: 4px;
+        overflow: hidden;
+    }
+    
+    .box>p {
+        margin-top: 15px;
+        color: #363636;
+        font-size: 16px;
+    }
+    
+    .pay {
+        background-color: #f6f6f6;
+        border-radius: 4px;
+        padding: 15px 10px 10px;
+    }
+    
+    .pay p {
+        font-size: 15px;
+        color: #666;
+    }
+    
+    .pay p.weixin {
+        color: #222;
+        line-height: 20px;
+    }
+    
+    .line {
+        border: 1px solid #e8e7e7;
+    }
+    
+    .money {
+        margin-top: 8px;
+    }
+    
+    .money span {
+        float: right;
+        position: relative;
+        top: -30px;
+        color: red;
+    }
+    
+    .money p.order {
+        margin-top: 10px;
+    }
+    
+    .pay-logo {
+        font-size: 25px;
+        color: #09c609;
+        margin-right: 10px;
+    }
+    
+    .pay-name {
+        position: relative;
+        top: -5px;
+    }
+    
+    .img-responsive {
+        display: inline-block;
+    }
+</style>
+
+<body>
+    <div class="container all-box">
+        <div class="share">
+            <div class="share-box">
+                <div class="box">
+                    <h3><span class="iconfont icon-duigou pay-suc"></span>支付成功</h3>
+                    <div class="logo">
+                        <img class="img-responsive" src="https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/activity/2018MAC/MacBanner.jpg" alt="">
+                    </div>
+                    <p id="classInfo">国际学校市场招生</p>
+                    <div class="pay">
+                        <p class="method">支付方式</p>
+                        <p class="weixin"><span class="iconfont icon-weixin2 pay-logo"></span><span class="pay-name">微信支付</span></p>
+                        <div class="line"></div>
+                        <div class="money">
+                            <p class="order">订单金额</p><span class="price">00.00</span>
+                            <p>实付金额</p><span class="price">00.00</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="content">
+                <p>点击首页右上角分享给好友，每成功邀请一位，可获得学费10%的赏金哦</p>
+                <div style="padding: 0 10px"><button class="btn btn-block animated pulse infinite share-btn" id="btn">去分享</button></div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script>
+    $(function() {
+
+        var height = $(window).height()
+        $(document.body).css("min-height", height)
+        var storage = window.localStorage,
+            user = storage.email,
+            // user = '313121@qq.com',
+            user = user.replace('@', '*'),
+            shareHref = "http://data.xinxueshuo.cn/nsi-class/admin/activity/courseDesc/macM.html?Tcode=" + user
+
+        storage['isPaid'] = "true"
+
+        $("#btn").click(function() {
+            window.location.href = shareHref
+        })
+
+        // 内容填充
+        $('.price').text(storage.fee)
+        $('#classInfo').text(storage.shoppingInfo)
+    })
+</script>

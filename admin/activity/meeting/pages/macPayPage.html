@@ -115,8 +115,8 @@
                 <div class="col-md-12">
                     <div class="pay-content">
                         <div class="alert alert-warning" role="alert">
-                            <p><strong>早鸟价</strong>报名截止日期为<strong>8月7日</strong></p>
-                            <p class="mb0"><strong>8月7日后</strong>早鸟价将恢复至<b>标准价</b>，请提前购买</p>
+                            <p><strong>早鸟价</strong>报名截止日期为<strong>8月4日</strong></p>
+                            <p class="mb0"><strong>8月4日后</strong>早鸟价将恢复至<b>标准价</b>，请提前购买</p>
                         </div>
                         <div class="custom-control custom-radio selectType pay-goods">
                             <input type="radio" id="customRadio5" name="meetingType" class="custom-control-input" value="4880">
@@ -244,6 +244,8 @@
             sub.click(function() {
                 var fee = $('input[name="meetingType"]:checked').val(),
                     attachVal = storage.email + '$' + fee + '$' + localStorage['Tcode'] + '$' + storage.event
+                storage['fee'] = fee
+                storage['shoppingInfo'] = $('input[name="meetingType"]:checked').siblings().text()
                 console.log(attachVal)
 
                 $.ajax({
@@ -276,8 +278,8 @@
                                 },
                                 function(res) {
                                     if (res.err_msg == "get_brand_wcpay_request:ok") {
-                                        alert("支付成功")
-                                        location.href = "../../courseDesc/macM.html"
+                                        //alert("支付成功")
+                                        location.href = "../../courseDesc/invitation/invitation.html"
                                     } // 使用以上方式判断前端返回,微信团队郑重提示：res.err_msg将在用户支付成功后返回    ok，但并不保证它绝对可靠。 
                                 }
                             );

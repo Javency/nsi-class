@@ -13,6 +13,9 @@
         if (otherIndex < 0) {
             Tcode = flagTcode.slice(TcodeIndex + 6, )
         } else {
+
+
+
             Tcode = flagTcode.slice(TcodeIndex + 6, otherIndex)
         }
     }

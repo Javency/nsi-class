@@ -8,9 +8,20 @@
     <title>新学说国际教育研究院-国际学校市场招生</title>
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://at.alicdn.com/t/font_675505_zn423yja5c9885mi.css">
-    <link rel="stylesheet" href="https://at.alicdn.com/t/font_746810_7ubpg1p9yjg.css">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_746810_l8b3yijvfo.css">
     <link rel="stylesheet" href="../meeting/css/common.css">
     <link rel="stylesheet" href="../meeting/css/conventionM.css">
+    <style>
+        .pic {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            width: 100%;
+            text-align: center;
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -104,7 +115,7 @@
                         <div class="title-pic ">
                             <span class="iconfont icon-tubiao204"></span>
                         </div>
-                        <h5 class="title mt0">开课时间：9.7</h5>
+                        <h5 class="title mt0">开课时间：9.4</h5>
                     </div>
                 </a>
             </div>
@@ -126,6 +137,10 @@
                 <p class="friendHref">友情链接<a href="http://www.xinxueshuo.cn/">新学说官网</a><a href="http://data.xinxueshuo.cn">四库全书</a><a href="http://class.xinxueshuo.cn">在线课堂</a></p>
             </div>
         </footer>
+    </div>
+    <div class="pic">
+        <p style="margin-bottom: 0" class="text-right"><img src="./invitation/img/arrow.png" alt="" class="img-responsive"></p>
+        <p><img src="./invitation/img/card.png" alt="" class="img-responsive"></p>
     </div>
 </body>
 
@@ -157,6 +172,23 @@
     browserRedirect()
     if (!IsMobile) window.location.href = "./macCourse.html";
 </script>
+<script>
+    $(function() {
+        var storage = window.localStorage,
+            picHeight = $(document).height()
+
+        if (storage['isPaid'] === "true") {
+            $(".pic").show()
+        } else {
+            $(".pic").hide()
+        }
+
+        $(".pic").css("height", picHeight)
+        $(".pic").click(function() {
+            $(this).hide()
+        })
+    })
+</script>
 <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 <script>
     /**去掉字符串前后所有空格*/
@@ -170,7 +202,7 @@
         // var pos = href.indexOf("from=")
         // href = href.substring(0, pos - 1)
 
-        var title = '新学说国际教育研究院-国际学校市场招生';
+        var title = '新学说国际教育研究院-国际学校市场招生,大学升学';
         var desc = '国际教育研究院在线课堂，人力资源，市场招生，大学升学课程全面起航';
         var imgUrl = 'https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/activity/2018MAC/MacBanner.jpg';
 
