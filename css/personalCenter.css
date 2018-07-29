@@ -68,7 +68,8 @@
 }
 
 .classBuyCode,
-.connectUs {
+.connectUs,
+.invitation {
     display: none;
 }
 
@@ -250,6 +251,55 @@
     color: #FFF;
     padding: 2px 8px;
     background: linear-gradient(-90deg, #f6eb86 0, #f0aa29 100%);
+}
+
+.clearfix:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.invitation-title {
+    background-color: #f6f6f6;
+    border-radius: 4px;
+    /* border-bottom: 1px solid #ccc; */
+}
+
+.invitation-title>li,
+.invitation-info>li {
+    float: left;
+    width: 50%;
+    height: 45px;
+    line-height: 45px;
+    font-size: 17px;
+    color: rgb(149, 149, 149);
+}
+
+.invitation-info {
+    background-color: #fff;
+    border-bottom: 1px solid rgb(230, 230, 230);
+}
+
+.success {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    background-color: rgb(142, 236, 0);
+    margin-right: 10px;
+    border-radius: 50%;
+    position: relative;
+    top: -3px;
+}
+
+.fail {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    background-color: rgb(236, 193, 0);
+    margin-right: 10px;
+    border-radius: 50%;
+    position: relative;
+    top: -3px;
 }
 
 @media(max-width:1091px) {
