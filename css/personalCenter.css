@@ -268,7 +268,7 @@
 .invitation-title>li,
 .invitation-info>li {
     float: left;
-    width: 50%;
+    width: 25%;
     height: 45px;
     line-height: 45px;
     font-size: 17px;
@@ -300,6 +300,12 @@
     border-radius: 50%;
     position: relative;
     top: -3px;
+}
+
+.noData {
+    color: rgb(149, 149, 149);
+    font-size: 17px;
+    margin-top: 80px;
 }
 
 @media(max-width:1091px) {

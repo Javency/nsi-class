@@ -4,9 +4,10 @@ $(function() {
         myClass = $("#myClass"),
         myCourse = $("#myCourse"),
         notHaveCourse = $("#notHaveCourse"),
-        data = {
-            'UserMail': $.cookie('username')
-        }
+        invitation = $("#invitation-info")
+    data = {
+        'UserMail': $.cookie('username')
+    }
     $.ajax({
         type: "POST",
         data: data,
@@ -19,24 +20,50 @@ $(function() {
                 notHaveCourse.css("display", "none")
             }
             for (var i = 0; i < msg.data.length; i++) {
-                var courseTemplate='<div class="col-md-3 col-sm-6 mb40">'+
-                '<div class="CourseContainer">'+
-                    '<a href="./detailClass.html?Id='+msg.data[i].Id+'" target="_blank">'+
-                        '<div class="Course Course-up">'+
-                            '<img src="'+msg.data[i].CoverImage+'" alt="">'+
-                        '</div>'+
-                    '</a>'+
-                    '<div class="CourseInfo">'+
-                        '<p class="mtb5 oneline"><span class="CourseName" title="'+msg.data[i].CourseName+'">'+msg.data[i].CourseName+'</span></p>'+
-                        '<p class="mtb5 twoline"><span class="CourseDesc" title="'+msg.data[i].CourseDescription+'">'+msg.data[i].CourseDescription+'</span></p>'+
-                    '</div>'+
-                '</div>'+
-            '</div>'
+                var courseTemplate = '<div class="col-md-3 col-sm-6 mb40">' +
+                    '<div class="CourseContainer">' +
+                    '<a href="./detailClass.html?Id=' + msg.data[i].Id + '" target="_blank">' +
+                    '<div class="Course Course-up">' +
+                    '<img src="' + msg.data[i].CoverImage + '" alt="">' +
+                    '</div>' +
+                    '</a>' +
+                    '<div class="CourseInfo">' +
+                    '<p class="mtb5 oneline"><span class="CourseName" title="' + msg.data[i].CourseName + '">' + msg.data[i].CourseName + '</span></p>' +
+                    '<p class="mtb5 twoline"><span class="CourseDesc" title="' + msg.data[i].CourseDescription + '">' + msg.data[i].CourseDescription + '</span></p>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>'
                 haveBoughtCourse.append(courseTemplate)
 
             }
         }
     })
+    $.ajax({
+        type: "post",
+        // data: data,
+        data: {
+            keyword: $.cookie('username')
+        },
+        url: 'http://' + changeUrl.address + '/manager/Log/get_referrer_detail.do',
+        success: function(msg) {
+            if (msg.data.length != 0) {
+                invitation.html('')
+                for (var i = 0; i < msg.data.length; i++) {
+                    var invitationTem = '<ul class="invitation-info clearfix text-center">' +
+                        '<li>' + msg.data[i].index09 + '</li>' +
+                        '<li>' + msg.data[i].index08 + '</li>' +
+                        '<li>' + msg.data[i].index07 + '</li>' +
+                        '<li><span class="success"></span>' + (returnAmount(msg.data[i].index07)) + '</li>' +
+                        '</ul>'
+                    invitation.append(invitationTem)
+                }
+            }
+        }
+    })
+
+    function returnAmount(take) {
+        return Number(take) * 0.1
+    }
 })
 
 //tab
