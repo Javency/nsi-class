@@ -8,6 +8,10 @@
     <title>2018国际学校发展大会</title>
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <style>
+        body {
+            background-color: #cfedf8;
+        }
+        
         .banner {
             position: relative;
             /* min-height: 600px; */
@@ -83,6 +87,10 @@
             z-index: 999;
         }
         
+        .content {
+            padding-top: 80px;
+        }
+        
         ul {
             float: right;
             padding-left: 0;
@@ -99,6 +107,34 @@
         ul>li>a {
             color: #777;
             font-size: 16px;
+        }
+        
+        .guestSpeaker-title {
+            margin: 50px 0 30px;
+        }
+        
+        .pastVis {
+            display: block;
+            overflow: hidden;
+            border-radius: 4px;
+            transition: all .3s;
+            margin-bottom: 15px;
+        }
+        
+        .pastVis img {
+            display: inline-block;
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .bgPast {
+            padding-bottom: 30px;
+        }
+        
+        footer {
+            padding: 15px 0;
+            background: #fefefe;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
@@ -128,7 +164,7 @@
     <div class="btnBox text-center">
         <button class="visApply"><span>立即报名</span></button>
     </div>
-    <div class="content">
+    <div class="content" style="padding-top: 0">
         <img src="../image/visM/3.jpg" alt="" class="img-responsive">
     </div>
     <div class="content" id="content04">
@@ -137,6 +173,40 @@
     <div class="content" id="content05">
         <img src="../image/visM/5.jpg" alt="" class="img-responsive">
     </div>
+    <div class="bgPast" style=" background-image: url('https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/activity/2018vis/vis-bg-bottom.jpg');background-position-y: -225px;">
+        <div class="container">
+            <div class="row">
+                <h3 class="text-center guestSpeaker-title">历届VIS大会</h3>
+                <div class="col-md-4 col-sm-6" style="margin-bottom:15px;">
+                    <a href="http://edu.qq.com/p/topic/20161221027199/" target="_" class="pastVis">
+                        <img src="https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/activity/2018vis/vis2015.jpg" alt="">
+                    </a>
+                    <h3 class="text-center"><a target="_" href="http://edu.qq.com/p/topic/20161221027199/">2015VIS大会</a></h3>
+                </div>
+                <div class="col-md-4 col-sm-6" style="margin-bottom:15px;">
+                    <a href="http://edu.qq.com/p/topic/20161221027199/" target="_" class="pastVis">
+                        <img src="../image/vis2016.jpg" alt="">
+                    </a>
+                    <h3 class="text-center"><a target="_" href="http://edu.qq.com/p/topic/20161221027199/">2016VIS大会</a></h3>
+                </div>
+                <div class="col-md-4 col-sm-6" style="margin-bottom:15px;">
+                    <a href="http://edu.qq.com/cross/20171215/P27Rp8V4.html" target="_" class="pastVis">
+                        <img src="../image/vis2017.jpg" alt="">
+                    </a>
+                    <h3 class="text-center"><a target="_" href="http://edu.qq.com/cross/20171215/P27Rp8V4.html">2017VIS大会</a></h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-12">
+                    © 2018 xinxueshuo.cn 京ICP备 16031987号-1
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 
 </html>
@@ -154,4 +224,26 @@
     $(".visApply").click(function() {
         window.open("../visApply.html")
     })
+</script>
+<script>
+    //判断是否移动端
+    var IsMobile = false;
+
+    function browserRedirect() {
+        //只读的字符串，声明了浏览器用于 HTTP 请求的用户代理头的值
+        var sUserAgent = navigator.userAgent.toLowerCase();
+        var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+        var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+        var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+        var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+        var bIsAndroid = sUserAgent.match(/android/i) == "android";
+        var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+        var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+        if (bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) {
+            IsMobile = true;
+            // window.location.replace(url);
+        }
+    }
+    browserRedirect()
+    if (!IsMobile) window.location.href = "./vis2018-01.html";
 </script>
