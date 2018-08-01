@@ -52,7 +52,7 @@
         }
         
         .session-02 {
-            padding-top: 100px;
+            padding-top: 50px;
             width: 100%;
             height: 555px;
             background-image: url("./img/section2-bg.png");
@@ -338,6 +338,33 @@
             text-shadow: 0 4px 8px rgba(7, 17, 27, 0.4);
         }
         
+        .teacherPic>img {
+            display: inline-block;
+            max-width: 100%;
+            height: auto;
+            border-radius: 50%;
+        }
+        
+        .teacherName {
+            margin: 10px 0 5px;
+            font-weight: 700;
+            color: #666;
+        }
+        
+        .teacherClass {
+            margin: 10px 0;
+            color: #555;
+        }
+        
+        .lessonInfo {
+            color: #444;
+        }
+        
+        .lecturer {
+            /* padding-bottom: 10px; */
+            min-height: 255px;
+        }
+        
         @media (max-width: 789px) {
             .flexHeight01,
             .flexHeight02,
@@ -446,81 +473,116 @@
     <!-- <div class="session session-03 text-center" style="margin-bottom:0">
         <button class="toApply"><span class="iconfont icon-gouwuche3 iconlogo"></span><span>立即报名</span></button>
     </div> -->
-    <div class="session session-class" id="session-class">
-        <div class="container college" id="ccc">
-            <h1 class="title mb0">大学升学在线课程</h1>
-            <h2 class="title text-center"><small>大学升学，是规划，是成长塑造的过程</small></h2>
-            <div class="col-md-12">
-                <div class="course-box">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="course-info ml60mr10">
-                                <div class="row">
-                                    <div class="col-md-4 verticalCenter flexHeight05">
-                                        <p class="text-center info-title">基本知识与工具介绍</p>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <ul>
-                                            <li>● 美国的教育体制及大学招生政策和流程</li>
-                                            <li>● 英国的教育体制及大学招生政策和流程</li>
-                                            <li>● 加澳欧洲的教育体制及市场招生政策和流程</li>
-                                            <li>● 大学申请工作中的工具使用</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="course-info ml60mr10">
-                                <div class="row">
-                                    <div class="col-md-4 verticalCenter flexHeight06">
-                                        <p class="text-center info-title">如何为学生量身定制申请方案</p>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <ul>
-                                            <li>● 如何写好推荐信</li>
-                                            <li>● 升学规范的节奏把控，指定目标清单</li>
-                                            <li>● 如何根据学生实际情况策划学术和非学术经历</li>
-                                            <li>● 如何在面试和文书中更好的表达自己</li>
-                                            <li>● 后升学申请阶段的规划</li>
-                                            <li>● 学生参考及标化考试的准备</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="course-info ml60mr10">
-                                <div class="row">
-                                    <div class="col-md-4 verticalCenter flexHeight07">
-                                        <p class="text-center info-title">升学办公室的工作</p>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <ul>
-                                            <li>● 升学指导办公室的工作规划</li>
-                                            <li>● 如何建立与国外大学的沟通机制</li>
-                                            <li>● 与海外机构组织建立深厚的合作关系</li>
-                                            <li>● 咨询办公室的对外宣传和相关室内设计</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
+
+    <div class="session session-02" id="session-02">
+        <div class="container" id="post">
+            <h1 class="text-center title">讲师介绍</h1>
+            <div class="row">
+                <div class="col-md-3 col-xs-6">
+                    <div class="lecturer">
+                        <div class="teacherPic text-center">
+                            <img src="./img/lili.jpg" alt="" width="100">
                         </div>
-                        <div class="col-md-6">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <h3 class="text-center classInfo-title">课程简介</h3>
-                                    <p class="classInfo">
-                                        在这样的大学升学体系中，学校有一个关键角色是升学顾问。如何跟学生和家庭进行沟通，了解不同特色的家庭教育资源和家庭背景、意愿，为他们量身订做个性化方案，使他们了解学校的课程和资源，规划时间。
-                                    </p>
-                                </div>
-                                <div class="col-md-12 text-center">
-                                    <img src="./img/ccc.png" alt="" width="350">
-                                </div>
-                            </div>
+                        <h4 class="teacherName text-center">李莉</h4>
+                        <h4 class="text-center"><small>威雅公学市场与招生部经理</small></h4>
+                        <p class="teacherClass">
+                            <span class="lessonName">主讲课程：</span>
+                            <span class="lessonInfo">《多渠道市场招生途径经验分享》</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-xs-6">
+                    <div class="lecturer">
+                        <div class="teacherPic text-center">
+                            <img src="./img/shiwei.jpg" alt="" width="100">
                         </div>
+                        <h4 class="teacherName text-center">师伟</h4>
+                        <h4 class="text-center"><small>某教育集团旗行政主任</small></h4>
+                        <p class="teacherClass">
+                            <span class="lessonName">主讲课程：</span>
+                            <span class="lessonInfo">《构建健康牢固的家校关系》</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-xs-6">
+                    <div class="lecturer">
+                        <div class="teacherPic text-center">
+                            <img src="./img/suhengliang.jpg" alt="" width="100">
+                        </div>
+                        <h4 class="teacherName text-center">苏恒良</h4>
+                        <h4 class="text-center"><small>新学说战略咨询总监</small></h4>
+                        <p class="teacherClass">
+                            <span class="lessonName">主讲课程：</span>
+                            <span class="lessonInfo">《中国国际学校市场现状分析》、《如何做好国际学校市场的竞品分析》</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-xs-6">
+                    <div class="lecturer">
+                        <div class="teacherPic text-center">
+                            <img src="./img/tanqiaoyun.jpg" alt="" width="100">
+                        </div>
+                        <h4 class="teacherName text-center">覃巧云</h4>
+                        <h4 class="text-center"><small>新学说媒体事业部总监</small></h4>
+                        <p class="teacherClass">
+                            <span class="lessonName">主讲课程：</span>
+                            <span class="lessonInfo">《何与媒体有效沟通》</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-xs-6">
+                    <div class="lecturer">
+                        <div class="teacherPic text-center">
+                            <img src="./img/shenke.jpg" alt="" width="100">
+                        </div>
+                        <h4 class="teacherName text-center">沈柯</h4>
+                        <h4 class="text-center"><small>腾讯教育行业主编</small></h4>
+                        <p class="teacherClass">
+                            <span class="lessonName">主讲课程：</span>
+                            <span class="lessonInfo">《如何有效应对品牌危机》、《利用自媒体高效提升品牌影响》</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-xs-6">
+                    <div class="lecturer">
+                        <div class="teacherPic text-center">
+                            <img src="./img/wuzheng.jpg" alt="" width="100">
+                        </div>
+                        <h4 class="teacherName text-center">吴峥</h4>
+                        <h4 class="text-center"><small>博实乐教育集团市场部副总经理</small></h4>
+                        <p class="teacherClass">
+                            <span class="lessonName">主讲课程：</span>
+                            <span class="lessonInfo">《设立合理高效的招生流程》、《多渠道市场招生途径经验分享》</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-xs-6">
+                    <div class="lecturer">
+                        <div class="teacherPic text-center">
+                            <img src="./img/xulingke.jpg" alt="" width="100">
+                        </div>
+                        <h4 class="teacherName text-center">许凌可</h4>
+                        <h4 class="text-center"><small>德普外国语学校副校长</small></h4>
+                        <p class="teacherClass">
+                            <span class="lessonName">主讲课程：</span>
+                            <span class="lessonInfo">《国际学校的从0到1——品牌定位》、《三生万物——品牌建设方法论》</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-xs-6">
+                    <div class="lecturer">
+                        <div class="teacherPic text-center">
+                            <img src="./img/yangli.jpg" alt="" width="100">
+                        </div>
+                        <h4 class="teacherName text-center">杨莉</h4>
+                        <h4 class="text-center"><small>“营天下”创始人</small></h4>
+                        <p class="teacherClass">
+                            <span class="lessonName">主讲课程：</span>
+                            <span class="lessonInfo">《招生人员的基本职业素养》、《如何策划招生前期的市场活动》</span>
+                        </p>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="container college college02" id="teacher">
-
         </div>
     </div>
     <div class="session session-03 text-center">
