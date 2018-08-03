@@ -39,7 +39,7 @@
 		        data: {
 		            URL: href
 		        }, //提交的参数
-		        url: 'http://data.xinxueshuo.cn/nsi-0.9/Admin_api?whereFrom=WeChatShare',
+		        url: 'http://data.xinxueshuo.cn/nsi-1.0/Admin_api?whereFrom=WeChatShare',
 		        dataType :   "jsonp", //数据类型为jsonp  
 		        jsonp:   "Callback", //服务端用于接收callback调用的function名的参数  
 		        success :   function(msg) {

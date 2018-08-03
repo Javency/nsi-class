@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>2018国际学校发展大会</title>
+    <title>2018VIS国际学校发展大会</title>
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://at.alicdn.com/t/font_675505_zn423yja5c9885mi.css">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_675505_tlmbqfeaca.css">
     <link rel="stylesheet" href="./css/common.css">
     <link rel="stylesheet" href="./css/conventionM.css">
 </head>
@@ -40,7 +40,7 @@
                         <div class="title-pic">
                             <span class="iconfont icon-zhuti"></span>
                         </div>
-                        <h5 class="title mt0">大会主题</h5>
+                        <h5 class="title mt0">关于VIS</h5>
                     </div>
                 </a>
             </div>
@@ -48,9 +48,9 @@
                 <a href="./vis2018.html?to=agenda">
                     <div class="gridContainer  text-center" style="background-color: #8085EB;">
                         <div class="title-pic ">
-                            <span class="iconfont icon-richengshili"></span>
+                            <span class="iconfont icon-huiyizhuti"></span>
                         </div>
-                        <h5 class="title mt0">大会议程</h5>
+                        <h5 class="title mt0">大会主题</h5>
                     </div>
                 </a>
             </div>
@@ -88,12 +88,12 @@
         </div>
         <div class="row">
             <div class="col-md-4 col-xs-4 pr0">
-                <a href="javascript:;">
+                <a href="./vis2018.html?to=info">
                     <div class="gridContainer text-center" style="background-color: #009688">
                         <div class="title-pic">
-                            <span class="iconfont icon-mn_hezuo_fill"></span>
+                            <span class="iconfont icon-xinxi"></span>
                         </div>
-                        <h5 class="title mt0">合作伙伴</h5>
+                        <h5 class="title mt0">会议信息</h5>
                     </div>
                 </a>
             </div>
@@ -153,7 +153,7 @@
         }
     }
     browserRedirect()
-    if (!IsMobile) window.location.href = "vis2018.html";
+    if (!IsMobile) window.location.href = "vis2018_pc.html";
 </script>
 <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 <script>
@@ -179,7 +179,7 @@
             data: {
                 URL: href
             }, //提交的参数
-            url: 'http://data.xinxueshuo.cn/nsi-0.9/Admin_api?whereFrom=WeChatShare',
+            url: 'http://data.xinxueshuo.cn/nsi-1.0/Admin_api?whereFrom=WeChatShare',
             dataType :   "jsonp", //数据类型为jsonp  
             jsonp:   "Callback", //服务端用于接收callback调用的function名的参数  
             success :   function(msg) {

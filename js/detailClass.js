@@ -122,7 +122,7 @@ $(function() {
                             }
                             browserRedirect()
                                 // console.log(IsMobile)
-                                // http://192.168.0.159:8080/nsi-0.9/Payment_api?whereFrom=WeChatHtml5Payment&Id=10001&UserMail=237450257@qq.com
+                                // http://192.168.0.159:8080/nsi-1.0/Payment_api?whereFrom=WeChatHtml5Payment&Id=10001&UserMail=237450257@qq.com
                             if (IsMobile) {
                                 $.ajax({
                                     type: "post",
