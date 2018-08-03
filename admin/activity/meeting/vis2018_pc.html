@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>2018国际学校发展大会</title>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #cfedf8;
+        }
+        
+        .banner {
+            position: relative;
+            /* min-height: 600px; */
+            /* background: url('./img/visBanner.jpg') no-repeat; */
+            /* background-size: 100%; */
+        }
+        
+        .visApply {
+            position: relative;
+            appearance: none;
+            /* background: #f72359; */
+            background: #d32720;
+            padding: 15px 100px;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            outline: none;
+            overflow: hidden;
+            border-radius: 100px;
+        }
+        
+        .visApply:focus,
+        .visApply:hover {
+            color: #FFF;
+        }
+        
+        .visApply span {
+            position: relative;
+        }
+        
+        .visApply::before {
+            --size: 0;
+            content: '';
+            position: absolute;
+            left: var(--x);
+            top: var(--y);
+            width: var(--size);
+            height: var(--size);
+            background: radial-gradient(circle closest-side, #1539db, transparent) !important;
+            transform: translate(-50%, -50%);
+            transition: width .2s ease, height .2s ease;
+        }
+        
+        .visApply:hover::before {
+            color: #FFF;
+            --size: 400px;
+        }
+        
+        .btnBox {
+            background: url("https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-event/vis-2018/vis02.jpg") no-repeat;
+            background-size: 100% 100%;
+        }
+        
+        .banner,
+        .btnBox {
+            z-index: 2
+        }
+        
+        header {
+            position: fixed;
+            width: 100%;
+            left: 0;
+            top: 0;
+            background: #FFF;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.28);
+            z-index: 99999;
+        }
+        
+        .banner {
+            padding-top: 70px;
+        }
+        
+        ul {
+            float: right;
+        }
+        
+        ul>li {
+            float: left;
+            list-style: none;
+            height: 60px;
+            line-height: 65px;
+            margin-right: 20px;
+        }
+        
+        ul>li>a {
+            color: #777;
+            font-size: 16px;
+        }
+        
+        .guestSpeaker-title {
+            margin: 50px 0 30px;
+        }
+        
+        .pastVis {
+            display: block;
+            overflow: hidden;
+            border-radius: 4px;
+            transition: all .3s;
+            margin-bottom: 15px;
+        }
+        
+        .pastVis img {
+            display: inline-block;
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .pastVis:hover {
+            opacity: .8;
+        }
+        
+        .bgPast {
+            padding-bottom: 50px;
+        }
+        
+        #content04,
+        #content05 {
+            padding-top: 100px;
+        }
+        
+        .past-title {
+            font-size: 17px;
+        }
+        
+        footer {
+            padding: 15px 0;
+            background: #fefefe;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .guestBoxPicBox {
+            box-shadow: 0 0 0 #FFF;
+        }
+        
+        .guestBox {
+            min-height: 170px;
+        }
+        
+        .guestBoxPicBox {
+            border-radius: 50%;
+            overflow: hidden;
+            width: 100px;
+            height: 100px;
+            margin: 35px auto 0;
+        }
+        
+        .guestBox img {
+            display: inline-block;
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .bg03 {
+            background-color: #FFF;
+        }
+        
+        .pastSpeaker {
+            padding: 50px 0 30px;
+        }
+        /* 地点时间 */
+        
+        .bg04 {
+            min-height: 370px;
+            border-radius: 4px;
+            overflow: hidden;
+            background-image: url("https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/activity/2018vis/vis-spot.jpg");
+            background-position: center;
+            background-size: cover;
+            position: relative;
+            margin-bottom: 50px;
+        }
+        
+        .map-bg {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background-image: linear-gradient(-90deg, rgba(7, 17, 27, 0) 0%, rgba(7, 17, 27, 0.6) 97%);
+        }
+        
+        .timeAndSpot {
+            color: #FFF;
+            position: relative;
+            top: 50px;
+        }
+        
+        .baseInfo {
+            /* margin-bottom: 7rem; */
+            letter-spacing: 1px;
+            font-size: 20px;
+            line-height: 2;
+            text-shadow: 0 2px 4px rgba(7, 17, 27, 0.5);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container-fluid clearfix">
+            <a href="javascript:;">
+                <img src="../image/vis-logo.png" alt="" width="300">
+            </a>
+            <ul class="clearfix">
+                <li>
+                    <a href="#content04">议程</a>
+                </li>
+                <li>
+                    <a href="#content05">嘉宾</a>
+                </li>
+                <li>
+                    <a href="../visApply.html">购票</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <div class="banner">
+        <img src="https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-event/vis-2018/vis01.jpg" alt="" class="img-responsive">
+    </div>
+    <div class="btnBox text-center">
+        <button class="visApply"><span>立即报名</span></button>
+    </div>
+    <div class="content">
+        <img src="https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-event/vis-2018/vis03.jpg" alt="" class="img-responsive">
+    </div>
+    <div class="content" id="content04">
+        <img src="https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-event/vis-2018/vis04.jpg" alt="" class="img-responsive">
+    </div>
+    <div class="content" id="content05">
+        <img src="https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-event/vis-2018/vis05.jpg" alt="" class="img-responsive">
+    </div>
+    <div class="bg03 ptb50" id="bg03">
+        <h2 class="text-center guestSpeaker-title pastSpeaker">历届VIS嘉宾</h2>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2 col-sm-4 col-xs-6">
+                    <div class="guestBox">
+                        <div class="guestBoxPic">
+                            <div class="guestBoxPicBox">
+                                <img src="../image/pastGuest/1.jpg" alt="">
+                            </div>
+                            <h4 class="text-center guest-name">刘长铭</h4>
+                            <h4 class="text-center"><small class="small"><b>原北京四中校长</b></small></h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-4 col-xs-6">
+                    <div class="guestBox">
+                        <div class="guestBoxPic">
+                            <div class="guestBoxPicBox">
+                                <img src="../image/pastGuest/2.jpg" alt="">
+                            </div>
+                            <h4 class="text-center guest-name">林敏</h4>
+                            <h4 class="text-center"><small class="small"><b>上海外国语学校校长</b></small></h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-4 col-xs-6">
+                    <div class="guestBox">
+                        <div class="guestBoxPic">
+                            <div class="guestBoxPicBox">
+                                <img src="../image/pastGuest/3.jpg" alt="">
+                            </div>
+                            <h4 class="text-center guest-name">吴越</h4>
+                            <h4 class="text-center"><small class="small"><b>新学说创始人</b></small></h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-4 col-xs-6">
+                    <div class="guestBox">
+                        <div class="guestBoxPic">
+                            <div class="guestBoxPicBox">
+                                <img src="../image/pastGuest/4.jpg" alt="">
+                            </div>
+                            <h4 class="text-center guest-name">Gerard Macmahon</h4>
+                            <h4 class="text-center"><small class="small"><b>上海惠灵顿校长</b></small></h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-4 col-xs-6">
+                    <div class="guestBox">
+                        <div class="guestBoxPic">
+                            <div class="guestBoxPicBox">
+                                <img src="../image/pastGuest/5.jpg" alt="">
+                            </div>
+                            <h4 class="text-center guest-name">Orlando Pola-Rivera</h4>
+                            <h4 class="text-center"><small class="small"><b>上海万科双语学校校长</b></small></h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-4 col-xs-6">
+                    <div class="guestBox">
+                        <div class="guestBoxPic">
+                            <div class="guestBoxPicBox">
+                                <img src="../image/pastGuest/6.jpg" alt="">
+                            </div>
+                            <h4 class="text-center guest-name">David Mansfield</h4>
+                            <h4 class="text-center"><small class="small"><b>上海包玉刚学校校长</b></small></h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-4 col-xs-6">
+                    <div class="guestBox">
+                        <div class="guestBoxPic">
+                            <div class="guestBoxPicBox">
+                                <img src="../image/pastGuest/7.jpg" alt="">
+                            </div>
+                            <h4 class="text-center guest-name">李萍</h4>
+                            <h4 class="text-center"><small class="small"><b>世界联合学院副校长</b></small></h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-4 col-xs-6">
+                    <div class="guestBox">
+                        <div class="guestBoxPic">
+                            <div class="guestBoxPicBox">
+                                <img src="../image/pastGuest/8.jpg" alt="">
+                            </div>
+                            <h4 class="text-center guest-name">Malcolm Mckenzie</h4>
+                            <h4 class="text-center"><small class="small"><b>北京市鼎石学校校长</b></small></h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-4 col-xs-6">
+                    <div class="guestBox">
+                        <div class="guestBoxPic">
+                            <div class="guestBoxPicBox">
+                                <img src="../image/pastGuest/9.jpg" alt="">
+                            </div>
+                            <h4 class="text-center guest-name">Douglas K.Prescott</h4>
+                            <h4 class="text-center"><small class="small"><b>北京加拿大国际学校校长</b></small></h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-4 col-xs-6">
+                    <div class="guestBox">
+                        <div class="guestBoxPic">
+                            <div class="guestBoxPicBox">
+                                <img src="../image/pastGuest/11.jpg" alt="">
+                            </div>
+                            <h4 class="text-center guest-name">崔建设</h4>
+                            <h4 class="text-center"><small class="small"><b>中黄国际教育集团总校长</b></small></h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-4 col-xs-6">
+                    <div class="guestBox">
+                        <div class="guestBoxPic">
+                            <div class="guestBoxPicBox">
+                                <img src="../image/pastGuest/12.jpg" alt="">
+                            </div>
+                            <h4 class="text-center guest-name">David Shinkfiled</h4>
+                            <h4 class="text-center"><small class="small"><b>北京哈罗国际学校校长</b></small></h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-4 col-xs-6">
+                    <div class="guestBox">
+                        <div class="guestBoxPic">
+                            <div class="guestBoxPicBox">
+                                <img src="../image/pastGuest/13.jpg" alt="">
+                            </div>
+                            <h4 class="text-center guest-name">卢慧文</h4>
+                            <h4 class="text-center"><small class="small"><b>上海协和学校总校长</b></small></h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-4 col-xs-6">
+                    <div class="guestBox">
+                        <div class="guestBoxPic">
+                            <div class="guestBoxPicBox">
+                                <img src="../image/pastGuest/14.jpg" alt="">
+                            </div>
+                            <h4 class="text-center guest-name">Marilyn S.George</h4>
+                            <h4 class="text-center"><small class="small"><b>ACS WASC副执行董事</b></small></h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-4 col-xs-6">
+                    <div class="guestBox">
+                        <div class="guestBoxPic">
+                            <div class="guestBoxPicBox">
+                                <img src="../image/pastGuest/16.jpg" alt="">
+                            </div>
+                            <h4 class="text-center guest-name">何道明</h4>
+                            <h4 class="text-center"><small class="small"><b>深圳厚德学员校长</b></small></h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-4 col-xs-6">
+                    <div class="guestBox">
+                        <div class="guestBoxPic">
+                            <div class="guestBoxPicBox">
+                                <img src="../image/pastGuest/17.jpg" alt="">
+                            </div>
+                            <h4 class="text-center guest-name">吴宏志</h4>
+                            <h4 class="text-center"><small class="small"><b>广东碧桂园学校执行校长</b></small></h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-4 col-xs-6">
+                    <div class="guestBox">
+                        <div class="guestBoxPic">
+                            <div class="guestBoxPicBox">
+                                <img src="../image/pastGuest/18.jpg" alt="">
+                            </div>
+                            <h4 class="text-center guest-name">徐涛</h4>
+                            <h4 class="text-center"><small class="small"><b>北京耀中国际学校中方校长</b></small></h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-4 col-xs-6">
+                    <div class="guestBox">
+                        <div class="guestBoxPic">
+                            <div class="guestBoxPicBox">
+                                <img src="../image/pastGuest/21.jpg" alt="">
+                            </div>
+                            <h4 class="text-center guest-name">王殿军</h4>
+                            <h4 class="text-center"><small class="small"><b>清华附中校长</b></small></h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-4 col-xs-6">
+                    <div class="guestBox">
+                        <div class="guestBoxPic">
+                            <div class="guestBoxPicBox">
+                                <img src="../image/pastGuest/22.jpg" alt="">
+                            </div>
+                            <h4 class="text-center guest-name">庄胜利</h4>
+                            <h4 class="text-center"><small class="small"><b>华东康桥国际学校国际部校长</b></small></h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bgPast" style=" background-image: url('https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/activity/2018vis/vis-bg-bottom.jpg');background-position-y: -225px;">
+        <div class="container">
+            <div class="row">
+                <h2 class="text-center guestSpeaker-title">历届VIS大会</h2>
+                <div class="col-md-4 col-sm-6" style="margin-bottom:15px;">
+                    <a href="http://edu.qq.com/p/topic/20161221027199/" target="_" class="pastVis">
+                        <img src="https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/activity/2018vis/vis2015.jpg" alt="">
+                    </a>
+                    <h3 class="text-center"><a target="_" class="past-title" href="http://edu.qq.com/p/topic/20161221027199/">2015VIS大会</a></h3>
+                </div>
+                <div class="col-md-4 col-sm-6" style="margin-bottom:15px;">
+                    <a href="http://edu.qq.com/p/topic/20161221027199/" target="_" class="pastVis">
+                        <img src="../image/vis2016.jpg" alt="">
+                    </a>
+                    <h3 class="text-center"><a target="_" class="past-title" href="http://edu.qq.com/p/topic/20161221027199/">2016VIS大会</a></h3>
+                </div>
+                <div class="col-md-4 col-sm-6" style="margin-bottom:15px;">
+                    <a href="http://edu.qq.com/cross/20171215/P27Rp8V4.html" target="_" class="pastVis">
+                        <img src="../image/vis2017.jpg" alt="">
+                    </a>
+                    <h3 class="text-center"><a target="_" class="past-title" href="http://edu.qq.com/cross/20171215/P27Rp8V4.html">2017VIS大会</a></h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bgMap" style=" background-image: url('https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/activity/2018vis/vis-bg-bottom.jpg');">
+        <div class="container">
+            <div class="bg04 ptb50">
+                <div class="map-bg">
+                    <div class="container">
+                        <div class="col-md-6 col-xs-12">
+                            <div class="timeAndSpot">
+                                <p class="baseInfo">时间：2018/11/09-2018/11/11</p>
+                                <p class="baseInfo">地点：北京市朝阳区望京启阳路2号</p>
+                                <p class="baseInfo">酒店：北京昆泰酒店</p>
+                                <p class="baseInfo">乘车路线：15号线望京东站，547路，专112路，132路，682路等</p>
+                                <p class="baseInfo">自驾路线：导航搜索昆泰酒店（启阳路2号）</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-12">
+                    © 2018 xinxueshuo.cn 京ICP备 16031987号-1
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<!-- <script src="https://cdn.bootcss.com/bootstrap/4.1.1/js/bootstrap.min.js"></script> -->
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script>
+    document.querySelector('.visApply').onmousemove = (e) => {
+        const x = e.pageX - e.target.offsetLeft
+        const y = e.pageY - e.target.offsetTop
+        e.target.style.setProperty('--x', `${ x }px`)
+        e.target.style.setProperty('--y', `${ y }px`)
+            // console.log(x, y)
+    }
+    $(".visApply").click(function() {
+        window.open("../visApply.html")
+    })
+</script>

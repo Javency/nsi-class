@@ -7,224 +7,132 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>2018国际学校发展大会</title>
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            background-color: #cfedf8;
-        }
-        
-        .banner {
-            position: relative;
-            /* min-height: 600px; */
-            /* background: url('./img/visBanner.jpg') no-repeat; */
-            /* background-size: 100%; */
-        }
-        
-        .visApply {
-            position: relative;
-            appearance: none;
-            /* background: #f72359; */
-            background: #d32720;
-            padding: 10px 45px;
-            border: none;
-            color: white;
-            font-size: 18px;
-            cursor: pointer;
-            outline: none;
-            overflow: hidden;
-            border-radius: 100px;
-        }
-        
-        .visApply:focus,
-        .visApply:hover {
-            color: #FFF;
-        }
-        
-        .visApply span {
-            position: relative;
-        }
-        
-        .visApply::before {
-            --size: 0;
-            content: '';
-            position: absolute;
-            left: var(--x);
-            top: var(--y);
-            width: var(--size);
-            height: var(--size);
-            background: radial-gradient(circle closest-side, #1539db, transparent) !important;
-            transform: translate(-50%, -50%);
-            transition: width .2s ease, height .2s ease;
-        }
-        
-        .visApply:hover::before {
-            color: #FFF;
-            --size: 400px;
-        }
-        
-        .btnBox {
-            background: url("../image/visM/2.jpg") no-repeat;
-            background-size: 100% 100%;
-        }
-        
-        .banner {
-            padding-top: 60px;
-        }
-        
-        .banner,
-        .btnBox {
-            z-index: 2;
-        }
-        
-        header {
-            position: fixed;
-            width: 100%;
-            height: 60px;
-            line-height: 60px;
-            left: 0;
-            top: 0;
-            background: #FFF;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.28);
-            z-index: 999;
-        }
-        
-        .content {
-            padding-top: 80px;
-        }
-        
-        ul {
-            float: right;
-            padding-left: 0;
-        }
-        
-        ul>li {
-            float: left;
-            list-style: none;
-            /* height: 40px;
-            line-height: 45px; */
-            margin-right: 20px;
-        }
-        
-        ul>li>a {
-            color: #777;
-            font-size: 16px;
-        }
-        
-        .guestSpeaker-title {
-            margin: 50px 0 30px;
-        }
-        
-        .pastVis {
-            display: block;
-            overflow: hidden;
-            border-radius: 4px;
-            transition: all .3s;
-            margin-bottom: 15px;
-        }
-        
-        .pastVis img {
-            display: inline-block;
-            max-width: 100%;
-            height: auto;
-        }
-        
-        .bgPast {
-            padding-bottom: 30px;
-        }
-        
-        footer {
-            padding: 15px 0;
-            background: #fefefe;
-            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
-        }
-    </style>
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_675505_zn423yja5c9885mi.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/conventionM.css">
 </head>
 
 <body>
-    <header>
-        <div class="container-fluid clearfix">
-            <a href="javascript:;">
-                <img src="../image/vis-logo.png" alt="" width="180">
-            </a>
-            <ul class="clearfix">
-                <li>
-                    <a href="#content04">议程</a>
-                </li>
-                <li>
-                    <a href="#content05">嘉宾</a>
-                </li>
-                <li>
-                    <a href="../visApply.html">购票</a>
-                </li>
-            </ul>
-        </div>
-    </header>
-    <div class="banner">
-        <img src="../image/visM/1.jpg" alt="" class="img-responsive">
-    </div>
-    <div class="btnBox text-center">
-        <button class="visApply"><span>立即报名</span></button>
-    </div>
-    <div class="content" style="padding-top: 0">
-        <img src="../image/visM/3.jpg" alt="" class="img-responsive">
-    </div>
-    <div class="content" id="content04">
-        <img src="../image/visM/4.jpg" alt="" class="img-responsive">
-    </div>
-    <div class="content" id="content05">
-        <img src="../image/visM/5.jpg" alt="" class="img-responsive">
-    </div>
-    <div class="bgPast" style=" background-image: url('https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/activity/2018vis/vis-bg-bottom.jpg');background-position-y: -225px;">
-        <div class="container">
-            <div class="row">
-                <h3 class="text-center guestSpeaker-title">历届VIS大会</h3>
-                <div class="col-md-4 col-sm-6" style="margin-bottom:15px;">
-                    <a href="http://edu.qq.com/p/topic/20161221027199/" target="_" class="pastVis">
-                        <img src="https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/activity/2018vis/vis2015.jpg" alt="">
+    <div class="container-fluid plpr5 hidenscroll">
+        <div class="row activity-nav mb5">
+            <div class="col-md-12 col-xs-12">
+                <div class="nav-content">
+                    <a href="http://www.xinxueshuo.cn/">
+                        <img src="https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/activity/2018HRC/logo.png" alt="" width="120" height="50">
                     </a>
-                    <h3 class="text-center"><a target="_" href="http://edu.qq.com/p/topic/20161221027199/">2015VIS大会</a></h3>
-                </div>
-                <div class="col-md-4 col-sm-6" style="margin-bottom:15px;">
-                    <a href="http://edu.qq.com/p/topic/20161221027199/" target="_" class="pastVis">
-                        <img src="../image/vis2016.jpg" alt="">
-                    </a>
-                    <h3 class="text-center"><a target="_" href="http://edu.qq.com/p/topic/20161221027199/">2016VIS大会</a></h3>
-                </div>
-                <div class="col-md-4 col-sm-6" style="margin-bottom:15px;">
-                    <a href="http://edu.qq.com/cross/20171215/P27Rp8V4.html" target="_" class="pastVis">
-                        <img src="../image/vis2017.jpg" alt="">
-                    </a>
-                    <h3 class="text-center"><a target="_" href="http://edu.qq.com/cross/20171215/P27Rp8V4.html">2017VIS大会</a></h3>
+                    <a href="../visApply.html" class="toapply">我要报名</a>
                 </div>
             </div>
         </div>
-    </div>
-    <footer>
-        <div class="container">
-            <div class="row text-center">
-                <div class="col-md-12">
-                    © 2018 xinxueshuo.cn 京ICP备 16031987号-1
+        <div class="row mb5">
+            <div class="col-md-12 col-xs-12">
+                <div class="banner">
+                    <a href="./convention.html">
+                        <img style="min-height:200px" src="https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/activity/2018vis/visBanner-m.jpg" alt="">
+                    </a>
                 </div>
             </div>
         </div>
-    </footer>
+        <div class="row mb5">
+            <div class="col-md-4 col-xs-4 pr0">
+                <a href="./vis2018.html?to=theme">
+                    <div class="gridContainer text-center" style="background-color: #3E99F6;">
+                        <div class="title-pic">
+                            <span class="iconfont icon-zhuti"></span>
+                        </div>
+                        <h5 class="title mt0">大会主题</h5>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4 col-xs-4 plpr5">
+                <a href="./vis2018.html?to=agenda">
+                    <div class="gridContainer  text-center" style="background-color: #8085EB;">
+                        <div class="title-pic ">
+                            <span class="iconfont icon-richengshili"></span>
+                        </div>
+                        <h5 class="title mt0">大会议程</h5>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4 col-xs-4 pl0">
+                <a href="./vis2018.html?to=guest">
+                    <div class="gridContainer text-center" style="background-color: #0288D1;">
+                        <div class="title-pic ">
+                            <span class="iconfont icon-huatong"></span>
+                        </div>
+                        <h5 class="title mt0">演讲嘉宾</h5>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="row mb5">
+            <div class="col-md-4 col-xs-4 pr0">
+                <a href="./pages/theOrganizers.html">
+                    <div class="gridContainer text-center" style="background-color: #0ECBDE;">
+                        <div class="title-pic">
+                            <span class="iconfont icon-qizi_icon"></span>
+                        </div>
+                        <h5 class="title mt0">主办方</h5>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-8 col-xs-8 pl5">
+                <a href="../visApply.html">
+                    <div class="gridContainer text-center gridContainer-apply" style="background-color: #FF7283;">
+                        <div class="title-pic">
+                            <h3 class="title mt0 title-apply">我要报名 <span class="iconfont icon-iconfonticonfonti2copycopy"></span></h3>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-xs-4 pr0">
+                <a href="javascript:;">
+                    <div class="gridContainer text-center" style="background-color: #009688">
+                        <div class="title-pic">
+                            <span class="iconfont icon-mn_hezuo_fill"></span>
+                        </div>
+                        <h5 class="title mt0">合作伙伴</h5>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4 col-xs-4 plpr5">
+                <a href="./vis2018.html?to=spot">
+                    <div class="gridContainer  text-center" style="background-color: #7487ac;">
+                        <div class="title-pic ">
+                            <span class="iconfont icon-didian"></span>
+                        </div>
+                        <h5 class="title mt0">时间地点</h5>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4 col-xs-4 pl0">
+                <a href="../visCoo.html">
+                    <div class="gridContainer text-center" style="background-color: #545ffe">
+                        <div class="title-pic">
+                            <span class="iconfont icon-shangwu"></span>
+                        </div>
+                        <h5 class="title mt0">商务合作</h5>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <footer class="row">
+            <div class="col-md-12">
+                <img src="https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/activity/2018HRC/logo.png" alt="" width="120" height="50">
+                <p class="bynsi">本活动由<a href="http://www.xinxueshuo.cn/">新学说</a>提供技术支持</p>
+                <p class="friendHref">友情链接<a href="http://www.xinxueshuo.cn/">新学说官网</a><a href="http://data.xinxueshuo.cn">四库全书</a><a href="http://class.xinxueshuo.cn">在线课堂</a></p>
+            </div>
+        </footer>
+    </div>
 </body>
 
 </html>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
-<!-- <script src="https://cdn.bootcss.com/bootstrap/4.1.1/js/bootstrap.min.js"></script> -->
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script>
-    document.querySelector('.visApply').onmousemove = (e) => {
-        const x = e.pageX - e.target.offsetLeft
-        const y = e.pageY - e.target.offsetTop
-        e.target.style.setProperty('--x', `${ x }px`)
-        e.target.style.setProperty('--y', `${ y }px`)
-            // console.log(x, y)
-    }
-    $(".visApply").click(function() {
-        window.open("../visApply.html")
-    })
-</script>
+<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+
 <script>
     //判断是否移动端
     var IsMobile = false;
@@ -245,5 +153,130 @@
         }
     }
     browserRedirect()
-    if (!IsMobile) window.location.href = "./vis2018-01.html";
+    if (!IsMobile) window.location.href = "vis2018.html";
+</script>
+<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script>
+    /**去掉字符串前后所有空格*/
+    function trim(str) {
+        return str.replace(/(^\s*)|(\s*$)/g, "");
+    }
+
+    setTimeout(function() {
+        // 微信配置
+        var href = window.location.href;
+        // var pos = href.indexOf("from=")
+        // href = href.substring(0, pos - 1)
+
+        var title = '2018国际学校发展大会';
+        var desc = '2018/11/09 北京昆泰酒店 期待您的到来';
+        var imgUrl = 'https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/activity/2018vis/visbanner.jpg';
+
+        $.ajax({
+            type :   "get",
+            async: true,
+            traditional: true,
+            data: {
+                URL: href
+            }, //提交的参数
+            url: 'http://data.xinxueshuo.cn/nsi-0.9/Admin_api?whereFrom=WeChatShare',
+            dataType :   "jsonp", //数据类型为jsonp  
+            jsonp:   "Callback", //服务端用于接收callback调用的function名的参数  
+            success :   function(msg) {
+                // console.log(msg)
+                wx.config({
+
+                    debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+
+                    appId: msg.appId, // 必填，公众号的唯一标识
+
+                    timestamp: msg.timestamp, // 必填，生成签名的时间戳
+
+                    nonceStr: msg.nonceStr, // 必填，生成签名的随机串
+
+                    signature: msg.signature, // 必填，签名，见附录1
+
+                    jsApiList: ['onMenuShareAppMessage', 'onMenuShareTimeline'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+
+                });
+
+                wx.ready(function() {
+
+                    // config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，所以如果需要在页面加载时就调用相关接口，则须把相关接口放在ready函数中调用来确保正确执行。对于用户触发时才调用的接口，则可以直接调用，不需要放在ready函数中。
+                    // 分享给朋友
+                    wx.onMenuShareAppMessage({
+
+                        title: title, // 分享标题
+
+                        desc: desc, // 分享描述
+
+                        link: href, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+
+                        imgUrl: imgUrl, // 分享图标
+
+                        type: '', // 分享类型,music、video或link，不填默认为link
+
+                        dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+
+                        success: function() {
+                            // 用户确认分享后执行的回调函数
+
+                        },
+                        cancel: function() {
+                            // 用户取消分享后执行的回调函数
+                        }
+                    });
+
+                    // 分享到朋友圈
+                    wx.onMenuShareTimeline({
+
+                        title: title, // 分享标题
+
+                        link: href, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+
+                        imgUrl: imgUrl, // 分享图标
+
+                        success: function() {
+
+                            // 用户确认分享后执行的回调函数
+
+                        },
+
+                        cancel: function() {
+                            // 用户取消分享后执行的回调函数
+                        }
+                    });
+
+
+                });
+                // 处理失败验证
+                wx.error(function(res) {
+                    // config信息验证失败会执行error函数，如签名过期导致验证失败，具体错误信息可以打开config的debug模式查看，也可以在返回的res参数中查看，对于SPA可以在这里更新签名。
+                });
+
+                wx.checkJsApi({
+
+                    jsApiList: ['chooseImage'], // 需要检测的JS接口列表，所有JS接口列表见附录2,
+
+                    success: function(res) {
+                        // 以键值对的形式返回，可用的api值true，不可用为false
+                        // 如：{"checkResult":{"chooseImage":true},"errMsg":"checkJsApi:ok"}
+                    }
+                });
+
+
+            },
+            error: function() {
+                // alert('发生错误，请求数据失败！');
+            }
+        });
+    }, 1000)
+
+    // $(function() {
+    //     var str = "http://class.xinxueshuo.cn/nsi-class/detailClass.html?Id=10001&from=singlemessage"
+    //     var str = "http://class.xinxueshuo.cn/nsi-class/?from=singfidsojf"
+    //     var pos = str.indexOf("from")
+    //     var newStr = str.substring(0, pos - 1)
+    //     console.log(newStr)
+    // })
 </script>
