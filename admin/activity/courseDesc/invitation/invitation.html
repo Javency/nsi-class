@@ -12,13 +12,13 @@
 </head>
 <style>
     body {
-        background: -webkit-linear-gradient(#6389df, #2e87d7);
+        background: -webkit-linear-gradient(to bottom, #d7ad71 0, #6e552f 100%);
         /* Safari 5.1 - 6.0 */
-        background: -o-linear-gradient(#6389df, #2e87d7);
+        background: -o-linear-gradient(to bottom, #d7ad71 0, #6e552f 100%);
         /* Opera 11.1 - 12.0 */
-        background: -moz-linear-gradient(#6389df, #2e87d7);
+        background: -moz-linear-gradient(to bottom, #d7ad71 0, #6e552f 100%);
         /* Firefox 3.6 - 15 */
-        background: linear-gradient(to bottom, #6389df 0, #2e87d7 100%);
+        background: linear-gradient(to bottom, #d7ad71 0, #6e552f 100%);
         /* 标准的语法（必须放在最后） */
     }
     
@@ -149,36 +149,63 @@
     .in-price {
         color: rgb(245, 27, 27);
     }
+    
+    .weixin {
+        margin-bottom: 0;
+        position: relative;
+    }
+    
+    .price {
+        position: absolute;
+        right: 0;
+        color: red;
+    }
+    
+    .shareImg {
+        margin-top: 10px;
+    }
+    
+    .share-box {
+        border-radius: 4px;
+    }
+    
+    .shareImg>img {
+        display: inline-block;
+        max-width: 100%;
+        height: auto;
+    }
 </style>
 
 <body>
     <div class="container all-box">
         <div class="share">
-            <div class="content" style="margin-bottom: 15px">
+            <!-- <div class="content" style="margin-bottom: 15px">
                 <p>点击首页右上角分享给好友，成功邀请好友购课，返现<b>500元</b>/位</p>
                 <div style="padding: 0 10px"><button class="btn btn-block animated pulse infinite share-btn" id="btn">去分享</button></div>
-            </div>
+            </div> -->
             <div class="share-box">
                 <div class="box">
                     <h3><span class="iconfont icon-duigou pay-suc"></span>支付成功</h3>
-                    <div class="logo">
+                    <!-- <div class="logo">
                         <img class="img-responsive" src="https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/activity/2018MAC/MacBanner.jpg" alt="">
-                    </div>
-                    <p id="classInfo">国际学校市场招生</p>
+                    </div> -->
+                    <!-- <p id="classInfo">国际学校市场招生</p> -->
                     <div class="pay">
-                        <p class="method">支付方式</p>
-                        <p class="weixin"><span class="iconfont icon-weixin2 pay-logo"></span><span class="pay-name">微信支付</span></p>
-                        <div class="line"></div>
-                        <div class="money">
+                        <!-- <p class="method">支付方式</p> -->
+                        <p class="weixin"><span class="iconfont icon-weixin2 pay-logo"></span><span class="pay-name">微信支付</span><span class="price">00.00</span></p>
+                        <!-- <div class="line"></div> -->
+                        <!-- <div class="money">
                             <p class="order">订单金额</p><span class="price">00.00</span>
                             <p>实付金额</p><span class="price">00.00</span>
-                        </div>
+                        </div> -->
                     </div>
 
                 </div>
 
             </div>
-
+            <div class="shareImg">
+                <img alt="" id="img">
+            </div>
         </div>
 
     </div>
@@ -188,6 +215,7 @@
 </html>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="../../js/config.js"></script>
 
 <script>
     $(function() {
@@ -209,5 +237,18 @@
         // 内容填充
         $('.price').text(storage.fee)
         $('#classInfo').text(storage.shoppingInfo)
+
+        // 获取分销二维码
+        $.ajax({
+            method: "get",
+            url: 'http://' + changeUrl.address + '/activity/get_ticket_image.do',
+            data: {
+                imageUrl: "http://qr.liantu.com/api.php?text=" + shareHref
+            },
+            success: function(msg) {
+                console.log(msg)
+                $("#img").attr("src", msg.data)
+            }
+        })
     })
 </script>
