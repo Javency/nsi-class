@@ -169,10 +169,21 @@
         border-radius: 4px;
     }
     
-    .shareImg>img {
+    .shareImg>img,
+    .shareImgBox>img {
         display: inline-block;
         max-width: 100%;
         height: auto;
+    }
+    /* 转发图 */
+    
+    .shareImgBox {
+        position: absolute;
+        padding-top: 110px;
+        left: 0;
+        top: 0;
+        z-index: 99;
+        opacity: 0;
     }
 </style>
 
@@ -204,10 +215,12 @@
 
             </div>
             <div class="shareImg">
-                <img alt="" id="img">
+                <img src="./img/template.jpg" alt="" id="img">
             </div>
         </div>
-
+        <div class="shareImgBox">
+            <img alt="" id="shareImage">
+        </div>
     </div>
 
 </body>
@@ -228,13 +241,16 @@
             user = user.replace('@', '*'),
             shareHref = "http://data.xinxueshuo.cn/nsi-class/admin/activity/courseDesc/macM.html?Tcode=" + user
 
+        if (storage.fee == "") {
+            window.location.href = "../macM.html"
+        }
+
         storage['isPaid'] = "true"
 
         $("#btn").click(function() {
-            window.location.href = shareHref
-        })
-
-        // 内容填充
+                window.location.href = shareHref
+            })
+            // 内容填充
         $('.price').text(storage.fee)
         $('#classInfo').text(storage.shoppingInfo)
 
@@ -247,7 +263,9 @@
             },
             success: function(msg) {
                 console.log(msg)
-                $("#img").attr("src", msg.data)
+                    // $("#img").attr("src", msg.data)
+                $("#shareImage").attr("src", msg.data)
+
             }
         })
     })
