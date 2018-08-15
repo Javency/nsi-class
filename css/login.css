@@ -479,6 +479,31 @@ inputStyle {
     .footer {
         margin-top: 0;
     }
+    .picBox {
+        width: 320px;
+    }
+    .picBox-left {
+        margin-bottom: 10px;
+    }
+    .picBox-left,
+    .picBox-right {
+        min-height: 200px;
+    }
+    .pl7 {
+        padding-left: 15px;
+    }
+    .pr7 {
+        padding-right: 15px;
+    }
+    .picContainer {
+        display: flex;
+    }
+    .pic-box {
+        margin: 0 15px;
+    }
+    .pic-box:first-of-type {
+        margin-bottom: 0;
+    }
 }
 
 @media (max-width:320px) {

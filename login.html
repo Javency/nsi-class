@@ -136,15 +136,14 @@
         <div class="picBoxBg" id="picBoxBg">
             <div class="container picBox" id="picBox">
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-12 col-xs-12">
                         <h4 class="picBox-title">头像设置<span class="iconfont icon-iconjia translateAdd closePicBox"></span></h4>
                     </div>
-                    <div class="col-md-12 picBoxContainer">
+                    <div class="col-md-12 col-xs-12 picBoxContainer">
                         <div class="row pl15 pr15">
-                            <div class="col-md-8 pr7">
+                            <div class="col-md-8 col-xs-12 pr7">
                                 <div class="picBox-left text-center">
                                     <img alt="" class="cropper-hidden" id="image">
-                                    <!-- <a href="javascript:;" class="selectPicBtn" id="selectPicBtn"><span class="iconfont icon-iconjia jihao"></span>&nbsp;选择图片</a> -->
                                     <div class="upLoadBtn" id="upLoadBtn">
                                         <a href="javascript:;" class="selectPicBtn">
                                             <label for="inputImage"><span class="iconfont icon-iconjia jihao"></span>&nbsp;选择图片</label>
@@ -154,24 +153,26 @@
                                     <p class="selectPicDesc">只支持JPG、PNG、GIF，大小不超过5M</p>
                                 </div>
                             </div>
-                            <div class="col-md-4 pl7">
+                            <div class="col-md-4 col-xs-12 pl7">
                                 <div class="picBox-right">
                                     <span class="preview">预览</span>
-                                    <div class="pic-box">
-                                        <div class="img-preview circularPic">
-                                            <img src="./images/CourseImage01.jpg" alt="" id="circularPic" class="previewPic circularPic">
+                                    <div class="picContainer">
+                                        <div class="pic-box">
+                                            <div class="img-preview circularPic">
+                                                <img src="./images/CourseImage01.jpg" alt="" id="circularPic" class="previewPic circularPic">
+                                            </div>
+                                            <span class="picSize">100x100</span>
                                         </div>
-                                        <span class="picSize">100x100</span>
-                                    </div>
-                                    <div class="pic-box">
-                                        <div class="img-preview squarePic">
-                                            <img src="./images/CourseImage01.jpg " alt="" id="squarePic" class="previewPic squarePic">
+                                        <div class="pic-box">
+                                            <div class="img-preview squarePic">
+                                                <img src="./images/CourseImage01.jpg " alt="" id="squarePic" class="previewPic squarePic">
+                                            </div>
+                                            <span class="picSize">100x100</span>
                                         </div>
-                                        <span class="picSize">100x100</span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-12 col-xs-12">
                                 <div class="btnBox text-center">
                                     <a href="javascript:;" class="confirm" id="confirm">确认</a>
                                     <a href="javascript:;" class="cancle closePicBox" id="cancle">取消</a>
@@ -191,8 +192,8 @@
 <script src="./js/config.js"></script>
 <script src="./js/jquery.cookie.js"></script>
 <script src="./layer/layer.js"></script>
-<script src="./js/login.js?v=03130956"></script>
+<script src="./js/verify/verify.min.js"></script>
 <script src="./js/cropper/cropper.min.js"></script>
 <script src="./js/cropper/headPic.js"></script>
 <script src="./js/cropper/main.js"></script>
-<script src="./js/verify/verify.min.js"></script>
+<script src="./js/login.js?v=03130956"></script>
