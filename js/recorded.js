@@ -95,6 +95,7 @@ $(function() {
                                 // console.log(videoWidth)
                             $('#video').css('width', videoWidth)
                             loading.fadeOut(1000)
+                            $("#recorded").attr("src", msg.msg)
                         },
                         error: function() {
                             console.log("error")

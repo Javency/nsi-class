@@ -8,11 +8,13 @@
     <title>登录-新学说国际教育研究院</title>
     <link rel="shortcut icon" href="./images/favorite.ico" type="image/x-icon" />
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="http://at.alicdn.com/t/font_562159_oz807u6drlgfd2t9.css">
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_554630_rq93jgqhisf.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="./css/verify/verify.css">
     <link rel="stylesheet" href="./layer/theme/default/layer.css">
     <link rel="stylesheet" href="./css/common.css?v=04241613">
     <link rel="stylesheet" href="./css/login.css?v=04171636">
+    <link rel="stylesheet" href="./css/cropper/cropper.min.css">
 </head>
 
 <body>
@@ -66,6 +68,12 @@
                             <p class="error_tips" id="registerError"><span class="iconfont icon-icon tips"></span><span class="tipsTxt" id="registerTips"></span></p>
                             <h4 class="clearfix mb5">新学员注册 <a href="javascript:;" class="fr" id="login">去登录</a></h4>
                             <form action="">
+                                <div class="text-center upLoadUserPic">
+                                    <!-- 头像上传 -->
+                                    <div class="userImgBox">
+                                        <img id="userPic" src="./images/CourseImage01.jpg" alt="" class="userPic">
+                                    </div>
+                                </div>
                                 <div class="form_item">
                                     <label class="inputlogo iconfont icon-tubiao209" for="registerEmail"></label>
                                     <input type="text" placeholder="邮箱账号(推荐：163，qq等邮箱注册)" id="registerEmail" class="username">
@@ -124,6 +132,56 @@
             </div>
         </div>
         <!-- footer END-->
+        <!-- 头像上传框 -->
+        <div class="picBoxBg" id="picBoxBg">
+            <div class="container picBox" id="picBox">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4 class="picBox-title">头像设置<span class="iconfont icon-iconjia translateAdd closePicBox"></span></h4>
+                    </div>
+                    <div class="col-md-12 picBoxContainer">
+                        <div class="row pl15 pr15">
+                            <div class="col-md-8 pr7">
+                                <div class="picBox-left text-center">
+                                    <img alt="" class="cropper-hidden" id="image">
+                                    <!-- <a href="javascript:;" class="selectPicBtn" id="selectPicBtn"><span class="iconfont icon-iconjia jihao"></span>&nbsp;选择图片</a> -->
+                                    <div class="upLoadBtn" id="upLoadBtn">
+                                        <a href="javascript:;" class="selectPicBtn">
+                                            <label for="inputImage"><span class="iconfont icon-iconjia jihao"></span>&nbsp;选择图片</label>
+                                        </a>
+                                        <input style="display: none" type="file" id="inputImage" accept="image/jpeg,image/gif,image/x-png">
+                                    </div>
+                                    <p class="selectPicDesc">只支持JPG、PNG、GIF，大小不超过5M</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 pl7">
+                                <div class="picBox-right">
+                                    <span class="preview">预览</span>
+                                    <div class="pic-box">
+                                        <div class="img-preview circularPic">
+                                            <img src="./images/CourseImage01.jpg" alt="" id="circularPic" class="previewPic circularPic">
+                                        </div>
+                                        <span class="picSize">100x100</span>
+                                    </div>
+                                    <div class="pic-box">
+                                        <div class="img-preview squarePic">
+                                            <img src="./images/CourseImage01.jpg " alt="" id="squarePic" class="previewPic squarePic">
+                                        </div>
+                                        <span class="picSize">100x100</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="btnBox text-center">
+                                    <a href="javascript:;" class="confirm" id="confirm">确认</a>
+                                    <a href="javascript:;" class="cancle closePicBox" id="cancle">取消</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 
@@ -134,4 +192,7 @@
 <script src="./js/jquery.cookie.js"></script>
 <script src="./layer/layer.js"></script>
 <script src="./js/login.js?v=03130956"></script>
+<script src="./js/cropper/cropper.min.js"></script>
+<script src="./js/cropper/headPic.js"></script>
+<script src="./js/cropper/main.js"></script>
 <script src="./js/verify/verify.min.js"></script>
