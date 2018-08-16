@@ -26,7 +26,7 @@ $('#sendVerifyCode').click(function() {
             data: {
                 'mail': data01
             }, //提交的参数
-            url: 'http://' + changeUrl.address + '/User_api?whereFrom=forgetPW',
+            url: changeUrl.address + '/User_api?whereFrom=forgetPW',
             dataType :   "jsonp", //数据类型为jsonp  
             jsonp:   "Callback", //服务端用于接收callback调用的function名的参数  
             success :   function(msg) {
@@ -82,7 +82,7 @@ $('#nextStep01').click(function() {
                 'mail': data01,
                 'code': data02
             }, //提交的参数
-            url: 'http://' + changeUrl.address + '/User_api?whereFrom=forgetPWverify',
+            url: changeUrl.address + '/User_api?whereFrom=forgetPWverify',
             dataType :   "jsonp", //数据类型为jsonp  
             jsonp:   "Callback", //服务端用于接收callback调用的function名的参数  
             success :   function(msg) {
@@ -144,7 +144,7 @@ $('#nextStep02').click(function() {
                 'mail': email,
                 'password': confirmPwd
             }, //提交的参数
-            url: 'http://' + changeUrl.address + '/User_api?whereFrom=forgetPWAlter',
+            url: changeUrl.address + '/User_api?whereFrom=forgetPWAlter',
             dataType :   "jsonp", //数据类型为jsonp  
             jsonp:   "Callback", //服务端用于接收callback调用的function名的参数  
             success :   function(msg) {

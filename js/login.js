@@ -12,7 +12,7 @@ $(function() {
             async: false,
             traditional: true,
             data: data, //提交的参数
-            url: 'http://' + changeUrl.address + '/User_api?whereFrom=login',
+            url: changeUrl.address + '/User_api?whereFrom=login',
             dataType :   "jsonp", //数据类型为jsonp  
             jsonp:   "Callback", //服务端用于接收callback调用的function名的参数  
             success :   function(msg) {
@@ -96,7 +96,7 @@ $(function() {
 
     //判断浏览器是否支持cookie
     $(function() {
-        console.log('Cookies启用：' + navigator.cookieEnabled);
+        // console.log('Cookies启用：' + navigator.cookieEnabled);
         if (navigator.cookieEnabled == false) {
             $('#isCookie').show()
         } else {
@@ -137,7 +137,9 @@ $(function() {
         pwdFlag = false,
         confirmPwdFlag = false,
         // 验证码
-        slideVerifyFlag = false
+        slideVerifyFlag = false,
+        // 头像
+        userPicFlag = false
 
     // 邮箱注册
     function mailCheck() {
@@ -252,6 +254,18 @@ $(function() {
         }
     }
 
+    // 头像验证
+    function confirmUserPicCheck() {
+        var userPic = $("#userPic")
+        if (userPic.attr("src")) {
+            userPicFlag = true
+            registerError.animate({ "opacity": 0 }, 100)
+        } else {
+            userPicFlag = false
+            registerError.animate({ "opacity": 1 }, 100)
+            registerTips.text("请上传头像")
+        }
+    }
 
     //失焦
     var registerEmail = $("#registerEmail"),
@@ -301,6 +315,9 @@ $(function() {
         success: function() {
             slideVerifyFlag = true
 
+            // 用户头像验证
+            confirmUserPicCheck()
+
             var emailValue = $("#registerEmail").val(),
                 nameValue = $("#registerName").val(),
                 instutionValue = $("#registerInstution").val(),
@@ -339,38 +356,40 @@ $(function() {
                     '188.com': 'http://www.188.com/',
                     'foxmail.coom': 'http://www.foxmail.com'
                 };
-            if (emailFlag && nameFlag && instutionFlag && jobFlag && telFlag && pwdFlag && confirmPwdFlag && slideVerifyFlag) {
+            if (emailFlag && nameFlag && instutionFlag && jobFlag && telFlag && pwdFlag && confirmPwdFlag && slideVerifyFlag && userPicFlag) {
                 $.ajax({
-                    type: "get",
-                    async: true,
-                    traditional: true,
-                    dataType: "jsonp",
-                    jsonp: "Callback",
-                    data: data,
-                    url: 'http://' + changeUrl.address + '/User_api?whereFrom=register',
-                    success: function(msg) {
-                        layer.alert("注册成功，请查看您的邮箱以激活账号", {
-                            icon: 1,
-                            closeBtn: 1
-                        }, function() {
-                            $.each(hash, function(index, value) {
-                                var email = $('#registerEmail').val()
-                                var suffix = email.split('@')[1]
-                                if (index == suffix) {
-                                    // console.log(index, value)
-                                    // $('#toVerify').attr('href', value)
-                                    window.location.href = value
-                                }
+                        type: "get",
+                        async: true,
+                        traditional: true,
+                        dataType: "jsonp",
+                        jsonp: "Callback",
+                        data: data,
+                        url: changeUrl.address + '/User_api?whereFrom=register',
+                        success: function(msg) {
+                            layer.alert("注册成功，请查看您的邮箱以激活账号", {
+                                icon: 1,
+                                closeBtn: 1
+                            }, function() {
+                                $.each(hash, function(index, value) {
+                                    var email = $('#registerEmail').val()
+                                    var suffix = email.split('@')[1]
+                                    if (index == suffix) {
+                                        // console.log(index, value)
+                                        // $('#toVerify').attr('href', value)
+                                        window.location.href = value
+                                    }
+                                })
                             })
-                        })
-                    },
-                    error: function() {
-                        console.log("error")
-                    }
-                })
+                        },
+                        error: function() {
+                            console.log("error")
+                        }
+                    })
+                    // alert("ok")
 
             } else {
-                console.log("注册失败")
+                // console.log("注册失败")
+                // alert("false")
             }
         }
     })
@@ -421,7 +440,7 @@ $(function() {
                 dataType: "jsonp",
                 jsonp: "Callback",
                 data: data,
-                url: 'http://' + changeUrl.address + '/User_api?whereFrom=register',
+                url: changeUrl.address + '/User_api?whereFrom=register',
                 success: function(msg) {
                     layer.alert("注册成功，请查看您的邮箱以激活账号", {
                         icon: 1,

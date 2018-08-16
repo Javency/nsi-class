@@ -83,7 +83,7 @@ $(function() {
                 type: "post",
                 dataType: "json",
                 data: data,
-                url: 'http://' + changeUrl.address + '/Class_activity?whereFrom=insert',
+                url: changeUrl.address + '/Class_activity?whereFrom=insert',
                 success: function(msg) {
                     // console.log(msg.data)
                     alert("报名成功!我们将会有工作人员联系您")

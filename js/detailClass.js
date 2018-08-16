@@ -41,7 +41,7 @@ $(function() {
     $.ajax({
         type: "POST",
         dataType: "json",
-        url: 'http://' + changeUrl.address + '/Class_Course_api?whereFrom=showInformation',
+        url: changeUrl.address + '/Class_Course_api?whereFrom=showInformation',
         success: function(msg) {
             living.attr("href", "./live.html?Id=" + msg.data1[0].Id)
         }
@@ -79,7 +79,7 @@ $(function() {
         type: "get",
         dataType: "json",
         data: { Id: Id },
-        url: 'http://' + changeUrl.address + '/Class_Course_api?whereFrom=Search_Course',
+        url: changeUrl.address + '/Class_Course_api?whereFrom=Search_Course',
         success: function(msg) {
             // console.log(msg.data[0])
             $("title").html(msg.data[0].CourseName + "-新学说国际教育研究院")
@@ -107,7 +107,7 @@ $(function() {
                     type: "POST",
                     data: sendData,
                     dataType: "json",
-                    url: 'http://' + changeUrl.address + '/Class_User_api?whereFrom=Verification',
+                    url: changeUrl.address + '/Class_User_api?whereFrom=Verification',
                     success: function(data) {
                         // 已购买
                         if (data.msg > 0) {
@@ -128,7 +128,7 @@ $(function() {
                                     type: "post",
                                     dataType: "json",
                                     data: data,
-                                    url: 'http://' + changeUrl.address + '/Payment_api?whereFrom=WeChatHtml5Payment',
+                                    url: changeUrl.address + '/Payment_api?whereFrom=WeChatHtml5Payment',
                                     success: function(msg) {
                                         // console.log(msg.CoursePrice)
                                         // $("#orderDesc-price").text(msg.CoursePrice)
@@ -144,7 +144,7 @@ $(function() {
                                     type: "post",
                                     dataType: "json",
                                     data: data,
-                                    url: 'http://' + changeUrl.address + '/Payment_api?whereFrom=WeChatPayment',
+                                    url: changeUrl.address + '/Payment_api?whereFrom=WeChatPayment',
                                     success: function(msg) {
                                         // console.log(msg.CoursePrice)
                                         if (msg.data == "http://qr.liantu.com/api.php?text=null") {
@@ -206,7 +206,7 @@ $(function() {
         $.ajax({
             type: "post",
             data: data, //提交的参数
-            url: 'http://' + changeUrl.address + '/Class_User_api?whereFrom=Verification',
+            url: changeUrl.address + '/Class_User_api?whereFrom=Verification',
             dataType: "json",
             success: function(msg) {
                 // console.log(msg.msg)
@@ -222,7 +222,7 @@ $(function() {
                         type: "get",
                         dataType: "json",
                         data: { Id: Id },
-                        url: 'http://' + changeUrl.address + '/Class_Course_api?whereFrom=Search_Course',
+                        url: changeUrl.address + '/Class_Course_api?whereFrom=Search_Course',
                         success: function(msg) {
                             var courseState = msg.data[0].CourseState
                             switch (courseState) {
@@ -274,7 +274,7 @@ $(function() {
                 type: "POST",
                 data: data,
                 dataType: "json",
-                url: 'http://' + changeUrl.address + '/Class_User_api?whereFrom=Verification',
+                url: changeUrl.address + '/Class_User_api?whereFrom=Verification',
                 success: function(data) {
                     if (data.msg > 0) {
                         clearInterval(timer)
@@ -314,7 +314,7 @@ $(function() {
             data: {
                 "Id": Id
             },
-            url: 'http://' + changeUrl.address + '/Class_Course_api?whereFrom=Course_GetHtml',
+            url: changeUrl.address + '/Class_Course_api?whereFrom=Course_GetHtml',
             success: function(msg) {
                 // console.log(msg)
                 $tab01.html(msg.data[0].Html01)

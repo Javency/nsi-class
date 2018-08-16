@@ -25,7 +25,7 @@ $(function() {
         data: "",
         dataType : "json",
         contentType: "application/json;charset=UTF-8",
-        url: 'http://' + changeUrl.address + '/Class_Course_api?whereFrom=Search_Course',
+        url: changeUrl.address + '/Class_Course_api?whereFrom=Search_Course',
         success: function(msg) {
             console.log(msg.data)
             for (var i = 0; i < msg.data.length; i++) {

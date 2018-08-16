@@ -12,7 +12,7 @@ $(function() {
         type: "POST",
         data: data,
         dataType: "json",
-        url: 'http://' + changeUrl.address + '/Class_Course_api?whereFrom=MyCourse',
+        url: changeUrl.address + '/Class_Course_api?whereFrom=MyCourse',
         success: function(msg) {
             // console.log(msg.data[0])
             if (msg.data.length != 0) {
@@ -44,7 +44,7 @@ $(function() {
         data: {
             keyword: $.cookie('username')
         },
-        url: 'http://' + changeUrl.address + '/manager/Log/get_referrer_detail.do',
+        url: changeUrl.address + '/manager/Log/get_referrer_detail.do',
         success: function(msg) {
             if (msg.data.length != 0) {
                 invitation.html('')
@@ -137,7 +137,7 @@ $(function() {
             type: "get",
             // dataType: "json",
             data: data,
-            url: 'http://' + changeUrl.address + '/Class_ActivationCode?whereFrom=courseCode',
+            url: changeUrl.address + '/Class_ActivationCode?whereFrom=courseCode',
             success: function(data) {
                 if (data.code >= 0) {
                     $("#myAlertSuccess").fadeIn(200, function() {

@@ -47,7 +47,7 @@ $(function() {
         dataType: "json",
         data: data,
         async: true,
-        url: 'http://' + changeUrl.address + '/Class_User_api?whereFrom=Verification',
+        url: changeUrl.address + '/Class_User_api?whereFrom=Verification',
         success: function(msg) {
             if ($.cookie('username') === undefined) {
                 layer.alert('请先登录', { icon: 0, closeBtn: 0 },
@@ -81,7 +81,7 @@ $(function() {
                             courseId: Id,
                             'UserMail': $.cookie('username')
                         },
-                        url: 'http://' + changeUrl.address + '/playback/getLiveUrl.do',
+                        url: changeUrl.address + '/playback/getLiveUrl.do',
                         success: function(msg) {
                             var videoObject = {
                                 container: '#videoWidth', //“#”代表容器的ID，“.”或“”代表容器的class
@@ -105,7 +105,7 @@ $(function() {
                     $.ajax({
                             type: "POST",
                             data: { Id: Id },
-                            url: 'http://' + changeUrl.address + '/Class_Course_api?whereFrom=Search_Course',
+                            url: changeUrl.address + '/Class_Course_api?whereFrom=Search_Course',
                             success: function(msg) {
                                 var classNum = Id.substring(3, 6)
                                     // console.log(classNum)
@@ -117,7 +117,7 @@ $(function() {
                         //     data: data01,
                         //     dataType: "json",
                         //     async: false,
-                        //     url: 'http://' + changeUrl.address + '/Class_User_api?whereFrom=getLiveUrl',
+                        //     url: changeUrl.address + '/Class_User_api?whereFrom=getLiveUrl',
                         //     success: function(msg) {
                         //         // console.log(msg)
                         //         var vendors = navigator.vendor

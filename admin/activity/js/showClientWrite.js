@@ -11,7 +11,7 @@ $(function() {
     $.ajax({
         type: "post",
         dataType: "json",
-        url: 'http://' + changeUrl.address + '/Class_activity?whereFrom=searchActivity',
+        url: changeUrl.address + '/Class_activity?whereFrom=searchActivity',
         success: function(msg) {
             var title = [],
                 theNewest = msg.data[0],
@@ -40,7 +40,7 @@ $(function() {
                     type: "post",
                     dataType: "json",
                     data: { "Title1": data },
-                    url: 'http://' + changeUrl.address + '/Class_activity?whereFrom=searchActivity',
+                    url: changeUrl.address + '/Class_activity?whereFrom=searchActivity',
                     success: function(msg) {
                         // console.log(msg.data[_index])
                         var arrTitle = [],
@@ -59,7 +59,7 @@ $(function() {
                             type: "post",
                             dataType: "json",
                             data: { "Title1": data },
-                            url: 'http://' + changeUrl.address + '/Class_activity?whereFrom=searchInformation',
+                            url: changeUrl.address + '/Class_activity?whereFrom=searchInformation',
                             success: function(msg) {
                                 // console.log(msg.data)
                                 var activeContent = $("#activeContent"),
@@ -104,7 +104,7 @@ $(function() {
                 type: "post",
                 dataType: "json",
                 data: { "Title1": theNewest.Title1 },
-                url: 'http://' + changeUrl.address + '/Class_activity?whereFrom=searchInformation',
+                url: changeUrl.address + '/Class_activity?whereFrom=searchInformation',
                 success: function(msg) {
                     var activeContent = $("#activeContent"),
                         cloneTbody = $("#cloneTbody")

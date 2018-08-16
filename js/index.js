@@ -114,7 +114,7 @@ $(function() {
     $.ajax({
         type: "POST",
         dataType: "json",
-        url: 'http://' + changeUrl.address + '/Class_Course_api?whereFrom=showInformation',
+        url: changeUrl.address + '/Class_Course_api?whereFrom=showInformation',
         success: function(msg) {
             // console.log(msg.data1)
             living.attr("href", "./live.html?Id=" + msg.data1[0].Id)
@@ -141,7 +141,7 @@ $(function() {
         data: "",
         dataType : "json",
         contentType: "application/json;charset=UTF-8",
-        url: 'http://' + changeUrl.address + '/Class_Course_api?whereFrom=Search_Course',
+        url: changeUrl.address + '/Class_Course_api?whereFrom=Search_Course',
         success: function(msg) {
             // console.log(msg.data)
             for (var i = 0; i < msg.data.length; i++) {
@@ -247,7 +247,7 @@ $(function() {
     var teacherList = $("#teacherList")
     $.ajax({
         data: "",
-        url: 'http://' + changeUrl.address + '/Class_Teacher_api?whereFrom=search',
+        url: changeUrl.address + '/Class_Teacher_api?whereFrom=search',
         success: function(msg) {
             // console.log(msg.data)
             // 默认加载

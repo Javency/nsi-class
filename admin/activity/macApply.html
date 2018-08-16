@@ -231,7 +231,7 @@
                 $.ajax({
                     type: "post",
                     data: data,
-                    url: 'http://' + changeUrl.address + '/Class_activity?whereFrom=insert',
+                    url: changeUrl.address + '/Class_activity?whereFrom=insert',
                     success: function(msg) {
                         if (is_weixn()) {
                             window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx37e5ddff7dc5282e&redirect_uri=http%3a%2f%2fdata.xinxueshuo.cn%2fnsi-class%2fadmin%2factivity%2fmeeting%2fpages%2fmacPayPage.html&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect"

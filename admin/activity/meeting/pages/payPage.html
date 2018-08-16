@@ -214,14 +214,14 @@
         data: {
             code: code
         },
-        url: 'http://' + changeUrl.address + '/wxPay/getInfo.do',
+        url: changeUrl.address + '/wxPay/getInfo.do',
         success: function(msg) {
             var openid = msg.data.openid
             var storage = window.localStorage;
             sub.click(function() {
                 $.ajax({
                     type: 'get',
-                    url: 'http://' + changeUrl.address + '/wxPay/pay.do',
+                    url: changeUrl.address + '/wxPay/pay.do',
                     data: {
                         "attach": storage.attach,
                         "openid": openid,

@@ -75,7 +75,7 @@ $(function() {
             })
             $.ajax({
                 type: "POST",
-                url: 'http://' + changeUrl.address + '/User_api?whereFrom=feedback',
+                url: changeUrl.address + '/User_api?whereFrom=feedback',
                 dataType :   "jsonp", //数据类型为jsonp  
                 jsonp:   "Callback", //服务端用于接收callback调用的function名的参数 
                 data: {

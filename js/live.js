@@ -47,7 +47,7 @@ $(function() {
         dataType: "json",
         data: data,
         async: true,
-        url: 'http://' + changeUrl.address + '/Class_User_api?whereFrom=Verification',
+        url: changeUrl.address + '/Class_User_api?whereFrom=Verification',
         success: function(msg) {
             if ($.cookie('username') === undefined) {
                 layer.alert('请先登录', { icon: 0, closeBtn: 0 },
@@ -79,14 +79,14 @@ $(function() {
                         data: data01,
                         dataType: "json",
                         async: false,
-                        url: 'http://' + changeUrl.address + '/Class_User_api?whereFrom=getLiveUrl',
+                        url: changeUrl.address + '/Class_User_api?whereFrom=getLiveUrl',
                         success: function(msg) {
                             // console.log(msg)
-                            var vendors=navigator.vendor
-                        //    console.log(vendors)
-                            if(vendors.indexOf("Apple Computer, Inc.")>=0){
-                                window.location.href=msg.msg
-                            }else{
+                            var vendors = navigator.vendor
+                                //    console.log(vendors)
+                            if (vendors.indexOf("Apple Computer, Inc.") >= 0) {
+                                window.location.href = msg.msg
+                            } else {
                                 obj.attr("src", msg.msg)
                             }
                             mobile.attr("href", msg.msg)

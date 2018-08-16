@@ -35,7 +35,7 @@ $(function() {
             type: "post",
             async: true,
             data: data,
-            url: 'http://' + changeUrl.address + '/Class_activity?whereFrom=insertTitle',
+            url: changeUrl.address + '/Class_activity?whereFrom=insertTitle',
             dataType: "json",
             success: function(msg) {
                 address.val("http://" + changeUrl.imgAddress + "/nsi-class/admin/activity/clientWrite.html?Id=" + msg.data)
@@ -60,7 +60,7 @@ $(function() {
     editor.customConfig.menus = [
         'image'
     ]
-    editor.customConfig.uploadImgServer = 'http://' + changeUrl.address + '/Admin_api?whereFrom=EditorUpImg' // 上传图片到服务器
+    editor.customConfig.uploadImgServer = changeUrl.address + '/Admin_api?whereFrom=EditorUpImg' // 上传图片到服务器
     editor.create()
 })
 

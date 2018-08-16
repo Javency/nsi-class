@@ -36,7 +36,7 @@ $(function() {
         type: "post",
         async: true,
         dataType: "json",
-        url: 'http://' + changeUrl.address + '/Class_activity?whereFrom=toResultTitle&Id=' + Id,
+        url: changeUrl.address + '/Class_activity?whereFrom=toResultTitle&Id=' + Id,
         success: function(msg) {
             var obj = msg.data[0],
                 aTitle = [],
@@ -123,7 +123,7 @@ $(function() {
                 data: sendData,
                 async: true,
                 dataType: "json",
-                url: 'http://' + changeUrl.address + '/Class_activity?whereFrom=insert',
+                url: changeUrl.address + '/Class_activity?whereFrom=insert',
                 success: function(msg) {
                     console.log("success:提交表单成功" + msg)
                     alert("提交成功!将跳转至官网")

@@ -257,7 +257,7 @@
         // 获取分销二维码
         $.ajax({
             method: "get",
-            url: 'http://' + changeUrl.address + '/activity/get_ticket_image.do',
+            url: changeUrl.address + '/activity/get_ticket_image.do',
             data: {
                 imageUrl: "http://qr.liantu.com/api.php?text=" + shareHref
             },
