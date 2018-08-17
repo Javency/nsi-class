@@ -118,7 +118,8 @@ $(function() {
         success: function(msg) {
             // console.log(msg.data1)
             living.attr("href", "./live.html?Id=" + msg.data1[0].Id)
-            enterVideo.attr("href", "./live.html?Id=" + msg.data1[0].Id)
+                // enterVideo.attr("href", "./live.html?Id=" + msg.data1[0].Id)
+            enterVideo.attr("href", "javascript:;" + msg.data1[0].Id)
             teacherImg.attr("src", msg.data2[0].TeacherImage)
             playVideo_title.text(msg.data1[0].CourseName)
             playVideo_title.attr("title", msg.data1[0].CourseName)
@@ -129,6 +130,9 @@ $(function() {
             teacherNow.text(msg.data2[0].TeacherDescription)
             teacherNow.attr("title", msg.data2[0].TeacherDescription)
         }
+    })
+    enterVideo.click(function() {
+        layer.alert("课程已结束，可观看录播课程")
     })
 })
 
