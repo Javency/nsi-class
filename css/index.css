@@ -843,3 +843,146 @@ i.shop {
 .swiper-pagination-bullet {
     background: #FFF;
 }
+
+
+/* v0.2 */
+
+.mt15 {
+    margin-top: 15px;
+}
+
+.mt50 {
+    margin-top: 50px;
+}
+
+.classBoxContainerv2 {
+    margin-top: 30px;
+}
+
+.classBoxV2 {
+    padding: 15px;
+    border-radius: 10px;
+    background-position: center center;
+    transition: all .3s ease 0s;
+}
+
+.classBoxV2:hover {
+    box-shadow: 0 15px 15px 0 rgba(15, 37, 64, .2);
+}
+
+.classBoxV2>a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.classBoxV2>a>p {
+    text-align: center;
+}
+
+.classBoxV2>a {
+    font-weight: 700;
+    color: #FFF;
+}
+
+.classBoxV2>a span {
+    color: #caac80;
+}
+
+.classBoxV2 h4 {
+    margin-bottom: 10px;
+    color: #FFF;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.classBoxV2-01 {
+    background-image: url("../images/v0.2/classBox01.jpg")
+}
+
+.classBoxV2-02 {
+    background-image: url("../images/v0.2/classBox02.jpg")
+}
+
+.classBoxV2-03 {
+    background-image: url("../images/v0.2/classBox03.jpg")
+}
+
+.classBoxV2-04 {
+    background-image: url("../images/v0.2/classBox04.jpg")
+}
+
+
+/* title */
+
+.titlev2 {
+    color: #FFF;
+    background-position: center center;
+    padding: 15px;
+    font-size: 30px;
+    border-radius: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.titlev2-01 {
+    background-image: url('../images/v0.2/titlebg01.jpg');
+}
+
+.titlev2-02 {
+    background-image: url('../images/v0.2/titlebg02.jpg');
+}
+
+.titlev2-03 {
+    background-image: url('../images/v0.2/titlebg03.jpg');
+}
+
+.classIntroV2 {
+    padding: 80px 15px 15px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.classIntroV2 h3 {
+    font-size: 30px;
+}
+
+.applyv2 {
+    display: inline-block;
+    border-radius: 20px;
+    background-color: #2a3e87;
+    color: #FFF;
+    font-size: 20px;
+    text-align: center;
+    line-height: 30px;
+    font-weight: 600;
+    padding: 5px 20px;
+}
+
+.applyv2:hover {
+    color: #FFF;
+}
+
+.classIntroV2-desc {
+    font-size: 17px;
+    color: #666;
+    line-height: 1.5;
+}
+
+.CourseNamev2 {
+    font-size: 19px;
+    font-weight: 700;
+}
+
+.onelinev2 {
+    margin-top: 0;
+}
+
+@media (max-width:768px) {
+    .classBoxV2 {
+        margin-bottom: 5px;
+    }
+}
