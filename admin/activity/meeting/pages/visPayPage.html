@@ -122,6 +122,7 @@
                             <input type="radio" id="customRadio6" name="meetingType" class="custom-control-input" value="200">
                             <label class="custom-control-label pay-info" for="customRadio6">七夕特惠票（预订价）<span class="pay-price">200元</span><span class="pay-discounts01">节日优惠</span></label>
                         </div> -->
+
                         <div class="custom-control custom-radio selectType pay-goods">
                             <input type="radio" id="customRadio1" name="meetingType" class="custom-control-input" value="5188">
                             <label class="custom-control-label pay-info" for="customRadio1">VIP票（限100人）<span class="pay-price">5188元</span></label>
@@ -141,6 +142,14 @@
                         <div class="custom-control custom-radio selectType pay-goods">
                             <input type="radio" id="customRadio5" name="meetingType" class="custom-control-input" value="38200">
                             <label class="custom-control-label pay-info" for="customRadio5">团体会议票（20人）<span class="pay-price">38200元</span><span class="pay-discounts01">6折优惠</span></label>
+                        </div>
+                        <div class="custom-control custom-radio selectType pay-goods">
+                            <input type="radio" id="customRadio6" name="meetingType" class="custom-control-input" value="0.1">
+                            <label class="custom-control-label pay-info" for="customRadio6">媒体票<span class="pay-price"></span><span class="pay-discounts01">免费</span></label>
+                        </div>
+                        <div class="custom-control custom-radio selectType pay-goods">
+                            <input type="radio" id="customRadio7" name="meetingType" class="custom-control-input" value="0.1">
+                            <label class="custom-control-label pay-info" for="customRadio7">商务合作<span class="pay-price"></span><span class="pay-discounts01">免费</span></label>
                         </div>
                     </div>
                 </div>
@@ -214,7 +223,7 @@
         data: {
             code: code
         },
-        url: changeUrl.address + '/wxPay/getInfo.do',
+        url: "http://" + changeUrl.address + '/wxPay/getInfo.do',
         success: function(msg) {
             var openid = msg.data.openid;
             var storage = window.localStorage;
@@ -225,7 +234,7 @@
                     attach = email + "$" + fee + "$" + "nop" + "$" + payInfo
                 $.ajax({
                     type: 'get',
-                    url: changeUrl.address + '/wxPay/pay.do',
+                    url: "http://" + changeUrl.address + '/wxPay/pay.do',
                     data: {
                         "attach": attach,
                         "openid": openid,

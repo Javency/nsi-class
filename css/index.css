@@ -107,24 +107,24 @@
     position: absolute;
     width: 350px;
     height: 350px;
-    background: url("http://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/homochromyBg/circle.png") no-repeat;
+    background: url("../images/homochromyBg/circle.png") no-repeat;
     background-size: 100%;
     z-index: 2;
     top: -165px;
     left: -40px;
-    opacity: .6;
+    opacity: .5;
 }
 
 .oval-bg {
     position: absolute;
     width: 350px;
     height: 350px;
-    background: url("http://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/homochromyBg/oval.png") no-repeat;
+    background: url("../images/homochromyBg/oval.png") no-repeat;
     background-size: 100%;
     z-index: 1;
     top: 40px;
     left: -40px;
-    opacity: .6;
+    opacity: .8;
     animation: autoRotate 60s infinite linear;
 }
 
@@ -132,12 +132,12 @@
     position: absolute;
     width: 350px;
     height: 350px;
-    background: url("http://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/homochromyBg/diamond.png") no-repeat;
+    background: url("../images/homochromyBg/diamond.png") no-repeat;
     background-size: 100%;
     z-index: 2;
     bottom: -126px;
     left: -130px;
-    opacity: .6;
+    opacity: .8;
     transform: rotate(0deg);
     animation: autoRotate 60s infinite linear;
 }
@@ -146,10 +146,10 @@
     position: absolute;
     width: 350px;
     height: 350px;
-    background: url("http://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/homochromyBg/triangle.png") no-repeat;
+    background: url("../images/homochromyBg/triangle.png") no-repeat;
     background-size: 100%;
     z-index: 3;
-    opacity: .6;
+    opacity: .8;
     top: 190px;
     right: -128px;
     transform-origin: center;
