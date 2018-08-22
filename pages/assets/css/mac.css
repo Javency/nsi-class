@@ -1,0 +1,409 @@
+.content {
+    padding-top: 56px;
+}
+
+.img-responsive {
+    display: inline-block;
+    max-width: 100%;
+    height: auto;
+}
+
+
+/* banner */
+
+.banner {
+    width: 100%;
+    min-height: 475px;
+    background-image: url("../img/banner01.jpg");
+    background-position: center center;
+    position: relative;
+}
+
+.macInfo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%)
+}
+
+.macInfo h1 {
+    font-size: 40px;
+    color: #FFFFFF;
+    text-shadow: 0 2px 4px rgba(28, 31, 33, 0.6);
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.macInfo small {
+    font-size: 16px;
+    color: #FFFFFF;
+    line-height: 24px;
+    text-shadow: 0 2px 4px rgba(28, 31, 33, 0.6);
+    margin-top: 8px;
+}
+
+.macInfo .line {
+    width: 100%;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 16px auto 16px;
+}
+
+.macInfo-desc {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.macInfo-desc em {
+    font-style: normal;
+    width: 8px;
+    display: inline-block;
+    margin: 0 12px;
+    font-size: 16px;
+    zoom: 1;
+}
+
+.macInfo-price {
+    padding-top: 35px;
+    font-size: 28px;
+    /* height: 24px; */
+    line-height: 22px;
+    font-weight: 700;
+    color: #F20D0D;
+}
+
+.macInfo-price span {
+    margin-right: 10px;
+}
+
+.applyBtn {
+    padding-top: 35px;
+}
+
+.toApply {
+    background: #F20D0D;
+    box-shadow: 0 4px 8px 0 rgba(28, 31, 33, 0.2);
+    border-radius: 24px;
+    font-size: 16px;
+    font-weight: 200;
+    color: #fff;
+    padding: 15px 35px;
+    box-shadow: 0 4px 8px 0 rgba(28, 31, 33, 0.2);
+}
+
+.toApply:link,
+.toApply:hover {
+    color: #FFF;
+    /* background-color: rgb(245, 65, 65) */
+}
+
+.toApply:hover {
+    /* color: #FFF; */
+    background-color: rgb(245, 65, 65)
+}
+
+.toApply i {
+    font-style: normal;
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.applyLogo {
+    font-size: 25px;
+    position: relative;
+    top: 4px;
+}
+
+
+/* 课程详情 */
+
+.CourseNav {
+    background: #FFFFFF;
+    box-shadow: 0 8px 16px 0 rgba(28, 31, 33, 0.1);
+}
+
+.detailLesson-Tab {
+    text-align: center;
+    margin-top: 30px;
+    padding-bottom: 20px;
+}
+
+.nav-tabs {
+    border-bottom: 0;
+}
+
+.myTab {
+    margin: 0 auto;
+}
+
+.myTab li {
+    margin: 0 40px;
+    float: none;
+    display: inline-block;
+    background-color: transparent !important;
+}
+
+.myTab>li>a {
+    margin-right: 0;
+    border: 0;
+    font-size: 17px;
+    color: #4d555d;
+    padding: 0 0 5px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.myTab>li.active>a,
+.myTabs>li.active>a:focus,
+.myTab>li.active>a:link,
+.myTab>li.active>a:visited,
+.myTab>li.active>a:hover {
+    border: 0;
+    color: #07111b
+}
+
+.myTab>li.active>a:link {
+    border-bottom: 2px solid #caac80;
+}
+
+.myTab>li.active>a:link {
+    color: #caac80
+}
+
+.myTab>li>a:hover {
+    background-color: transparent;
+    color: #07111b
+}
+
+
+/* 课程目录 */
+
+.courseCatalog {
+    padding-top: 30px;
+    font-weight: 700;
+    color: #07111b;
+    padding-bottom: 15px;
+    font-size: 20px;
+    border-bottom: 1px solid rgba(28, 31, 33, 0.1);
+}
+
+.courseCatalog span {
+    display: inline-block;
+    width: 3px;
+    height: 18px;
+    margin-right: 10px;
+    background-color: #caac80;
+    position: relative;
+    top: 2px;
+}
+
+.courseInlist {
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(28, 31, 33, 0.1);
+}
+
+.courseInlist:last-of-type {
+    border-bottom: none;
+}
+
+.courseInlist li {
+    line-height: 30px;
+    padding: 10px;
+    -webkit-transition: all 0.3s ease 0s;
+    -ms-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+}
+
+.courseInlist li:hover {
+    background: #F8FAFC;
+    border-radius: 4px;
+}
+
+.courseInlist li:hover .current {
+    color: #caac80
+}
+
+.courseInlist li.title:hover {
+    background: transparent;
+}
+
+.courseInlist li.title {
+    font-weight: bold;
+    font-size: 16px;
+    color: #07111b;
+}
+
+.courseInlist li a {
+    display: block;
+    color: #333;
+    font-size: 16px;
+    -webkit-transition: all 0.3s ease 0s;
+    -ms-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+    position: relative;
+}
+
+.courseInlist li a::before {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 10px;
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: 2px solid #caac80;
+}
+
+.courseInlist li a span {
+    margin-right: 10px;
+    color: #caac80;
+}
+
+
+/* 课后作业 */
+
+.tabCourseList {
+    padding: 15px;
+    box-shadow: 0 8px 16px 0 rgba(28, 31, 33, 0.1);
+    height: 335px;
+    overflow: hidden;
+}
+
+.tabCourseList li {
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(28, 31, 33, 0.1);
+}
+
+.tabCourseList li:last-of-type {
+    border-bottom: none;
+}
+
+.tabCurrent {
+    display: block;
+    color: rgb(80, 80, 80);
+    /* height: 35px;
+    line-height: 35px; */
+    -webkit-transition: all 0.3s ease 0s;
+    -ms-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+    font-size: 15px;
+}
+
+.tabCourseList li:hover .tabCurrent {
+    color: #caac80
+}
+
+.moreBox {
+    border-bottom: none !important;
+}
+
+.more {
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    color: #666;
+}
+
+
+/* 提交作业版 */
+
+.commentContent {
+    box-shadow: 0 8px 16px 0 rgba(28, 31, 33, 0.1);
+}
+
+.teaQuestion {
+    margin-bottom: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 36px;
+    color: #07111b;
+}
+
+.tecArrangement {
+    background: #F3F5F7;
+    padding: 15px;
+    /* padding-bottom: 5px; */
+    /* border-bottom: 1px solid rgba(28, 31, 33, 0.1); */
+}
+
+.teaName {
+    font-size: 14px;
+    line-height: 24px;
+    padding-left: 10px;
+    color: #93999f;
+}
+
+.teaInfo {
+    position: relative;
+}
+
+.teaInfo>img {
+    border-radius: 50%;
+}
+
+.answerInfo {
+    position: absolute;
+    color: #93999f;
+    right: 0;
+    top: 8px;
+}
+
+.teaQueTime {
+    display: inline-block;
+    margin-left: 15px;
+}
+
+.stuAnswer {
+    padding: 30px 15px 15px;
+}
+
+.stuAnswerNum {
+    border-bottom: 1px solid rgba(28, 31, 33, 0.1);
+    padding-bottom: 10px;
+    position: relative;
+}
+
+.stuName {
+    color: #93999f;
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.stuAnswerItem {
+    padding: 15px;
+}
+
+.bottomLine {
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(28, 31, 33, 0.1);
+}
+
+.stuAnswerTime {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #93999F;
+    line-height: 24px;
+}
+
+.doHomework {
+    position: absolute;
+    right: 0;
+    padding: 5px 10px;
+    background-color: #F20D0D;
+    color: #FFF;
+    top: -5px;
+}
+
+.doHomework:link,
+.doHomework:hover {
+    color: #FFF;
+}
+
+.stuAnswerContent {
+    font-size: 16px;
+    line-height: 30px;
+    color: #07111b;
+}
