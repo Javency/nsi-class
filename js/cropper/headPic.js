@@ -8,13 +8,13 @@ $(function() {
     // 打开上传图片
     userPic.click(function() {
         picBoxBg.fadeIn(200)
-        $('body').css("overflow-y", "hidden")
+        $('body').css({ "overflow-y": "hidden", "margin-right": "17px" })
     })
 
     // 关闭上传图片
     cancle.click(function() {
         picBoxBg.fadeOut(200)
-        $('body').css("overflow-y", "auto")
+        $('body').css({ "overflow-y": "auto", "margin-right": "0" })
     })
 
     // 随机图片

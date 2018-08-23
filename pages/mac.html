@@ -8,8 +8,10 @@
     <link rel="shortcut icon" href="../images/favorite.ico" type="image/x-icon" />
     <title>新学说——国际学校市场招生课程</title>
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="http://at.alicdn.com/t/font_560175_wo17qglric.css">
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_560175_gk4f1udg3v8.css">
     <link rel="stylesheet" href="http://at.alicdn.com/t/font_554630_3hucyqvpg4hiwwmi.css">
+    <link rel="stylesheet" href="./pluging/layui/css/layui.css">
+    <link rel="stylesheet" href="../layer/theme/default/layer.css">
     <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/nav.css">
     <link rel="stylesheet" href="../css/footer.css">
@@ -160,7 +162,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="tab-pane fade" id="tab04">
+            <div class="tab-pane fade in active" id="tab04">
                 <div class="row pt30">
                     <div class="col-md-3">
                         <ul class="tabCourseList" id="tabCourseList">
@@ -220,7 +222,7 @@
                                             <img src="../images/userPic/eg04.png" alt="" width="40">
                                             <span class="teaName">张三老师</span>
                                             <div class="answerInfo">
-                                                <span>12</span><span>人回答</span>
+                                                <span class="personNum">0</span><span>人回答</span>
                                                 <span class="teaQueTime">2018-09-10 22:21:12</span>
                                             </div>
                                         </div>
@@ -229,8 +231,28 @@
                             </div>
                             <!-- 学生回答 -->
                             <div class="stuAnswer">
-                                <h5 class="stuAnswerNum"><span id="stuAnswerNum">12</span>回答<a href="javascript:;" class="doHomework">提交作业</a></h5>
+                                <h5 class="stuAnswerNum"><span class="personNum">0</span>人回答<a href="javascript:;" class="doHomework" id="doHomework">提交作业</a></h5>
+                                <div class="row stuAnswerItem">
+                                    <!-- 提交评论 -->
+                                    <div class="col-md-12 pt15 bottomLine editorBox" id="editorBox">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <img src="../images/userPic/eg05.png" alt="" width="40">
+                                                <span class="apply-name">学生A</span>
+                                            </div>
+                                            <div class="col-md-12 pt15">
+                                                <div id="editor"></div>
+                                                <p class="text-right editorBtnContent">
+                                                    <a href="javascript:;" class="editorBtn cancle" id="uploadFile">上传附件</a>
+                                                    <a href="javascript:;" class="editorBtn cancle" id="cancle">取  消</a>
+                                                    <a href="javascript:;" class="editorBtn confirm" id="confirm">提交回答</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="row stuAnswerItem" id="stuAnswer">
+                                    <!-- 评论列表 -->
                                     <div class="col-md-12 pt15">
                                         <div class="row bottomLine">
                                             <div class="col-md-1">
@@ -240,33 +262,26 @@
                                                 <p><span class="stuName">学生A</span></p>
                                                 <p class="stuAnswerContent">这是学生A的回答这是学生A的回答这是学生A的回答这是学生A的回答这是学生A的回答这是学生A的回答Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum repellendus exercitationem velit error? Delectus exercitationem fugit ipsa, saepe mollitia
                                                     molestiae iste eaque praesentium facere fugiat quod architecto et quaerat adipisci!</p>
-                                                <p class="text-right stuAnswerTime">2018.09.05 22:21:25</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12 pt15">
-                                        <div class="row bottomLine">
-                                            <div class="col-md-1">
-                                                <img src="../images/userPic/eg05.png" alt="" width="40">
-                                            </div>
-                                            <div class="col-md-11">
-                                                <p><span class="stuName">学生A</span></p>
-                                                <p class="stuAnswerContent">这是学生A的回答这是学生A的回答这是学生A的回答这是学生A的回答这是学生A的回答这是学生A的回答Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum repellendus exercitationem velit error? Delectus exercitationem fugit ipsa, saepe mollitia
-                                                    molestiae iste eaque praesentium facere fugiat quod architecto et quaerat adipisci!</p>
-                                                <p class="text-right stuAnswerTime">2018.09.05 22:21:25</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12 pt15">
-                                        <div class="row bottomLine">
-                                            <div class="col-md-1">
-                                                <img src="../images/userPic/eg05.png" alt="" width="40">
-                                            </div>
-                                            <div class="col-md-11">
-                                                <p><span class="stuName">学生A</span></p>
-                                                <p class="stuAnswerContent">这是学生A的回答这是学生A的回答这是学生A的回答这是学生A的回答这是学生A的回答这是学生A的回答Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum repellendus exercitationem velit error? Delectus exercitationem fugit ipsa, saepe mollitia
-                                                    molestiae iste eaque praesentium facere fugiat quod architecto et quaerat adipisci!</p>
-                                                <p class="text-right stuAnswerTime">2018.09.05 22:21:25</p>
+                                                <p class="text-right stuAnswerTime"><span class="iconfont icon-huifu reply" id="reply"></span>2018.09.05 22:21:25</p>
+                                                <div class="replyBox">
+                                                    <div class="replayInputBox" id="replayInputBox">
+                                                        <img src="../images/userPic/eg05.png" alt="" width="35" class="replyPic">
+                                                        <input type="text" id="txt" class="txt">
+                                                        <a href="javascript:;" class="replyBtn">回复</a>
+                                                        <span class="iconfont icon-guanbi closeBtn" id="closeBtn"></span>
+                                                    </div>
+                                                    <div class="replayList" id="replayList">
+                                                        <!-- <div class="row mb15">
+                                                            <div class="col-md-1">
+                                                                <img src="../images/userPic/eg05.png" alt="" width="35" class="replyPic">
+                                                            </div>
+                                                            <div class="col-md-11 pl0">
+                                                                <p class="userReplayName">学生B</p>
+                                                                <p class="userReplayContent">Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat voluptatum praesentium tempore consequuntur. Distinct</p>
+                                                            </div>
+                                                        </div> -->
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -336,4 +351,10 @@
 <script src="../layer/layer.js"></script>
 <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 <script src="../js/WechatShare.js"></script>
+<!-- layui -->
+<script src="./pluging/layui/layui.js"></script>
+<!-- layerJS -->
+<script src="../layer/layer.js"></script>
+<!-- wangEditor -->
+<script src="http://unpkg.com/wangeditor/release/wangEditor.min.js"></script>
 <script src="./assets/js/mac.js"></script>

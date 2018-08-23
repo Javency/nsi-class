@@ -1,3 +1,13 @@
+/* common */
+
+.pl0 {
+    padding-left: 0;
+}
+
+.pr0 {
+    padding-right: 0;
+}
+
 .content {
     padding-top: 56px;
 }
@@ -267,7 +277,7 @@
 .tabCourseList {
     padding: 15px;
     box-shadow: 0 8px 16px 0 rgba(28, 31, 33, 0.1);
-    height: 335px;
+    height: 345px;
     overflow: hidden;
 }
 
@@ -386,6 +396,21 @@
     font-size: 12px;
     color: #93999F;
     line-height: 24px;
+    position: relative;
+}
+
+
+/* 回复作业 */
+
+.reply {
+    position: absolute;
+    left: 0;
+    cursor: pointer;
+    font-size: 22px;
+}
+
+.reply:hover {
+    color: #666;
 }
 
 .doHomework {
@@ -402,8 +427,120 @@
     color: #FFF;
 }
 
+.doHomework:hover {
+    background-color: rgb(243, 67, 67)
+}
+
 .stuAnswerContent {
     font-size: 16px;
     line-height: 30px;
     color: #07111b;
+}
+
+
+/* 提交评论 */
+
+.apply-name {
+    display: inline-block;
+    color: #666;
+    margin-left: 10px;
+}
+
+.editorBtnContent {
+    padding-top: 15px;
+}
+
+.editorBtn {
+    padding: 8px 15px;
+    background-color: #F20D0D;
+    color: #FFF;
+}
+
+.cancle {
+    background-color: rgb(214, 214, 214);
+    color: #525252;
+    margin-right: 15px;
+}
+
+.cancle:link {
+    color: #333;
+}
+
+.confirm:link {
+    color: #FFF;
+}
+
+.confirm:hover {
+    color: #FFF;
+    background-color: rgb(240, 80, 80)
+}
+
+.cancle:hover {
+    color: #333;
+    background-color: rgb(233, 232, 232)
+}
+
+.editorBox {
+    display: none;
+    position: relative;
+    z-index: 0;
+}
+
+
+/* 回复 */
+
+.replyBox {
+    padding-top: 15px;
+    /* display: none; */
+}
+
+.replayInputBox {
+    margin-bottom: 15px;
+    display: none;
+}
+
+.txt {
+    width: 70%;
+    height: 35px;
+    line-height: 35px;
+    padding-left: 15px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+}
+
+.replyBtn {
+    background-color: #F20D0D;
+    padding: 8px 15px;
+    color: #FFF;
+}
+
+.replyBtn:link {
+    color: #FFF;
+}
+
+.replyBtn:hover {
+    color: #FFF;
+    background-color: rgb(241, 74, 74)
+}
+
+.replyPic {
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.closeBtn {
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+.closeBtn:hover {
+    color: #666;
+}
+
+.userReplayName {
+    color: #666;
+}
+
+.userReplayContent {
+    color: rgb(128, 128, 128);
 }
