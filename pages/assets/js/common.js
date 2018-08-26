@@ -5,12 +5,12 @@ $(function() {
             exit = $("#exit")
         if ($.cookie('username') === undefined) {
             $login.text("登录 / 注册")
-            $login.parent().attr("href", "./login.html")
+            $login.parent().attr("href", "../login.html")
             personalClass.parent().css("display", "none")
             exit.parent().css("display", "none")
         } else {
             $login.text($.cookie('User_TureName'))
-            $login.parent().attr("href", "./personalCenter.html")
+            $login.parent().attr("href", "../personalCenter.html")
             exit.parent().css("display", "inline-block")
         }
     }
@@ -23,7 +23,7 @@ $(function() {
         dataType: "json",
         url: changeUrl.address + '/Class_Course_api?whereFrom=showInformation',
         success: function(msg) {
-            living.attr("href", "./live.html?Id=" + msg.data1[0].Id)
+            living.attr("href", "../live.html?Id=" + msg.data1[0].Id)
             $("#courseName").text(msg.data1[0].CourseName + "[回放]")
         }
     })
@@ -55,7 +55,7 @@ $(function() {
         $.cookie('username', null, { expires: -1, path: '/' });
         $.cookie('User_TureName', null, { expires: -1, path: '/' });
         $.cookie('userVerifyCode', null, { expires: -1, path: '/' });
-        window.location.href = './index.html'
+        window.location.href = '../index.html'
     }
 
     exit.on("click", function() {
