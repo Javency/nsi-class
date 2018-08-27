@@ -591,6 +591,9 @@ inputStyle {
     .wrap {
         min-height: 0;
     }
+    .hidden-phone {
+        display: none;
+    }
 }
 
 @media(max-width:415px) {
