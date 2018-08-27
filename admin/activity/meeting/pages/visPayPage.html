@@ -223,7 +223,7 @@
         data: {
             code: code
         },
-        url: "http://" + changeUrl.address + '/wxPay/getInfo.do',
+        url: changeUrl.address + '/wxPay/getInfo.do',
         success: function(msg) {
             var openid = msg.data.openid;
             var storage = window.localStorage;
@@ -234,7 +234,7 @@
                     attach = email + "$" + fee + "$" + "nop" + "$" + payInfo
                 $.ajax({
                     type: 'get',
-                    url: "http://" + changeUrl.address + '/wxPay/pay.do',
+                    url: changeUrl.address + '/wxPay/pay.do',
                     data: {
                         "attach": attach,
                         "openid": openid,

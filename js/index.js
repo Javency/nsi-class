@@ -136,13 +136,25 @@ $(function() {
     })
 })
 
+// 课程筹备中
+$(".isPreparing").click(function() {
+    window.open("http://data.xinxueshuo.cn/nsi-class/admin/activity/macApply.html", '_blank')
+
+})
+
+$(".isPlaning").click(function() {
+    window.open("https://jinshuju.net/f/gsQp7p", '_blank')
+})
+
 // 课程列表部分
 $(function() {
     var CourseContainer = $("#CourseContainer")
     $.ajax({
         type: "get",
         async: false,
-        data: "",
+        data: {
+            "CourseSubject": "hrc"
+        },
         dataType : "json",
         contentType: "application/json;charset=UTF-8",
         url: changeUrl.address + '/Class_Course_api?whereFrom=Search_Course',
@@ -225,8 +237,10 @@ $(function() {
             // browserRedirect()
             if (IsMobile) {
                 $('.Course-up').addClass('col-xs-5')
+                $(".isPreparing").addClass('col-xs-12')
             } else {
                 $('.Course-up').removeClass('col-xs-5')
+                $(".isPreparing").removeClass('col-xs-12')
             }
         },
         error: function(msg) {

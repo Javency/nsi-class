@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="./css/verify/verify.css">
     <link rel="stylesheet" href="./layer/theme/default/layer.css">
     <link rel="stylesheet" href="./css/common.css?v=04241613">
-    <link rel="stylesheet" href="./css/login.css?v=04171636">
+    <link rel="stylesheet" href="./css/login.css?v=08271703">
     <link rel="stylesheet" href="./css/cropper/cropper.min.css">
 </head>
 
@@ -72,7 +72,7 @@
                                     <!-- 头像上传 -->
                                     <div class="userImgBox">
                                         <div class="userImgBox-container">
-                                            <img id="userPic" src="https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-user/samplePic/userImg.png" alt="" class="userPic">
+                                            <img id="userPic" src="https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/image/default.png" alt="" class="userPic">
                                             <div class="changePic" id="changePic">换一换</div>
                                         </div>
                                     </div>
@@ -187,6 +187,33 @@
                 </div>
             </div>
         </div>
+        <!-- 头像上传框 END-->
+        <!-- 邮箱验证码 -->
+        <div class="userMailCode" id="userMailCode">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 userMailCodeContainer">
+                        <div class="userMailCodeBox">
+                            <div class="mailCodeTitle">
+                                <!-- <h3>请输入邮箱验证码<span class="iconfont icon-iconjia translateAdd closeCodeBtn" id="closeCodeBtn"></span></h3> -->
+                                <h3>已发送至邮箱
+                                    <a target="_blank" id="userInputMail" class="userInputMail"></a> 查看验证码
+                                </h3>
+                            </div>
+                            <div class="confirmMailCodeBtn">
+                                <input type="text" id="inputCode" class="inputCode">
+                                <a href="javascript:;" class="confirmCode" id="confirmCode">确认</a>
+                            </div>
+                            <div class="problem text-right">
+                                <span class="currentCode" id="currentCode"></span>
+                                <a href="./about.html?about=connect" class="hasProblem" target="_blank">验证遇到问题？</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 邮箱验证码 END-->
     </div>
 </body>
 
@@ -200,4 +227,4 @@
 <script src="./js/cropper/cropper.min.js"></script>
 <script src="./js/cropper/headPic.js"></script>
 <script src="./js/cropper/main.js"></script>
-<script src="./js/login.js"></script>
+<script src="./js/login.js?v=08271703"></script>

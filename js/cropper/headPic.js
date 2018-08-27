@@ -18,7 +18,7 @@ $(function() {
     })
 
     // 随机图片
-    var egImgList = ['https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-user/samplePic/eg01.png', 'https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-user/samplePic/eg02.png', 'https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-user/samplePic/eg03.png', 'https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-user/samplePic/eg04.png', 'https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-user/samplePic/eg06.png', 'https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-user/samplePic/eg07.png', 'https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-user/samplePic/eg08.png']
+    var egImgList = ['https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-user/samplePic/eg01.png', 'https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-user/samplePic/eg02.png', 'https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-user/samplePic/eg03.png', 'https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-user/samplePic/eg04.png', 'https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-user/samplePic/eg06.png', 'https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-user/samplePic/eg06.png', 'https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-user/samplePic/eg07.png', 'https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-user/samplePic/eg08.png']
 
     function RandomNumBoth(Min, Max) {
         var Range = Max - Min;
@@ -59,7 +59,8 @@ $(function() {
                 "strImage": dataurl.split("base64,")[1]
             },
             success: function(data) {
-                console.log(data)
+                layer.msg("头像上传成功")
+                $("#userPic").attr("src", data.data.url)
             },
             error: function(msg) {
 
@@ -76,7 +77,7 @@ $(function() {
             picBoxBg = $("#picBoxBg")
 
         picBoxBg.fadeOut(200)
-        userPic.attr("src", finalDataurl)
+            // userPic.attr("src", finalDataurl)
         submitImg(changeUrl.address + '/manager/talent/get_base64_image.do?type=nsi-user/userPic/')
     })
 

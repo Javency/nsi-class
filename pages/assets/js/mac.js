@@ -7,10 +7,13 @@ $(function() {
         confirm = $("#confirm"),
         stuAnswer = $("#stuAnswer"),
         // 课程Id
-        courseId = 10001
+        courseId = 20001
 
     $.ajax({
         method: "get",
+        data: {
+            'CourseSubject': 'mac'
+        },
         url: changeUrl.address + "/Class_Course_api?whereFrom=Search_Course",
         success: function(msg) {
             // console.log(msg.data)

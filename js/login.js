@@ -149,7 +149,7 @@ $(function() {
             // emailFlag = true;
             // console.log("ok");
             $.ajax({
-                url: "http://" + changeUrl.address + "/User_api?whereFrom=checkMail",
+                url: changeUrl.address + "/User_api?whereFrom=checkMail",
                 type: 'post',
                 dataType: 'jsonp',
                 jsonp:   "Callback",
@@ -173,6 +173,15 @@ $(function() {
             registerTips.text("您填写的邮箱格式不正确")
         }
     }
+
+    //邮箱验证码
+    var closeCodeBtn = $("#closeCodeBtn"),
+        confirmCode = $("#confirmCode"),
+        userMailCode = $("#userMailCode")
+
+    closeCodeBtn.click(function() {
+        userMailCode.fadeOut(200)
+    })
 
     //姓名验证
     function nameCheck() {
@@ -326,12 +335,15 @@ $(function() {
                 pwdValue01 = $("#registerPassword").val(),
                 pwdValue02 = $("#registerConfirmPassword").val(),
                 data = {
-                    'Email': emailValue,
-                    'Name': nameValue,
-                    'company': instutionValue,
-                    'position': jobValue,
-                    'Passwd01': pwdValue02,
-                    'phone': phoneValue
+                    'username': emailValue,
+                    'password': pwdValue02,
+                    'userTurename': nameValue,
+                    'userOrganization': instutionValue,
+                    'userPosition': jobValue,
+                    'userPhone': phoneValue,
+                    // 头像
+                    'userPortrait': $("#userPic").attr("src"),
+                    'registerType': "在线课堂"
                 },
                 hash = {
                     'qq.com': 'http://mail.qq.com',
@@ -356,27 +368,48 @@ $(function() {
                     '188.com': 'http://www.188.com/',
                     'foxmail.coom': 'http://www.foxmail.com'
                 };
+            $("#userInputMail").text(emailValue)
             if (emailFlag && nameFlag && instutionFlag && jobFlag && telFlag && pwdFlag && confirmPwdFlag && slideVerifyFlag && userPicFlag) {
+                layer.load(2);
                 $.ajax({
-                        type: "get",
-                        async: true,
-                        traditional: true,
-                        dataType: "jsonp",
-                        jsonp: "Callback",
+                        type: "post",
                         data: data,
-                        url: changeUrl.address + '/User_api?whereFrom=register',
+                        url: changeUrl.address + '/user/register.do',
                         success: function(msg) {
-                            layer.alert("注册成功，请查看您的邮箱以激活账号", {
-                                icon: 1,
-                                closeBtn: 1
-                            }, function() {
-                                $.each(hash, function(index, value) {
-                                    var email = $('#registerEmail').val()
-                                    var suffix = email.split('@')[1]
-                                    if (index == suffix) {
-                                        // console.log(index, value)
-                                        // $('#toVerify').attr('href', value)
-                                        window.location.href = value
+                            layer.closeAll('loading');
+                            $.each(hash, function(index, value) {
+                                var email = $('#registerEmail').val()
+                                var suffix = email.split('@')[1]
+                                if (index == suffix) {
+                                    // console.log(index, value)
+                                    // $('#toVerify').attr('href', value)
+                                    //window.location.href = value
+                                    window.open(value, "_blank")
+                                }
+                            })
+
+                            // 发送邮箱验证码
+                            userMailCode.fadeIn(200)
+                            $('body').css({ "overflow-y": "hidden", "margin-right": "17px" })
+                            $("#confirmCode").click(function() {
+                                layer.load(2);
+                                var inputCodeVal = $("#inputCode").val()
+                                var data = {
+                                    Usermail: emailValue,
+                                    VerifyCode: inputCodeVal,
+                                }
+                                $.ajax({
+                                    type: "post",
+                                    data: data,
+                                    url: changeUrl.address + "/user/UsermailVerify.do",
+                                    success: function(msg) {
+                                        // console.log(msg)
+                                        // $("#currentCode").text(msg.msg)
+                                        layer.closeAll('loading');
+                                        userMailCode.fadeOut(200)
+                                        layer.alert(msg.msg, function() {
+                                            window.location.reload()
+                                        })
                                     }
                                 })
                             })
@@ -402,12 +435,15 @@ $(function() {
             pwdValue01 = $("#registerPassword").val(),
             pwdValue02 = $("#registerConfirmPassword").val(),
             data = {
-                'Email': emailValue,
-                'Name': nameValue,
-                'company': instutionValue,
-                'position': jobValue,
-                'Passwd01': pwdValue02,
-                'phone': phoneValue
+                'username': emailValue,
+                'password': pwdValue02,
+                'userTurename': nameValue,
+                'userOrganization': instutionValue,
+                'userPosition': jobValue,
+                'userPhone': phoneValue,
+                // 头像
+                'userPortrait': $("#userPic").attr("src"),
+                'registerType': "在线课堂"
             },
             hash = {
                 'qq.com': 'http://mail.qq.com',
@@ -432,30 +468,45 @@ $(function() {
                 '188.com': 'http://www.188.com/',
                 'foxmail.coom': 'http://www.foxmail.com'
             };
-        if (emailFlag && nameFlag && instutionFlag && jobFlag && telFlag && pwdFlag && confirmPwdFlag && slideVerifyFlag) {
+        $("#userInputMail").text(emailValue)
+        if (emailFlag && nameFlag && instutionFlag && jobFlag && telFlag && pwdFlag && confirmPwdFlag && slideVerifyFlag && userPicFlag) {
             $.ajax({
-                type: "get",
-                async: true,
-                traditional: true,
-                dataType: "jsonp",
-                jsonp: "Callback",
+                type: "post",
                 data: data,
-                url: changeUrl.address + '/User_api?whereFrom=register',
+                url: changeUrl.address + '/user/register.do',
                 success: function(msg) {
-                    layer.alert("注册成功，请查看您的邮箱以激活账号", {
-                        icon: 1,
-                        closeBtn: 1
-                    }, function() {
-                        $.each(hash, function(index, value) {
-                            var email = $('#registerEmail').val()
-                            var suffix = email.split('@')[1]
-                            if (index == suffix) {
-                                // console.log(index, value)
-                                // $('#toVerify').attr('href', value)
-                                window.location.href = value
+                    $.each(hash, function(index, value) {
+                        var email = $('#registerEmail').val()
+                        var suffix = email.split('@')[1]
+                        if (index == suffix) {
+                            // console.log(index, value)
+                            // $('#toVerify').attr('href', value)
+                            // window.location.href = value
+                            window.open(value, "_blank")
+                        }
+                    })
+
+                    // 发送邮箱验证码
+                    userMailCode.fadeIn(200)
+                    $("#confirmCode").click(function() {
+                        var inputCodeVal = $("#inputCode").val()
+                        var data = {
+                            Usermail: emailValue,
+                            VerifyCode: inputCodeVal,
+                        }
+                        $.ajax({
+                            type: "post",
+                            data: data,
+                            url: changeUrl.address + "/user/UsermailVerify.do",
+                            success: function(msg) {
+                                userMailCode.fadeOut(200)
+                                layer.alert(msg.msg, function() {
+                                    window.location.reload()
+                                })
                             }
                         })
                     })
+
                 },
                 error: function() {
                     console.log("error")
@@ -463,7 +514,7 @@ $(function() {
             })
 
         } else {
-            console.log("注册失败")
+            // console.log("注册失败")
         }
     })
 })
