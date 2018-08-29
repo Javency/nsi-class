@@ -4,15 +4,20 @@ $(function() {
         myClass = $("#myClass"),
         myCourse = $("#myCourse"),
         notHaveCourse = $("#notHaveCourse"),
-        invitation = $("#invitation-info")
-    data = {
-        'UserMail': $.cookie('username')
-    }
+        invitation = $("#invitation-info"),
+        hrcData = {
+            'UserMail': $.cookie('username'),
+            "CourseSubject": "hrc"
+        },
+        macData = {
+            'UserMail': $.cookie('username'),
+            "CourseSubject": "mac"
+        }
     $.ajax({
         type: "POST",
-        data: data,
+        data: hrcData,
         dataType: "json",
-        url: changeUrl.address + '/Class_Course_api?whereFrom=MyCourse',
+        url: changeUrl.address + '/Class_Course_api?whereFrom=Search_Course',
         success: function(msg) {
             // console.log(msg.data[0])
             if (msg.data.length != 0) {
@@ -35,6 +40,33 @@ $(function() {
                     '</div>'
                 haveBoughtCourse.append(courseTemplate)
 
+            }
+        }
+    })
+    $.ajax({
+        type: "POST",
+        data: macData,
+        dataType: "json",
+        url: changeUrl.address + '/Class_Course_api?whereFrom=Search_Course',
+        success: function(msg) {
+            // console.log(msg.data[0])
+            if (msg.data.length != 0) {
+                myClass.removeClass("myClass")
+                notHaveCourse.css("display", "none")
+                var courseTemplate = '<div class="col-md-3 col-sm-6 mb40">' +
+                    '<div class="CourseContainer">' +
+                    '<a href="http://data.xinxueshuo.cn/nsi-class/admin/activity/macApply.html" target="_blank">' +
+                    '<div class="Course Course-up">' +
+                    '<img src="./images/v0.2/mac.jpg" alt="">' +
+                    '</div>' +
+                    '</a>' +
+                    '<div class="CourseInfo">' +
+                    '<p class="mtb5 oneline"><span class="CourseName" title="' + msg.data[0].CourseName + '">' + msg.data[0].CourseName + '</span></p>' +
+                    '<p class="mtb5 twoline"><span class="CourseDesc" title="' + msg.data[0].CourseDescription + '">' + msg.data[0].CourseDescription + '</span></p>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>'
+                haveBoughtCourse.append(courseTemplate)
             }
         }
     })

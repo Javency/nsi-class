@@ -260,8 +260,8 @@
     right: 0;
     top: 10px;
     content: "";
-    width: 8px;
-    height: 8px;
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
     border: 2px solid #caac80;
 }
@@ -544,4 +544,52 @@
 
 .userReplayContent {
     color: rgb(128, 128, 128);
+}
+
+@media(max-width:768px) {
+    .banner {
+        min-height: 320px;
+        background-position: unset;
+    }
+    .macInfo {
+        width: 80%;
+    }
+    .macInfo h1 {
+        font-size: 23px;
+        line-height: 1.5;
+    }
+    .macInfo-price {
+        color: #c9882a;
+        padding-top: 15px;
+        font-size: 21px;
+        font-weight: 200
+    }
+    .toApply {
+        font-size: 14px;
+        padding: 10px 15px;
+        background: #c69c5e;
+    }
+    .applyLogo {
+        font-size: 22px;
+    }
+    .myTab li {
+        margin-left: 0;
+        margin-right: 20px;
+    }
+    .myTab li:last-of-type {
+        margin-right: 0;
+    }
+    .applyBtn {
+        padding-top: 20px;
+    }
+    .macInfo .text-center {
+        text-align: left;
+    }
+    .toApply:hover {
+        background: #c4a06a;
+    }
+    .detailLesson-Tab {
+        margin-top: 15px;
+        padding-bottom: 0px;
+    }
 }

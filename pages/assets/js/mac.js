@@ -38,6 +38,9 @@ $(function() {
                 tabCourseList.css("height", "auto")
                 $.ajax({
                     method: "get",
+                    data: {
+                        'CourseSubject': 'mac'
+                    },
                     url: changeUrl.address + "/Class_Course_api?whereFrom=Search_Course",
                     success: function(msg) {
                         // console.log(msg.data)
@@ -328,4 +331,21 @@ $(function() {
     }
 
     getStuHomework()
+
+    // 直播链接
+    function getMacList() {
+        var macList = [],
+            section01 = $("#section01")
+        $.ajax({
+            method: "get",
+            data: {
+                'CourseSubject': 'mac'
+            },
+            url: changeUrl.address + "/Class_Course_api?whereFrom=Search_Course",
+            success: function(msg) {
+                macList = msg.data
+            }
+        })
+    }
+    getMacList()
 })
