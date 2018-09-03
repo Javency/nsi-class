@@ -277,6 +277,16 @@
 .courseInlist li a span {
     margin-right: 10px;
     color: #caac80;
+    font-weight: 700;
+    font-size: 17px;
+}
+
+.prepare {
+    color: #aaaaaa !important;
+}
+
+.courseInlist li a.living::before {
+    background-color: #caac80;
 }
 
 

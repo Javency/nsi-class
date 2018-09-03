@@ -1,5 +1,10 @@
 // 显示的购买课程
 $(function() {
+    if ($.cookie("username") == undefined) {
+        layer.msg("用户请登录", { time: 1000 }, function() {
+            window.location.href = "./login.html"
+        })
+    }
     var haveBoughtCourse = $("#haveBoughtCourse"),
         myClass = $("#myClass"),
         myCourse = $("#myCourse"),

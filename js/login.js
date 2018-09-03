@@ -405,11 +405,18 @@ $(function() {
                                     success: function(msg) {
                                         // console.log(msg)
                                         // $("#currentCode").text(msg.msg)
-                                        layer.closeAll('loading');
-                                        userMailCode.fadeOut(200)
-                                        layer.alert(msg.msg, function() {
-                                            window.location.reload()
-                                        })
+
+                                        if (msg.code == "0") {
+                                            layer.closeAll('loading');
+                                            userMailCode.fadeOut(200)
+                                            layer.alert(msg.msg, function() {
+                                                window.location.reload()
+                                            })
+                                        } else {
+                                            layer.msg("邮箱验证码有误，请重新输入", function() {
+                                                layer.closeAll('loading');
+                                            })
+                                        }
                                     }
                                 })
                             })

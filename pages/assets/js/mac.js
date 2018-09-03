@@ -331,7 +331,7 @@ $(function() {
                 })
 
                 // console.log(replayList)
-                for (let k = 0; k < uidList.length; k++) {
+                var _loop = function _loop(k) {
                     $.ajax({
                         method: "get",
                         url: changeUrl.address + "/Comment/list.do",
@@ -339,29 +339,25 @@ $(function() {
                             CourseId: uidList[k]
                                 // objectId: uidList[k]
                         },
-                        success: function(msg) {
+                        success: function success(msg) {
                             // $(".replayList").html("")
                             // $(".replayList").append("123")
                             if (msg.data.length > 0) {
-                                for (let j = 0; j < msg.data.length; j++) {
-                                    var template = '<div class="row mb15">' +
-                                        '<div class="col-md-1">' +
-                                        '<img src="' + msg.data[j].commentatorportrait + '" alt="" width="35" class="replyPic">' +
-                                        '</div>' +
-                                        '<div class="col-md-11 pl0">' +
-                                        '<p class="userReplayName">' + msg.data[j].commentatorname + '</p>' +
-                                        '<p class="userReplayContent">' + msg.data[j].content + '</p>' +
-                                        '</div>' +
-                                        '</div>'
-                                        // console.log(msg.data[i].commentatorportrait)
-                                        // if (msg.data[j].commentatorportrait === "null") {
-                                        //     msg.data[j].commentatorportrait = "https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/image/default.png"
-                                        // }
-                                    $(".replayList").eq(k).append(template)
+                                for (var j = 0; j < msg.data.length; j++) {
+                                    var template = '<div class="row mb15">' + '<div class="col-md-1">' + '<img src="' + msg.data[j].commentatorportrait + '" alt="" width="35" class="replyPic">' + '</div>' + '<div class="col-md-11 pl0">' + '<p class="userReplayName">' + msg.data[j].commentatorname + '</p>' + '<p class="userReplayContent">' + msg.data[j].content + '</p>' + '</div>' + '</div>';
+                                    // console.log(msg.data[i].commentatorportrait)
+                                    // if (msg.data[j].commentatorportrait === "null") {
+                                    //     msg.data[j].commentatorportrait = "https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/image/default.png"
+                                    // }
+                                    $(".replayList").eq(k).append(template);
                                 }
                             }
                         }
-                    })
+                    });
+                };
+
+                for (var k = 0; k < uidList.length; k++) {
+                    _loop(k);
                 }
             }
         })
