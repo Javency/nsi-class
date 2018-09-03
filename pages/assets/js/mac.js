@@ -7,8 +7,14 @@ $(function() {
         confirm = $("#confirm"),
         stuAnswer = $("#stuAnswer"),
         // 课程Id
-        courseId = 20001
+        courseId = 20001,
+        userName = $.cookie('User_TureName'),
+        courseList = []
 
+    // 用户姓名头像
+    $("#apply-name").text(userName)
+
+    // 获取课程列表
     $.ajax({
         method: "get",
         data: {
@@ -18,10 +24,11 @@ $(function() {
         success: function(msg) {
             // console.log(msg.data)
             tabCourseList.html('')
+            courseList = msg.data
             var moreTemplate = '<li class="text-center moreBox" id="more"><span class="iconfont icon-shuangjiantou more"></span></li>'
             for (var i = 0; i < 5; i++) {
                 var template = '<li>' +
-                    '<a href="javascript:;" class="tabCurrent" data-courseId=' + msg.data[i].Id + '>' + (i + 1) + " " + msg.data[i].CourseName + '</a>' +
+                    '<a href="javascript:;" class="tabCurrent" data-courseId=' + courseList[i].Id + '>' + (i + 1) + " " + courseList[i].CourseName + '</a>' +
                     '</li>'
                 tabCourseList.append(template)
             }
@@ -36,26 +43,16 @@ $(function() {
             $("#more").unbind('click').click(function() {
                 $("#more").hide(0)
                 tabCourseList.css("height", "auto")
-                $.ajax({
-                    method: "get",
-                    data: {
-                        'CourseSubject': 'mac'
-                    },
-                    url: changeUrl.address + "/Class_Course_api?whereFrom=Search_Course",
-                    success: function(msg) {
-                        // console.log(msg.data)
-                        tabCourseList.html('')
-                        for (var i = 0; i < msg.data.length; i++) {
-                            var template = '<li>' +
-                                '<a href="javascript:;" class="tabCurrent" data-courseId=' + msg.data[i].Id + '>' + (i + 1) + " " + msg.data[i].CourseName + '</a>' +
-                                '</li>'
-                            tabCourseList.append(template)
-                        }
-                        // 获取教师问题及学生作业列表
-                        changeTeaHomework()
-                        changeHomeWorkList()
-                    }
-                })
+                tabCourseList.html('')
+                for (var i = 0; i < courseList.length; i++) {
+                    var template = '<li>' +
+                        '<a href="javascript:;" class="tabCurrent" data-courseId=' + msg.data[i].Id + '>' + (i + 1) + " " + msg.data[i].CourseName + '</a>' +
+                        '</li>'
+                    tabCourseList.append(template)
+                }
+                // 获取教师问题及学生作业列表
+                changeTeaHomework()
+                changeHomeWorkList()
             })
         }
     })
@@ -87,7 +84,6 @@ $(function() {
             },
             done: function(res) {
                 // console.log(res)
-
                 fileName = res.data.uri
                 fileUrl = changeUrl.address + "/manager/resource/download.do?fileName=" + fileName
                 layer.closeAll('loading');
@@ -103,7 +99,13 @@ $(function() {
 
     //提交作业
     doHomework.click(function() {
-        editorBox.show(200)
+        if ($.cookie('username') === undefined) {
+            layer.msg("请先登录", { time: 1000 }, function() {
+                window.location.href = "../login.html"
+            })
+        } else {
+            editorBox.show(200)
+        }
     })
     cancle.click(function() {
         editorBox.hide(200)
@@ -173,6 +175,9 @@ $(function() {
     // 点击更换教师作业
     function changeTeaHomework() {
         $(".tabCurrent").on('click', function() {
+            $(".teaQuestion").text("讲师暂无布置作业")
+            $(".teaName").text("老师")
+            $(".teaQueTime").text("")
             courseId = $(this).attr("data-courseId")
             $.ajax({
                 method: "post",
@@ -184,12 +189,29 @@ $(function() {
                     $(".teaQuestion").text(msg.data.assignmentContent)
                     $(".teaName").text(msg.data.userName)
                     $(".teaQueTime").text(formatDate(msg.data.createTime))
-
                     console.log(msg)
                 }
             })
         })
     }
+
+    // 默认第一节课
+    function defalutClass() {
+        $.ajax({
+            method: "post",
+            url: changeUrl.address + "/assignment/get_teacher_assignment.do",
+            data: {
+                'courseId': courseId
+            },
+            success: function(msg) {
+                $(".teaQuestion").text(msg.data.assignmentContent)
+                $(".teaName").text(msg.data.userName)
+                $(".teaQueTime").text(formatDate(msg.data.createTime))
+                    // console.log(msg)
+            }
+        })
+    }
+    defalutClass()
 
     // 点击更换学生作业列表
     function changeHomeWorkList() {
@@ -225,15 +247,15 @@ $(function() {
                     var template = '<div class="col-md-12 pt15 answerItem" data-uid=' + msg.data[i].id + '>' +
                         '<div class="row bottomLine">' +
                         '<div class="col-md-1">' +
-                        '<img src="../images/userPic/eg08.png" alt="" width="40">' +
+                        '<img class="userHeadPic" src="' + msg.data[i].userPortrait + '" alt="" width="40">' +
                         '</div>' +
-                        '<div class="col-md-11">' +
+                        '<div class="col-md-11 pl0M15">' +
                         '<p><span class="stuName">' + msg.data[i].userName + '</span></p>' +
                         '<p class="stuAnswerContent">' + msg.data[i].assignmentContent + '</p>' +
                         '<p class="text-right stuAnswerTime"><span class="iconfont icon-huifu reply"></span>' + formatDate(msg.data[i].createTime) + '</p>' +
                         '<div class="replyBox">' +
                         '<div class="replayInputBox">' +
-                        '<img src="../images/userPic/eg05.png" alt="" width="35" class="replyPic">' +
+                        '<img src="https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/image/default.png" alt="" width="35" class="replyPic">' +
                         '<input type="text" class="txt">' +
                         '<a href="javascript:;" class="replyBtn" data-sendId=' + msg.data[i].id + '>回复</a>' +
                         '<span class="iconfont icon-guanbi closeBtn"></span>' +
@@ -244,6 +266,9 @@ $(function() {
                         '</div>' +
                         '</div>' +
                         '</div>'
+                    if (msg.data[i].userPortrait = "") {
+                        msg.data[i].userPortrait = "https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/image/default.png"
+                    }
                     stuAnswer.append(template)
                 }
 
@@ -256,7 +281,13 @@ $(function() {
 
                 reply.each(function(i, e) {
                     $(this).on('click', function() {
-                        replayInputBox.eq(i).show(200)
+                        if ($.cookie('username') === undefined) {
+                            layer.msg("请先登录", { time: 1000 }, function() {
+                                window.location.href = "../login.html"
+                            })
+                        } else {
+                            replayInputBox.eq(i).show(200)
+                        }
                     })
                 })
 
@@ -283,8 +314,9 @@ $(function() {
                                 verifysign: 0,
                                 identity: 0
                             },
-                            url: "http://192.168.0.8:8080/nsi-1.0/Comment/add.do",
+                            url: changeUrl.address + "/Comment/add.do",
                             success: function(msg) {
+                                replayInputBox.hide(200)
                                 console.log(msg)
                                 layer.msg("评论成功，审核通过后您的回复将展示在此")
                             }
@@ -302,9 +334,10 @@ $(function() {
                 for (let k = 0; k < uidList.length; k++) {
                     $.ajax({
                         method: "get",
-                        url: "http://192.168.0.8:8080/nsi-1.0/Comment/list.do",
+                        url: changeUrl.address + "/Comment/list.do",
                         data: {
                             CourseId: uidList[k]
+                                // objectId: uidList[k]
                         },
                         success: function(msg) {
                             // $(".replayList").html("")
@@ -313,13 +346,17 @@ $(function() {
                                 for (let j = 0; j < msg.data.length; j++) {
                                     var template = '<div class="row mb15">' +
                                         '<div class="col-md-1">' +
-                                        '<img src="../images/userPic/eg05.png" alt="" width="35" class="replyPic">' +
+                                        '<img src="' + msg.data[j].commentatorportrait + '" alt="" width="35" class="replyPic">' +
                                         '</div>' +
                                         '<div class="col-md-11 pl0">' +
                                         '<p class="userReplayName">' + msg.data[j].commentatorname + '</p>' +
                                         '<p class="userReplayContent">' + msg.data[j].content + '</p>' +
                                         '</div>' +
                                         '</div>'
+                                        // console.log(msg.data[i].commentatorportrait)
+                                        // if (msg.data[j].commentatorportrait === "null") {
+                                        //     msg.data[j].commentatorportrait = "https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/image/default.png"
+                                        // }
                                     $(".replayList").eq(k).append(template)
                                 }
                             }
@@ -332,20 +369,4 @@ $(function() {
 
     getStuHomework()
 
-    // 直播链接
-    function getMacList() {
-        var macList = [],
-            section01 = $("#section01")
-        $.ajax({
-            method: "get",
-            data: {
-                'CourseSubject': 'mac'
-            },
-            url: changeUrl.address + "/Class_Course_api?whereFrom=Search_Course",
-            success: function(msg) {
-                macList = msg.data
-            }
-        })
-    }
-    getMacList()
 })

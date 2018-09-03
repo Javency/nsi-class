@@ -18,6 +18,14 @@
     height: auto;
 }
 
+.pl0M15 {
+    padding-left: 0;
+}
+
+@media(max-width:768px) {
+    padding-left: 15px;
+}
+
 
 /* banner */
 
@@ -315,6 +323,10 @@
     font-weight: 700;
     cursor: pointer;
     color: #666;
+}
+
+.userHeadPic {
+    border-radius: 50%;
 }
 
 

@@ -36,6 +36,8 @@
     font-size: 28px;
     vertical-align: middle;
     margin-right: 5px;
+    position: relative;
+    top: -2px;
 }
 
 .nav>li>a {

@@ -138,7 +138,7 @@ $(function() {
 
 // 课程筹备中
 $(".isPreparing").click(function() {
-    window.open("http://data.xinxueshuo.cn/nsi-class/admin/activity/macApply.html", '_blank')
+    window.open("./pages/mac.html", '_blank')
 
 })
 

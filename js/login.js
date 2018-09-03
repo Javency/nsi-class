@@ -427,6 +427,8 @@ $(function() {
         }
     })
     btn.on("click", function() {
+        $(this).attr("disabled", "disabled")
+        $(this).css({ "cursor": "not-allowed", "opacity": .65 })
         var emailValue = $("#registerEmail").val(),
             nameValue = $("#registerName").val(),
             instutionValue = $("#registerInstution").val(),

@@ -7,69 +7,86 @@ $(function() {
         invitation = $("#invitation-info"),
         hrcData = {
             'UserMail': $.cookie('username'),
-            "CourseSubject": "hrc"
+            // "CourseSubject": "hrc"
         },
+        hasBoughtMac = false,
         macData = {
             'UserMail': $.cookie('username'),
-            "CourseSubject": "mac"
+            // "CourseSubject": "mac"
         }
     $.ajax({
-        type: "POST",
-        data: hrcData,
-        dataType: "json",
-        url: changeUrl.address + '/Class_Course_api?whereFrom=Search_Course',
-        success: function(msg) {
-            // console.log(msg.data[0])
-            if (msg.data.length != 0) {
-                myClass.removeClass("myClass")
-                notHaveCourse.css("display", "none")
-            }
-            for (var i = 0; i < msg.data.length; i++) {
-                var courseTemplate = '<div class="col-md-3 col-sm-6 mb40">' +
-                    '<div class="CourseContainer">' +
-                    '<a href="./detailClass.html?Id=' + msg.data[i].Id + '" target="_blank">' +
-                    '<div class="Course Course-up">' +
-                    '<img src="' + msg.data[i].CoverImage + '" alt="">' +
-                    '</div>' +
-                    '</a>' +
-                    '<div class="CourseInfo">' +
-                    '<p class="mtb5 oneline"><span class="CourseName" title="' + msg.data[i].CourseName + '">' + msg.data[i].CourseName + '</span></p>' +
-                    '<p class="mtb5 twoline"><span class="CourseDesc" title="' + msg.data[i].CourseDescription + '">' + msg.data[i].CourseDescription + '</span></p>' +
-                    '</div>' +
-                    '</div>' +
-                    '</div>'
-                haveBoughtCourse.append(courseTemplate)
+            type: "POST",
+            data: hrcData,
+            dataType: "json",
+            url: changeUrl.address + '/Class_Course_api?whereFrom=MyCourse',
+            success: function(msg) {
+                if (msg.data.length != 0) {
+                    myClass.removeClass("myClass")
+                    notHaveCourse.css("display", "none")
+                }
 
+                for (var i = 0; i < msg.data.length; i++) {
+                    if (msg.data[i].Id == 20001) {
+                        var courseMacTemplate = '<div class="col-md-3 col-sm-6 mb40">' +
+                            '<div class="CourseContainer">' +
+                            '<a href="./pages/mac.html" target="_blank">' +
+                            '<div class="Course Course-up">' +
+                            '<img src="https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class%2Fimage%2FmacCoverImg.jpg" alt="">' +
+                            '</div>' +
+                            '</a>' +
+                            '<div class="CourseInfo">' +
+                            '<p class="mtb5 oneline"><span class="CourseName" style="font-weight:700 !important;" title="国际学校市场招生系列课程">国际学校市场招生系列课程</span></p>' +
+                            '<p class="mtb5 twoline"><span class="CourseDesc" title="在国际教育行业内，不仅需要优秀的教学管理，对于市场招生环节的重视，更是关系到学校品牌和生源规模的根本。因此，如何做好学校定位，提升学校品牌，扩大招生范围，就成为每个学校最关心的问题。">在国际教育行业内，不仅需要优秀的教学管理，对于市场招生环节的重视，更是关系到学校品牌和生源规模的根本。因此，如何做好学校定位，提升学校品牌，扩大招生范围，就成为每个学校最关心的问题。</span></p>' +
+                            '</div>' +
+                            '</div>' +
+                            '</div>'
+                        haveBoughtCourse.append(courseMacTemplate)
+                        return false;
+                    }
+                    var courseTemplate = '<div class="col-md-3 col-sm-6 mb40">' +
+                        '<div class="CourseContainer">' +
+                        '<a href="./detailClass.html?Id=' + msg.data[i].Id + '" target="_blank">' +
+                        '<div class="Course Course-up">' +
+                        '<img src="' + msg.data[i].CoverImage + '" alt="">' +
+                        '</div>' +
+                        '</a>' +
+                        '<div class="CourseInfo">' +
+                        '<p class="mtb5 oneline"><span class="CourseName" title="' + msg.data[i].CourseName + '">' + msg.data[i].CourseName + '</span></p>' +
+                        '<p class="mtb5 twoline"><span class="CourseDesc" title="' + msg.data[i].CourseDescription + '">' + msg.data[i].CourseDescription + '</span></p>' +
+                        '</div>' +
+                        '</div>' +
+                        '</div>'
+                    haveBoughtCourse.append(courseTemplate)
+                }
             }
-        }
-    })
-    $.ajax({
-        type: "POST",
-        data: macData,
-        dataType: "json",
-        url: changeUrl.address + '/Class_Course_api?whereFrom=Search_Course',
-        success: function(msg) {
-            // console.log(msg.data[0])
-            if (msg.data.length != 0) {
-                myClass.removeClass("myClass")
-                notHaveCourse.css("display", "none")
-                var courseTemplate = '<div class="col-md-3 col-sm-6 mb40">' +
-                    '<div class="CourseContainer">' +
-                    '<a href="http://data.xinxueshuo.cn/nsi-class/admin/activity/macApply.html" target="_blank">' +
-                    '<div class="Course Course-up">' +
-                    '<img src="./images/v0.2/mac.jpg" alt="">' +
-                    '</div>' +
-                    '</a>' +
-                    '<div class="CourseInfo">' +
-                    '<p class="mtb5 oneline"><span class="CourseName" title="' + msg.data[0].CourseName + '">' + msg.data[0].CourseName + '</span></p>' +
-                    '<p class="mtb5 twoline"><span class="CourseDesc" title="' + msg.data[0].CourseDescription + '">' + msg.data[0].CourseDescription + '</span></p>' +
-                    '</div>' +
-                    '</div>' +
-                    '</div>'
-                haveBoughtCourse.append(courseTemplate)
-            }
-        }
-    })
+        })
+        // $.ajax({
+        //     type: "POST",
+        //     data: macData,
+        //     dataType: "json",
+        //     url: changeUrl.address + '/Class_Course_api?whereFrom=Search_Course',
+        //     success: function(msg) {
+        //         // console.log(msg.data[0])
+        //         if (msg.data.length != 0) {
+        //             myClass.removeClass("myClass")
+        //             notHaveCourse.css("display", "none")
+        //             var courseTemplate = '<div class="col-md-3 col-sm-6 mb40">' +
+        //                 '<div class="CourseContainer">' +
+        //                 '<a href="http://data.xinxueshuo.cn/nsi-class/admin/activity/macApply.html" target="_blank">' +
+        //                 '<div class="Course Course-up">' +
+        //                 '<img src="./images/v0.2/mac.jpg" alt="">' +
+        //                 '</div>' +
+        //                 '</a>' +
+        //                 '<div class="CourseInfo">' +
+        //                 '<p class="mtb5 oneline"><span class="CourseName" title="' + msg.data[0].CourseName + '">' + msg.data[0].CourseName + '</span></p>' +
+        //                 '<p class="mtb5 twoline"><span class="CourseDesc" title="' + msg.data[0].CourseDescription + '">' + msg.data[0].CourseDescription + '</span></p>' +
+        //                 '</div>' +
+        //                 '</div>' +
+        //                 '</div>'
+        //             haveBoughtCourse.append(courseTemplate)
+        //         }
+        //     }
+        // })
     $.ajax({
         type: "post",
         // data: data,
