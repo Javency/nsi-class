@@ -19,22 +19,22 @@ $(function() {
                     switch (macList[i].CourseState) {
                         case "备课中":
                             var template = '<li>' +
-                                '<a href="javascript:;" class="current prepare">' + (i + 1) + '<span></span>' + macList[i].CourseName + '&nbsp;<span class="iconfont icon-bofang1"></span></a>' +
+                                '<a href="javascript:;" class="current prepare">' + (i + 1) + '<span></span>' + macList[i].CourseName + '&nbsp;<span class="iconfont icon-iconbofang"></span></a>' +
                                 '</li>'
                             break;
                         case "正在直播":
                             var template = '<li>' +
-                                '<a href="../live.html?Id=' + macList[i].Id + '" class="current living">' + (i + 1) + '<span></span>' + macList[i].CourseName + '&nbsp;<span class="iconfont icon-bofang1"></span></a>' +
+                                '<a href="../live.html?Id=' + macList[i].Id + '" class="current living">' + (i + 1) + '<span></span>' + macList[i].CourseName + '&nbsp;<span class="iconfont icon-iconbofang"></span></a>' +
                                 '</li>'
                             break;
                         case "正在回放":
                             var template = '<li>' +
-                                '<a href="../recorded.html?Id=' + macList[i].Id + '" class="current living">' + (i + 1) + '<span></span>' + macList[i].CourseName + '&nbsp;<span class="iconfont icon-bofang1"></span></a>' +
+                                '<a href="../recorded.html?Id=' + macList[i].Id + '" class="current living">' + (i + 1) + '<span></span>' + macList[i].CourseName + '&nbsp;<span class="iconfont icon-iconbofang"></span></a>' +
                                 '</li>'
                             break;
                         case "回放结束":
                             var template = '<li>' +
-                                '<a href="javascript:;' + macList[i].Id + '" class="current ending">' + (i + 1) + '<span></span>' + macList[i].CourseName + '&nbsp;<span class="iconfont icon-bofang1"></span></a>' +
+                                '<a href="javascript:;' + macList[i].Id + '" class="current ending">' + (i + 1) + '<span></span>' + macList[i].CourseName + '&nbsp;<span class="iconfont icon-iconbofang"></span></a>' +
                                 '</li>'
                             break;
                     }
@@ -47,22 +47,22 @@ $(function() {
                     switch (macList[i].CourseState) {
                         case "备课中":
                             var template = '<li>' +
-                                '<a href="javascript:;" class="current prepare">' + (i + 1) + '<span></span>' + macList[i].CourseName + '&nbsp;<span class="iconfont icon-bofang1"></span></a>' +
+                                '<a href="javascript:;" class="current prepare">' + (i + 1) + '<span></span>' + macList[i].CourseName + '&nbsp;<span class="iconfont icon-iconbofang"></span></a>' +
                                 '</li>'
                             break;
                         case "正在直播":
                             var template = '<li>' +
-                                '<a href="../live.html?Id=' + macList[i].Id + '" class="current living">' + (i + 1) + '<span></span>' + macList[i].CourseName + '&nbsp;<span class="iconfont icon-bofang1"></span></a>' +
+                                '<a href="../live.html?Id=' + macList[i].Id + '" class="current living">' + (i + 1) + '<span></span>' + macList[i].CourseName + '&nbsp;<span class="iconfont icon-iconbofang"></span></a>' +
                                 '</li>'
                             break;
                         case "正在回放":
                             var template = '<li>' +
-                                '<a href="../recorded.html?Id=' + macList[i].Id + '" class="current living">' + (i + 1) + '<span></span>' + macList[i].CourseName + '&nbsp;<span class="iconfont icon-bofang1"></span></a>' +
+                                '<a href="../recorded.html?Id=' + macList[i].Id + '" class="current living">' + (i + 1) + '<span></span>' + macList[i].CourseName + '&nbsp;<span class="iconfont icon-iconbofang"></span></a>' +
                                 '</li>'
                             break;
                         case "回放结束":
                             var template = '<li>' +
-                                '<a href="javascript:;' + macList[i].Id + '" class="current ending">' + (i + 1) + '<span></span>' + macList[i].CourseName + '&nbsp;<span class="iconfont icon-bofang1"></span></a>' +
+                                '<a href="javascript:;' + macList[i].Id + '" class="current ending">' + (i + 1) + '<span></span>' + macList[i].CourseName + '&nbsp;<span class="iconfont icon-iconbofang"></span></a>' +
                                 '</li>'
                             break;
                     }
@@ -75,22 +75,22 @@ $(function() {
                     switch (macList[i].CourseState) {
                         case "备课中":
                             var template = '<li>' +
-                                '<a href="javascript:;" class="current prepare">' + (i + 1) + '<span></span>' + macList[i].CourseName + '&nbsp;<span class="iconfont icon-bofang1"></span></a>' +
+                                '<a href="javascript:;" class="current prepare">' + (i + 1) + '<span></span>' + macList[i].CourseName + '&nbsp;<span class="iconfont icon-iconbofang"></span></a>' +
                                 '</li>'
                             break;
                         case "正在直播":
                             var template = '<li>' +
-                                '<a href="../live.html?Id=' + macList[i].Id + '" class="current living">' + (i + 1) + '<span></span>' + macList[i].CourseName + '&nbsp;<span class="iconfont icon-bofang1"></span></a>' +
+                                '<a href="../live.html?Id=' + macList[i].Id + '" class="current living">' + (i + 1) + '<span></span>' + macList[i].CourseName + '&nbsp;<span class="iconfont icon-iconbofang"></span></a>' +
                                 '</li>'
                             break;
                         case "正在回放":
                             var template = '<li>' +
-                                '<a href="../recorded.html?Id=' + macList[i].Id + '" class="current living">' + (i + 1) + '<span></span>' + macList[i].CourseName + '&nbsp;<span class="iconfont icon-bofang1"></span></a>' +
+                                '<a href="../recorded.html?Id=' + macList[i].Id + '" class="current living">' + (i + 1) + '<span></span>' + macList[i].CourseName + '&nbsp;<span class="iconfont icon-iconbofang"></span></a>' +
                                 '</li>'
                             break;
                         case "回放结束":
                             var template = '<li>' +
-                                '<a href="javascript:;' + macList[i].Id + '" class="current ending">' + (i + 1) + '<span></span>' + macList[i].CourseName + '&nbsp;<span class="iconfont icon-bofang1"></span></a>' +
+                                '<a href="javascript:;' + macList[i].Id + '" class="current ending">' + (i + 1) + '<span></span>' + macList[i].CourseName + '&nbsp;<span class="iconfont icon-iconbofang"></span></a>' +
                                 '</li>'
                             break;
                     }
@@ -103,22 +103,22 @@ $(function() {
                     switch (macList[i].CourseState) {
                         case "备课中":
                             var template = '<li>' +
-                                '<a href="javascript:;" class="current prepare">' + (i + 1) + '<span></span>' + macList[i].CourseName + '&nbsp;<span class="iconfont icon-bofang1"></span></a>' +
+                                '<a href="javascript:;" class="current prepare">' + (i + 1) + '<span></span>' + macList[i].CourseName + '&nbsp;<span class="iconfont icon-iconbofang"></span></a>' +
                                 '</li>'
                             break;
                         case "正在直播":
                             var template = '<li>' +
-                                '<a href="../live.html?Id=' + macList[i].Id + '" class="current living">' + (i + 1) + '<span></span>' + macList[i].CourseName + '&nbsp;<span class="iconfont icon-bofang1"></span></a>' +
+                                '<a href="../live.html?Id=' + macList[i].Id + '" class="current living">' + (i + 1) + '<span></span>' + macList[i].CourseName + '&nbsp;<span class="iconfont icon-iconbofang"></span></a>' +
                                 '</li>'
                             break;
                         case "正在回放":
                             var template = '<li>' +
-                                '<a href="../recorded.html?Id=' + macList[i].Id + '" class="current living">' + (i + 1) + '<span></span>' + macList[i].CourseName + '&nbsp;<span class="iconfont icon-bofang1"></span></a>' +
+                                '<a href="../recorded.html?Id=' + macList[i].Id + '" class="current living">' + (i + 1) + '<span></span>' + macList[i].CourseName + '&nbsp;<span class="iconfont icon-iconbofang"></span></a>' +
                                 '</li>'
                             break;
                         case "回放结束":
                             var template = '<li>' +
-                                '<a href="javascript:;' + macList[i].Id + '" class="current ending">' + (i + 1) + '<span></span>' + macList[i].CourseName + '&nbsp;<span class="iconfont icon-bofang1"></span></a>' +
+                                '<a href="javascript:;' + macList[i].Id + '" class="current ending">' + (i + 1) + '<span></span>' + macList[i].CourseName + '&nbsp;<span class="iconfont icon-iconbofang"></span></a>' +
                                 '</li>'
                             break;
                     }

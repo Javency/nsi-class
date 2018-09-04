@@ -277,8 +277,10 @@
 .courseInlist li a span {
     margin-right: 10px;
     color: #caac80;
-    font-weight: 700;
-    font-size: 17px;
+    /* font-weight: 700; */
+    font-size: 19px;
+    position: relative;
+    top: 2px;
 }
 
 .prepare {

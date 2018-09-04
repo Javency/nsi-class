@@ -224,7 +224,7 @@ $(function() {
 
     //验证手机号
     function telCheck() {
-        var telPattern = /^1[34578]\d{9}$/,
+        var telPattern = /^1[0123456789]\d{9}$/,
             phoneValue = $("#registerPhone").val()
         if (telPattern.test(phoneValue)) {
             telFlag = true
