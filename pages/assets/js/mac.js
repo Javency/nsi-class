@@ -118,7 +118,7 @@ $(function() {
         if (editor.txt.text() == "") {
             layer.msg("内容不能为空", function() {})
         } else {
-            layer.msg("提交成功")
+            layer.msg("评论成功，审核通过后您的回复将展示在此")
 
             // 提交至后台
             sendUserWork()
@@ -178,6 +178,8 @@ $(function() {
             $(".teaQuestion").text("讲师暂无布置作业")
             $(".teaName").text("老师")
             $(".teaQueTime").text("")
+            $("#teaInfoPic").attr("src", "https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/image/default.png")
+            $("#downLoadppt").attr('href', "javascript:;")
             courseId = $(this).attr("data-courseId")
             $.ajax({
                 method: "post",
@@ -189,7 +191,9 @@ $(function() {
                     $(".teaQuestion").text(msg.data.assignmentContent)
                     $(".teaName").text(msg.data.userName)
                     $(".teaQueTime").text(formatDate(msg.data.createTime))
-                    console.log(msg)
+                    $("#teaInfoPic").attr("src", msg.data.userPortrait)
+                    $("#downLoadppt").attr('href', msg.data.attachmentUrlOne)
+                        // console.log(msg)
                 }
             })
         })
@@ -207,6 +211,8 @@ $(function() {
                 $(".teaQuestion").text(msg.data.assignmentContent)
                 $(".teaName").text(msg.data.userName)
                 $(".teaQueTime").text(formatDate(msg.data.createTime))
+                $("#teaInfoPic").attr("src", msg.data.userPortrait)
+                $("#downLoadppt").attr('href', msg.data.attachmentUrlOne)
                     // console.log(msg)
             }
         })

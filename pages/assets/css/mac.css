@@ -385,6 +385,23 @@
     top: 8px;
 }
 
+.downLoadppt {
+    display: inline-block;
+    margin-right: 15px;
+    padding: 5px 10px;
+    background-color: #F20D0D;
+    color: #FFF;
+    top: -5px;
+}
+
+.downLoadppt:link {
+    color: #FFF;
+}
+
+.downLoadppt:hover {
+    background-color: rgb(241, 69, 69)
+}
+
 .teaQueTime {
     display: inline-block;
     margin-left: 15px;
