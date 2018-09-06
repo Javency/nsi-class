@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/nav.css">
     <link rel="stylesheet" href="../css/footer.css">
-    <link rel="stylesheet" href="./assets/css/mac.css?v=09051615">
+    <link rel="stylesheet" href="./assets/css/mac.css?v=09061639">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -74,7 +74,10 @@
                     <div class="line"></div>
                     <p class="macInfo-desc text-center"><span>难度&nbsp;&nbsp;中级</span><em>·</em><span>时长&nbsp;&nbsp;21小时</span><em>·</em><span>综合评分&nbsp;&nbsp;10.00分</span></p>
                     <p class="macInfo-price text-center"><span>¥</span>5380.00</p>
-                    <div class="applyBtn text-center"><a target="_blank" href="http://data.xinxueshuo.cn/nsi-class/admin/activity/macApply.html" class="toApply"><span class="iconfont icon-gouwuche3 applyLogo"></span><i>|</i><span>立即购买</span></a></div>
+                    <div class="applyBtn text-center">
+                        <a target="_blank" href="http://data.xinxueshuo.cn/nsi-class/admin/activity/macApply.html" class="toApply" id="toApply"><span class="iconfont icon-gouwuche3 applyLogo"></span><i>|</i><span>立即购买</span></a>
+                        <a class="toApply toLiving" id="toLiving"><span class="iconfont icon-bofang1 applyLogo"></span><i>|</i><span>立即观看</span></a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -107,60 +110,10 @@
             </div>
             <div class="tab-pane fade  in active" id="tab03" style="max-width: 900px; margin: 0 auto">
                 <h4 class="courseCatalog"><span></span>课程目录</h4>
-                <ul class="courseInlist" id="section01">
-                    <!-- <li class="title">第一章 市场分析</li> -->
-                    <!-- <li>
-                        <a href="javascript:;" class="current"><span>1.</span>中国国际学校市场现状分析&nbsp;<span class="iconfont icon-bofang1"></span></a>
-                    </li>
-                    <li>
-                        <a href="javascript:;" class="current"><span>2.</span>如何做好国际学校市场的竞品分析&nbsp;<span class="iconfont icon-bofang1"></span></a>
-                    </li> -->
-                </ul>
-                <ul class="courseInlist" id="section02">
-                    <!-- <li class="title">第二章 品牌建设</li>
-                    <li>
-                        <a href="javascript:;" class="current"><span>3.</span>国际学校的从0到1——品牌定位&nbsp;<span class="iconfont icon-bofang1"></span></a>
-                    </li>
-                    <li>
-                        <a href="javascript:;" class="current"><span>4.</span>三生万物——品牌建设2小时方法论&nbsp;<span class="iconfont icon-bofang1"></span></a>
-                    </li>
-                    <li>
-                        <a href="javascript:;" class="current"><span>5.</span>利用自媒体高效提升品牌效应&nbsp;<span class="iconfont icon-bofang1"></span></a>
-                    </li> -->
-                </ul>
-                <ul class="courseInlist" id="section03">
-                    <!-- <li class="title">第三章 招生策略</li>
-                    <li>
-                        <a href="javascript:;" class="current"><span>6.</span>招生人员的基本职业素养&nbsp;<span class="iconfont icon-bofang1"></span></a>
-                    </li>
-                    <li>
-                        <a href="javascript:;" class="current"><span>7.</span>如何策划招生前期的市场活动&nbsp;<span class="iconfont icon-bofang1"></span></a>
-                    </li>
-                    <li>
-                        <a href="javascript:;" class="current"><span>8.</span>根据学校战略定位做好生源画像和招生计划&nbsp;<span class="iconfont icon-bofang1"></span></a>
-                    </li>
-                    <li>
-                        <a href="javascript:;" class="current"><span>9.</span>设立合理高效的招生流程&nbsp;<span class="iconfont icon-bofang1"></span></a>
-                    </li>
-                    <li>
-                        <a href="javascript:;" class="current"><span>10.</span>如何寻找优质的招生渠道&nbsp;<span class="iconfont icon-bofang1"></span></a>
-                    </li> -->
-                </ul>
-                <ul class="courseInlist" id="section04">
-                    <!-- <li class="title">第四章 公共关系</li>
-                    <li>
-                        <a href="javascript:;" class="current"><span>11.</span>构建健康牢固的家校关系&nbsp;<span class="iconfont icon-bofang1"></span></a>
-                    </li>
-                    <li>
-                        <a href="javascript:;" class="current"><span>12.</span>建立良好的内部沟通机制&nbsp;<span class="iconfont icon-bofang1"></span></a>
-                    </li>
-                    <li>
-                        <a href="javascript:;" class="current"><span>13.</span>如何与媒体有效沟通&nbsp;<span class="iconfont icon-bofang1"></span></a>
-                    </li>
-                    <li>
-                        <a href="javascript:;" class="current"><span>14.</span>如何有效应对品牌危机&nbsp;<span class="iconfont icon-bofang1"></span></a>
-                    </li> -->
-                </ul>
+                <ul class="courseInlist" id="section01"></ul>
+                <ul class="courseInlist" id="section02"></ul>
+                <ul class="courseInlist" id="section03"></ul>
+                <ul class="courseInlist" id="section04"></ul>
             </div>
             <div class="tab-pane fade" id="tab04">
                 <div class="row pt30">
@@ -346,7 +299,7 @@
 <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<script src="./assets/js/common.js"></script>
+<script src="./assets/js/common.js?v=09061639"></script>
 <script src="../js/config.js"></script>
 <script src="../js/jquery.cookie.js"></script>
 <script src="../layer/layer.js"></script>
@@ -358,5 +311,5 @@
 <script src="../layer/layer.js"></script>
 <!-- wangEditor -->
 <script src="http://unpkg.com/wangeditor/release/wangEditor.min.js"></script>
-<script src="./assets/js/mac.js?v=09051615"></script>
+<script src="./assets/js/mac.js?v=09061639"></script>
 <script src="./assets/js/getMacSource.js?v=09041030"></script>

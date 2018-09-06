@@ -14,6 +14,26 @@ $(function() {
     // 用户姓名头像
     $("#apply-name").text(userName)
 
+    // 开启立即播放按钮
+    if ($.cookie('username') !== undefined) {
+        var sendData = {
+            'UserMail': $.cookie('username'),
+            'ClassId': 20001
+        }
+        $.ajax({
+            type: "post",
+            data: sendData,
+            dataType: "json",
+            url: changeUrl.address + '/Class_User_api?whereFrom=Verification',
+            success: function(msg) {
+                if (msg.msg > 0) {
+                    $("#toApply").css({ 'display': 'none' })
+                    $("#toLiving").css({ 'display': 'inline-block' })
+                }
+            }
+        })
+    }
+
     // 获取课程列表
     $.ajax({
         method: "get",

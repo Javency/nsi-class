@@ -118,7 +118,7 @@ $(function() {
             success: function(msg) {
                 // console.log(msg.data1)
                 living.attr("href", "./live.html?Id=" + msg.data1[0].Id)
-                enterVideo.attr("href", "./live.html?Id=" + msg.data1[0].Id)
+                    // enterVideo.attr("href", "./live.html?Id=" + msg.data1[0].Id)
                     // enterVideo.attr("href", "javascript:;" + msg.data1[0].Id)
                 teacherImg.attr("src", msg.data2[0].TeacherImage)
                 playVideo_title.text(msg.data1[0].CourseName)

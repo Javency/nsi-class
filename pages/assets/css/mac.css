@@ -104,8 +104,10 @@
     font-size: 16px;
     font-weight: 200;
     color: #fff;
-    padding: 15px 35px;
+    /* padding: 15px 35px; */
     box-shadow: 0 4px 8px 0 rgba(28, 31, 33, 0.2);
+    display: inline-block;
+    padding: 7px 35px 15px;
 }
 
 .toApply:link,
@@ -123,6 +125,20 @@
     font-style: normal;
     display: inline-block;
     margin: 0 10px;
+}
+
+.toLiving {
+    background: #0059ff;
+    display: none;
+}
+
+.toLiving:hover {
+    background: #337afd;
+}
+
+.toApply:visited,
+.toLiving:visited {
+    color: #FFF;
 }
 
 .applyLogo {
