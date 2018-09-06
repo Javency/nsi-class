@@ -35,6 +35,38 @@ $(function() {
                 } else if (msg.member_sign == -1) {
                     error_tips.animate({ "opacity": 1 }, 100)
                     tips.text("邮箱未激活")
+                    $("#userMailCode01").fadeIn(200)
+                    $(".userInputMail").text(username)
+                    $('body').css({ "overflow-y": "hidden", "margin-right": "17px" })
+                    $("#confirmCode01").click(function() {
+                        layer.load(2);
+                        var inputCodeVal = $("#inputCode01").val()
+                        var data = {
+                            Usermail: username,
+                            VerifyCode: inputCodeVal,
+                        }
+                        $.ajax({
+                            type: "post",
+                            data: data,
+                            url: changeUrl.address + "/user/UsermailVerify.do",
+                            success: function(msg) {
+                                // console.log(msg)
+                                // $("#currentCode").text(msg.msg)
+
+                                if (msg.code == "0") {
+                                    layer.closeAll('loading');
+                                    $("#userMailCode01").fadeOut(200)
+                                    layer.alert(msg.msg, function() {
+                                        window.location.reload()
+                                    })
+                                } else {
+                                    layer.msg("邮箱验证码有误，请重新输入", function() {
+                                        layer.closeAll('loading');
+                                    })
+                                }
+                            }
+                        })
+                    })
                 } else if (msg.member_sign == 0) {
                     error_tips.animate({ "opacity": 1 }, 100)
                     tips.text("账号未审核")
