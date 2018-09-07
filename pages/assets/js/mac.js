@@ -27,7 +27,7 @@ $(function() {
             url: changeUrl.address + '/Class_User_api?whereFrom=Verification',
             success: function(msg) {
                 if (msg.msg > 0) {
-                    $("#toApply").css({ 'display': 'none' })
+                    $("#toApply,.macInfo-price").css({ 'display': 'none' })
                     $("#toLiving").css({ 'display': 'inline-block' })
                 }
             }
