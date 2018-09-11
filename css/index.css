@@ -241,7 +241,7 @@
     width: 50px;
     height: 50px;
     content: "";
-    background: url("http://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/intersperse.png");
+    background: url("https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/intersperse.png");
     background-size: 100%;
     position: relative;
     top: 20px;
@@ -253,7 +253,7 @@
     width: 50px;
     height: 50px;
     content: "";
-    background: url("http://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/intersperse-rev.png");
+    background: url("https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/intersperse-rev.png");
     background-size: 100%;
     position: relative;
     top: 20px;
@@ -423,7 +423,7 @@
 }
 
 .lecturerBg {
-    background: url("http://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/eliteTbg.jpg") center center no-repeat #f3f5f7;
+    background: url("https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/eliteTbg.jpg") center center no-repeat #f3f5f7;
     background-size: cover;
 }
 
@@ -491,7 +491,7 @@
     position: absolute;
     width: 172px;
     height: 212px;
-    background: url("http://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/weChat.png");
+    background: url("https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/weChat.png");
     opacity: 1;
     top: -215px;
     left: -70px;
@@ -904,19 +904,19 @@ i.shop {
 }
 
 .classBoxV2-01 {
-    background-image: url("../images/v0.2/classBox01.jpg")
+    background-image: url("https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/image/v0.2/classBox01.jpg")
 }
 
 .classBoxV2-02 {
-    background-image: url("../images/v0.2/classBox02.jpg")
+    background-image: url("https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/image/v0.2/classBox02.jpg")
 }
 
 .classBoxV2-03 {
-    background-image: url("../images/v0.2/classBox03.jpg")
+    background-image: url("https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/image/v0.2/classBox03.jpg")
 }
 
 .classBoxV2-04 {
-    background-image: url("../images/v0.2/classBox04.jpg")
+    background-image: url("https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/image/v0.2/classBox04.jpg")
 }
 
 
@@ -933,15 +933,15 @@ i.shop {
 }
 
 .titlev2-01 {
-    background-image: url('../images/v0.2/titlebg01.jpg');
+    background-image: url('https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/image/v0.2/titlebg01.jpg');
 }
 
 .titlev2-02 {
-    background-image: url('../images/v0.2/titlebg02.jpg');
+    background-image: url('https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/image/v0.2/titlebg02.jpg');
 }
 
 .titlev2-03 {
-    background-image: url('../images/v0.2/titlebg03.jpg');
+    background-image: url('https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/image/v0.2/titlebg03.jpg');
 }
 
 .classIntroV2 {

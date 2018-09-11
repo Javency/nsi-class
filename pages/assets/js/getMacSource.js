@@ -24,7 +24,7 @@ $(function() {
                             break;
                         case "正在直播":
                             var template = '<li>' +
-                                '<a href="../live.html?Id=' + macList[i].Id + '" class="current living">' + (i + 1) + '<span></span>' + macList[i].CourseName + '&nbsp;<span class="iconfont icon-iconbofang"></span></a>' +
+                                '<a href="../macLive.html?Id=' + macList[i].Id + '" class="current living">' + (i + 1) + '<span></span>' + macList[i].CourseName + '&nbsp;<span class="iconfont icon-iconbofang"></span></a>' +
                                 '</li>'
                             break;
                         case "正在回放":
@@ -52,7 +52,7 @@ $(function() {
                             break;
                         case "正在直播":
                             var template = '<li>' +
-                                '<a href="../live.html?Id=' + macList[i].Id + '" class="current living">' + (i + 1) + '<span></span>' + macList[i].CourseName + '&nbsp;<span class="iconfont icon-iconbofang"></span></a>' +
+                                '<a href="../macLive.html?Id=' + macList[i].Id + '" class="current living">' + (i + 1) + '<span></span>' + macList[i].CourseName + '&nbsp;<span class="iconfont icon-iconbofang"></span></a>' +
                                 '</li>'
                             break;
                         case "正在回放":
@@ -80,7 +80,7 @@ $(function() {
                             break;
                         case "正在直播":
                             var template = '<li>' +
-                                '<a href="../live.html?Id=' + macList[i].Id + '" class="current living">' + (i + 1) + '<span></span>' + macList[i].CourseName + '&nbsp;<span class="iconfont icon-iconbofang"></span></a>' +
+                                '<a href="../macLive.html?Id=' + macList[i].Id + '" class="current living">' + (i + 1) + '<span></span>' + macList[i].CourseName + '&nbsp;<span class="iconfont icon-iconbofang"></span></a>' +
                                 '</li>'
                             break;
                         case "正在回放":
@@ -108,7 +108,7 @@ $(function() {
                             break;
                         case "正在直播":
                             var template = '<li>' +
-                                '<a href="../live.html?Id=' + macList[i].Id + '" class="current living">' + (i + 1) + '<span></span>' + macList[i].CourseName + '&nbsp;<span class="iconfont icon-iconbofang"></span></a>' +
+                                '<a href="../macLive.html?Id=' + macList[i].Id + '" class="current living">' + (i + 1) + '<span></span>' + macList[i].CourseName + '&nbsp;<span class="iconfont icon-iconbofang"></span></a>' +
                                 '</li>'
                             break;
                         case "正在回放":

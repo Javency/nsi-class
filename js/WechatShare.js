@@ -34,7 +34,7 @@
 		        if (result) {
 		            imgUrl = $(".swiper-slide img").attr("src");
 		        } else {
-		            imgUrl = "http://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/WechatShareLogo.jpg";
+		            imgUrl = "https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/WechatShareLogo.jpg";
 		        }
 		        desc = "新学说充分利用互联网经济便捷的优势，推出新学说在线课堂，为国际学校各职能部门中基层管理人员提供相关岗位技能培训。希望通过新学说的不断努力，为中国国际学校行业输送更多优质人才。";
 		        // console.log("文章摘要：" + desc);
@@ -43,14 +43,14 @@
 		    } else if (page2.length > 0) {
 		        // alert("直播页")
 		        title = $("title").text();
-		        imgUrl = 'http://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/WechatShareLogo.jpg';
+		        imgUrl = 'https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/WechatShareLogo.jpg';
 		        desc = "新学说充分利用互联网经济便捷的优势，推出新学说在线课堂，为国际学校各职能部门中基层管理人员提供相关岗位技能培训。希望通过新学说的不断努力，为中国国际学校行业输送更多优质人才。";
 
 		        // 课程详情页
 		    } else if (page3.length > 0) {
 		        // alert("课程详情页")
 		        title = $("title").text();
-		        imgUrl = "http://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/WechatShareLogo.jpg"
+		        imgUrl = "https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/WechatShareLogo.jpg"
 		        desc = '开课时间：' + $("#ClassBegins").text() + ';' + $(".score").text() + ';' + $(".buy").text()
 		    }
 
@@ -62,7 +62,7 @@
 		        data: {
 		            URL: href
 		        }, //提交的参数
-		        url: 'http://data.xinxueshuo.cn/nsi-1.0/Admin_api?whereFrom=WeChatShare',
+		        url: 'https://data.xinxueshuo.cn/nsi-1.0/Admin_api?whereFrom=WeChatShare',
 		        dataType :   "jsonp", //数据类型为jsonp  
 		        jsonp:   "Callback", //服务端用于接收callback调用的function名的参数  
 		        success :   function(msg) {

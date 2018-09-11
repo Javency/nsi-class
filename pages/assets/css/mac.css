@@ -32,7 +32,7 @@
 .banner {
     width: 100%;
     min-height: 475px;
-    background-image: url("../img/banner01.jpg");
+    background-image: url("https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class%2Fimage%2FbannerMAC.jpg");
     background-position: center center;
     position: relative;
 }
