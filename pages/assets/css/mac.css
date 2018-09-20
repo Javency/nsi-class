@@ -269,7 +269,7 @@
 
 .courseInlist li a {
     display: block;
-    color: #333;
+    color: #232323;
     font-size: 16px;
     -webkit-transition: all 0.3s ease 0s;
     -ms-transition: all 0.3s ease 0s;
@@ -300,7 +300,7 @@
 }
 
 .prepare {
-    color: #aaaaaa !important;
+    color: #c6c6c6 !important;
 }
 
 .courseInlist li a.living::before {
@@ -313,7 +313,7 @@
 .tabCourseList {
     padding: 15px;
     box-shadow: 0 8px 16px 0 rgba(28, 31, 33, 0.1);
-    height: 345px;
+    height: 330px;
     overflow: hidden;
 }
 
@@ -336,6 +336,11 @@
     -o-transition: all 0.3s ease 0s;
     transition: all 0.3s ease 0s;
     font-size: 15px;
+}
+
+.activeTabCurrent {
+    font-weight: 700;
+    color: #caac80 !important;
 }
 
 .tabCourseList li:hover .tabCurrent {

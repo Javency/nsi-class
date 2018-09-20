@@ -231,42 +231,42 @@
 <script src="../../js/config.js"></script>
 
 <script>
-    $(function() {
+    // $(function() {
 
-        var height = $(window).height()
-        $(document.body).css("min-height", height)
-        var storage = window.localStorage,
-            user = storage.email,
-            // user = '313121@qq.com',
-            user = user.replace('@', '*'),
-            shareHref = "http://data.xinxueshuo.cn/nsi-class/admin/activity/courseDesc/macM.html?Tcode=" + user
+    //     var height = $(window).height()
+    //     $(document.body).css("min-height", height)
+    //     var storage = window.localStorage,
+    //         user = storage.email,
+    //         // user = '313121@qq.com',
+    //         user = user.replace('@', '*'),
+    //         shareHref = "http://data.xinxueshuo.cn/nsi-class/admin/activity/courseDesc/macM.html?Tcode=" + user
 
-        if (storage.fee == "") {
-            window.location.href = "../macM.html"
-        }
+    //     if (storage.fee == "") {
+    //         window.location.href = "../macM.html"
+    //     }
 
-        storage['isPaid'] = "true"
+    //     storage['isPaid'] = "true"
 
-        $("#btn").click(function() {
-                window.location.href = shareHref
-            })
-            // 内容填充
-        $('.price').text(storage.fee)
-        $('#classInfo').text(storage.shoppingInfo)
+    //     $("#btn").click(function() {
+    //             window.location.href = shareHref
+    //         })
+    //         // 内容填充
+    //     $('.price').text(storage.fee)
+    //     $('#classInfo').text(storage.shoppingInfo)
 
-        // 获取分销二维码
-        $.ajax({
-            method: "get",
-            url: changeUrl.address + '/activity/get_ticket_image.do',
-            data: {
-                imageUrl: "http://qr.liantu.com/api.php?text=" + shareHref
-            },
-            success: function(msg) {
-                console.log(msg)
-                    // $("#img").attr("src", msg.data)
-                $("#shareImage").attr("src", msg.data)
+    //     // 获取分销二维码
+    //     $.ajax({
+    //         method: "get",
+    //         url: changeUrl.address + '/activity/get_ticket_image.do',
+    //         data: {
+    //             imageUrl: "http://qr.liantu.com/api.php?text=" + shareHref
+    //         },
+    //         success: function(msg) {
+    //             console.log(msg)
+    //                 // $("#img").attr("src", msg.data)
+    //             $("#shareImage").attr("src", msg.data)
 
-            }
-        })
-    })
+    //         }
+    //     })
+    // })
 </script>

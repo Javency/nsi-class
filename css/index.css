@@ -977,6 +977,8 @@ i.shop {
     padding: 5px 20px;
 }
 
+.applyv2:link,
+.applyv2:visited,
 .applyv2:hover {
     color: #FFF;
 }

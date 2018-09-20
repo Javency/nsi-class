@@ -9,7 +9,8 @@ $(function() {
         // 课程Id
         courseId = 20001,
         userName = $.cookie('User_TureName'),
-        courseList = []
+        courseList = [],
+        hasBought = false
 
     // 用户姓名头像
     $("#apply-name").text(userName)
@@ -27,8 +28,11 @@ $(function() {
             url: changeUrl.address + '/Class_User_api?whereFrom=Verification',
             success: function(msg) {
                 if (msg.msg > 0) {
+                    hasBought = true
                     $("#toApply,.macInfo-price").css({ 'display': 'none' })
                     $("#toLiving").css({ 'display': 'inline-block' })
+                } else if (msg.msg <= 0) {
+                    hasBought = false
                 }
             }
         })
@@ -194,7 +198,9 @@ $(function() {
 
     // 点击更换教师作业
     function changeTeaHomework() {
+        $(".tabCurrent").eq(0).addClass('activeTabCurrent')
         $(".tabCurrent").on('click', function() {
+            $(this).addClass('activeTabCurrent').parent('li').siblings().children().removeClass('activeTabCurrent')
             $(".teaQuestion").text("讲师暂无布置作业")
             $(".teaName").text("老师")
             $(".teaQueTime").text("")
@@ -212,8 +218,18 @@ $(function() {
                     $(".teaName").text(msg.data.userName)
                     $(".teaQueTime").text(formatDate(msg.data.createTime))
                     $("#teaInfoPic").attr("src", msg.data.userPortrait)
-                    $("#downLoadppt").attr('href', msg.data.attachmentUrlOne)
-                        // console.log(msg)
+                    if (hasBought) {
+                        $("#downLoadppt").attr('href', msg.data.attachmentUrlOne)
+                    } else {
+                        $("#downLoadppt").unbind('click').on('click', function() {
+                            $(this).attr("href", "javascript:;")
+                            layer.alert('请先购买课程', {
+                                skin: 'layui-layer-hei',
+                                icon: 4,
+                                closeBtn: 0
+                            });
+                        })
+                    }
                 }
             })
         })
@@ -232,8 +248,18 @@ $(function() {
                 $(".teaName").text(msg.data.userName)
                 $(".teaQueTime").text(formatDate(msg.data.createTime))
                 $("#teaInfoPic").attr("src", msg.data.userPortrait)
-                $("#downLoadppt").attr('href', msg.data.attachmentUrlOne)
-                    // console.log(msg)
+                if (hasBought) {
+                    $("#downLoadppt").attr('href', msg.data.attachmentUrlOne)
+                } else {
+                    $("#downLoadppt").unbind('click').on('click', function() {
+                        $(this).attr("href", "javascript:;")
+                        layer.alert('请先购买课程', {
+                            skin: 'layui-layer-hei',
+                            icon: 4,
+                            closeBtn: 0
+                        });
+                    })
+                }
             }
         })
     }
