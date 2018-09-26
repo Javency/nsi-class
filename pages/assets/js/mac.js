@@ -86,7 +86,7 @@ $(function() {
     var editor = new E('#editor')
 
     // editor.customConfig.uploadImgServer = changeUrl.address + '/Admin_api?whereFrom=EditorUpImg'
-    editor.customConfig.uploadImgServer = 'https://data.xinxueshuo.cn:80/nsi-1.0/Admin_api?whereFrom=EditorUpImg'
+    editor.customConfig.uploadImgServer = 'https://data.xinxueshuo.cn/nsi-1.0/Admin_api?whereFrom=EditorUpImg'
     editor.create()
 
     //附件上传 
@@ -139,7 +139,7 @@ $(function() {
     })
 
     function getUserHomeWork() {
-        if (editor.txt.text() == "") {
+        if (editor.txt.html() == "") {
             layer.msg("内容不能为空", function() {})
         } else {
             layer.msg("评论成功，审核通过后您的回复将展示在此")
