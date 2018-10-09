@@ -87,6 +87,10 @@ $(function() {
 
     // editor.customConfig.uploadImgServer = changeUrl.address + '/Admin_api?whereFrom=EditorUpImg'
     editor.customConfig.uploadImgServer = 'https://data.xinxueshuo.cn/nsi-1.0/Admin_api?whereFrom=EditorUpImg'
+    editor.customConfig.customAlert = function(info) {
+        // info 是需要提示的内容
+        alert('图片上传失败：' + '请将图片压缩至5M内重试')
+    }
     editor.create()
 
     //附件上传 
