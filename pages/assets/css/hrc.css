@@ -1,0 +1,32 @@
+.banner {
+    background-image: url('https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/image/hrcBanner.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.toLiving {
+    background: #54fcff;
+    color: #020952;
+    cursor: pointer;
+}
+
+.toLiving:link,
+.toLiving:hover {
+    color: #020952
+}
+
+.toLiving:hover {
+    background: #95fafc;
+}
+
+.macInfo-desc {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.tabCourseList {
+    height: 360px;
+}
+
+.teaQuestion {
+    font-size: 20px;
+}
