@@ -29,7 +29,14 @@
 }
 
 .playImg {
-    min-height: 190px;
+    /* min-height: 190px; */
+    min-height: 420px;
+}
+
+@media(max-width:768px) {
+    .playImg {
+        min-height: 190px;
+    }
 }
 
 .enterPlay {
@@ -172,6 +179,7 @@
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(7, 17, 27, 0.4);
     position: relative;
+    background-color: #eee;
 }
 
 .champion {
@@ -179,7 +187,6 @@
     width: 32px;
     height: 32px;
     background: url("../images/champion.png") no-repeat;
-    ;
     position: absolute;
     left: 80px;
     top: -10px;

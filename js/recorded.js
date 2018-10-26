@@ -63,7 +63,8 @@ $(function() {
                             closeBtn: 0
                         },
                         function() {
-                            window.location.href = "./detailClass.html?Id=" + Id
+                            // window.location.href = "./detailClass.html?Id=" + Id
+                            window.location.href = "./pages/hrc.html"
                         }
                     );
                 } else {

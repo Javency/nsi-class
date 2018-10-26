@@ -70,7 +70,8 @@ body {
     border-radius: 4px;
     color: #FFF;
     background: #ff3c3c;
-    opacity: 0
+    opacity: 0;
+    /* display: none; */
 }
 
 .loginBox>h4 {
@@ -85,13 +86,14 @@ body {
 }
 
 .form_item {
-    height: 50px;
+    height: 40px;
     margin-bottom: 10px;
     padding: 8px 18px;
     border: 2px solid #dedede;
     background: #FFF;
     line-height: 20px;
     border-radius: 4px;
+    position: relative;
 }
 
 .mpanel {
@@ -118,8 +120,8 @@ inputStyle {
     outline: none;
     font-size: 15px;
     width: 82%;
-    height: 30px;
-    line-height: 30px;
+    height: 20px;
+    line-height: 20px;
     font-size: 15px;
 }
 
@@ -561,6 +563,20 @@ inputStyle {
 }
 
 
+/* 错误提示 */
+
+.warnText {
+    position: absolute;
+    color: #fc5757;
+    right: 10px;
+    top: 9px;
+    background-color: #FFF;
+    padding-left: 5px;
+    display: none;
+    font-weight: 700;
+}
+
+
 /* 邮箱验证码 END*/
 
 @media (min-width: 1200px) {
@@ -610,10 +626,11 @@ inputStyle {
         top: -11px;
     }
     .welcome {
-        top: 10px;
+        /* top: 10px; */
+        top: 2px;
     }
     .loginBox {
-        padding: 15px;
+        padding: 0;
     }
     .error_tips {
         left: 13px;

@@ -12,6 +12,25 @@ $(function() {
         courseList = [],
         hasBought = false
 
+    $("#closeNotice").click(function(e) {
+        e.stopPropagation();
+        $(".noticeInfo").fadeOut(200)
+        $("#closeNotice").hide(100)
+        $("#noticeBox").css({ 'height': '30px', 'width': '75px' })
+    })
+
+    $("#noticeBox").click(function(e) {
+        // e.stopPropagation();
+        $(".noticeInfo").fadeIn(600)
+        $("#closeNotice").show(100)
+        $(this).css({ 'height': '105px', 'width': '200px' })
+    })
+
+    // 购买提示
+    $("#toApply").click(function() {
+        layer.alert("该课程已完结，想了解更多课程内容，欢迎您来电咨询：15010927730，微信同手机号", { icon: 0, skin: 'layui-layer-lan' })
+    })
+
     // 用户姓名头像
     $("#apply-name").text(userName)
 
@@ -31,6 +50,9 @@ $(function() {
                     hasBought = true
                     $("#toApply,.macInfo-price").css({ 'display': 'none' })
                     $("#toLiving").css({ 'display': 'inline-block' })
+
+                    // 默认播放第一节课
+                    $("#toLiving").attr("href", "../recorded.html?Id=10001")
                 } else if (msg.msg <= 0) {
                     hasBought = false
                 }
@@ -248,7 +270,7 @@ $(function() {
                 'courseId': courseId
             },
             success: function(msg) {
-                $(".teaQuestion").text(msg.data.assignmentContent)
+                $(".teaQuestion").html(msg.data.assignmentContent)
                 $(".teaName").text(msg.data.userName)
                 $(".teaQueTime").text(formatDate(msg.data.createTime))
                 $("#teaInfoPic").attr("src", msg.data.userPortrait)
@@ -300,6 +322,9 @@ $(function() {
                 var _length = msg.data.length
                 $(".personNum").text(_length)
                 for (var i = 0; i < _length; i++) {
+                    if (msg.data[i].userPortrait == "" || msg.data[i].userPortrait == "0") {
+                        msg.data[i].userPortrait = "https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/image/default.png"
+                    }
                     var template = '<div class="col-md-12 pt15 answerItem" data-uid=' + msg.data[i].id + '>' +
                         '<div class="row bottomLine">' +
                         '<div class="col-md-1">' +
@@ -322,9 +347,7 @@ $(function() {
                         '</div>' +
                         '</div>' +
                         '</div>'
-                    if (msg.data[i].userPortrait = "") {
-                        msg.data[i].userPortrait = "https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/image/default.png"
-                    }
+
                     stuAnswer.append(template)
                 }
 
@@ -400,6 +423,9 @@ $(function() {
                             // $(".replayList").append("123")
                             if (msg.data.length > 0) {
                                 for (var j = 0; j < msg.data.length; j++) {
+                                    if (msg.data[j].commentatorportrait == "null" || msg.data[j].commentatorportrait == "0" || msg.data[j].commentatorportrait == "") {
+                                        msg.data[j].commentatorportrait = "https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/image/default.png"
+                                    }
                                     var template = '<div class="row mb15">' + '<div class="col-md-1">' + '<img src="' + msg.data[j].commentatorportrait + '" alt="" width="35" class="replyPic">' + '</div>' + '<div class="col-md-11 pl0">' + '<p class="userReplayName">' + msg.data[j].commentatorname + '</p>' + '<p class="userReplayContent">' + msg.data[j].content + '</p>' + '</div>' + '</div>';
                                     // console.log(msg.data[i].commentatorportrait)
                                     // if (msg.data[j].commentatorportrait === "null") {

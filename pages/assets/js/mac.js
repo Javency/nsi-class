@@ -218,7 +218,7 @@ $(function() {
                     'courseId': $(this).attr("data-courseId")
                 },
                 success: function(msg) {
-                    $(".teaQuestion").text(msg.data.assignmentContent)
+                    $(".teaQuestion").html(msg.data.assignmentContent)
                     $(".teaName").text(msg.data.userName)
                     $(".teaQueTime").text(formatDate(msg.data.createTime))
                     $("#teaInfoPic").attr("src", msg.data.userPortrait)

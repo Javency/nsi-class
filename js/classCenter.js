@@ -31,7 +31,8 @@ $(function() {
             for (var i = 0; i < msg.data.length; i++) {
                 var courseTemplate = '<div class="col-md-3 col-sm-6 mb40">' +
                     '<div class="CourseContainer">' +
-                    '<a href="./detailClass.html?Id=' + msg.data[i].Id + '" target="_blank">' +
+                    // '<a href="./detailClass.html?Id=' + msg.data[i].Id + '" target="_blank">' +
+                    '<a href="./pages/hrc.html" target="_blank">' +
                     '<div class="Course Course-up">' +
                     '<img src="' + msg.data[i].CoverImage + '" alt="">' +
                     '<div class="state">' + msg.data[i].CourseState + '</div>' +

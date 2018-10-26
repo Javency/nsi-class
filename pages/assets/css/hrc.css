@@ -30,3 +30,63 @@
 .teaQuestion {
     font-size: 20px;
 }
+
+.noticeLogo {
+    vertical-align: middle;
+}
+
+.noticeLogoBox {
+    display: inline-block;
+    border-bottom: 2px solid;
+    padding-bottom: 5px;
+}
+
+.noticeBox {
+    position: absolute;
+    top: 20px;
+    bottom: 0;
+    color: #FFF;
+    font-size: 14px;
+    width: 200px;
+    height: 105px;
+    background: rgba(255, 187, 0, 0.918);
+    box-shadow: 0 2px 4px 0 rgba(7, 17, 27, .3);
+    border-radius: 16px;
+    padding: 6px 12px;
+    overflow: hidden;
+    transition: .4s all;
+    transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+    cursor: pointer;
+    z-index: 99;
+}
+
+.noticeInfo {
+    line-height: 1.5;
+    padding-top: 5px;
+}
+
+.closeNotice {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    font-size: 13px;
+}
+
+.toApply {
+    padding: 7px 35px 14px;
+}
+
+@media (max-width:768px) {
+    .noticeBox {
+        top: 60px;
+        right: 6px;
+        height: 30px;
+        width: 75px;
+    }
+    .closeNotice {
+        display: none;
+    }
+    .banner {
+        min-height: 350px;
+    }
+}

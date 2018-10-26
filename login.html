@@ -9,11 +9,12 @@
     <link rel="shortcut icon" href="./images/favorite.ico" type="image/x-icon" />
     <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="https://at.alicdn.com/t/font_554630_rq93jgqhisf.css">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_562159_oz807u6drlgfd2t9.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="./css/verify/verify.css">
     <link rel="stylesheet" href="./layer/theme/default/layer.css">
     <link rel="stylesheet" href="./css/common.css?v=04241613">
-    <link rel="stylesheet" href="./css/login.css?v=08271703">
+    <link rel="stylesheet" href="./css/login.css?v=10261734">
     <link rel="stylesheet" href="./css/cropper/cropper.min.css">
 </head>
 
@@ -65,7 +66,7 @@
                             </form>
                         </div>
                         <div class="loginBox registerBox" id="registerBox">
-                            <p class="error_tips" id="registerError"><span class="iconfont icon-icon tips"></span><span class="tipsTxt" id="registerTips"></span></p>
+                            <!-- <p class="error_tips" id="registerError"><span class="iconfont icon-icon tips"></span><span class="tipsTxt" id="registerTips"></span></p> -->
                             <h4 class="clearfix mb5">新学员注册 <a href="javascript:;" class="fr" id="login">去登录</a></h4>
                             <form action="">
                                 <div class="text-center upLoadUserPic">
@@ -81,31 +82,39 @@
                                 <div class="form_item">
                                     <label class="inputlogo iconfont icon-tubiao209" for="registerEmail"></label>
                                     <input type="text" placeholder="邮箱账号(推荐：163，qq等邮箱注册)" id="registerEmail" class="username">
+                                    <span class="warnText" id="emialError"></span>
                                 </div>
                                 <div class="form_item">
                                     <label class="inputlogo iconfont icon-idcard" for="registerName"></label>
                                     <input type="text" placeholder="姓名" id="registerName" class="inputStyle">
+                                    <span class="warnText" id="nameError"></span>
                                 </div>
                                 <div class="form_item">
                                     <label class="inputlogo iconfont icon-zuzhijigou" for="registerInstution"></label>
                                     <input type="text" placeholder="所属机构" id="registerInstution" class="inputStyle">
+                                    <span class="warnText" id="compError"></span>
                                 </div>
                                 <div class="form_item">
                                     <label class="inputlogo iconfont icon-suoshuzhiwei" for="registerJob"></label>
                                     <input type="text" placeholder="职位" id="registerJob" class="inputStyle">
+                                    <span class="warnText" id="jobError"></span>
                                 </div>
                                 <div class="form_item">
                                     <label class="inputlogo iconfont icon-shouji" for="registerPhone"></label>
                                     <input type="text" placeholder="手机号码" id="registerPhone" class="inputStyle">
+                                    <span class="warnText" id="phoneError"></span>
                                 </div>
                                 <div class="form_item">
                                     <label class="inputlogo iconfont icon-mima" for="registerPassword"></label>
                                     <input type="password" placeholder="密码" id="registerPassword" class="inputStyle">
+                                    <span class="warnText" id="pwdError"></span>
                                 </div>
                                 <div class="form_item">
                                     <label class="inputlogo iconfont icon-mima" for="registerConfirmPassword"></label>
                                     <input type="password" placeholder="确认密码" id="registerConfirmPassword" class="inputStyle">
+                                    <span class="warnText" id="pwd2Error"></span>
                                 </div>
+                                <!-- <p class="error_tips" style="margin-bottom: 15px" id="registerError"><span class="iconfont icon-icon tips"></span><span class="tipsTxt" id="registerTips"></span></p> -->
                                 <div id="mpanel1" class="mpanel1 mb10">
                                 </div>
                                 <p class="mb10 rules">
@@ -253,4 +262,4 @@
 <script src="./js/cropper/cropper.min.js"></script>
 <script src="./js/cropper/headPic.js"></script>
 <script src="./js/cropper/main.js"></script>
-<script src="./js/login.js?v=09031710"></script>
+<script src="./js/login.js?v=10261734"></script>

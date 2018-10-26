@@ -161,6 +161,17 @@ $(function() {
     var btn = $("#registerLoginButton"),
         registerError = $("#registerError"),
         registerTips = $("#registerTips"),
+
+        // 错误提示
+        emialError = $("#emialError"),
+        nameError = $("#nameError"),
+        compError = $("#compError"),
+        jobError = $("#jobError"),
+        phoneError = $("#phoneError"),
+        pwdError = $("#pwdError"),
+        pwd2Error = $("#pwd2Error"),
+        // 错误提示end
+
         emailFlag = false,
         nameFlag = false,
         instutionFlag = false,
@@ -189,20 +200,27 @@ $(function() {
                 data: { checkMail: emailValue },
                 success: function(msg) {
                     if (msg.msg < 0) {
-                        registerError.animate({ "opacity": 1 }, 100)
-                        registerTips.text("邮箱已注册过，可直接登录")
+                        // registerError.animate({ "opacity": 1 }, 100)
+                        // registerTips.text("邮箱已注册过，可直接登录")
+                        emialError.fadeIn(200, function() {
+                            $(this).text("邮箱已注册过，可直接登录")
+                        })
+
                         emailFlag = false;
                     } else {
                         // 邮箱格式正确且未被注册
                         emailFlag = true
-                        registerError.animate({ "opacity": 0 }, 100)
+                            // registerError.animate({ "opacity": 0 }, 100)
+                        emialError.fadeOut(200)
                     }
                 }
             })
         } else {
             emailFlag = false;
-            registerError.animate({ "opacity": 1 }, 100)
-            registerTips.text("您填写的邮箱格式不正确")
+            // registerError.animate({ "opacity": 1 }, 100)
+            // registerTips.text("您填写的邮箱格式不正确")
+            emialError.fadeIn(200)
+            emialError.text("邮箱格式错误")
         }
     }
 
@@ -220,11 +238,14 @@ $(function() {
         var nameValue = $("#registerName").val()
         if (nameValue != '') {
             nameFlag = true
-            registerError.animate({ "opacity": 0 }, 100)
+                // registerError.animate({ "opacity": 0 }, 100)
+            nameError.fadeOut(200)
         } else {
             nameFlag = false
-            registerError.animate({ "opacity": 1 }, 100)
-            registerTips.text("请填写姓名")
+                // registerError.animate({ "opacity": 1 }, 100)
+                // registerTips.text("请填写姓名")
+            nameError.fadeIn(200)
+            nameError.text("请填写姓名")
         }
     }
 
@@ -233,11 +254,15 @@ $(function() {
         var instutionValue = $('#registerInstution').val()
         if (instutionValue != "") {
             instutionFlag = true
-            registerError.animate({ "opacity": 0 }, 100)
+                // registerError.animate({ "opacity": 0 }, 100)
+            compError.fadeOut(200)
+
         } else {
             instutionFlag = false
-            registerError.animate({ "opacity": 1 }, 100)
-            registerTips.text("请填写机构名")
+                // registerError.animate({ "opacity": 1 }, 100)
+                // registerTips.text("请填写机构名")
+            compError.fadeIn(200)
+            compError.text("请填写机构名")
         }
     }
 
@@ -246,11 +271,14 @@ $(function() {
         var jobValue = $("#registerJob").val()
         if (jobValue != "") {
             jobFlag = true
-            registerError.animate({ "opacity": 0 }, 100)
+                // registerError.animate({ "opacity": 0 }, 100)
+            jobError.fadeOut(200)
         } else {
             jobFlag = false
-            registerError.animate({ "opacity": 1 }, 100)
-            registerTips.text("请填写职位名称")
+                // registerError.animate({ "opacity": 1 }, 100)
+                // registerTips.text("请填写职位名称")
+            jobError.fadeIn(200)
+            jobError.text("请填写职位名称")
         }
     }
 
@@ -260,11 +288,14 @@ $(function() {
             phoneValue = $("#registerPhone").val()
         if (telPattern.test(phoneValue)) {
             telFlag = true
-            registerError.animate({ "opacity": 0 }, 100)
+                // registerError.animate({ "opacity": 0 }, 100)
+            phoneError.fadeOut(200)
         } else {
             telFlag = false
-            registerError.animate({ "opacity": 1 }, 100)
-            registerTips.text("手机号格式不正确")
+                // registerError.animate({ "opacity": 1 }, 100)
+                // registerTips.text("手机号格式不正确")
+            phoneError.fadeIn(200)
+            phoneError.text("手机号格式不正确")
         }
     }
 
@@ -273,11 +304,14 @@ $(function() {
         var len = $("#registerPassword").val().length
         if (len >= 6) {
             pwdFlag = true
-            registerError.animate({ "opacity": 0 }, 100)
+                // registerError.animate({ "opacity": 0 }, 100)
+            pwdError.fadeOut(200)
         } else {
             pwdFlag = false
-            registerError.animate({ "opacity": 1 }, 100)
-            registerTips.text("密码不少于6位")
+                // registerError.animate({ "opacity": 1 }, 100)
+                // registerTips.text("密码不少于6位")
+            pwdError.fadeIn(200)
+            pwdError.text("密码不少于6位")
         }
     }
 
@@ -287,11 +321,14 @@ $(function() {
             pwdValue02 = $("#registerConfirmPassword").val()
         if (pwdValue01 === pwdValue02) {
             confirmPwdFlag = true
-            registerError.animate({ "opacity": 0 }, 100)
+                // registerError.animate({ "opacity": 0 }, 100)
+            pwd2Error.fadeOut(200)
         } else {
             confirmPwdFlag = false
-            registerError.animate({ "opacity": 1 }, 100)
-            registerTips.text("您填写的密码不一致")
+                // registerError.animate({ "opacity": 1 }, 100)
+                // registerTips.text("您填写的密码不一致")
+            pwd2Error.fadeIn(200)
+            pwd2Error.text("密码不一致")
         }
     }
 
@@ -320,7 +357,9 @@ $(function() {
     registerEmail.blur(function() {
         mailCheck()
     })
-
+    registerEmail.click(function() {
+        emialError.fadeOut(200)
+    })
     registerName.blur(function() {
         nameCheck()
     })
@@ -357,7 +396,7 @@ $(function() {
             slideVerifyFlag = true
 
             // 用户头像验证
-            confirmUserPicCheck()
+            // confirmUserPicCheck()
 
             var emailValue = $("#registerEmail").val(),
                 nameValue = $("#registerName").val(),
@@ -401,7 +440,7 @@ $(function() {
                     'foxmail.coom': 'https://www.foxmail.com'
                 };
             $("#userInputMail").text(emailValue)
-            if (emailFlag && nameFlag && instutionFlag && jobFlag && telFlag && pwdFlag && confirmPwdFlag && slideVerifyFlag && userPicFlag) {
+            if (emailFlag && nameFlag && instutionFlag && jobFlag && telFlag && pwdFlag && confirmPwdFlag && slideVerifyFlag) {
                 layer.load(2);
                 $.ajax({
                         type: "post",
@@ -466,8 +505,7 @@ $(function() {
         }
     })
     btn.on("click", function() {
-        $(this).attr("disabled", "disabled")
-        $(this).css({ "cursor": "not-allowed", "opacity": .65 })
+
         var emailValue = $("#registerEmail").val(),
             nameValue = $("#registerName").val(),
             instutionValue = $("#registerInstution").val(),
@@ -510,7 +548,9 @@ $(function() {
                 'foxmail.coom': 'https://www.foxmail.com'
             };
         $("#userInputMail").text(emailValue)
-        if (emailFlag && nameFlag && instutionFlag && jobFlag && telFlag && pwdFlag && confirmPwdFlag && slideVerifyFlag && userPicFlag) {
+        if (emailFlag && nameFlag && instutionFlag && jobFlag && telFlag && pwdFlag && confirmPwdFlag && slideVerifyFlag) {
+            btn.attr("disabled", "disabled")
+            btn.css({ "cursor": "not-allowed", "opacity": .65 })
             $.ajax({
                 type: "post",
                 data: data,
