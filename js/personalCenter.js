@@ -46,7 +46,7 @@ $(function() {
                             '</div>' +
                             '</div>'
                         haveBoughtCourse.append(courseMacTemplate)
-                        return false;
+                        return;
                     }
                     var courseTemplate = '<div class="col-md-3 col-sm-6 mb40">' +
                         '<div class="CourseContainer">' +

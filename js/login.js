@@ -455,7 +455,7 @@ $(function() {
                                     // console.log(index, value)
                                     // $('#toVerify').attr('href', value)
                                     //window.location.href = value
-                                    window.open(value, "_blank")
+                                    // window.open(value, "_blank")
                                 }
                             })
 
@@ -563,7 +563,7 @@ $(function() {
                             // console.log(index, value)
                             // $('#toVerify').attr('href', value)
                             // window.location.href = value
-                            window.open(value, "_blank")
+                            // window.open(value, "_blank")
                         }
                     })
 
