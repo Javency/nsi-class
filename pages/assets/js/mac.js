@@ -83,7 +83,7 @@ $(function() {
 
     // wangEditor 提交评论
     var E = window.wangEditor
-    var editor = new E('#editor')
+    var editor = new E('#editor');
 
     // editor.customConfig.uploadImgServer = changeUrl.address + '/Admin_api?whereFrom=EditorUpImg'
     editor.customConfig.uploadImgServer = 'https://data.xinxueshuo.cn/nsi-1.0/Admin_api?whereFrom=EditorUpImg'
@@ -218,12 +218,14 @@ $(function() {
                     'courseId': $(this).attr("data-courseId")
                 },
                 success: function(msg) {
-                    $(".teaQuestion").html(msg.data.assignmentContent)
-                    $(".teaName").text(msg.data.userName)
-                    $(".teaQueTime").text(formatDate(msg.data.createTime))
-                    $("#teaInfoPic").attr("src", msg.data.userPortrait)
                     if (hasBought) {
-                        $("#downLoadppt").attr('href', msg.data.attachmentUrlOne)
+                        if (!msg.data) {
+                            $("#downLoadppt").unbind('click').on('click', function() {
+                                layer.msg("讲师未上传课件", { time: 3000 })
+                            })
+                        } else {
+                            $("#downLoadppt").attr('href', msg.data.attachmentUrlOne)
+                        }
                     } else {
                         $("#downLoadppt").unbind('click').on('click', function() {
                             $(this).attr("href", "javascript:;")
@@ -234,6 +236,10 @@ $(function() {
                             });
                         })
                     }
+                    $(".teaQuestion").html(msg.data.assignmentContent)
+                    $(".teaName").text(msg.data.userName)
+                    $(".teaQueTime").text(formatDate(msg.data.createTime))
+                    $("#teaInfoPic").attr("src", msg.data.userPortrait)
                 }
             })
         })
@@ -302,10 +308,10 @@ $(function() {
                 for (var i = 0; i < _length; i++) {
                     var template = '<div class="col-md-12 pt15 answerItem" data-uid=' + msg.data[i].id + '>' +
                         '<div class="row bottomLine">' +
-                        '<div class="col-md-1">' +
+                        '<div class="col-md-1 col-xs-2">' +
                         '<img class="userHeadPic" src="' + msg.data[i].userPortrait + '" alt="" width="40">' +
                         '</div>' +
-                        '<div class="col-md-11 pl0M15">' +
+                        '<div class="col-md-11 col-xs-10 pl0M15">' +
                         '<p><span class="stuName">' + msg.data[i].userName + '</span></p>' +
                         '<p class="stuAnswerContent">' + msg.data[i].assignmentContent + '</p>' +
                         '<p class="text-right stuAnswerTime"><span class="iconfont icon-huifu reply"></span>' + formatDate(msg.data[i].createTime) + '</p>' +
@@ -400,7 +406,7 @@ $(function() {
                             // $(".replayList").append("123")
                             if (msg.data.length > 0) {
                                 for (var j = 0; j < msg.data.length; j++) {
-                                    var template = '<div class="row mb15">' + '<div class="col-md-1">' + '<img src="' + msg.data[j].commentatorportrait + '" alt="" width="35" class="replyPic">' + '</div>' + '<div class="col-md-11 pl0">' + '<p class="userReplayName">' + msg.data[j].commentatorname + '</p>' + '<p class="userReplayContent">' + msg.data[j].content + '</p>' + '</div>' + '</div>';
+                                    var template = '<div class="row mb15">' + '<div class="col-md-1 col-xs-2">' + '<img src="' + msg.data[j].commentatorportrait + '" alt="" width="35" class="replyPic">' + '</div>' + '<div class="col-md-11 col-xs-10 pl0">' + '<p class="userReplayName">' + msg.data[j].commentatorname + '</p>' + '<p class="userReplayContent">' + msg.data[j].content + '</p>' + '</div>' + '</div>';
                                     // console.log(msg.data[i].commentatorportrait)
                                     // if (msg.data[j].commentatorportrait === "null") {
                                     //     msg.data[j].commentatorportrait = "https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/image/default.png"

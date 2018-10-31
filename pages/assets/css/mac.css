@@ -610,7 +610,7 @@
 
 @media(max-width:768px) {
     .banner {
-        min-height: 320px;
+        min-height: 350px;
         background-position: unset;
     }
     .macInfo {
@@ -624,7 +624,7 @@
         color: #c9882a;
         padding-top: 15px;
         font-size: 21px;
-        font-weight: 200
+        font-weight: bold
     }
     .toApply {
         font-size: 14px;
@@ -653,5 +653,13 @@
     .detailLesson-Tab {
         margin-top: 15px;
         padding-bottom: 0px;
+    }
+    .txt {
+        width: 75%;
+    }
+    .replyBtn,
+    .closeBtn {
+        position: relative;
+        top: 10px;
     }
 }

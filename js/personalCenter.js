@@ -30,7 +30,25 @@ $(function() {
                     notHaveCourse.css("display", "none")
                 }
 
+                var hrcList = []
                 for (var i = 0; i < msg.data.length; i++) {
+                    if (msg.data[i].Id < 20001) {
+                        var courseTemplate = '<div class="col-md-3 col-sm-6 mb40">' +
+                            '<div class="CourseContainer">' +
+                            '<a href="./pages/hrc.html" target="_blank">' +
+                            '<div class="Course Course-up">' +
+                            '<img src="' + msg.data[i].CoverImage + '" alt="">' +
+                            '</div>' +
+                            '</a>' +
+                            '<div class="CourseInfo">' +
+                            '<p class="mtb5 oneline"><span class="CourseName" title="' + msg.data[i].CourseName + '">' + msg.data[i].CourseName + '</span></p>' +
+                            '<p class="mtb5 twoline"><span class="CourseDesc" title="' + msg.data[i].CourseDescription + '">' + msg.data[i].CourseDescription + '</span></p>' +
+                            '</div>' +
+                            '</div>' +
+                            '</div>'
+                        haveBoughtCourse.append(courseTemplate)
+                    }
+
                     if (msg.data[i].Id == 20001) {
                         var courseMacTemplate = '<div class="col-md-3 col-sm-6 mb40">' +
                             '<div class="CourseContainer">' +
@@ -46,22 +64,7 @@ $(function() {
                             '</div>' +
                             '</div>'
                         haveBoughtCourse.append(courseMacTemplate)
-                        return;
                     }
-                    var courseTemplate = '<div class="col-md-3 col-sm-6 mb40">' +
-                        '<div class="CourseContainer">' +
-                        '<a href="./detailClass.html?Id=' + msg.data[i].Id + '" target="_blank">' +
-                        '<div class="Course Course-up">' +
-                        '<img src="' + msg.data[i].CoverImage + '" alt="">' +
-                        '</div>' +
-                        '</a>' +
-                        '<div class="CourseInfo">' +
-                        '<p class="mtb5 oneline"><span class="CourseName" title="' + msg.data[i].CourseName + '">' + msg.data[i].CourseName + '</span></p>' +
-                        '<p class="mtb5 twoline"><span class="CourseDesc" title="' + msg.data[i].CourseDescription + '">' + msg.data[i].CourseDescription + '</span></p>' +
-                        '</div>' +
-                        '</div>' +
-                        '</div>'
-                    haveBoughtCourse.append(courseTemplate)
                 }
             }
         })

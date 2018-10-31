@@ -26,7 +26,7 @@ $(function() {
         Id = decodeURIComponent(args['Id']),
         data = {
             'UserMail': $.cookie('username'),
-            'ClassId': 20001
+            'ClassId': Id
         }
     var screenWidth = $(window).width()
     var screenHeight = $(window).height()

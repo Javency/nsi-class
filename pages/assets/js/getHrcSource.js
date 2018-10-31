@@ -3,6 +3,9 @@ $(function() {
     function getMacList() {
         var macList = [],
             section01 = $("#section01")
+        section02 = $("#section02")
+        section03 = $("#section03")
+        section04 = $("#section04")
 
         function addZero(num) {
             return num < 10 ? ('0' + num) : num
@@ -19,7 +22,7 @@ $(function() {
                     // console.log(macList)
 
                 // 第一章
-                $("#section01").append('<li class="title">第一章 国际学校人力资源规划与构建</li>')
+                section01.append('<li class="title">第一章 国际学校人力资源规划与构建</li>')
 
                 for (var i = 0; i < 3; i++) {
                     switch (macList[i].CourseState) {
@@ -44,11 +47,11 @@ $(function() {
                                 '</li>'
                             break;
                     }
-                    $("#section01").append(template)
+                    section01.append(template)
                 }
 
                 // 第二章
-                $("#section02").append('<li class="title">第二章 外籍员工招聘与管理</li>')
+                section02.append('<li class="title">第二章 外籍员工招聘与管理</li>')
                 for (var i = 3; i < 8; i++) {
                     switch (macList[i].CourseState) {
                         case "备课中":
@@ -72,11 +75,11 @@ $(function() {
                                 '</li>'
                             break;
                     }
-                    $("#section02").append(template)
+                    section02.append(template)
                 }
 
                 // 第三章
-                $("#section03").append('<li class="title">第三章 薪酬福利与绩效</li>')
+                section03.append('<li class="title">第三章 薪酬福利与绩效</li>')
                 for (var i = 8; i < 11; i++) {
                     switch (macList[i].CourseState) {
                         case "备课中":
@@ -100,11 +103,11 @@ $(function() {
                                 '</li>'
                             break;
                     }
-                    $("#section03").append(template)
+                    section03.append(template)
                 }
 
                 // 第四章
-                $("#section04").append('<li class="title">第四章 培训与发展</li>')
+                section04.append('<li class="title">第四章 培训与发展</li>')
                 for (var i = 11; i < 13; i++) {
                     switch (macList[i].CourseState) {
                         case "备课中":
@@ -128,7 +131,7 @@ $(function() {
                                 '</li>'
                             break;
                     }
-                    $("#section04").append(template)
+                    section04.append(template)
                 }
 
                 // $.ajax({
