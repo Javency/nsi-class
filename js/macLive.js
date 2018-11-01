@@ -70,6 +70,7 @@ $(function() {
                 } else {
                     var obj = $("#mobileHeight"),
                         mobile = $("#mobile"),
+                        compatibility = $("#compatibility"),
                         loadFlag = null,
                         data01 = {
                             'userid': $.cookie('username'),
@@ -97,6 +98,18 @@ $(function() {
                         error: function() {
                             console.log("error")
                         }
+                    })
+                    compatibility.click(function() {
+                        $.ajax({
+                            type: "post",
+                            data: data01,
+                            dataType: "json",
+                            async: false,
+                            url: changeUrl.address + '/Class_User_api?whereFrom=getLiveUrl',
+                            success: function(msg) {
+                                window.location.href = msg.msg
+                            }
+                        })
                     })
                 }
             }

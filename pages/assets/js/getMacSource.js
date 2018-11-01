@@ -1,4 +1,13 @@
 $(function() {
+    // 随机数
+    function MathRand() {
+        var Num = "";
+        for (var i = 0; i < 6; i++) {
+            Num += Math.floor(Math.random() * 10);
+        }
+        return Num
+    }
+
     // 直播链接
     function getMacList() {
         var macList = [],
@@ -19,22 +28,22 @@ $(function() {
                     switch (macList[i].CourseState) {
                         case "备课中":
                             var template = '<li>' +
-                                '<a href="javascript:;" class="current prepare">' + (i + 1) + '<span></span>' + macList[i].CourseName + '&nbsp;<span class="iconfont icon-iconbofang"></span></a>' +
+                                '<a href="javascript:;" class="current prepare">' + (i + 1) + '<span></span>' + macList[i].CourseName + '&nbsp;<span class="iconfont icon-iconbofang"></span></span><i class="buySingleClass">单课购买</i></a>' +
                                 '</li>'
                             break;
                         case "正在直播":
                             var template = '<li>' +
-                                '<a href="../macLive.html?Id=' + macList[i].Id + '" class="current living">' + (i + 1) + '<span></span>' + macList[i].CourseName + '&nbsp;<span class="iconfont icon-iconbofang"></span></a>' +
+                                '<a href="../macLive.html?Id=' + macList[i].Id + '" class="current living">' + (i + 1) + '<span></span>' + macList[i].CourseName + '&nbsp;<span class="iconfont icon-iconbofang"></span></span><i class="buySingleClass">单课购买</i></a>' +
                                 '</li>'
                             break;
                         case "正在回放":
                             var template = '<li>' +
-                                '<a href="../recorded.html?Id=' + macList[i].Id + '" class="current living">' + (i + 1) + '<span></span>' + macList[i].CourseName + '&nbsp;<span class="iconfont icon-iconbofang"></span></a>' +
+                                '<a href="../recorded.html?Id=' + macList[i].Id + '" class="current living">' + (i + 1) + '<span></span>' + macList[i].CourseName + '&nbsp;<span class="iconfont icon-iconbofang"></span></span><i class="buySingleClass">单课购买</i></a>' +
                                 '</li>'
                             break;
-                        case "回放结束":
+                        case "查看回放":
                             var template = '<li>' +
-                                '<a href="javascript:;' + macList[i].Id + '" class="current ending">' + (i + 1) + '<span></span>' + macList[i].CourseName + '&nbsp;<span class="iconfont icon-iconbofang"></span></a>' +
+                                '<a href="javascript:;" data-CourseId=' + macList[i].Id + ' class="current ending">' + (i + 1) + '<span></span>' + macList[i].CourseName + '&nbsp;<span class="iconfont icon-iconbofang"></span><i class="buySingleClass">单课购买</i></a>' +
                                 '</li>'
                             break;
                     }
@@ -60,9 +69,9 @@ $(function() {
                                 '<a href="../recorded.html?Id=' + macList[i].Id + '" class="current living">' + (i + 1) + '<span></span>' + macList[i].CourseName + '&nbsp;<span class="iconfont icon-iconbofang"></span></a>' +
                                 '</li>'
                             break;
-                        case "回放结束":
+                        case "查看回放":
                             var template = '<li>' +
-                                '<a href="javascript:;' + macList[i].Id + '" class="current ending">' + (i + 1) + '<span></span>' + macList[i].CourseName + '&nbsp;<span class="iconfont icon-iconbofang"></span></a>' +
+                                '<a href="javascript:;" class="current ending">' + (i + 1) + '<span></span>' + macList[i].CourseName + '&nbsp;<span class="iconfont icon-iconbofang"></span></a>' +
                                 '</li>'
                             break;
                     }
@@ -88,9 +97,9 @@ $(function() {
                                 '<a href="../recorded.html?Id=' + macList[i].Id + '" class="current living">' + (i + 1) + '<span></span>' + macList[i].CourseName + '&nbsp;<span class="iconfont icon-iconbofang"></span></a>' +
                                 '</li>'
                             break;
-                        case "回放结束":
+                        case "查看回放":
                             var template = '<li>' +
-                                '<a href="javascript:;' + macList[i].Id + '" class="current ending">' + (i + 1) + '<span></span>' + macList[i].CourseName + '&nbsp;<span class="iconfont icon-iconbofang"></span></a>' +
+                                '<a href="javascript:;" class="current ending">' + (i + 1) + '<span></span>' + macList[i].CourseName + '&nbsp;<span class="iconfont icon-iconbofang"></span></a>' +
                                 '</li>'
                             break;
                     }
@@ -116,9 +125,9 @@ $(function() {
                                 '<a href="../recorded.html?Id=' + macList[i].Id + '" class="current living">' + (i + 1) + '<span></span>' + macList[i].CourseName + '&nbsp;<span class="iconfont icon-iconbofang"></span></a>' +
                                 '</li>'
                             break;
-                        case "回放结束":
+                        case "查看回放":
                             var template = '<li>' +
-                                '<a href="javascript:;' + macList[i].Id + '" class="current ending">' + (i + 1) + '<span></span>' + macList[i].CourseName + '&nbsp;<span class="iconfont icon-iconbofang"></span></a>' +
+                                '<a href="javascript:;" class="current ending">' + (i + 1) + '<span></span>' + macList[i].CourseName + '&nbsp;<span class="iconfont icon-iconbofang"></span></a>' +
                                 '</li>'
                             break;
                     }
@@ -126,7 +135,8 @@ $(function() {
                 }
 
                 var prepareList = $(".prepare"),
-                    endingList = $(".ending")
+                    endingList = $(".ending"),
+                    buySingleClassList = $(".buySingleClass")
                 prepareList.each(function(i, e) {
                     $(this).click(function() {
                         layer.alert("课程备课中", { icon: 0 })
@@ -134,7 +144,16 @@ $(function() {
                 })
                 endingList.each(function(i, e) {
                     $(this).click(function() {
-                        layer.alert("课程已结束", { icon: 0 })
+                        layer.alert("课程已结束，请联系课程班主任", { icon: 0 })
+                    })
+                })
+                buySingleClassList.each(function(i, e) {
+                    $(this).click(function(event) {
+                        event.stopPropagation();
+                        var courseId = $(this).parent().attr('data-CourseId'),
+                            userMail = $.cookie('username'),
+                            info = $(this).parent().text()
+                        window.open('http://data.xinxueshuo.cn/pay/pay.html?paymail=' + userMail + '&payfee=0.01&groom=nop&payinfo=MAC-' + info + '&random=' + MathRand() + '&CallbackUrl=https://data.xinxueshuo.cn/nsi-class/pages/mac.html*success')
                     })
                 })
             }

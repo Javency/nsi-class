@@ -303,8 +303,28 @@
     color: #c6c6c6 !important;
 }
 
-.courseInlist li a.living::before {
+.courseInlist li a.living::before,
+.courseInlist li a.ending::before {
     background-color: #caac80;
+}
+
+.buySingleClass {
+    display: inline-block;
+    font-style: normal;
+    position: absolute;
+    right: 50px;
+    font-size: 14px;
+    border: 1px solid #caac80;
+    padding: 0 5px;
+    border-radius: 5px;
+    z-index: 99;
+    background-color: #caac80;
+    color: #FFF;
+}
+
+.buySingleClass:hover {
+    background-color: #fff;
+    color: #caac80;
 }
 
 
