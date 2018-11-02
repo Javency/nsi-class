@@ -2,10 +2,11 @@ $(function() {
     // 直播链接
     function getMacList() {
         var macList = [],
-            section01 = $("#section01")
-        section02 = $("#section02")
-        section03 = $("#section03")
-        section04 = $("#section04")
+            section01 = $("#section01"),
+            section02 = $("#section02"),
+            section03 = $("#section03"),
+            section04 = $("#section04"),
+            loading = $("#loading")
 
         function addZero(num) {
             return num < 10 ? ('0' + num) : num
@@ -134,18 +135,8 @@ $(function() {
                     section04.append(template)
                 }
 
-                // $.ajax({
-                //     type: "POST",
-                //     dataType: "json",
-                //     data: '10001',
-                //     async: true,
-                //     url: changeUrl.address + '/Class_User_api?whereFrom=Verification',
-                //     success: function(msg) {
-                //         if (msg.msg <= 0) {
-                //             $(".icon-iconbofang").removeClass('icon-iconbofang').addClass('icon-suo')
-                //         }
-                //     }
-                // })
+                // loading结束
+                loading.fadeOut(200)
 
                 var prepareList = $(".prepare"),
                     endingList = $(".ending")
