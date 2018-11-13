@@ -16,6 +16,9 @@ $(function() {
     function getMacList() {
         var macList = [],
             section01 = $("#section01"),
+            section02 = $("#section02"),
+            section03 = $("#section03"),
+            section04 = $("#section04"),
             loading = $("#loading")
         $.ajax({
             method: "get",
@@ -28,7 +31,7 @@ $(function() {
                     // console.log(macList)
 
                 // 第一章
-                $("#section01").append('<li class="title">第一章 市场分析</li>')
+                section01.append('<li class="title">第一章 市场分析</li>')
                 for (var i = 0; i < 2; i++) {
                     switch (macList[i].CourseState) {
                         case "备课中":
@@ -52,11 +55,11 @@ $(function() {
                                 '</li>'
                             break;
                     }
-                    $("#section01").append(template)
+                    section01.append(template)
                 }
 
                 // 第二章
-                $("#section02").append('<li class="title">第二章 品牌建设</li>')
+                section02.append('<li class="title">第二章 品牌建设</li>')
                 for (var i = 2; i < 5; i++) {
                     switch (macList[i].CourseState) {
                         case "备课中":
@@ -80,11 +83,11 @@ $(function() {
                                 '</li>'
                             break;
                     }
-                    $("#section02").append(template)
+                    section02.append(template)
                 }
 
                 // 第三章
-                $("#section03").append('<li class="title">第三章 招生策略</li>')
+                section03.append('<li class="title">第三章 招生策略</li>')
                 for (var i = 5; i < 10; i++) {
                     switch (macList[i].CourseState) {
                         case "备课中":
@@ -108,11 +111,11 @@ $(function() {
                                 '</li>'
                             break;
                     }
-                    $("#section03").append(template)
+                    section03.append(template)
                 }
 
                 // 第四章
-                $("#section04").append('<li class="title">第四章 公共关系</li>')
+                section04.append('<li class="title">第四章 公共关系</li>')
                 for (var i = 10; i < 14; i++) {
                     switch (macList[i].CourseState) {
                         case "备课中":
@@ -136,7 +139,7 @@ $(function() {
                                 '</li>'
                             break;
                     }
-                    $("#section04").append(template)
+                    section04.append(template)
                 }
 
                 // 查询已购买课程
@@ -190,7 +193,7 @@ $(function() {
                         var courseId = $(this).parent().attr('data-CourseId'),
                             userMail = $.cookie('username'),
                             info = $(this).parent().text()
-                        window.open('http://data.xinxueshuo.cn/pay/pay.html?paymail=' + userMail + '&payfee=0.01&groom=nop&payinfo=MAC-' + info + '&random=' + MathRand() + '&CallbackUrl=https://data.xinxueshuo.cn/nsi-class/pages/mac.html')
+                        window.open('http://data.xinxueshuo.cn/pay/pay.html?paymail=' + userMail + '&payfee=399&groom=nop&payinfo=MAC-' + info + '&random=' + MathRand() + '&CallbackUrl=https://data.xinxueshuo.cn/nsi-class/pages/mac.html')
                         return false;
                     })
                 })
