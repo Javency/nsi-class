@@ -21,7 +21,7 @@ $(function() {
             section04 = $("#section04"),
             loading = $("#loading")
         $.ajax({
-            method: "get",
+            type: "get",
             data: {
                 'CourseSubject': 'mac'
             },
@@ -163,8 +163,10 @@ $(function() {
 
                         var suoList = $(".icon-suo")
                         suoList.each(function(i, e) {
-                            $(this).parent().attr('href', 'javascript:;').click(function() {
+                            $(this).parent().attr('href', 'javascript:;').unbind('click').click(function(event) {
+                                event.stopPropagation()
                                 layer.alert("您未购买该课程", { icon: 4 })
+                                return false;
                             })
                         })
                     }
@@ -178,23 +180,29 @@ $(function() {
                     buySingleClassList = $(".buySingleClass")
 
                 prepareList.each(function(i, e) {
-                    $(this).click(function() {
+                    $(this).unbind('click').click(function(event) {
+                        event.stopPropagation()
                         layer.alert("课程备课中", { icon: 0 })
+                        return false;
                     })
                 })
                 endingList.each(function(i, e) {
                     $(this).click(function() {
                         layer.alert("课程已结束，请联系课程班主任", { icon: 0 })
+                        return false;
                     })
                 })
                 buySingleClassList.each(function(i, e) {
                     $(this).click(function(event) {
                         event.stopPropagation();
-                        var courseId = $(this).parent().attr('data-CourseId'),
-                            userMail = $.cookie('username'),
-                            info = $(this).parent().text()
-                        window.open('http://data.xinxueshuo.cn/pay/pay.html?paymail=' + userMail + '&payfee=399&groom=nop&payinfo=MAC-' + info + '&random=' + MathRand() + '&CallbackUrl=https://data.xinxueshuo.cn/nsi-class/pages/mac.html')
+                        layer.alert("购买单节课程，请联系课程班主任，</br>15010927730 微信同号", { icon: 0 })
                         return false;
+                        // event.stopPropagation();
+                        // var courseId = $(this).parent().attr('data-CourseId'),
+                        //     userMail = $.cookie('username'),
+                        //     info = $(this).parent().text()
+                        // window.open('http://data.xinxueshuo.cn/pay/pay.html?paymail=' + userMail + '&payfee=399&groom=nop&payinfo=MAC-' + info + '&random=' + MathRand() + '&CallbackUrl=https://data.xinxueshuo.cn/nsi-class/pages/mac.html')
+                        // return false;
                     })
                 })
             }
