@@ -143,7 +143,7 @@ $(".isPreparing").click(function() {
 })
 
 $(".isPlaning").click(function() {
-    window.open("https://jinshuju.net/f/gsQp7p", '_blank')
+    window.open("https://jinshuju.net/f/vaUiAY", '_blank')
 })
 
 // 课程列表部分

@@ -205,6 +205,9 @@ $(function() {
                     // console.log(buySingleClassList)
 
                 prepareList.each(function(i, e) {
+                    $(this).children('i').css({
+                        'display': 'none'
+                    })
                     $(this).unbind('click').click(function(event) {
                         event.stopPropagation()
                         layer.alert("课程备课中", { icon: 0 })
