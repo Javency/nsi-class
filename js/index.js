@@ -160,7 +160,7 @@ $(function() {
         url: changeUrl.address + '/Class_Course_api?whereFrom=Search_Course',
         success: function(msg) {
             // console.log(msg.data)
-            for (var i = 0; i < msg.data.length; i++) {
+            for (var i = 0; i < 4; i++) {
                 var courseTemplate = '<div class="col-md-3 col-sm-6 mb40">' +
                     '<div class="CourseContainer">' +
                     // '<a href="./detailClass.html?Id=' + msg.data[i].Id + '" target="_blank">' +
@@ -349,7 +349,6 @@ $(function() {
                     $(".teacherHeadPortrait").removeClass("col-xs-5")
                 }
             }
-
         },
         error: function() {
             console.log("error")

@@ -143,6 +143,7 @@ $(function() {
                 }
 
                 // 查询已购买课程
+                var buySingleClassList = $(".buySingleClass")
                 $.ajax({
                     type: "POST",
                     data: {
@@ -153,10 +154,36 @@ $(function() {
                     success: function(msg) {
 
                         for (var i = 0; i < msg.data.length; i++) {
-                            $('#' + msg.data[i].Id).hide(0)
+                            // 单节课程购买成功
+                            $('#' + msg.data[i].Id).text('立即观看').removeClass('buySingleClass').addClass('allowWatch')
                             $('#' + msg.data[i].Id).siblings('.icon-suo').removeClass('icon-suo').addClass('icon-iconbofang')
 
                         }
+
+                        // 未购买的单节课程列表
+                        buySingleClassList = $(".buySingleClass")
+                            // console.log(buySingleClassList)
+                        buySingleClassList.each(function(i, e) {
+                            $(this).click(function(event) {
+                                event.stopPropagation();
+                                layer.alert("购买单节课程，请联系课程班主任，</br>15010927730 微信同号", { icon: 0 })
+                                return false;
+                                // event.stopPropagation();
+                                // var courseId = $(this).parent().attr('data-CourseId'),
+                                //     userMail = $.cookie('username'),
+                                //     info = $(this).parent().text()
+                                // window.open('http://data.xinxueshuo.cn/pay/pay.html?paymail=' + userMail + '&payfee=399&groom=nop&payinfo=MAC-' + info + '&random=' + MathRand() + '&CallbackUrl=https://data.xinxueshuo.cn/nsi-class/pages/mac.html')
+                                // return false;
+                            })
+                        })
+
+                        var allowWatchList = $(".allowWatch")
+                        allowWatchList.each(function(i, e) {
+                            $(this).click(function() {
+                                var _courseId = $(this).attr('id')
+                                window.location.href = '../recorded.html?Id=' + _courseId
+                            })
+                        })
 
                         // loading结束
                         loading.fadeOut(200)
@@ -172,12 +199,10 @@ $(function() {
                     }
                 })
 
-                // // loading结束
-                // loading.fadeOut(200)
-
                 var prepareList = $(".prepare"),
-                    endingList = $(".ending"),
-                    buySingleClassList = $(".buySingleClass")
+                    endingList = $(".ending")
+                    // buySingleClassList = $(".buySingleClass")
+                    // console.log(buySingleClassList)
 
                 prepareList.each(function(i, e) {
                     $(this).unbind('click').click(function(event) {
@@ -192,19 +217,7 @@ $(function() {
                         return false;
                     })
                 })
-                buySingleClassList.each(function(i, e) {
-                    $(this).click(function(event) {
-                        event.stopPropagation();
-                        layer.alert("购买单节课程，请联系课程班主任，</br>15010927730 微信同号", { icon: 0 })
-                        return false;
-                        // event.stopPropagation();
-                        // var courseId = $(this).parent().attr('data-CourseId'),
-                        //     userMail = $.cookie('username'),
-                        //     info = $(this).parent().text()
-                        // window.open('http://data.xinxueshuo.cn/pay/pay.html?paymail=' + userMail + '&payfee=399&groom=nop&payinfo=MAC-' + info + '&random=' + MathRand() + '&CallbackUrl=https://data.xinxueshuo.cn/nsi-class/pages/mac.html')
-                        // return false;
-                    })
-                })
+
             }
         })
     }

@@ -10,7 +10,19 @@ $(function() {
         courseId = 20001,
         userName = $.cookie('User_TureName'),
         courseList = [],
-        hasBought = false
+        hasBought = false,
+        currentCourseId = ''
+
+    // 当前播放课程
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        async: false,
+        url: changeUrl.address + '/Class_Course_api?whereFrom=showInformation',
+        success: function(msg) {
+            currentCourseId = msg.data1[0].Id
+        }
+    })
 
     // 用户姓名头像
     $("#apply-name").text(userName)
@@ -19,7 +31,7 @@ $(function() {
     if ($.cookie('username') !== undefined) {
         var sendData = {
             'UserMail': $.cookie('username'),
-            'ClassId': 20001
+            'ClassId': currentCourseId
         }
         $.ajax({
             type: "post",

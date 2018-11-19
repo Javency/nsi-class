@@ -635,6 +635,29 @@
 
 /* loading */
 
+.allowWatch {
+    background-color: #2b5ca8;
+    color: #fff;
+    display: inline-block;
+    font-style: normal;
+    position: absolute;
+    right: 50px;
+    font-size: 14px;
+    border: 1px solid #2b5ca8;
+    padding: 0 5px;
+    border-radius: 5px;
+    z-index: 99;
+    -webkit-transition: all 0.3s ease 0s;
+    -ms-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+}
+
+.allowWatch:hover {
+    color: #2b5ca8;
+    background-color: #fff;
+}
+
 .loading {
     position: absolute;
     top: 0;
@@ -702,5 +725,9 @@
     .closeBtn {
         position: relative;
         top: 10px;
+    }
+    .allowWatch,
+    .buySingleClass {
+        display: none;
     }
 }

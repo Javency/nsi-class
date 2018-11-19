@@ -1005,6 +1005,20 @@ i.shop {
     margin-top: 0;
 }
 
+.more a {
+    display: inline-block;
+    border-radius: 20px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    padding: 0 40px;
+    color: #fff;
+    border: 1px solid #4790e5;
+    transition: all .1s ease 0s;
+    background-image: linear-gradient(-180deg, #4790e5, #52a5f4);
+    box-shadow: 0 5px 30px #ccc;
+}
+
 @media (max-width:768px) {
     .classBoxV2 {
         margin-bottom: 5px;
