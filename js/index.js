@@ -149,105 +149,113 @@ $(".isPlaning").click(function() {
 // 课程列表部分
 $(function() {
     var CourseContainer = $("#CourseContainer")
-    $.ajax({
-        type: "get",
-        async: false,
-        data: {
-            "CourseSubject": "hrc"
-        },
-        dataType : "json",
-        contentType: "application/json;charset=UTF-8",
-        url: changeUrl.address + '/Class_Course_api?whereFrom=Search_Course',
-        success: function(msg) {
-            // console.log(msg.data)
-            for (var i = 0; i < 4; i++) {
-                var courseTemplate = '<div class="col-md-3 col-sm-6 mb40">' +
-                    '<div class="CourseContainer">' +
-                    // '<a href="./detailClass.html?Id=' + msg.data[i].Id + '" target="_blank">' +
-                    '<a href="./pages/hrc.html" target="_blank">' +
-                    '<div class="Course Course-up">' +
-                    '<img src="' + msg.data[i].CoverImage + '" alt="">' +
-                    '<div class="state">' + msg.data[i].CourseState + '</div>' +
-                    '</div>' +
-                    '<div class="Course Course-mid"><img src="' + msg.data[i].CoverImage + '" alt=""></div>' +
-                    '<div class="Course Course-down"><img src="' + msg.data[i].CoverImage + '" alt=""></div>' +
-                    '</a>' +
-                    '<div class="CourseInfo">' +
-                    '<p class="mtb5 oneline"><span class="CourseName" title="' + msg.data[i].CourseName + '">' + msg.data[i].CourseName + '</span></p>' +
-                    '<p class="mtb5 twoline"><span class="CourseDesc" title="' + msg.data[i].CourseDescription + '">' + msg.data[i].CourseDescription + '</span></p>' +
-                    '<p class="mtb5">开课时间：<span class="CourseTime">' + msg.data[i].ClassBegins + '</span></p>' +
-                    '</div>' +
-                    '</div>' +
-                    '</div>'
-                CourseContainer.append(courseTemplate)
-            }
-            var aState = $(".state")
-            for (var i = 0; i < aState.length; i++) {
-                switch (aState.eq(i).text()) {
-                    case "查看回放":
-                        aState.eq(i).addClass("viewBack")
-                        browserRedirect()
-                        if (IsMobile) {
-                            $('.CourseInfo').click(function() {
-                                if ($(this).siblings().children('.Course-up').children().hasClass('viewBack')) {
-                                    var _href = $(this).siblings().attr('href')
-                                    window.open(_href)
-                                }
-                            })
-                        }
-                        break;
-                    case "正在直播":
-                        aState.eq(i).addClass("new animated tada infinite")
-                        browserRedirect()
-                        if (IsMobile) {
-                            $('.CourseInfo').click(function() {
-                                if ($(this).siblings().children('.Course-up').children().hasClass('new')) {
-                                    var _href = $(this).siblings().attr('href')
-                                    window.open(_href)
-                                }
-                            })
-                        }
-                        break;
-                    case "备课中":
-                        aState.eq(i).addClass("makepreparations")
-                        aState.eq(i).parent().parent().parent().click(function() {
-                            _this = $(this)
-                            layer.msg('课程备课中，敬请期待！', {
-                                time: 1000
-                            })
-                            return false;
-                        })
-                        break;
+    browserRedirect()
+    if (IsMobile) {
+        $('.Course-up').addClass('col-xs-5')
+        $(".isPreparing").addClass('col-xs-12')
+    } else {
+        $('.Course-up').removeClass('col-xs-5')
+        $(".isPreparing").removeClass('col-xs-12')
+    }
+    // $.ajax({
+    //     type: "get",
+    //     async: false,
+    //     data: {
+    //         "CourseSubject": "hrc"
+    //     },
+    //     dataType : "json",
+    //     contentType: "application/json;charset=UTF-8",
+    //     url: changeUrl.address + '/Class_Course_api?whereFrom=Search_Course',
+    //     success: function(msg) {
+    //         // console.log(msg.data)
+    //         for (var i = 0; i < 4; i++) {
+    //             var courseTemplate = '<div class="col-md-3 col-sm-6 mb40">' +
+    //                 '<div class="CourseContainer">' +
+    //                 // '<a href="./detailClass.html?Id=' + msg.data[i].Id + '" target="_blank">' +
+    //                 '<a href="./pages/hrc.html" target="_blank">' +
+    //                 '<div class="Course Course-up">' +
+    //                 '<img src="' + msg.data[i].CoverImage + '" alt="">' +
+    //                 '<div class="state">' + msg.data[i].CourseState + '</div>' +
+    //                 '</div>' +
+    //                 '<div class="Course Course-mid"><img src="' + msg.data[i].CoverImage + '" alt=""></div>' +
+    //                 '<div class="Course Course-down"><img src="' + msg.data[i].CoverImage + '" alt=""></div>' +
+    //                 '</a>' +
+    //                 '<div class="CourseInfo">' +
+    //                 '<p class="mtb5 oneline"><span class="CourseName" title="' + msg.data[i].CourseName + '">' + msg.data[i].CourseName + '</span></p>' +
+    //                 '<p class="mtb5 twoline"><span class="CourseDesc" title="' + msg.data[i].CourseDescription + '">' + msg.data[i].CourseDescription + '</span></p>' +
+    //                 '<p class="mtb5">开课时间：<span class="CourseTime">' + msg.data[i].ClassBegins + '</span></p>' +
+    //                 '</div>' +
+    //                 '</div>' +
+    //                 '</div>'
+    //             CourseContainer.append(courseTemplate)
+    //         }
+    //         var aState = $(".state")
+    //         for (var i = 0; i < aState.length; i++) {
+    //             switch (aState.eq(i).text()) {
+    //                 case "查看回放":
+    //                     aState.eq(i).addClass("viewBack")
+    //                     browserRedirect()
+    //                     if (IsMobile) {
+    //                         $('.CourseInfo').click(function() {
+    //                             if ($(this).siblings().children('.Course-up').children().hasClass('viewBack')) {
+    //                                 var _href = $(this).siblings().attr('href')
+    //                                 window.open(_href)
+    //                             }
+    //                         })
+    //                     }
+    //                     break;
+    //                 case "正在直播":
+    //                     aState.eq(i).addClass("new animated tada infinite")
+    //                     browserRedirect()
+    //                     if (IsMobile) {
+    //                         $('.CourseInfo').click(function() {
+    //                             if ($(this).siblings().children('.Course-up').children().hasClass('new')) {
+    //                                 var _href = $(this).siblings().attr('href')
+    //                                 window.open(_href)
+    //                             }
+    //                         })
+    //                     }
+    //                     break;
+    //                 case "备课中":
+    //                     aState.eq(i).addClass("makepreparations")
+    //                     aState.eq(i).parent().parent().parent().click(function() {
+    //                         _this = $(this)
+    //                         layer.msg('课程备课中，敬请期待！', {
+    //                             time: 1000
+    //                         })
+    //                         return false;
+    //                     })
+    //                     break;
 
-                    case "正在回放":
-                        aState.eq(i).addClass("viewBack animated")
-                        browserRedirect()
-                        if (IsMobile) {
-                            $('.CourseInfo').click(function() {
-                                if ($(this).siblings().children('.Course-up').children().hasClass('viewBack')) {
-                                    var _href = $(this).siblings().attr('href')
-                                    window.open(_href)
-                                }
-                            })
-                        }
-                        break;
-                }
-            }
+    //                 case "正在回放":
+    //                     aState.eq(i).addClass("viewBack animated")
+    //                     browserRedirect()
+    //                     if (IsMobile) {
+    //                         $('.CourseInfo').click(function() {
+    //                             if ($(this).siblings().children('.Course-up').children().hasClass('viewBack')) {
+    //                                 var _href = $(this).siblings().attr('href')
+    //                                 window.open(_href)
+    //                             }
+    //                         })
+    //                     }
+    //                     break;
+    //             }
+    //         }
 
-            // 移动端样式
-            // browserRedirect()
-            if (IsMobile) {
-                $('.Course-up').addClass('col-xs-5')
-                $(".isPreparing").addClass('col-xs-12')
-            } else {
-                $('.Course-up').removeClass('col-xs-5')
-                $(".isPreparing").removeClass('col-xs-12')
-            }
-        },
-        error: function(msg) {
-            console.log("error:" + msg)
-        }
-    })
+    //         // 移动端样式
+    //         // browserRedirect()
+    //         if (IsMobile) {
+    //             $('.Course-up').addClass('col-xs-5')
+    //             $(".isPreparing").addClass('col-xs-12')
+    //         } else {
+    //             $('.Course-up').removeClass('col-xs-5')
+    //             $(".isPreparing").removeClass('col-xs-12')
+    //         }
+    //     },
+    //     error: function(msg) {
+    //         console.log("error:" + msg)
+    //     }
+    // })
 })
 
 // 大课程备课中

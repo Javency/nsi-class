@@ -11,18 +11,18 @@ $(function() {
         userName = $.cookie('User_TureName'),
         courseList = [],
         hasBought = false,
-        currentCourseId = ''
+        currentCourseId = macId
 
     // 当前播放课程
-    $.ajax({
-        type: "POST",
-        dataType: "json",
-        async: false,
-        url: changeUrl.address + '/Class_Course_api?whereFrom=showInformation',
-        success: function(msg) {
-            currentCourseId = msg.data1[0].Id
-        }
-    })
+    // $.ajax({
+    //     type: "POST",
+    //     dataType: "json",
+    //     async: false,
+    //     url: changeUrl.address + '/Class_Course_api?whereFrom=showInformation',
+    //     success: function(msg) {
+    //         currentCourseId = msg.data1[0].Id
+    //     }
+    // })
 
     // 用户姓名头像
     $("#apply-name").text(userName)
@@ -437,6 +437,5 @@ $(function() {
         })
     }
 
-    getStuHomework()
-
+    setTimeout(getStuHomework, 500)
 })

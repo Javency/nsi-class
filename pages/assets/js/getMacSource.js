@@ -188,13 +188,19 @@ $(function() {
                         // loading结束
                         loading.fadeOut(200)
 
-                        var suoList = $(".icon-suo")
+                        var suoList = $(".icon-suo"),
+                            endingList = $(".ending")
                         suoList.each(function(i, e) {
                             $(this).parent().attr('href', 'javascript:;').unbind('click').click(function(event) {
                                 event.stopPropagation()
                                 layer.alert("您未购买该课程", { icon: 4 })
                                 return false;
                             })
+                        })
+                        endingList.each(function(i, e) {
+                            if ($(this).children('i').text() === '立即观看') {
+                                $(this).children('i').css({ 'display': 'none' })
+                            }
                         })
                     }
                 })

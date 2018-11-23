@@ -1,3 +1,24 @@
+var macId = 0
+
+function getLivingId() {
+    // 正在直播地址
+    var living = $("#living")
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        async: false,
+        url: changeUrl.address + '/Class_Course_api?whereFrom=showInformation',
+        success: function(msg) {
+            macId = msg.data1[0].Id
+            living.attr("href", "../macLive.html?Id=" + msg.data1[0].Id)
+            $("#toLiving").attr("href", "../macLive.html?Id=" + msg.data1[0].Id)
+            $("#courseName").text(msg.data1[0].CourseName + "[回放]")
+        }
+    })
+}
+getLivingId()
+    // console.log(macId)
+
 $(function() {
     function isLogin() {
         var $login = $("#login"),
@@ -17,17 +38,17 @@ $(function() {
     isLogin();
 
     // 正在直播地址
-    var living = $("#living")
-    $.ajax({
-        type: "POST",
-        dataType: "json",
-        url: changeUrl.address + '/Class_Course_api?whereFrom=showInformation',
-        success: function(msg) {
-            living.attr("href", "../macLive.html?Id=" + msg.data1[0].Id)
-            $("#toLiving").attr("href", "../macLive.html?Id=" + msg.data1[0].Id)
-            $("#courseName").text(msg.data1[0].CourseName + "[回放]")
-        }
-    })
+    // var living = $("#living")
+    // $.ajax({
+    //     type: "POST",
+    //     dataType: "json",
+    //     url: changeUrl.address + '/Class_Course_api?whereFrom=showInformation',
+    //     success: function(msg) {
+    //         living.attr("href", "../macLive.html?Id=" + msg.data1[0].Id)
+    //         $("#toLiving").attr("href", "../macLive.html?Id=" + msg.data1[0].Id)
+    //         $("#courseName").text(msg.data1[0].CourseName + "[回放]")
+    //     }
+    // })
 })
 
 // 回到顶部
